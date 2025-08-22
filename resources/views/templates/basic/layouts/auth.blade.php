@@ -57,11 +57,8 @@
 <script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
 
 @stack('script-lib')
-
 @stack('script')
-
 @include('partials.plugins')
-
 @include('partials.notify')
 
 </body>

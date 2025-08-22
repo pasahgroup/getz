@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.admin_master_panel')
+@extends($activeTemplate.'layouts.master')
 
 @section('content')
     <!-- Dashboard Table -->

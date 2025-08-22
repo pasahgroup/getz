@@ -105,8 +105,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
-              <i class="typcn typcn-mail mx-0"></i>
-              <span class="count"></span>
+              <i class="typcn typcn-user-add-outline menu-icon"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
              
@@ -114,6 +113,8 @@
                             <li>
 
                              </i>Name: {{$userff->firstname}} {{$userff->lastname}}
+                            </li>
+                              </i>
                               Email: <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"></i>{{$userff->email}}</a>
                             </li>
 

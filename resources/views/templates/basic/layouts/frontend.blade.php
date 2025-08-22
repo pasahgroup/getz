@@ -93,10 +93,6 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
 
 
-
-
-
-
  <!-- css -->
   <link rel="stylesheet" href="../../../sonamaster/style.css">
 
@@ -109,14 +105,6 @@
     <link rel="stylesheet" href="../../../assetstaxio/css/jquery.timepicker.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/nice-select.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/style.css">
-
-
-
-
-
-
-
-
 
 
 

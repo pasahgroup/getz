@@ -105,8 +105,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
-              <i class="typcn typcn-mail mx-0"></i>
-              <span class="count"></span>
+              <i class="typcn typcn-user-add-outline menu-icon"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
              
@@ -115,6 +114,8 @@
 
                              </i>Name: <?php echo e($userff->firstname); ?> <?php echo e($userff->lastname); ?>
 
+                            </li>
+                              </i>
                               Email: <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"></i><?php echo e($userff->email); ?></a>
                             </li>
 
