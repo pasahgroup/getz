@@ -19,7 +19,7 @@
                     <?php echo csrf_field(); ?>
 
                             <div class="col-md-6">
-                                <label for="firstname" class="form--label"><?php echo app('translator')->get('First Name'); ?></label>
+                                <label for="firstname" class=""><?php echo app('translator')->get('First Name'); ?></label>
                                 <input id="firstname" type="text" placeholder="<?php echo app('translator')->get('First Name'); ?>" class="form-control form--control" name="firstname" value="<?php echo e($user->firstname); ?>" required>
                             </div>
                             <div class="col-md-6">
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form--label"><?php echo app('translator')->get('Country'); ?></label>
+                                <label class=""><?php echo app('translator')->get('Country'); ?></label>
                                 <select name="country" id="country" class="form--control">
                                        <option selected><?php echo e(@$user->address->country); ?></option>
                                    
@@ -38,8 +38,7 @@
                                 </select>
                             </div>
                      <div class="col-md-6">
-                                <label class="form--label"><?php echo app('translator')->get('Mobile'); ?></label>
-                                <div class="form-group">
+                                <label class=""><?php echo app('translator')->get('Mobile'); ?></label>
                                     <div class="input-group ">
                                         <input type="text" name="mobile_code">
                                         <input type="text" name="country_code">
@@ -47,16 +46,15 @@
                                         <input type="text" name="mobile" id="mobile" value="<?php echo e($user->mobile); ?>" class="form-control form--control checkUser" placeholder="<?php echo app('translator')->get('Your Phone Number'); ?>">
                                     </div>
                                     <small class="text-danger mobileExist"></small>
-                                </div>
                             </div> 
 
                                <div class="col-md-6">
-                                <label for="nida" class="form--label"><?php echo e(__('NIDA')); ?></label>
+                                <label for="nida" class=""><?php echo e(__('NIDA')); ?></label>
                                 <input id="nida" type="text" class="form-control form--control checkUser" name="nida" value="<?php echo e($user->nida); ?>" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
-                                <label for="email" class="form--label"><?php echo app('translator')->get('Driving License'); ?></label>
+                                <label for="email" class=""><?php echo app('translator')->get('Driving License'); ?></label>
                                 <input id="driving_license" type="text" class="form-control form--control checkUser" name="driving_license" value="<?php echo e($user->driving_license); ?>"  required>
                             </div>
                           
@@ -66,31 +64,30 @@
                             </div>
 
 
-    <div class="form--group col-md-6">
-                        <label class="form--label" for="country"><?php echo app('translator')->get('Address'); ?></label>
+    <div class="col-md-6">
+                        <label class="" for="country"><?php echo app('translator')->get('Address'); ?></label>
                         <input type="text" class="form-control form--control" id="address" name="address" placeholder="<?php echo app('translator')->get('Address'); ?>" value="<?php echo e(@$user->address->address); ?>">
                     </div>
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="city"><?php echo app('translator')->get('State'); ?></label>
+                    <div class="col-md-6">
+                        <label class="" for="city"><?php echo app('translator')->get('State'); ?></label>
                         <input type="text" class="form-control form--control" id="state" name="state" placeholder="<?php echo app('translator')->get('state'); ?>" value="<?php echo e(@$user->address->state); ?>">
                     </div>
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="address"><?php echo app('translator')->get('Zip Code'); ?></label>
+                    <div class="col-md-6">
+                        <label class="" for="address"><?php echo app('translator')->get('Zip Code'); ?></label>
                         <input type="text" class="form-control form--control" id="zip" name="zip" placeholder="<?php echo app('translator')->get('Zip Code'); ?>" value="<?php echo e(@$user->address->zip); ?>">
                     </div>
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="state"><?php echo app('translator')->get('City'); ?></label>
+                    <div class="col-md-6">
+                        <label class="" for="state"><?php echo app('translator')->get('City'); ?></label>
                         <input type="text" class="form-control form--control" id="city" name="city" placeholder="<?php echo app('translator')->get('City'); ?>" value="<?php echo e(@$user->address->city); ?>">
                     </div>
 
-                         
-                        
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="profile-image"><?php echo app('translator')->get('Change Profile Picture'); ?></label>
+                                                 
+                    <div class="col-md-6">
+                        <label class="" for="profile-image"><?php echo app('translator')->get('Change Profile Picture'); ?></label>
                         <input type="file" name="image" class="form-control form--control" accept="image/*">
                         <code><?php echo app('translator')->get('Image size'); ?> <?php echo e(imagePath()['profile']['user']['size']); ?></code>
                     </div>
-                    <div class="form--group w-100 col-md-6 mb-0 text-end">
+                    <div class="w-100 col-md-6 mb-0 text-end">
                         <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Update Profile'); ?></button>
                     </div>
                           

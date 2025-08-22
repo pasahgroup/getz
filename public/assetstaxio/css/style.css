@@ -416,7 +416,7 @@ label {
 }
 
 .pt-60 {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 .pt-70 {
@@ -694,7 +694,7 @@ label {
 .theme-btn {
   font-size: 14px;
   color: var(--color-dark);
-  padding: 14px 25px;
+  /*padding: 14px 25px;*/
   transition: all 0.5s;
   /*text-transform: uppercase;*/
   position: relative;

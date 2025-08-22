@@ -20,7 +20,7 @@
                     @csrf
 
                             <div class="col-md-6">
-                                <label for="firstname" class="form--label">@lang('First Name')</label>
+                                <label for="firstname" class="">@lang('First Name')</label>
                                 <input id="firstname" type="text" placeholder="@lang('First Name')" class="form-control form--control" name="firstname" value="{{$user->firstname}}" required>
                             </div>
                             <div class="col-md-6">
@@ -29,7 +29,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form--label">@lang('Country')</label>
+                                <label class="">@lang('Country')</label>
                                 <select name="country" id="country" class="form--control">
                                        <option selected>{{@$user->address->country}}</option>
                                    
@@ -39,8 +39,7 @@
                                 </select>
                             </div>
                      <div class="col-md-6">
-                                <label class="form--label">@lang('Mobile')</label>
-                                <div class="form-group">
+                                <label class="">@lang('Mobile')</label>
                                     <div class="input-group ">
                                         <input type="text" name="mobile_code">
                                         <input type="text" name="country_code">
@@ -48,16 +47,15 @@
                                         <input type="text" name="mobile" id="mobile" value="{{$user->mobile}}" class="form-control form--control checkUser" placeholder="@lang('Your Phone Number')">
                                     </div>
                                     <small class="text-danger mobileExist"></small>
-                                </div>
                             </div> 
 
                                <div class="col-md-6">
-                                <label for="nida" class="form--label">{{ __('NIDA') }}</label>
+                                <label for="nida" class="">{{ __('NIDA') }}</label>
                                 <input id="nida" type="text" class="form-control form--control checkUser" name="nida" value="{{$user->nida}}" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
-                                <label for="email" class="form--label">@lang('Driving License')</label>
+                                <label for="email" class="">@lang('Driving License')</label>
                                 <input id="driving_license" type="text" class="form-control form--control checkUser" name="driving_license" value="{{$user->driving_license}}"  required>
                             </div>
                           
@@ -67,31 +65,30 @@
                             </div>
 
 
-    <div class="form--group col-md-6">
-                        <label class="form--label" for="country">@lang('Address')</label>
+    <div class="col-md-6">
+                        <label class="" for="country">@lang('Address')</label>
                         <input type="text" class="form-control form--control" id="address" name="address" placeholder="@lang('Address')" value="{{@$user->address->address}}">
                     </div>
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="city">@lang('State')</label>
+                    <div class="col-md-6">
+                        <label class="" for="city">@lang('State')</label>
                         <input type="text" class="form-control form--control" id="state" name="state" placeholder="@lang('state')" value="{{@$user->address->state}}">
                     </div>
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="address">@lang('Zip Code')</label>
+                    <div class="col-md-6">
+                        <label class="" for="address">@lang('Zip Code')</label>
                         <input type="text" class="form-control form--control" id="zip" name="zip" placeholder="@lang('Zip Code')" value="{{@$user->address->zip}}">
                     </div>
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="state">@lang('City')</label>
+                    <div class="col-md-6">
+                        <label class="" for="state">@lang('City')</label>
                         <input type="text" class="form-control form--control" id="city" name="city" placeholder="@lang('City')" value="{{@$user->address->city}}">
                     </div>
 
-                         
-                        
-                    <div class="form--group col-md-6">
-                        <label class="form--label" for="profile-image">@lang('Change Profile Picture')</label>
+                                                 
+                    <div class="col-md-6">
+                        <label class="" for="profile-image">@lang('Change Profile Picture')</label>
                         <input type="file" name="image" class="form-control form--control" accept="image/*">
                         <code>@lang('Image size') {{imagePath()['profile']['user']['size']}}</code>
                     </div>
-                    <div class="form--group w-100 col-md-6 mb-0 text-end">
+                    <div class="w-100 col-md-6 mb-0 text-end">
                         <button type="submit" class="cmn--btn">@lang('Update Profile')</button>
                     </div>
                           
