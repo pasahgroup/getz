@@ -4,27 +4,27 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> {{ $general->sitename(__($pageTitle)) }}</title>
+    <title> <?php echo e($general->sitename(__($pageTitle))); ?></title>
 
 
-    @include('partials.seo')
+    <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
            <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
- <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
-     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
-       <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}">
-         <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/css/main.css')}}">
+ <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')); ?>">
+     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')); ?>">
+       <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')); ?>">
+         <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/css/main.css')); ?>">
 
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/bootstrap.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/line-awesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/magnific-popup.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/owl.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/jquery-ui.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/main.css')); ?>">
 
-    <link rel="stylesheet"href="{{asset($activeTemplateTrue.'css/color.php?color='.$general->base_color.'&secondColor='.$general->secondary_color)}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap-fileinput.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}">
+    <link rel="stylesheet"href="<?php echo e(asset($activeTemplateTrue.'css/color.php?color='.$general->base_color.'&secondColor='.$general->secondary_color)); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/bootstrap-fileinput.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/custom.css')); ?>">
 
 
 <!-- Custom style Libray -->
@@ -56,8 +56,8 @@
     <link rel="stylesheet" href="../../../assetstaxio/css/style.css">
 
 
-    @stack('style-lib')
-    @stack('style')
+    <?php echo $__env->yieldPushContent('style-lib'); ?>
+    <?php echo $__env->yieldPushContent('style'); ?>
 </head>
 <body>
 
@@ -67,7 +67,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <a class="navbar-brand brand-logo" href="#"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:100px;"></a>
+          <a class="navbar-brand brand-logo" href="#"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:100px;"></a>
           <a class="navbar-brand brand-logo-mini" href="#"><img src="../../../assets/images/logo-mini.svg" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
@@ -113,24 +113,25 @@
 <ul class="submenu">
                             <li>
 
-                             </i>Name: {{$userff->firstname}} {{$userff->lastname}}
-                              Email: <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"></i>{{$userff->email}}</a>
+                             </i>Name: <?php echo e($userff->firstname); ?> <?php echo e($userff->lastname); ?>
+
+                              Email: <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"></i><?php echo e($userff->email); ?></a>
                             </li>
 
                             <li>
-                                <a href="{{route('user.deposit.history')}}">@lang('Payment History')</a>
+                                <a href="<?php echo e(route('user.deposit.history')); ?>"><?php echo app('translator')->get('Payment History'); ?></a>
                             </li>
                             <li>
-                                <a href="{{ route('user.change.password') }}">@lang('Change Password')</a>
+                                <a href="<?php echo e(route('user.change.password')); ?>"><?php echo app('translator')->get('Change Password'); ?></a>
                             </li>
                             <li>
-                                <a href="{{ route('user.profile.setting') }}">@lang('Profile Setting')</a>
+                                <a href="<?php echo e(route('user.profile.setting')); ?>"><?php echo app('translator')->get('Profile Setting'); ?></a>
                             </li>
                             <li>
-                                <a href="{{ route('user.twofactor') }}">@lang('2FA Security')</a>
+                                <a href="<?php echo e(route('user.twofactor')); ?>"><?php echo app('translator')->get('2FA Security'); ?></a>
                             </li>
                             <li>
-                                <a href="{{ route('user.logout') }}">@lang('Logout')</a>
+                                <a href="<?php echo e(route('user.logout')); ?>"><?php echo app('translator')->get('Logout'); ?></a>
                             </li>
                         </ul>
 
@@ -244,7 +245,7 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-           @auth
+           <?php if(auth()->guard()->check()): ?>
                      <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-dashboard" aria-expanded="false" aria-controls="ui-dashboard">
               <i class="typcn typcn-device-desktop menu-icon"></i>
@@ -253,7 +254,7 @@
             </a>
             <div class="collapse" id="ui-dashboard">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('user.home') }}">Dashboard</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('user.home')); ?>">Dashboard</a></li>
               </ul>
             </div>
           </li> 
@@ -262,13 +263,13 @@
   <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#vehicles" aria-expanded="false" aria-controls="vehicles">
            <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">@lang('All Vehicles')</span>
+              <span class="menu-title"><?php echo app('translator')->get('All Vehicles'); ?></span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="vehicles">
               <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{ route('user.vehicle.booking.log') }}">@lang('Vehicle Booking Logs')</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('vehicles')); ?>"><?php echo app('translator')->get('Vehicles'); ?></a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('user.vehicle.booking.log')); ?>"><?php echo app('translator')->get('Vehicle Booking Logs'); ?></a></li>
               </ul>
             </div>
           </li>  
@@ -282,8 +283,8 @@
             </a>
             <div class="collapse" id="plans">
               <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('plans') }}">@lang('All Plans')</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{ route('user.vehicle.booking.log') }}">@lang('Plan Booking Logs')</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('plans')); ?>"><?php echo app('translator')->get('All Plans'); ?></a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('user.vehicle.booking.log')); ?>"><?php echo app('translator')->get('Plan Booking Logs'); ?></a></li>
               </ul>
             </div>
           </li>  
@@ -296,8 +297,8 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{route('ticket.open')}}">@lang('Create New')</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{route('ticket')}}">@lang('My Ticket')</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('ticket.open')); ?>"><?php echo app('translator')->get('Create New'); ?></a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('ticket')); ?>"><?php echo app('translator')->get('My Ticket'); ?></a></li>
               </ul>
             </div>
           </li>  
@@ -319,20 +320,20 @@
               </ul>
             </div>
           </li>    
-                @endauth
+                <?php endif; ?>
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-   @yield('content')
+   <?php echo $__env->yieldContent('content'); ?>
    </div>
 <!-- footer section start -->
 
-@stack('script-lib')
-@stack('script')
-@include('partials.plugins')
-@include('partials.notify')
+<?php echo $__env->yieldPushContent('script-lib'); ?>
+<?php echo $__env->yieldPushContent('script'); ?>
+<?php echo $__env->make('partials.plugins', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('partials.notify', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
         <!-- partial -->
@@ -349,41 +350,26 @@
 <a href="#" class="scrollToTop"><i class="las la-angle-up"></i></a>
 
 <!-- Preloader -->
-{{--
-<div class="preloader">
-    <figure class="loader">
-        <div class="car">
-            <span class="car-body"></span>
-            <span class="wheels"></span>
-        </div>
-        <div class="strikes">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </figure>
-</div> --}}
+
 <!-- Preloader -->
 
 
 <!-- footer section start -->
-@include($activeTemplate.'partials.footer')
+<?php echo $__env->make($activeTemplate.'partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- footer section end -->
 
-<script src="{{asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')}}"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')); ?>"></script>
 
-<script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
-<!-- <script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script> -->
+<script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-ui.js')); ?>"></script>
+<!-- <script src="<?php echo e(asset($activeTemplateTrue.'js/bootstrap.min.js')); ?>"></script> -->
 
-<script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/owl.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/rafcounter.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/magnific-popup.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/owl.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/main.js')); ?>"></script>
 
-<script src="{{asset($activeTemplateTrue.'js/bootstrap-fileinput.js')}}"></script>
-<script src="{{ asset($activeTemplateTrue.'js/jquery.validate.js') }}"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/bootstrap-fileinput.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/jquery.validate.js')); ?>"></script>
 
 
 
@@ -406,11 +392,11 @@
   <!-- End custom js for this page-->
 
 
-@stack('script-lib')
-@include('partials.notify')
-@include('partials.plugins')
+<?php echo $__env->yieldPushContent('script-lib'); ?>
+<?php echo $__env->make('partials.notify', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('partials.plugins', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-@stack('script')
+<?php echo $__env->yieldPushContent('script'); ?>
 
 
 
@@ -436,7 +422,7 @@
     (function ($) {
         "use strict";
         $(".langSel").on("change", function () {
-            window.location.href = "{{route('home')}}/change/" + $(this).val();
+            window.location.href = "<?php echo e(route('home')); ?>/change/" + $(this).val();
         });
 
     })(jQuery);
@@ -461,3 +447,4 @@
 
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/admin_master_panel.blade.php ENDPATH**/ ?>

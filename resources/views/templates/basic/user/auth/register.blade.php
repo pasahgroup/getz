@@ -43,7 +43,7 @@
 
                                <div class="col-md-6">
                                 <label for="nida" class="form--label">{{ __('NIDA') }}</label>
-                                <input id="nida" type="text" class="form-control checkUser" name="nida" value="{{ old('nida') }}" placeholder="{{ __('nida no') }}" required>
+                                <input id="nida" type="text" class="form-control checkUser" id="nida" name="nida" value="{{ old('nida') }}" placeholder="@lang('Nida Number')}}" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">

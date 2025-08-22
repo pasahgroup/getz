@@ -3,7 +3,7 @@
     <div class="container">
         <div class="hero-content">
             <div class="row">
-            <h4 class="hero-title" data-value="<?php echo app('translator')->get($pageTitle); ?>"><?php echo app('translator')->get($pageTitle); ?></h4>
+            <h4 class="#" data-value="<?php echo app('translator')->get($pageTitle); ?>"><?php echo app('translator')->get($pageTitle); ?></h4>
             <ul class="breadcrumb" style="padding:1px;">
                 <li>
                     <a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('Home'); ?></a>
