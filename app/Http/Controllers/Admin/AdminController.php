@@ -376,5 +376,4 @@ $monthCancelledInvoices=collect($monthCancelledInvoices);
         return back()->withNotify($notify);
     }
 
-
 }

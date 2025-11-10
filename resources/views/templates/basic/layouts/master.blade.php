@@ -1,214 +1,94 @@
-<!doctype html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> {{ $general->sitename(__($pageTitle)) }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-    @include('partials.seo')
-           <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
- <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
-     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
-       <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}">
-         <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/css/main.css')}}">
-
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
-
-    <link rel="stylesheet"
-          href="{{asset($activeTemplateTrue.'css/color.php?color='.$general->base_color.'&secondColor='.$general->secondary_color)}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap-fileinput.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}">
+    <title>{{ $general->sitename($pageTitle ?? '') }}</title>
+    <!-- site favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{getImage(imagePath()['logoIcon']['path'] .'/favicon.png')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <!-- bootstrap 4  -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/vendor/bootstrap.min.css') }}">
+    <!-- bootstrap toggle css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-toggle.min.css')}}">
+    <!-- fontawesome 5  -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/all.min.css')}}">
+    <!-- line-awesome webfont -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/line-awesome.min.css')}}">
 
     @stack('style-lib')
+
+    <!-- custom select box css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/nice-select.css')}}">
+    <!-- code preview css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/prism.css')}}">
+    <!-- select 2 css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/select2.min.css')}}">
+    <!-- jvectormap css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/jquery-jvectormap-2.0.5.css')}}">
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/datepicker.min.css')}}">
+    <!-- timepicky for time picker css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/jquery-timepicky.css')}}">
+    <!-- bootstrap-clockpicker css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')}}">
+    <!-- bootstrap-pincode css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-pincode-input.css')}}">
+    <!-- dashdoard main css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}">
     @stack('style')
 </head>
 <body>
+@yield('content')
 
-<div class="overlay"></div>
-<a href="#" class="scrollToTop"><i class="las la-angle-up"></i></a>
 
-<!-- Preloader -->
-{{--
-<div class="preloader">
-    <figure class="loader">
-        <div class="car">
-            <span class="car-body"></span>
-            <span class="wheels"></span>
-        </div>
-        <div class="strikes">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </figure>
-</div> --}}
-<!-- Preloader -->
-<div class="header-bottom" style="background-color:#9f9f6b;">
-    <div class="container">
-        <div class="header-wrapper">
-            <div class="logo">
-                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}"
-                                                   alt="logo"></a>
-            </div>
-            <ul class="menu">
-                @auth
-                    <li><a href="{{ route('user.home') }}">@lang('Dashboard')</a></li>
-                     <li><a href="{{ route('user.multibooking.index') }}">@lang('New Booking')</a></li>
-                    <li>
-                        <a href="#0">@lang('Vehicle')</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="{{ route('vehicles') }}">@lang('All Vehicles')</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.vehicle.booking.log') }}">@lang('Booking Logs')</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#0">@lang('Plan')</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="{{ route('plans') }}">@lang('All Plans')</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.plan.booking.log') }}">@lang('Booking Logs')</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#0">@lang('Support')</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="{{route('ticket.open')}}">@lang('Create New')</a>
-                            </li>
-                            <li>
-                                <a href="{{route('ticket')}}">@lang('My Ticket')</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#0">@lang('Account')</a>
-                        <ul class="submenu">
-                            <li>
 
-                              <a href="#"></i>Name: {{$userff->firstname}} {{$userff->lastname}}
-                              <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"></i>Email: {{$userff->email}}</a>
-                            </li>
+<!-- jQuery library -->
+<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
+<!-- bootstrap js -->
+<script src="{{asset('assets/admin/js/vendor/bootstrap.bundle.min.js')}}"></script>
+<!-- bootstrap-toggle js -->
+<script src="{{asset('assets/admin/js/vendor/bootstrap-toggle.min.js')}}"></script>
 
-                            <li>
-                                <a href="{{route('user.deposit.history')}}">@lang('Payment History')</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.change.password') }}">@lang('Change Password')</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.profile.setting') }}">@lang('Profile Setting')</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.twofactor') }}">@lang('2FA Security')</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.logout') }}">@lang('Logout')</a>
-                            </li>
-                        </ul>
-                    </li>
-                @endauth
-
-                <li class="py-3">
-                    <select class="langSel language-select ms-3">
-                        @foreach($language as $item)
-                            <option value="{{$item->code}}"
-                                    @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-                        @endforeach
-                    </select>
-                </li>
-            </ul>
-            <div class="header-bar">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Header Section -->
-
-<!-- Breadcrumb section start -->
-@include($activeTemplate.'partials.breadcrumb')
-<!-- Breadcrumb section end -->
-
-<!-- Dashboard Section Starts Here -->
-<main class="dashboard-section pt-60 pb-60" style="background-color:#f0f0f0;">
-    <div class="container">
-      @yield('content')
-    </div>
-</main>
-<!-- Dashboard Section Ends Here -->
-
-<!-- footer section start -->
-@include($activeTemplate.'partials.footer')
-<!-- footer section end -->
-
-<script src="{{asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/owl.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
-
-<script src="{{asset($activeTemplateTrue.'js/bootstrap-fileinput.js')}}"></script>
-
-<script src="{{ asset($activeTemplateTrue.'js/jquery.validate.js') }}"></script>
-
-@stack('script-lib')
-
+<!-- slimscroll js for custom scrollbar -->
+<script src="{{asset('assets/admin/js/vendor/jquery.slimscroll.min.js')}}"></script>
+<!-- custom select box js -->
+<script src="{{asset('assets/admin/js/vendor/jquery.nice-select.min.js')}}"></script>
 
 
 @include('partials.notify')
+@stack('script-lib')
 
-@include('partials.plugins')
+<script src="{{ asset('assets/admin/js/nicEdit.js') }}"></script>
+
+<!-- code preview js -->
+<script src="{{asset('assets/admin/js/vendor/prism.js')}}"></script>
+<!-- seldct 2 js -->
+<script src="{{asset('assets/admin/js/vendor/select2.min.js')}}"></script>
+<!-- main js -->
+<script src="{{asset('assets/admin/js/app.js')}}"></script>
+
+{{-- LOAD NIC EDIT --}}
+<script>
+    "use strict";
+    bkLib.onDomLoaded(function() {
+        $( ".nicEdit" ).each(function( index ) {
+            $(this).attr("id","nicEditor"+index);
+            new nicEditor({fullPanel : true}).panelInstance('nicEditor'+index,{hasPanel : true});
+        });
+    });
+    (function($){
+        $( document ).on('mouseover ', '.nicEdit-main,.nicEdit-panelContain',function(){
+            $('.nicEdit-main').focus();
+        });
+    })(jQuery);
+</script>
 
 @stack('script')
 
-<script>
-
-    (function ($) {
-        "use strict";
-        $(".langSel").on("change", function () {
-            window.location.href = "{{route('home')}}/change/" + $(this).val();
-        });
-
-    })(jQuery);
-
-</script>
-
-
-<script>
-    (function ($) {
-        "use strict";
-
-        $("form").validate();
-        $('form').on('submit', function () {
-            if ($(this).valid()) {
-                $(':submit', this).attr('disabled', 'disabled');
-            }
-        });
-
-    })(jQuery);
-
-</script>
 
 </body>
 </html>

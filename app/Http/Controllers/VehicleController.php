@@ -45,10 +45,12 @@ class VehicleController extends Controller
         $vehicle = Vehicle::active()->where('id', $id)->with('ratings')->withCount('ratings')->withAvg('ratings', 'rating')->firstOrFail();
 
 $fullUrl = url()->full();
-        //dd($fullUrl);
+      
 
         $rental_terms = getContent('rental_terms.content', true);
         $pageTitle = 'Vehicle Details';
+
+         // dd($vehicle);
         return view($this->activeTemplate.'vehicles.details',compact('vehicle','pageTitle', 'rental_terms','fullUrl'));
     }
 
@@ -104,8 +106,6 @@ $fullUrl = url()->full();
     }
 
 
-
-
  public function addCar(Request $request,$id){
         if (!auth()->check()){
             $notify[] = ['error', 'Please login to continue!'];
@@ -152,7 +152,7 @@ if(request('carModel')!=null)
              'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
              'pick_time' => 'required|integer',
              'pick_time' => 'required|after_or_equal:today',
-             // 'drop_time' => 'required|date_format:Y-m-d h:i|after_or_equal:'. $request->pick_time,
+            'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
         ],[
             'drop_location.not_in' => 'Please choose different location!'
         ]);
@@ -171,8 +171,6 @@ if(request('carModel')!=null)
         ]);
     }
 
-
-//dd(request('drop_time'));
 
     $pick_time = new Carbon($request->pick_time);
     $drop_time = new Carbon($request->drop_time);
@@ -363,7 +361,7 @@ else{
         $gateways= Gateway::where('status',1)
         ->orderBy('name')->get();
 
-       // dd($gateway);
+        //dd($gateways);
 
         $locations = Location::active()->orderBy('name')->get();
         $times=RentLog::findOrFail($id);
@@ -485,7 +483,8 @@ $base_price=($response_object->rates->TZS/$response_object->rates->$currency);
     
 
     $to_bepaid = round(($amount * $base_price), 2);
-    // dd($base_price);
+   // $amount = round(($amount * $base_price), 2);
+ //dd($to_bepaid);
 
 
 $gateways = Gateway::where('id',request('gateway'))->first();
@@ -554,8 +553,6 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
     public function vehicleSearch(Request $request)
     {
-
-//awsdd('ddsds');
 
       $vehicles=[];
   $models=[];

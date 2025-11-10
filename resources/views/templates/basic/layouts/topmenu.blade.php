@@ -3,44 +3,78 @@
     <header class="header-area">
         <!-- Top Header Area -->
         <div class="top-header-area">
-            <div class="h-100 d-md-flex justify-content-between align-items-center">
-               <!--  <div class="email-address">
-                    <a href="mailto:contact@southtemplate.com">contact@southtemplate.com</a>
-                </div> -->
+            <div class="d-md-flex justify-content-between align-items-center">
+             
 
                   <div class="phone-number d-flex">
                     <div class="icon">
                         <img src="img/icons/phone-call.png" alt="">
                     </div>
                     <div class="number">
-                        <a href="tel:+45 677 8993000 223">(+255)655 633 302</a>
+                        <a href="#">(+000)000 000 000</a>
                     </div>
 
                      <div class="email-address_no">
-                    <a href="mailto:info@rhonds.co.tz">
-                      <i class="fa fa-envelope" style="color:#F2C107;"></i><b style="color:#F2C107;"> info@rhonds.co.tz</b></a>
-                       <a href="https://wa.me/+255655633302" style="padding-left:10px">
+                    <a href="#">
+                      <i class="fa fa-envelope" style="color:#F2C107;"></i><b style="color:#F2C107;"> No Email</b></a>
+                       <a href="#" style="padding-left:10px">
                             </a>
                 </div>
                 </div>
-                <div class="phone-number d-flex">  
-                <div class="icon">
-                        <img src="img/icons/phone-call.png" alt="" style="color:#048023 !important">
-                </div>                 
-                    <div class="number">
-                      <form  method="post"  action="#" enctype="multipart/form-data">
-                                  @csrf
-                    <div class="input-group">
-                        <input type="text" class="form-control form--control" name="search" placeholder="search any keyword" required="">
-                        <div class="input-group-append">
-                            <button class="input-group-text bg-transparent" style="color:#048023 !important">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>            
-                    </div>
+      
+
+
+                <div class="phone-numberx d-flexx">
+                           <div class="d-flex align-items-center justify-content-end float-right">
+                                      <ul class="footer-social">
+                         
+                         <div class="footer__widget widget__about">
+                                       <ul class="social-icons">
+ 
+
+    @auth
+                                                               <a href="{{ route('user.events.index') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Upload Photos')</a>
+                                
+                                <a href="/logout" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Logout')</a>
+
+
+                            @else
+                              
+                    <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">
+                             @csrf
+    <input type="hidden" name="_method" value="GET">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                
+                <button type="submit" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Login')</button>
+                                </form>
+
+                                <a href="{{ route('user.register') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Sign Up')</a>
+                           
+
+
+
+                            @endauth
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    </ul>
                 </div>
+                 </ul>
+            </div>
+                </div>
+
+
 
                 <div class="phone-numberx d-flexx">
                            <div class="d-flex align-items-center justify-content-end float-right">
@@ -61,6 +95,7 @@
                  </ul>
             </div>
                 </div>
+
             </div>
         </div>
 
@@ -141,7 +176,7 @@
   @endforeach
   </ul>
   </li>
-                                            
+                                          
                                      
 
                             <li><a href="{{route('plans')}}">Plans</a></li>

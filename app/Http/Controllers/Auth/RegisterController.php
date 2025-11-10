@@ -85,19 +85,19 @@ class RegisterController extends Controller
         $countries = implode(',',array_column($countryData, 'country'));
 
         $validate = Validator::make($data, [
-            'firstname' => 'sometimes|required|string|max:50',
-            'lastname' => 'sometimes|required|string|max:50',
-             'nida' => 'sometimes|required|string|max:64',
-              'driving_license' => 'sometimes|required|string|max:64',
+            // 'firstname' => 'sometimes|required|string|max:50',
+            // 'lastname' => 'sometimes|required|string|max:50',
+            //  'nida' => 'sometimes|required|string|max:64',
+            //   'driving_license' => 'sometimes|required|string|max:64',
 
             'email' => 'required|string|email|max:90|unique:users',
-            'mobile' => 'required|string|max:50|unique:users',
+            // 'mobile' => 'required|string|max:50|unique:users',
             'password' => ['required','confirmed',$password_validation],
             'username' => 'required|alpha_num|unique:users|min:2',
             'captcha' => 'sometimes|required',
-            'mobile_code' => 'required|in:'.$mobileCodes,
-            'country_code' => 'required|in:'.$countryCodes,
-            'country' => 'required|in:'.$countries,
+            // 'mobile_code' => 'required|in:'.$mobileCodes,
+            // 'country_code' => 'required|in:'.$countryCodes,
+            // 'country' => 'required|in:'.$countries,
             'agree' => $agree
         ]);
         return $validate;
@@ -157,8 +157,8 @@ class RegisterController extends Controller
         $user->password = Hash::make($data['password']);
         $user->username = trim($data['username']);
         $user->ref_by = $referUser ? $referUser->id : 0;
-        $user->country_code = $data['country_code'];
-        $user->mobile = $data['mobile_code'].$data['mobile'];
+        // $user->country_code = $data['country_code'];
+        // $user->mobile = $data['mobile_code'].$data['mobile'];
 
         $user->address = [
             'address' => '',

@@ -31,8 +31,6 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="widget border--dashed">
-
-
                       <div class="col-lg-11 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                                     <div class="bg-secondary rounded p-2">
 
@@ -60,7 +58,7 @@
                                                                 </div>
 
                                                                      <div class="col-md-6 col-sm-12">
-                                        <div class="input-group">
+                                                                     <div class="input-group">
                             <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                             <span class="fas fa-map-marker-alt"></span>
                             <span class="ms-1"><i class="las la-street-view"></i>@lang('Drop Of Point')</span>
@@ -76,34 +74,38 @@
                                                                     </div>
                                                                 </div>
 
-                                                                  <div class="col-12">
-                                        <div class="input-group">
+            <div class="col-12">
+                    <div class="input-group">
                             <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                             <span class="las la-car"></span>
-                            <span class="ms-1">@lang('Number of Car')</span>
+                            <span class="ms-1">@lang('Number Of Car')</span>
                                                             </div>
             <input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
                                                                     </div>
                                                                 </div>
 
                                                                <div class="col-md-6 col-sm-12">
-                                                                    <div class="input-group">
+                            <div class="input-group">
                                      <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                  <span class="las fa-calendar"></span><span class="ms-1">From Date</span>
                                                              </div>
                                     <input class="form-control" type="text" name="pick_time" id='dateAndTimePicker' class="form-control form--control pick_time" required>
 
-                                </div>
-                                                                </div>
-                                                               <div class="col-md-6 col-sm-12">
-                                                        <div class="input-group">
+                            </div>
+                            </div>
+
+                                                <div class="col-md-6 col-sm-12">
+                                                    <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                     <span class="las fa-calendar"></span><span class="ms-1">To Date</span>
                                                                         </div>
-                                                   <input type="text" name="drop_time" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control" required>
+                                                   <input type="text" name="drop_time" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control drop_time" required>
 
-                                                                    </div>
+                                                                    </div>                                                                    
                                                                 </div>
+
+
+
                                                                 <div class="col-8">
                                                                                                               </div>
                                                                 <div class="col-4">

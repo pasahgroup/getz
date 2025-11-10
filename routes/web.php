@@ -442,6 +442,19 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::post('verify-sms', 'AuthorizationController@smsVerification')->name('verify.sms');
         Route::post('verify-g2fa', 'AuthorizationController@g2faVerification')->name('go2fa.verify');
 
+          Route::get('events', 'EventController@index')->name('events.index');
+           Route::get('events/add', 'EventController@add')->name('events.add');
+              Route::post('events/store', 'EventController@store')->name('events.store');
+        
+        Route::get('events/{id}', 'EventController@edit')->name('events.edit');
+
+         Route::post('events/update/{id}', 'EventController@update')->name('events.update');
+         Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
+        Route::post('events/{id}/status', 'EventController@status')->name('events.status');
+
+
+
+
         Route::middleware(['checkStatus'])->group(function () {
             Route::get('dashboard', 'UserController@home')->name('home');
 

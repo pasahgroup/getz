@@ -89,11 +89,29 @@ if ($this->app->isLocal()) {
 
         });
 
+         view()->composer('admin.partialsuser.sidenav', function ($view) {
+            $view->with([
+                'banned_users_count'           => User::banned()->count(),
+                'email_unverified_users_count' => User::emailUnverified()->count(),
+                'sms_unverified_users_count'   => User::smsUnverified()->count(),
+                'pending_ticket_count'         => SupportTicket::whereIN('status', [0,2])->count(),
+                'pending_deposits_count'    => Deposit::pending()->count(),
+            ]);
+
+        });
+
         view()->composer('admin.partials.topnav', function ($view) {
             $view->with([
                 'adminNotifications'=>AdminNotification::where('read_status',0)->with('user')->orderBy('id','desc')->get(),
             ]);
         });
+
+   view()->composer('admin.partialsuser.topnav', function ($view) {
+            $view->with([
+                'adminNotifications'=>AdminNotification::where('read_status',0)->with('user')->orderBy('id','desc')->get(),
+            ]);
+        });
+
 
         view()->composer('partials.seo', function ($view) {
             $seo = Frontend::where('data_keys', 'seo.data')->first();
@@ -101,6 +119,15 @@ if ($this->app->isLocal()) {
                 'seo' => $seo ? $seo->data_values : $seo,
             ]);
         });
+
+          view()->composer('partialsuser.seo', function ($view) {
+            $seo = Frontend::where('data_keys', 'seo.data')->first();
+            $view->with([
+                'seo' => $seo ? $seo->data_values : $seo,
+            ]);
+        });
+
+
 
         if($general->force_ssl){
             \URL::forceScheme('https');

@@ -12,44 +12,12 @@
                         <form class="account-form row g-4" action="{{ route('user.register') }}" method="POST" onsubmit="return submitUserForm();">
                             @csrf
 
-                            <div class="col-md-6">
-                                <label for="firstname" class="form--label">@lang('First Name')</label>
-                                <input id="firstname" type="text" placeholder="@lang('First Name')" class="form-control" name="firstname" value="{{ old('firstname') }}" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="lastname" class="form--label">@lang('Last Name')</label>
-                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" placeholder="@lang('Last Name')" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form--label">@lang('Country')</label>
-                                <select name="country" id="country" class="form-control">
-                                    @foreach($countries as $key => $country)
-                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{ $country->country }}" data-code="{{ $key }}">{{ __($country->country) }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form--label">@lang('Mobile')</label>
-                                    <div class="input-group ">
-                                        <input type="hidden" name="mobile_code">
-                                        <input type="hidden" name="country_code">
-                                        <span class="input-group-text mobile-code" style="background-color:#998035;padding:1px"></span>
-                                        <input type="text" name="mobile" id="mobile" value="{{ old('mobile') }}" class="form-control checkUser" placeholder="@lang('Your Phone Number')">
-                                    </div>
-                                    <small class="text-danger mobileExist"></small>
-                                </div>
-                            </div>
+            
+                                <p for="username" class="form--label">Everything is confidential. Don't share your user name with any one</p>
+                                <p for="username" class="form--label">Don't write your Mobile number any where here</p>                              
+                          
 
-                               <div class="col-md-6">
-                                <label for="nida" class="form--label">{{ __('NIDA') }}</label>
-                                <input id="nida" type="text" class="form-control checkUser" id="nida" name="nida" value="{{ old('nida') }}" placeholder="@lang('Nida Number')}}" required>
-                                <small class="text-danger usernameExist"></small>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form--label">@lang('Driving License')</label>
-                                <input id="driving_license" type="text" class="form-control checkUser" name="driving_license" value="{{ old('driving license') }}" placeholder="@lang('driving license')" required>
-                            </div>
+                           <br>
                             <div class="col-md-6">
                                 <label for="username" class="form--label">{{ __('Username') }}</label>
                                 <input id="username" type="text" class="form-control checkUser" name="username" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required>

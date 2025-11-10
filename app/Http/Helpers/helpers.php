@@ -354,7 +354,6 @@ function getIpInfo()
     $data['ip'] = request()->ip();
     $data['time'] = date('d-m-Y h:i:s A');
 
-
     return $data;
 }
 

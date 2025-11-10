@@ -67,9 +67,7 @@
     <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Template Stylesheet -->
-{{--
-        <link href="../../../frontendp/css/style.css" rel="stylesheet" type="text/css" />
---}}
+
 
            <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 

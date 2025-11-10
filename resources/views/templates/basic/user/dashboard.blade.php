@@ -1,263 +1,123 @@
-@extends($activeTemplate.'layouts.admin_master_panel')
-@section('content')
-    <!-- Dashboard -->
-    <div class="pb-60 pt-60">
-        <div class="row justify-content-center g-4">
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-car-side"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['total_vehicle_booking'] }}</h4>
-                        <span class="subtitle">@lang('Total Vehicle Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-hourglass-half"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['upcoming_vehicle_booking'] }}</h4>
-                        <span class="subtitle">@lang('Upcoming Vehicle Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-spinner"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['running_vehicle_booking'] }}</h4>
-                        <span class="subtitle">@lang('Running Vehicle Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-check-circle"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['completed_vehicle_booking'] }}</h4>
-                        <span class="subtitle">@lang('Completed Vehicle Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="lab la-product-hunt"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['total_plan_booking'] }}</h4>
-                        <span class="subtitle">@lang('Total Plan Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-hourglass-half"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['upcoming_plan_booking'] }}</h4>
-                        <span class="subtitle">@lang('Upcoming Plan Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-spinner"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['running_plan_booking'] }}</h4>
-                        <span class="subtitle">@lang('Running Plan Booking')</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-check-circle"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title">{{ @$data['completed_plan_booking'] }}</h4>
-                        <span class="subtitle">@lang('Completed Plan Booking')</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Dashboard -->
+@extends('admin.layouts.app')
+@section('panel')
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card b-radius--10 ">
+                <div class="card-body p-0">
 
-    <div class="pb-60">
-        <div class="table-responsive">
-            <table class="table cmn--table">
-                <thead>
-                <tr>
-                    <th>@lang('Transaction ID')</th>
-                    <th>@lang('Gateway')</th>
-                    <th>@lang('Vehicle')</th>
-                    <th>@lang('Plan')</th>
-                    <th>@lang('Amount')</th>
-                    <th>@lang('Status')</th>
-                    <th>@lang('Time')</th>
-                    <th> @lang('MORE')</th>
-                </tr>
-                </thead>
-                <tbody>
-                @if(count($logs) >0)
-                    @foreach($logs as $k=>$data)
-                        <tr>
-                            <td data-label="#@lang('Trx')">{{$data->trx}}</td>
-                            <td data-label="@lang('Gateway')">{{ __(@$data->gateway->name)  }}</td>
-                            <td data-label="@lang('Vehicle')">{{ __(@$data->rent->vehicle->name) ?? '-'  }}</td>
-                            <td data-label="@lang('Plan')">{{ __(@$data->planlog->plan->name) ?? '-'  }}</td>
-                            <td data-label="@lang('Amount')">
-                                <strong>{{showAmount($data->amount)}} {{__($general->cur_text)}}</strong>
-                            </td>
-                            
-                            <td>
-                                @if($data->status == 1)
-                                    <span class="badge badge--success">@lang('Complete')</span>
-                                @elseif($data->status == 2)
-                                    <span class="badge badge--warning">@lang('Pending')</span>
-                                @elseif($data->status == 3)
-                                    <span class="badge badge--danger">@lang('Cancel')</span>
-                                @endif
+                    <div class="table-responsive--sm table-responsive">
+                        <table class="table table--light tabstyle--two">
+                            <thead>                                
+                            <tr>
+                                <th scope="col">@lang('Name')</th>
+                                <th scope="col">@lang('Brand')</th>
+                                <th scope="col">@lang('Car body type')</th>
+                                <th scope="col">@lang('Car tag')</th>
+                                <th scope="col">@lang('Seat')</th>
+                                <th scope="col">@lang('Price')({{ $general->cur_sym }})</th>
+                                <th scope="col">@lang('Model')</th>
+                                <th scope="col">@lang('Car Number')</th>
+                                <th scope="col">@lang('Transmission')</th>
+                                 <th scope="col">@lang('Fuel')</th>
+                                <th scope="col">@lang('Status')</th>
+                                <th scope="col">@lang('Actions')</th>
+                            </tr>
+                            </thead>
 
-                                @if($data->admin_feedback != null)
-                                    <button class="btn--info btn-rounded badge detailBtn" data-admin_feedback="{{$data->admin_feedback}}"><i class="la la-info"></i></button>
-                                @endif
+                            <tbody>
+                            @forelse ($vehicles as $item)
+                                <tr>                                    
+                                    <td data-label="@lang('Name')">{{ __($item->name) }}</td>
+                                    <td data-label="@lang('Brand')">{{ __($item->brand->name) }}</td>
+                                    <td data-label="@lang('Car Body Type')">{{ __($item->car_body_type) }}</td>
+                                    <td data-label="@lang('Car Body Type')">{{ __($item->tag) }}</td>
 
-                            </td>
-                            <td data-label="@lang('Time')">
-                                <i class="la la-calendar"></i> {{showDateTime($data->created_at)}}
-                            </td>
+                                    <td data-label="@lang('Seat Type')">{{ __($item->seater->number) }}</td>
+                                    <td data-label="@lang('Price')">{{ __(showAmount($item->price)) }}</td>
+                                    <td data-label="@lang('Model')">{{ __($item->model) }}</td>
+                                     <td data-label="@lang('Model No')">{{ __($item->car_model_no) }}</td>
+                                    <td data-label="@lang('Transmission')">{{ __($item->transmission) }}</td>
+                                    <td data-label="@lang('Fuel')">{{ __($item->fuel_type) }}</td>
+                                    <td data-label="@lang('Status')">
+                                        @if($item->status === 1)
+                                            <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
+                                        @else
+                                            <span class="text--small badge font-weight-normal badge--warning">@lang('Deactive')</span>
+                                        @endif
+                                    </td>
 
-                            @php
-                                $details = ($data->detail != null) ? json_encode($data->detail) : null;
-                            @endphp
+                                    <td data-label="@lang('Action')">
+                                        <a href="{{ route('admin.vehicles.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
+                                            <i class="la la-edit"></i>
+                                        </a>
 
-                            <td data-label="@lang('Details')">
-                                <a href="javascript:void(0)" class="btn btn--primary btn--sm approveBtn"
-                                   data-info="{{ $details }}"
-                                   data-id="{{ $data->id }}"
-                                   data-amount="{{ showAmount($data->amount)}} {{ __($general->cur_text) }}"
-                                   data-charge="{{ showAmount($data->charge)}} {{ __($general->cur_text) }}"
-                                   data-after_charge="{{ showAmount($data->amount + $data->charge)}} {{ __($general->cur_text) }}"
-                                   data-rate="{{ showAmount($data->rate)}} {{ __($data->method_currency) }}"
-                                   data-payable="{{ showAmount($data->final_amo)}} {{ __($data->method_currency) }}">
-                                    <i class="la la-desktop"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                @else
-                    <tr>
-                        <td colspan="100%">@lang('Data not found')</td>
-                    </tr>
-                @endif
-                </tbody>
-            </table>
+                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.vehicles.status', $item->id) }}">
+                                            <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td class="text-muted text-center" colspan="100%">{{ __($empty_message) }}</td>
+                                </tr>
+                            @endforelse
+                            </tbody>
+                        </table><!-- table end -->
+                    </div>
+                </div>
+                <div class="card-footer">
+                    {{ $vehicles->links('admin.partials.paginate') }}
+                </div>
+            </div><!-- card end -->
         </div>
     </div>
 
 
-    {{-- APPROVE MODAL --}}
-    <div id="approveModal" class="modal fade custom--modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+
+    {{-- Status MODAL --}}
+    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('Details')</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                    <h4 class="modal-title" id="myModalLabel">@lang('Update Status')</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <div class="modal-body">
-                    <ul class="list-group">
-                        <li class="list-group-item bg-transparent">@lang('Amount') : <span class="withdraw-amount "></span></li>
-                        <li class="list-group-item bg-transparent">@lang('Charge') : <span class="withdraw-charge "></span></li>
-                        <li class="list-group-item bg-transparent">@lang('After Charge') : <span class="withdraw-after_charge"></span></li>
-                        <li class="list-group-item bg-transparent">@lang('Conversion Rate') : <span class="withdraw-rate"></span></li>
-                        <li class="list-group-item bg-transparent">@lang('Payable Amount') : <span class="withdraw-payable"></span></li>
-                    </ul>
-                    <ul class="list-group withdraw-detail mt-1">
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('Close')</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                <form method="post" action="">
+                    @csrf
 
-    {{-- Detail MODAL --}}
-    <div id="detailModal" class="modal fade custom--modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">@lang('Details')</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
-                </div>
-                <div class="modal-body">
-                    <div class="withdraw-detail"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('Close')</button>
-                </div>
+                    <div class="modal-body">
+                        <p class="text-muted">@lang('Are you sure to change status?')</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('No')</button>
+                        <button type="submit" class="btn btn--danger deleteButton">@lang('Yes')</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 @endsection
 
 
+@push('breadcrumb-plugins')
+    <a href="{{ route('admin.vehicles.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+@endpush
+
 @push('script')
     <script>
-        (function ($) {
+        (function($){
             "use strict";
-            $('.approveBtn').on('click', function() {
-                var modal = $('#approveModal');
-                modal.find('.withdraw-amount').text($(this).data('amount'));
-                modal.find('.withdraw-charge').text($(this).data('charge'));
-                modal.find('.withdraw-after_charge').text($(this).data('after_charge'));
-                modal.find('.withdraw-rate').text($(this).data('rate'));
-                modal.find('.withdraw-payable').text($(this).data('payable'));
-                var list = [];
-                var details =  Object.entries($(this).data('info'));
 
-                var ImgPath = "{{asset(imagePath()['verify']['deposit']['path'])}}/";
-                var singleInfo = '';
-                for (var i = 0; i < details.length; i++) {
-                    if (details[i][1].type == 'file') {
-                        singleInfo += `<li class="list-group-item">
-                                            <span class="font-weight-bold "> ${details[i][0].replaceAll('_', " ")} </span> : <img src="${ImgPath}/${details[i][1].field_name}" alt="@lang('Image')" class="w-100">
-                                        </li>`;
-                    }else{
-                        singleInfo += `<li class="list-group-item">
-                                            <span class="font-weight-bold "> ${details[i][0].replaceAll('_', " ")} </span> : <span class="font-weight-bold ml-3">${details[i][1].field_name}</span>
-                                        </li>`;
-                    }
-                }
+            //Status
+            $('.statusBtn').on('click', function () {
+                var modal = $('#statusModal');
+                var url = $(this).data('url');
 
-                if (singleInfo)
-                {
-                    modal.find('.withdraw-detail').html(`<br><strong class="my-3">@lang('Payment Information')</strong>  ${singleInfo}`);
-                }else{
-                    modal.find('.withdraw-detail').html(`${singleInfo}`);
-                }
+                modal.find('form').attr('action', url);
                 modal.modal('show');
             });
 
-            $('.detailBtn').on('click', function() {
-                var modal = $('#detailModal');
-                var feedback = $(this).data('admin_feedback');
-                modal.find('.withdraw-detail').html(`<p> ${feedback} </p>`);
-                modal.modal('show');
-            });
         })(jQuery);
     </script>
 @endpush

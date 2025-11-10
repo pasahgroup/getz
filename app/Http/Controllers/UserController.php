@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Lib\GoogleAuthenticator;
 use App\Models\AdminNotification;
 use App\Models\GeneralSetting;
@@ -17,6 +18,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
+
+
+use App\Models\Deposit;
+use App\Models\User;
+use App\Models\Withdrawal;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 class UserController extends Controller
 {
     public function __construct()
@@ -26,23 +35,119 @@ class UserController extends Controller
 
     public function home()
     {
-        $pageTitle = 'Dashboard';
+      //   $pageTitle = 'Dashboard';
+
+      //   //Vehicle booking
+      //   $data['total_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->count();
+      //   $data['upcoming_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->upcoming()->count();
+      //   $data['running_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->running()->count();
+      //   $data['completed_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->completed()->count();
+
+      //   //Plan booking
+      //   $data['total_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->count();
+      //   $data['upcoming_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->upcoming()->count();
+      //   $data['running_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->running()->count();
+      //   $data['completed_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->completed()->count();
+
+      //   $logs = auth()->user()->deposits()->with(['gateway', 'rent', 'planlog'])->orderBy('id','desc')->take(10)->get();
+      // //dd($logs);
+       
+
+
+
+
+
+
+ $pageTitle = 'Dashboard';
+
+        // User Info
+        $widget['total_users'] = User::count();
+        $widget['verified_users'] = User::where('status', 1)->count();
+        $widget['email_unverified_users'] = User::where('ev', 0)->count();
+        $widget['sms_unverified_users'] = User::where('sv', 0)->count();
+
+        // Monthly Deposit & Withdraw Report Graph
+        $report['months'] = collect([]);
+        $report['deposit_month_amount'] = collect([]);
 
         //Vehicle booking
-        $data['total_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->count();
-        $data['upcoming_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->upcoming()->count();
-        $data['running_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->running()->count();
-        $data['completed_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->completed()->count();
+        $data['total_vehicle_booking'] = RentLog::active()->count();
+        $data['upcoming_vehicle_booking'] = RentLog::active()->upcoming()->count();
+        $data['running_vehicle_booking'] = RentLog::active()->running()->count();
+        $data['completed_vehicle_booking'] = RentLog::active()->completed()->count();
 
         //Plan booking
-        $data['total_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->count();
-        $data['upcoming_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->upcoming()->count();
-        $data['running_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->running()->count();
-        $data['completed_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->completed()->count();
+        $data['total_plan_booking'] = PlanLog::active()->count();
+        $data['upcoming_plan_booking'] = PlanLog::active()->upcoming()->count();
+        $data['running_plan_booking'] = PlanLog::active()->running()->count();
+        $data['completed_plan_booking'] = PlanLog::active()->completed()->count();
 
-        $logs = auth()->user()->deposits()->with(['gateway', 'rent', 'planlog'])->orderBy('id','desc')->take(10)->get();
-      //dd($logs);
-        return view($this->activeTemplate . 'user.dashboard', compact('pageTitle', 'logs', 'data'));
+        $depositsMonth = Deposit::where('created_at', '>=', Carbon::now()->subYear())
+            ->where('status', 1)
+            ->selectRaw("SUM( CASE WHEN status = 1 THEN amount END) as depositAmount")
+            ->selectRaw("DATE_FORMAT(created_at,'%M-%Y') as months")
+            ->orderBy('created_at')
+            ->groupBy('months')->get();
+
+        $depositsMonth->map(function ($depositData) use ($report) {
+            $report['months']->push($depositData->months);
+            $report['deposit_month_amount']->push(showAmount($depositData->depositAmount));
+        });
+
+        $months = $report['months'];
+
+        for($i = 0; $i < $months->count(); ++$i) {
+            $monthVal      = Carbon::parse($months[$i]);
+            if(isset($months[$i+1])){
+                $monthValNext = Carbon::parse($months[$i+1]);
+                if($monthValNext < $monthVal){
+                    $temp = $months[$i];
+                    $months[$i]   = Carbon::parse($months[$i+1])->format('F-Y');
+                    $months[$i+1] = Carbon::parse($temp)->format('F-Y');
+                }else{
+                    $months[$i]   = Carbon::parse($months[$i])->format('F-Y');
+                }
+            }
+        }
+
+
+        // Deposit Graph
+        $deposit = Deposit::where('created_at', '>=', \Carbon\Carbon::now()->subDays(30))->where('status', 1)
+            ->selectRaw('sum(amount) as totalAmount')
+            ->selectRaw('DATE(created_at) day')
+            ->groupBy('day')->get();
+        $deposits['per_day'] = collect([]);
+        $deposits['per_day_amount'] = collect([]);
+        $deposit->map(function ($depositItem) use ($deposits) {
+            $deposits['per_day']->push(date('d M', strtotime($depositItem->day)));
+            $deposits['per_day_amount']->push($depositItem->totalAmount + 0);
+        });
+
+
+        // user Browsing, Country, Operating Log
+        $userLoginData = UserLogin::where('created_at', '>=', \Carbon\Carbon::now()->subDay(30))->get(['browser', 'os', 'country']);
+
+        $chart['user_browser_counter'] = $userLoginData->groupBy('browser')->map(function ($item, $key) {
+            return collect($item)->count();
+        });
+        $chart['user_os_counter'] = $userLoginData->groupBy('os')->map(function ($item, $key) {
+            return collect($item)->count();
+        });
+        $chart['user_country_counter'] = $userLoginData->groupBy('country')->map(function ($item, $key) {
+            return collect($item)->count();
+        })->sort()->reverse()->take(5);
+
+
+        $payment['total_deposit_amount_count'] = Deposit::where('status',1)->count();
+        $payment['total_deposit_amount'] = Deposit::where('status',1)->sum('amount');
+        $payment['total_deposit_charge'] = Deposit::where('status',1)->sum('charge');
+        $payment['total_deposit_pending'] = Deposit::where('status',2)->count();
+
+       
+
+
+        return view('admin.dashboarduser', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data'));
+       // return view($this->activeTemplate . 'user.dashboard', compact('pageTitle', 'logs', 'data'));
     }
 
     public function profile()

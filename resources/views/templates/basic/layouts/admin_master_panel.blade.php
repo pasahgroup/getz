@@ -334,8 +334,6 @@
 @stack('script')
 @include('partials.plugins')
 @include('partials.notify')
-
-
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
@@ -376,6 +374,7 @@
 <script src="{{asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')}}"></script>
 
 <script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
+
 <!-- <script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script> -->
 
 <script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
@@ -416,17 +415,23 @@
 
 
 
- <script src="../../../assetstaxio/js/jquery-3.6.0.min.js"></script>
+ <!-- <script src="../../../assetstaxio/js/jquery-3.6.0.min.js"></script> -->
+ 
     <script src="../../../assetstaxio/js/modernizr.min.js"></script>
     <script src="../../../assetstaxio/js/bootstrap.bundle.min.js"></script>
+
     <script src="../../../assetstaxio/js/imagesloaded.pkgd.min.js"></script>
     <script src="../../../assetstaxio/js/jquery.magnific-popup.min.js"></script>
     <script src="../../../assetstaxio/js/isotope.pkgd.min.js"></script>
     <script src="../../../assetstaxio/js/jquery.appear.min.js"></script>
+
+    
     <script src="../../../assetstaxio/js/jquery.easing.min.js"></script>
     <script src="../../../assetstaxio/js/owl.carousel.min.js"></script>
+
     <script src="../../../assetstaxio/js/counter-up.js"></script>
-    <script src="../../../assetstaxio/js/jquery-ui.min.js"></script>
+    <!-- <script src="../../../assetstaxio/js/jquery-ui.min.js"></script> -->
+
     <script src="../../../assetstaxio/js/jquery.timepicker.min.js"></script>
     <script src="../../../assetstaxio/js/jquery.nice-select.min.js"></script>
     <script src="../../../assetstaxio/js/wow.min.js"></script>

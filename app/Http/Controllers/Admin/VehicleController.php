@@ -35,6 +35,7 @@ class VehicleController extends Controller
         return view('admin.vehicle.index', compact('pageTitle', 'empty_message', 'vehicles','tags'));
     }
 
+
     public function add()
     {
         $pageTitle = 'Add vehicle';
@@ -84,8 +85,7 @@ class VehicleController extends Controller
 
 
     public function store(Request $request)
-    {
-      
+    {      
         $request->validate([
             'name' => 'required|string',
             'brand' => 'required|integer|gt:0',
@@ -154,9 +154,9 @@ class VehicleController extends Controller
         return back()->withNotify($notify);
     }
 
+
     public function edit($id)
     {
-
         $vehicle = Vehicle::findOrFail($id);
         $pageTitle = 'Edit Vehicle';
         $brands = Brand::active()->orderBy('name')->get();
@@ -174,7 +174,6 @@ class VehicleController extends Controller
 
     public function update(Request $request,$id)
     {
-//dd(request('fuel_type'));
 
         $request->validate([
             'name' => 'required|string',

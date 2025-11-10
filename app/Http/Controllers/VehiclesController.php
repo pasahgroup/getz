@@ -229,7 +229,6 @@ $pageTitle="Page Page";
 
 
 
-
     public function getEmployees($departmentid=0){
 
            // Fetch Employees by Departmentid
@@ -251,19 +250,6 @@ $pageTitle="Page Page";
  }
 
 
-//        public function show(color $department)
-//    {
-//        //dd('print');
-//       // Fetch departments
-//       $pageTitle="Title";
-//         $departments['data'] = color::orderby("color","asc")
-//              ->select('id','color')
-//              ->get();
-//
-// //dd($departments['data']);
-//         // Load index view
-//         return view('indexf')->with("departments",$departments);
-//    }
 
     /**
      * Show the form for editing the specified resource.

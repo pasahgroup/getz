@@ -224,6 +224,7 @@
                                           <select id="gateway" name="gateway" required>
 @foreach($gateways as $gateway)
                                                                          <option value="{{$gateway->id}}">{{$gateway->name}}</option>
+                                                                           <option value="1">{{$gateway->name}}</option>
                                                                          @endforeach
                                           </select>
                                 </div>

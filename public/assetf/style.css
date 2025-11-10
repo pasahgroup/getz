@@ -458,7 +458,7 @@ img {
       .top-header-area .email-address a:hover, .top-header-area .email-address a:focus {
         color: #ffffff; }
   .top-header-area .phone-number {
-    line-height: 1;
+    line-height: 3;
     background-color: #947054;
     height: 45px;
     margin-bottom: 0; }
