@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/app.css')); ?>">
 
         <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+
+        
     <?php echo $__env->yieldPushContent('style'); ?>
 </head>
 <body>
@@ -49,8 +51,10 @@
 
 
 <!-- jQuery library -->
-<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
+<!-- <script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script> -->
 <!-- bootstrap js -->
+
+
 <script src="<?php echo e(asset('assets/admin/js/vendor/bootstrap.bundle.min.js')); ?>"></script>
 <!-- bootstrap-toggle js -->
 <script src="<?php echo e(asset('assets/admin/js/vendor/bootstrap-toggle.min.js')); ?>"></script>

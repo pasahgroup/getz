@@ -4,97 +4,54 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('user.events.update', $event->id) }}" method="post"
+                <form action="{{ route('user.suspects.update', $suspect->id) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
                         <div class="row">
 
-<div class="row">                          
-
-                            <div class="col-md-7">
+<div class="row">                                               
+<div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="name">@lang('Event title(Kichwa cha Tukio)')</label>
-                                    <input type="text" id="event_title" name="event_title" class="form-control"
-                                           value="{{ $event->event_title }}">
+                                    <label for="name">@lang('Suspected name(Jina/kikundi cha Kutuhumiwa)')</label>
+                                    <input type="text" id="name" name="name" class="form-control"
+                                            value="{{ $suspect->name }}">
                                 </div>
                             </div>
 
-                         <div class="col-md-5">
+                        <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="name">@lang('Date(Tarehe ya Tukio)')</label>
-                                    <input type="date" id="date_event" name="date_event" class="form-control"
-                                            value="{{ $event->date_event }}">
+                                    <label for="category">@lang('Category(Aina ya Watu)')</label>
+                                    <select class="form-control" id="category" name="category" required="">
+                                      
+                                        <option value="{{ $suspect->category }}" selected>{{ $suspect->category }}</option>
+
+                                        <option value="">-- @lang('chagua') --</option>
+                                        <option value="Individual">Individual(Mtu)</option>
+                                         <option value="People">Group of People(Kundi la Watu)</option>
+                                         <option value="Institute">Institute(Taasisi)</option>
+
+                                    </select>
                                 </div>
                             </div>
 
  
-
-                               <div class="col-md-7">
+                           <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="category">@lang('Event type(Aina ya tukio)')</label>
-                                    <select class="form-control" id="event_type" name="event_type" required="">
-                                        <option
-                                                value="{{ $event->event_type }}" selected>{{ $event->event_type }}</option>
-
-                                        <option value="kidnapped">kidnapped(Katekwa)</option>
-                                         <option value="killed">killed(Kauwawa)</option>
-                                         <option value="Missed">Missed(Kapotea bila Taarifa)</option>
-
-                                    </select>
+                                    <label for="name">@lang('Title(Wasifu wa Mtu au Kundi)')</label>
+                                    <p>mfano: Mkurugenzi wa Jiji au Kikosi cha usalama Tanzania</p>
+                                    <input type="text" id="title" name="title" class="form-control"
+                                          value="{{ $suspect->title }}">
                                 </div>
                             </div>
-
-                               <div class="col-md-5">
-                                <div class="form-group">
-                                    <label for="name">@lang('Full name(Jina la aliouwawa/Tekwa/Potea)')</label>
-                                    <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ $event->name }}">
-                                </div>
-                            </div>
-
-                             <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="name">@lang('Sehemu Ya Tukio')</label>
-                                    <input type="text" id="event_place" name="event_place" class="form-control"
-                                          value="{{ $event->event_place }}">
-                                </div>
-                            </div>
-
-                               <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="seater">@lang('Region/State(Mkoa)')</label>
-                                    <select class="form-control" id="region" name="region" required="">
-                                       <option
-                                                value="{{ $event->region }}" selected>{{ $event->region }}</option>
-                                                  <option>--- ----- --</option>
-                                  
-                                        @forelse($locations as $location)
-                                            <option value="{{ $location->name }}">{{ __(@$location->name) }}</option>
-                                        @empty
-                                        @endforelse                                    
-                                    </select>
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="category">@lang('District(Wilaya)')</label>
-                                      <input type="text" id="district" name="district" class="form-control"
-                                          value="{{ $event->district }}">
-                                </div>
-                            </div>
-
-
 
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="nicEditor0">@lang('Event details(Maelezo ya Tukio)')</label>
+                                    <label for="nicEditor0">@lang('Suspecting details(Maelezo ya Tukio)')</label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
-                                               id="nicEditor0">{{ $event->details }}</textarea>
+                                               id="nicEditor0">{{ $suspect->details }}</textarea>
                                 </div>
                             </div>
                               </div>
@@ -105,7 +62,7 @@
                                     <div class="card-header bg--dark d-flex justify-content-between">
                                             <h5 class="text-white">@lang('Images-(Picha za Tukio Weka za kutosha)')</h5>
                                         <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
-                                                class="fa fa-fw fa-plus"></i>@lang('Add New')
+                                                 class="fa fa-fw fa-plus"></i>@lang('Add New (Ongeza Picha)')
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -113,7 +70,7 @@
                                                 {{ imagePath()['vehicles']['size'] }}px</small></p>
                                         <div class="row element">
 
-                                            @forelse($event->images as $image)
+                                            @forelse($suspect->images as $image)
                                                 <div class="col-md-2 imageItem" id="imageItem{{ $loop->iteration }}">
                                                     <div class="payment-method-item">
                                                         <div class="payment-method-header d-flex flex-wrap">
@@ -128,7 +85,7 @@
                                                                 <div class="avatar-remove">
 <button class="bg-danger deleteOldImage"onclick="return false"
  data-removeindex="imageItem{{ $loop->iteration }}"
-data-deletelink="{{ route('user.events.image.delete', [$event->id, $image]) }}">
+data-deletelink="{{ route('user.suspects.image.delete', [$suspect->id, $image]) }}">
 <i class="la la-close"></i></button>
                                                                 </div>
 
@@ -164,12 +121,11 @@ data-deletelink="{{ route('user.events.image.delete', [$event->id, $image]) }}">
                 </form>
             </div><!-- card end -->
         </div>
-    </div>
-   
+    </div>   
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.events.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="{{ route('user.suspects.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
 @push('style')

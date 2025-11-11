@@ -19,6 +19,35 @@
                       <i class="fa fa-envelope" style="color:#F2C107;"></i><b style="color:#F2C107;"> No Email</b></a>
                        <a href="#" style="padding-left:10px">
                             </a>
+                             
+
+
+    @auth
+                                                               <a href="{{ route('user.events.index') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Event recording')</a>
+
+                                                                 <a href="{{ route('user.suspects.index') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Suspected people')</a>
+                                
+                                <a href="/logout" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Sign out')</a>
+
+
+                            @else
+                              
+                    <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">
+                             @csrf
+    <input type="hidden" name="_method" value="GET">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                
+                <button type="submit" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Sign in')</button>
+                                </form>
+
+                                <a href="{{ route('user.register') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Sign Up')</a>
+                           
+
+
+
+                            @endauth
+
+
                 </div>
                 </div>
       
@@ -31,42 +60,6 @@
                          <div class="footer__widget widget__about">
                                        <ul class="social-icons">
  
-
-    @auth
-                                                               <a href="{{ route('user.events.index') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Upload Photos')</a>
-                                
-                                <a href="/logout" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Logout')</a>
-
-
-                            @else
-                              
-                    <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">
-                             @csrf
-    <input type="hidden" name="_method" value="GET">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                
-                <button type="submit" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Login')</button>
-                                </form>
-
-                                <a href="{{ route('user.register') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Sign Up')</a>
-                           
-
-
-
-                            @endauth
-
-
-
-
-
-
-
-
-
-
-
-
-
                     
                     </ul>
                 </div>

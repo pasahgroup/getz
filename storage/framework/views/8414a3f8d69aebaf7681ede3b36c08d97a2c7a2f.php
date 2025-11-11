@@ -1,4 +1,5 @@
 
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
 <?php $__env->startSection('panel'); ?>
     <div class="row">
         <div class="col-lg-12">

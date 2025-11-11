@@ -9,7 +9,9 @@
         <button type="button" class="navbar-search__close"><i class="las la-times"></i></button>
 
         <div id="navbar_search_result_area">
-            <ul class="navbar_search_result"></ul>
+            <ul class="navbar_search_result">
+                
+            </ul>
         </div>
     </form>
 
@@ -18,6 +20,9 @@
         <button type="button" class="fullscreen-btn">
             <i class="fullscreen-open las la-compress" onclick="openFullscreen();"></i>
             <i class="fullscreen-close las la-compress-arrows-alt" onclick="closeFullscreen();"></i>
+
+              <a href="<?php echo e(route('user.events.index')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Website'); ?></a>
+
         </button>
     </div>
 

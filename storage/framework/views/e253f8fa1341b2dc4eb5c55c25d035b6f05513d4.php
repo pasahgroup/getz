@@ -1,67 +1,67 @@
 
+
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
+
 <?php $__env->startSection('panel'); ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="<?php echo e(route('admin.service.store')); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo e(route('user.suspects.store')); ?>" method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
+                        
+                        <div class="row">                          
+
+                           <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="name"><?php echo app('translator')->get('Service name'); ?></label>
-                                    <input type="text" id="service_name" name="service_name" class="form-control"
-                                           value="<?php echo e(old('service_name')); ?>">
+                                    <label for="name"><?php echo app('translator')->get('Suspected name(Jina/kikundi cha Kutuhumiwa)'); ?></label>
+                                    <input type="text" id="name" name="name" class="form-control"
+                                           value="<?php echo e(old('name')); ?>">
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                        <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="name"><?php echo app('translator')->get('Title'); ?></label>
+                                    <label for="category"><?php echo app('translator')->get('Category(Aina ya Watu)'); ?></label>
+                                    <select class="form-control" id="category" name="category" required="">
+                                        <option value="">-- <?php echo app('translator')->get('chagua'); ?> --</option>
+                                        <option value="Individual">Individual(Mtu)</option>
+                                         <option value="People">Group of People(Kundi la Watu)</option>
+                                         <option value="Institute">Institute(Taasisi)</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+ 
+                           <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name"><?php echo app('translator')->get('Title(Wasifu wa Mtu au Kundi)'); ?></label>
+                                    <p>mfano: Mkurugenzi wa Jiji au Kikosi cha usalama Tanzania</p>
                                     <input type="text" id="title" name="title" class="form-control"
                                            value="<?php echo e(old('title')); ?>">
                                 </div>
                             </div>
 
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="name"><?php echo app('translator')->get('Category'); ?></label>
-                                                            <select type="text" id="category" name="category" class="form-control"
-                                                                   value="<?php echo e(old('category')); ?>">
-                                                                      <option>Car hiring</option>
-                                                                   <option>Escourt</option>
-                                                                        <option>Main</option>
-                                                                     <option>Normal</option>
-                                                                          <option>Transportation</option>
-                                                                      <option>Wedding & sendoff</option>
-
-                                                            </select>
-
-                                                            </div>
-                                                        </div>
+                                            
 
 
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="name"><?php echo app('translator')->get('Content'); ?></label>
-                                                                       <textarea id="content" name="content"></textarea>
-                                                            </div>
-                                                        </div>
-
-
-
-
-                            <div class="col-md-10">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="nicEditor0"><?php echo app('translator')->get('Suspecting details(Maelezo ya Tukio)'); ?></label>
+                                    <textarea rows="10" name="details" class="form-control nicEdit"
+                                              id="nicEditor0"><?php echo e(old('details')); ?></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
                                 <div class="card border--dark mb-4">
                                     <div class="card-header bg--dark d-flex justify-content-between">
-                                        <h5 class="text-white"><?php echo app('translator')->get('Images'); ?></h5>
+                                        <h5 class="text-white"><?php echo app('translator')->get('Images-(Picha za Tukio Weka za kutosha)'); ?></h5>
                                         <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
-                                                class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New'); ?>
+                                                class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New (Ongeza Picha)'); ?>
                                         </button>
                                     </div>
-
-
                                     <div class="card-body">
                                         <p><small class="text-facebook"><?php echo app('translator')->get('Images will be resize into'); ?>
                                                 <?php echo e(imagePath()['vehicles']['size']); ?>px</small></p>
@@ -94,39 +94,70 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>                     
+                                  </div>
+
+
+                    </div>
+                    <div class="card-footer row">
+                             <div class="col-md-9">
+                                <div class="form-group">
+                                  
+                                </div>
                             </div>
-
-                            <div class="col-md-2">
-                               <div class="form-group">
-         <label for="name"><?php echo app('translator')->get('Status'); ?></label>
-                               <select type="text" id="status" name="status" class="form-control">
-                                      <option>0</option>
-                                        <option>1</option>
-                               </select>
-
-                               </div>
-                           </div>
-
-                        </div>
+                            
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                   <button class="btn btn--primary w-100"><?php echo app('translator')->get('Submit(Wasilisha)'); ?></button>
+                                </div>
+                            </div>
                     </div>
-                    <div class="row">
-<div class="col-md-10">
-</div>
-<div class="col-md-2">
-                          <div class="card-footer">
-                              <button class="btn btn--primary w-100"><?php echo app('translator')->get('Create'); ?></button>
-                    </div>
-                  </div>
-                </div>
                 </form>
             </div><!-- card end -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><?php echo app('translator')->get('Add New Specification'); ?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body specification">
+                    <div class="form-group">
+                        <label for="icon" class="font-weight-bold"><?php echo app('translator')->get('Select Icon'); ?></label>
+                        <div class="input-group has_append">
+                            <input type="text" class="form-control icon" id="icon" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary iconPicker" data-icon="las la-home" role="iconpicker"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="label" class="font-weight-bold"><?php echo app('translator')->get('Label'); ?></label>
+                        <input class="form-control" id="label" type="text" required placeholder="<?php echo app('translator')->get('Label'); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="label" class="font-weight-bold"><?php echo app('translator')->get('Value'); ?></label>
+                        <input class="form-control" id="value" type="text" required placeholder="<?php echo app('translator')->get('Value'); ?>">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn--secondary" data-dismiss="modal"><?php echo app('translator')->get('Close'); ?></button>
+                    <button type="button" class="btn btn--primary addNewInformation"><?php echo app('translator')->get('Add'); ?></button>
+                </div>
+            </div>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('admin.service.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="<?php echo e(route('user.suspects.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
 
@@ -291,6 +322,60 @@
             });
         })(jQuery);
     </script>
+
+
+      <script type="text/javascript">
+       $(document).ready(function(){
+      // Department Change
+      $('#brand').change(function(){
+         // ward
+
+  //alert('changed');
+
+         var v = $(this).val();
+             // alert(v);
+           // Empty the dropdown
+         // $('#model').find('option').not(':first').remove();
+            // document.getElementById("classgf").value =v;
+         // $('#village').find('option').not(':first').remove();
+         // $('#project_name').find('option').not(':first').remove();
+         // $('#project_activities').find('option').not(':first').remove();
+
+
+         // AJAX request
+
+         $.ajax({
+          url: 'getA/'+v,            
+           type: 'get',
+           dataType: 'json',
+           success: function(response){
+      //alet('fffff');
+
+             var len = 0;
+            
+             if(response['dataA'] != null){
+               len = response['dataA'].length;
+             }
+         //alet(len);
+
+                       if(len > 0){
+               // Read data and create <option >
+               for(var i=0; i<len; i++){
+
+                 var id = response['dataA'][i].id;
+                 var name = response['dataA'][i].car_model;
+                 var option = "<option value='"+id+"'>"+name+"</option>";
+                 $("#model").append(option);
+               }
+             }
+             //DAta are here
+
+           }
+        });
+      });
+    });
+     </script>
+
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/services/add.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/suspects/add.blade.php ENDPATH**/ ?>

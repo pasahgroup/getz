@@ -1,3 +1,4 @@
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
 <?php $__env->startSection('panel'); ?>
    
         <?php if(@json_decode($general->sys_version)->message): ?>

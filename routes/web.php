@@ -138,7 +138,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('brands/{brand}', 'BrandController@update')->name('brand.update');
         Route::post('brands/status/{brand}', 'BrandController@status')->name('brand.status');
 
-        // Location
+
+// Location
         Route::get('locations', 'LocationController@index')->name('location.index');
         Route::post('locations', 'LocationController@store')->name('location.store');
         Route::post('locations/{location}', 'LocationController@update')->name('location.update');
@@ -323,7 +324,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('language/update/key/{id}', 'LanguageController@updateLanguageJson')->name('language.update.key');
 
 
-
         // General Setting
         Route::get('general-setting', 'GeneralSettingController@index')->name('setting.index');
         Route::post('general-setting', 'GeneralSettingController@update')->name('setting.update');
@@ -452,6 +452,25 @@ Route::name('user.')->prefix('user')->group(function () {
          Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
         Route::post('events/{id}/status', 'EventController@status')->name('events.status');
 
+
+
+ Route::get('suspects', 'SuspectController@index')->name('suspects.index');
+           Route::get('suspects/add', 'SuspectController@add')->name('suspects.add');
+              Route::post('suspects/store', 'SuspectController@store')->name('suspects.store');
+        
+        Route::get('suspects/{id}', 'SuspectController@edit')->name('suspects.edit');
+
+         Route::post('suspects/update/{id}', 'SuspectController@update')->name('suspects.update');
+         Route::post('suspects/image/remove/{id}/{image}', 'SuspectController@deleteImage')->name('suspects.image.delete');
+        Route::post('suspects/{id}/status', 'SuspectController@status')->name('suspects.status');
+
+
+
+  // Location
+        Route::get('locations', 'LocationController@index')->name('location.index');
+        Route::post('locations', 'LocationController@store')->name('location.store');
+        Route::post('locations/{location}', 'LocationController@update')->name('location.update');
+        Route::post('locations/status/{location}', 'LocationController@status')->name('location.status');
 
 
 

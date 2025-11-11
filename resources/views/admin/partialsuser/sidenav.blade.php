@@ -38,20 +38,9 @@
                     </div>
                 </li>
 
-
-
-
-               <!--  <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
-                    <a href="{{route('admin.seater.index')}}" class="nav-link ">
-                        <i class="menu-icon las la-couch"></i>
-                        <span class="menu-title">@lang('Seat Type')</span>
-                    </a>
-                </li>
- -->
-                
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.vehicles*',3)}}">
-                        <i class="menu-icon las la-car-side"></i>
+                        <i class="menu-icon las la-skull-crossbones"></i>
                         <span class="menu-title">@lang('Events') </span>
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.vehicles*',2)}} ">
@@ -63,10 +52,10 @@
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.vehicles.booking.log')}}">
-                                <a href="{{route('admin.vehicles.booking.log')}}" class="nav-link">
+                           <li class="sidebar-menu-item {{menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])}}">
+                                <a href="{{route('user.suspects.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('All Booking Log')</span>
+                                    <span class="menu-title">@lang('Suspected')</span>
                                 </a>
                             </li>
                                                   </ul>
@@ -157,8 +146,8 @@
                     <div class="sidebar-submenu {{menuActive('admin.vehicles*',2)}} ">
                         <ul>
               
-                  <li class="sidebar-menu-item {{menuActive('admin.location.index')}}">
-                    <a href="{{route('admin.location.index')}}" class="nav-link ">
+                  <li class="sidebar-menu-item {{menuActive('location.index')}}">
+                    <a href="{{route('user.location.index')}}" class="nav-link ">
                         <i class="menu-icon las la-map-marked"></i>
                         <span class="menu-title">@lang('Regions')</span>
                     </a>

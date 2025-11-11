@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\Suspect;
 use App\Models\Vehicle;
 use App\Models\Tag;
 use App\Models\Brand;
@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
 
-class EventController extends Controller
+class SuspectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,8 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
+    {  
+
 $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         ->join('cartypes','cartypes.id','vehicles.car_body_type_id')
         ->with(['brand', 'seater','cartype'])->latest()
@@ -37,15 +38,14 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         $tags = Tag::where('status',1)->get();     
       
      //dd($vehicles);
-        $events=Event::where('status',1)  
-        ->select('events.*')
+        $suspects=Suspect::where('status',1)  
+        ->select('suspects.*')
         ->paginate(getPaginate(15));
 
-//dd($events);
 
-        $pageTitle = 'People who killed';
+        $pageTitle = 'Suspected People,Group or Institute';
         $empty_message = 'No vehicle has been added.';
-        return view('events.index', compact('pageTitle', 'empty_message', 'vehicles','tags','events'));
+        return view('suspects.index', compact('pageTitle', 'empty_message','tags','suspects'));
     }
 
 
@@ -67,7 +67,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
            $locations = Location::where('status',1)->get();   
 
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('events.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations','modelbs'));
+        return view('suspects.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations','modelbs'));
     }
 
     /**
@@ -103,9 +103,9 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
             // 'fuel_type' => 'required|string',
             //  'car_body_type' => 'required|string',
             //  'tag' => 'required|string',
-            //  'color' => 'required|string',
-             'region' => 'required|string',
-              'district' => 'required|string',
+             //'color' => 'details|string',
+             'category' => 'required|string',
+              'title' => 'required|string',
 
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
             // 'icon' => 'required|array',
@@ -115,20 +115,12 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
             // 'value' => 'required|array',
             // 'value.*' => 'required|string',
         ]);
-
-
-
-        $event = new Event();
-        $event->name = $request->name;
-         $event->event_title = $request->event_title;
-         $event->event_type = $request->event_type;
-          $event->event_place = $request->event_place;
-
-         $event->region = $request->region;
-        $event->district = $request->district;
-
-         $event->date_event = $request->date_event;
-           $event->details = $request->details;
+        $suspect = new Suspect();
+        $suspect->name = $request->name;
+         $suspect->title = $request->title;
+         $suspect->category = $request->category;
+        
+           $suspect->details = $request->details;
       
        
         // Upload image
@@ -137,11 +129,9 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
             $size = imagePath()['vehicles']['size'];
             $images[] = uploadImage($image, $path, $size);
         }
-
      
-        $event->images = $images;      
-
-        $event->save();
+        $suspect->images = $images;     
+        $suspect->save();
 
         $notify[] = ['success', 'Report submitted Successfully!'];
         return back()->withNotify($notify);
@@ -155,9 +145,10 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
      */
 
 
+
   public function status($id)
     {
-        $event = Event::findOrFail($id);
+        $event = Suspect::findOrFail($id);
         $event->status = ($event->status ? 0 : 1);
         $event->save();
 
@@ -168,9 +159,9 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
  public function deleteImage($id, $image)
     {
-        $vehicle = Event::findOrFail($id);
+        $suspect = Suspect::findOrFail($id);
 
-        $images = $vehicle->images;
+        $images = $suspect->images;
         $path = imagePath()['vehicles']['path'];
 
         if (($old_image = array_search($image, $images)) !== false){
@@ -178,8 +169,8 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
             unset($images[$old_image]);
         }
 
-        $vehicle->images = $images;
-        $vehicle->save();
+        $suspect->images = $images;
+        $suspect->save();
 
         return response()->json(['success' => true, 'message' => 'Vehicle image deleted!']);
     }
@@ -200,12 +191,12 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
        public function edit($id)
     {
-        $event = Event::findOrFail($id);
-        $pageTitle = 'Edit Event';
+        $suspect = Suspect::findOrFail($id);
+        $pageTitle = 'Edit Suspect';
           $locations = Location::where('status',1)->get(); 
  $locations = Location::where('status',1)->get();  
 
-        return view('events.edit', compact('event','locations','pageTitle'));
+        return view('suspects.edit', compact('suspect','locations','pageTitle'));
     }
 
     /**
@@ -222,27 +213,20 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
         $request->validate([
              'name' => 'required|string',
-             'region' => 'required|string',
-              'district' => 'required|string',
+               'category' => 'required|string',
+              'title' => 'required|string',
 
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
 
-        $event = Event::findOrFail($id);
+        $event = Suspect::findOrFail($id);
        
         $event->name = $request->name;
-         $event->event_title = $request->event_title;
-         $event->event_type = $request->event_type;
-          $event->event_place = $request->event_place;
-
-         $event->region = $request->region;
-        $event->district = $request->district;
-
-         $event->date_event = $request->date_event;
+         $event->title = $request->title;
+         $event->category = $request->category;    
            $event->details = $request->details;
 
       
-
         // Upload and Update image
         if ($request->images){
             foreach ($request->images as $image) {

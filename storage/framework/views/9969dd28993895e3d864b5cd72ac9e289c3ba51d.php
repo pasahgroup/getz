@@ -19,6 +19,35 @@
                       <i class="fa fa-envelope" style="color:#F2C107;"></i><b style="color:#F2C107;"> No Email</b></a>
                        <a href="#" style="padding-left:10px">
                             </a>
+                             
+
+
+    <?php if(auth()->guard()->check()): ?>
+                                                               <a href="<?php echo e(route('user.events.index')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Event recording'); ?></a>
+
+                                                                 <a href="<?php echo e(route('user.suspects.index')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Suspected people'); ?></a>
+                                
+                                <a href="/logout" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Sign out'); ?></a>
+
+
+                            <?php else: ?>
+                              
+                    <form  method="GET"  action="<?php echo e(route('user.login')); ?>" enctype="multipart/form-data">
+                             <?php echo csrf_field(); ?>
+    <input type="hidden" name="_method" value="GET">
+    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+                
+                <button type="submit" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Sign in'); ?></button>
+                                </form>
+
+                                <a href="<?php echo e(route('user.register')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Sign Up'); ?></a>
+                           
+
+
+
+                            <?php endif; ?>
+
+
                 </div>
                 </div>
       
@@ -31,42 +60,6 @@
                          <div class="footer__widget widget__about">
                                        <ul class="social-icons">
  
-
-    <?php if(auth()->guard()->check()): ?>
-                                                               <a href="<?php echo e(route('user.events.index')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Upload Photos'); ?></a>
-                                
-                                <a href="/logout" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Logout'); ?></a>
-
-
-                            <?php else: ?>
-                              
-                    <form  method="GET"  action="<?php echo e(route('user.login')); ?>" enctype="multipart/form-data">
-                             <?php echo csrf_field(); ?>
-    <input type="hidden" name="_method" value="GET">
-    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-                
-                <button type="submit" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Login'); ?></button>
-                                </form>
-
-                                <a href="<?php echo e(route('user.register')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Sign Up'); ?></a>
-                           
-
-
-
-                            <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
                     
                     </ul>
                 </div>

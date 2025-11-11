@@ -1,4 +1,7 @@
 @extends('admin.layoutsuser.app')
+
+<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
+
 @section('panel')
     <div class="row">
         <div class="col-lg-12">

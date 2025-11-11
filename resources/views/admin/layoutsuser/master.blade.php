@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}">
 
         <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+
+        
     @stack('style')
 </head>
 <body>
@@ -49,8 +51,10 @@
 
 
 <!-- jQuery library -->
-<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
+<!-- <script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script> -->
 <!-- bootstrap js -->
+
+
 <script src="{{asset('assets/admin/js/vendor/bootstrap.bundle.min.js')}}"></script>
 <!-- bootstrap-toggle js -->
 <script src="{{asset('assets/admin/js/vendor/bootstrap-toggle.min.js')}}"></script>
