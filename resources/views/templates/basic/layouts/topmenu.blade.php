@@ -156,19 +156,6 @@
                                 </li>
 
 
-
-  <li><a href="#">Services</a>
-                                            <ul class="dropdown">
-                                             @foreach($view_services as $view_service)
-              <form action="{{ route('web-service',$view_service->service_name) }}" method="get" class="priceForm">
-            <button  class="dropdown-item">{{$view_service->title}}</button>
-                                                  </form>
-           
-
-
-  @endforeach
-  </ul>
-  </li>
                                           
                                      
 

@@ -21,7 +21,7 @@
             <i class="fullscreen-open las la-compress" onclick="openFullscreen();"></i>
             <i class="fullscreen-close las la-compress-arrows-alt" onclick="closeFullscreen();"></i>
 
-              <a href="<?php echo e(route('user.events.index')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Website'); ?></a>
+              <a href="<?php echo e(route('home')); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3"><?php echo app('translator')->get('Website'); ?></a>
 
         </button>
     </div>

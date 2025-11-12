@@ -156,19 +156,6 @@
                                 </li>
 
 
-
-  <li><a href="#">Services</a>
-                                            <ul class="dropdown">
-                                             <?php $__currentLoopData = $view_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view_service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <form action="<?php echo e(route('web-service',$view_service->service_name)); ?>" method="get" class="priceForm">
-            <button  class="dropdown-item"><?php echo e($view_service->title); ?></button>
-                                                  </form>
-           
-
-
-  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-  </ul>
-  </li>
                                           
                                      
 

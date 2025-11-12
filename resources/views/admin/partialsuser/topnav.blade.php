@@ -21,7 +21,7 @@
             <i class="fullscreen-open las la-compress" onclick="openFullscreen();"></i>
             <i class="fullscreen-close las la-compress-arrows-alt" onclick="closeFullscreen();"></i>
 
-              <a href="{{ route('user.events.index') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Website')</a>
+              <a href="{{ route('home') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Website')</a>
 
         </button>
     </div>
