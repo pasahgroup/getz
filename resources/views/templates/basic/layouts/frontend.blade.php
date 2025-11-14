@@ -138,14 +138,15 @@
                                     <div class="megamenu">
                                         <ul class="single-mega cn-col-4">
                                             <li class="title">--Events report summary--</li>
-                                            <li><a href="#">Kidnapped</a></li>
-                                            <li><a href="#">Killed</a></li>
-                                            <li><a href="#">Missing</a></li>
-                                            <li><a href="#">Totured</a></li>
-                                            <li><a href="#">Other</a></li>
+                                            <li><a href="#">kidnapped(Katekwa)</a></li>
+                                            <li><a href="#">killed(Kauwawa)</a></li>
+                                            <li><a href="#">Missed(Kapotea bila Taarifa)</a></li>
+                                            <li><a href="#">Totured(Kuteswa)</a></li>
+                                            <li><a href="#">Other(Nyingine)</a></li>
+
                                         </ul>
                                         <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 2</li>
+                                               <li class="title">--Suspected report summary--</li>
                                             <li><a href="#">Mega Menu Item 1</a></li>
                                             <li><a href="#">Mega Menu Item 2</a></li>
                                             <li><a href="#">Mega Menu Item 3</a></li>

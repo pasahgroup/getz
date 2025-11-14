@@ -31,6 +31,7 @@
                                         <option value="Individual">Individual(Mtu)</option>
                                          <option value="People">Group of People(Kundi la Watu)</option>
                                          <option value="Institute">Institute(Taasisi)</option>
+                                          <option value="Other">Other(Vinginevyo)</option>
 
                                     </select>
                                 </div>

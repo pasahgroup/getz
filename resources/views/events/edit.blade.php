@@ -42,7 +42,7 @@
                                          <option value="killed">killed(Kauwawa)</option>
                                          <option value="Missed">Missed(Kapotea bila Taarifa)</option>
                                          <option value="Totured">Totured(Kuteswa)</option>
-                                           <option value="Other">Other(Nyingine)</option>
+                                        <option value="Other">Other(Vinginevyo)</option>
                                     </select>
                                 </div>
                             </div>
