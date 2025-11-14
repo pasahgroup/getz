@@ -1,12 +1,52 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 <br>
+  <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
+                      <!-- Single Hero Slide -->
+                   <!-- Single Hero Slide -->
+              @forelse($events as $event)
+            <div class="single-hero-slide bg-img" style="background-image: url({{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }});">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-contentx">
+                                <h2 data-animation="fadeInUp" data-delay="100ms">{{$event->event_type}}</h2>
+                            </div>
+                      <ul class="#">
+                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$event->name}}</strong></li>
+                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$event->event_type}}</strong></li>
 
-  
+                      </ul>
+                      <div>
+                        <strong>{{$event->details}}</strong>
+                      </div>
+ <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$event->id, slug($event->name)]) }}">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  @endforeach                              
+
+        </div>
+    </section>
 
 
 
-         <div class="banner_section layout_padding">
+
+ <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/p2.jpeg)">
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-12">
+                    <div class="cta-content text-center">
+                        <h5 class="wow fadeInUp" data-wow-delay="300ms" style="color:fff"><span>The Rhonds Company Ltd</span></h5>
+                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The best Car Rental Dealers in Tanzania</h6>
+                    </div>
+
+
+    <div class="banner_section layout_padding">
             <div class="container">
                <div id="my_slider" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
@@ -15,16 +55,17 @@
                           
                               <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
                                                  
-                            <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstEvent->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h2>
+                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h2>
                       <ul class="#">
-                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong>{{$metaFirstVehicle->transmission}}</strong>|Fuel: <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+                         <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$metaFirstEvent->name}}</strong></li>
+                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$metaFirstEvent->event_type}}</strong></li>
                       </ul>
 
 
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">View More</a>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstEvent->id, slug($metaFirstEvent->name)]) }}">View More</a>
                   </div>
               </div>
 
@@ -32,22 +73,22 @@
                      </div>
 
 
-
                        
-                         @foreach ($metaVehicles as $indexKey => $vehicle)
+                       @forelse($events as $event)
                          <div class="carousel-item">
                         <div class="row">                          
                               <strong class="banner_taital">Get Start <br>Your favriot shoping</strong>                                                 
-                          <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
+                          <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h2>
+                      <strong class="display-4 text-white mb-3 animate__animated animate__fadeInDown">#</strong>
                       <ul class="#">
-                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong>{{$metaFirstVehicle->transmission}}</strong>|Fuel: <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$event->name}}</strong></li>
+                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$event->event_type}}</strong></li>
                       </ul>
 
 
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">View More</a>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$event->id, slug($event->name)]) }}">View More</a>
                   </div>
               </div>
                </div>
@@ -64,21 +105,17 @@
                   </a>
                </div>
             </div>
+ </div>
 
 
 
 
 
 
-
-
-
-
-
-         </div>
-
-
-
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <hr>
@@ -148,7 +185,7 @@
                                       <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                 <!-- <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a> -->
+                
                           </div>
                     </div>
                 </div>
@@ -158,16 +195,21 @@
                         {{--
                         {!! $vehicles->links() !!}
                         --}}
-                        <marquee style="color:#03153e;float: right">Book car with Rhond's Company Ltd</marquee>
+                    
                     </div>
                     <div>
-                     <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                         </a>
+                        <div>
+                   
+                     </div>
   </span>
 </div>
+<br>
+    
         </div>
-
-
+        <section class="showcase container">
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                         </a>
+                 </section>
 
 
 <section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">

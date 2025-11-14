@@ -603,7 +603,7 @@ if(request('search'))
       $model_datas=Vehicle::where('brand_id',"$request->brand")->get();
   //dd($model_datas);
 
-  $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
+  $vehicles = $vehicles->latest()->paginate(8)->withQueryString();
 }else {
 
  // if(request('save')){
@@ -669,7 +669,7 @@ if(request('search'))
           //dd($pageTitle);
         }
 
-        $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
+        $vehicles = $vehicles->latest()->paginate(8)->withQueryString();
       //    $brandss = $brandss->latest()->paginate(4)->withQueryString();
 //dd($vehicles);
             }

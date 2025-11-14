@@ -1,12 +1,52 @@
 
 <?php $__env->startSection('content'); ?>
 <br>
+  <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
+                      <!-- Single Hero Slide -->
+                   <!-- Single Hero Slide -->
+              <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <div class="single-hero-slide bg-img" style="background-image: url(<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>);">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-contentx">
+                                <h2 data-animation="fadeInUp" data-delay="100ms"><?php echo e($event->event_type); ?></h2>
+                            </div>
+                      <ul class="#">
+                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event->name); ?></strong></li>
+                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event->event_type); ?></strong></li>
 
-  
+                      </ul>
+                      <div>
+                        <strong><?php echo e($event->details); ?></strong>
+                      </div>
+ <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$event->id, slug($event->name)])); ?>">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                              
+
+        </div>
+    </section>
 
 
 
-         <div class="banner_section layout_padding">
+
+ <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/p2.jpeg)">
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-12">
+                    <div class="cta-content text-center">
+                        <h5 class="wow fadeInUp" data-wow-delay="300ms" style="color:fff"><span>The Rhonds Company Ltd</span></h5>
+                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The best Car Rental Dealers in Tanzania</h6>
+                    </div>
+
+
+    <div class="banner_section layout_padding">
             <div class="container">
                <div id="my_slider" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
@@ -15,16 +55,17 @@
                           
                               <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
                                                  
-                            <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstEvent->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h2>
+                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h2>
                       <ul class="#">
-                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong><?php echo e($metaFirstVehicle->transmission); ?></strong>|Fuel: <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                         <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($metaFirstEvent->name); ?></strong></li>
+                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($metaFirstEvent->event_type); ?></strong></li>
                       </ul>
 
 
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">View More</a>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstEvent->id, slug($metaFirstEvent->name)])); ?>">View More</a>
                   </div>
               </div>
 
@@ -32,57 +73,28 @@
                      </div>
 
 
-
                        
-                         <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <?php $__empty_2 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
                          <div class="carousel-item">
                         <div class="row">                          
                               <strong class="banner_taital">Get Start <br>Your favriot shoping</strong>                                                 
-                          <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
+                          <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h2>
+                      <strong class="display-4 text-white mb-3 animate__animated animate__fadeInDown">#</strong>
                       <ul class="#">
-                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong><?php echo e($metaFirstVehicle->transmission); ?></strong>|Fuel: <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event->name); ?></strong></li>
+                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event->event_type); ?></strong></li>
                       </ul>
 
 
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">View More</a>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$event->id, slug($event->name)])); ?>">View More</a>
                   </div>
               </div>
                </div>
                         </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-
-                    
-
-   <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                     <div class="carousel-item">                       
-                        <div class="row">
-                           <div class="col-sm-12">
-                            
-                           
-                            <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
-              <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                  <div class="p-3" style="max-width: 700px;">
-                      <h1 class="display-4 text-white mb-1 animate__animated animate__fadeInDown"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</h1>
-                                      <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
-
-                                        <ul class="#">
-                                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong><?php echo e($metaFirstVehicle->transmission); ?></strong>|Fuel: <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
-                                        </ul>
-
-                      </div>
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">View More</a>
-                                              </div>
-              </div>
-             
-
-                           </div>
-                        </div>                  
-                     </div>
-                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
+                
 
                   </div>
                   <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
@@ -93,21 +105,17 @@
                   </a>
                </div>
             </div>
+ </div>
 
 
 
 
 
 
-
-
-
-
-
-         </div>
-
-
-
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <hr>
@@ -120,7 +128,7 @@
                 </div>
 
       <div class="row">
-<?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+<?php $__empty_3 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_3 = false; ?>
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
@@ -177,24 +185,29 @@
                                       <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                 <!-- <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a> -->
+                
                           </div>
                     </div>
                 </div>
 
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_3): ?>
                         <?php endif; ?>
                         
-                        <marquee style="color:#03153e;float: right">Book car with Rhond's Company Ltd</marquee>
+                    
                     </div>
                     <div>
-                     <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                         </a>
+                        <div>
+                   
+                     </div>
   </span>
 </div>
+<br>
+    
         </div>
-
-
+        <section class="showcase container">
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                         </a>
+                 </section>
 
 
 <section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">

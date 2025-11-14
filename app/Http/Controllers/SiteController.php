@@ -11,7 +11,7 @@ use App\Models\PlanLog;
 use App\Models\Cartype;
 use App\Models\Tag;
 use App\Models\service;
-
+use App\Models\Event;
 
 use App\Models\Subscriber;
 use App\Models\SupportAttachment;
@@ -63,11 +63,17 @@ $models = Vehicle::orderby('model')
  $vehicles = Vehicle::join('brands','brands.id','vehicles.brand_id')
  ->select('vehicles.id','vehicles.model','vehicles.brand_id','vehicles.price','vehicles.images','vehicles.car_model_no','vehicles.transmission','vehicles.fuel_type','vehicles.doors','vehicles.specifications','brands.name')
  ->groupBy('vehicles.model')
- ->paginate(getPaginate(4));
+ ->paginate(getPaginate(8));
 //dd($vehicles);
 
- $metaFirstVehicle = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
-      ->select('vehicles.*','cartypes.car_body_type')
+
+ $events = Event::where('status',1)
+      ->select('events.*')
+     ->get();
+
+
+ $metaFirstEvent = Event::where('status',1)
+      ->select('events.*')
      ->first();
 
      $metaFirstVehicle2 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
@@ -86,7 +92,17 @@ $models = Vehicle::orderby('model')
       ->select('vehicles.*','cartypes.car_body_type')
      ->paginate(getPaginate(8));
      $metaVehicleCount=$metaVehicles->count();
-    // dd($metaVehicles->count());
+
+
+
+  // $events = Event::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+  //     ->select('vehicles.*','cartypes.car_body_type')
+  //    ->paginate(getPaginate(8));
+  //    $metaVehicleCount=$metaVehicles->count();
+
+
+    //dd($events->count());
+
     // $metavehicles = collect($metaVehicles);
 //$vehicles = Vehicle::active()->latest()->paginate(4);
  //dd($metaVehicles->count());
@@ -104,10 +120,8 @@ $models = Vehicle::orderby('model')
 //dd($escourt);
  $services=service::where('status',1)
  ->get();
-//dd($services);
 
-   
-        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle','metaFirstVehicle2','metaFirstVehicle3'));
+        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','events','metaVehicleCount','metaFirstEvent','metaFirstVehicle2','metaFirstVehicle3'));
     }
 
 
