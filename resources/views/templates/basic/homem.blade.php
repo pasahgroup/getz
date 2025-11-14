@@ -41,7 +41,7 @@
         <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">List of Tanzanian People who <span class="text-primary">Killed,Kidnapped Or</span> <span class="text-primary">Missing</span></h1>
-                    <p class="mb-0">Book your appropriate Car Type
+                    <p class="mb-0">(Tumeni picha zote za matukio halisi ya picha mnato na videos)
                     </p>
                 </div>
 
@@ -134,7 +134,7 @@
 
 
 
- <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b1.png)">
+ <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b2.jpg)">
         <div class="container h-100">
             <div class="row align-items-center h-100">
                 <div class="col-12">
@@ -146,8 +146,6 @@
             </div>
         </div>
     </section>
-
-
 
 
      

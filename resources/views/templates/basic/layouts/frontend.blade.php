@@ -140,7 +140,7 @@
                                             <li class="title">--Events report summary--</li>
                                             <li><a href="#">kidnapped(Kutekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
 
-                                            <li><a href="#">killed(Kauwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a></li>
+                                            <li><a href="#">killed(Uwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a></li>
 
                                             <li><a href="#">Missed(Kupotea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a></li>
 
