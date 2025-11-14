@@ -36,88 +36,6 @@
 
 
 
- <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/p2.jpeg)">
-        <div class="container h-100">
-            <div class="row align-items-center h-100">
-                <div class="col-12">
-                    <div class="cta-content text-center">
-                        <h5 class="wow fadeInUp" data-wow-delay="300ms" style="color:fff"><span>The Rhonds Company Ltd</span></h5>
-                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The best Car Rental Dealers in Tanzania</h6>
-                    </div>
-
-
-    <div class="banner_section layout_padding">
-            <div class="container">
-               <div id="my_slider" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                     <div class="carousel-item active">
-                        <div class="row">
-                          
-                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
-                                                 
-                            <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstEvent->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
-              <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                  <div class="p-3" style="max-width: 700px;">
-                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h2>
-                      <ul class="#">
-                         <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($metaFirstEvent->name); ?></strong></li>
-                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($metaFirstEvent->event_type); ?></strong></li>
-                      </ul>
-
-
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstEvent->id, slug($metaFirstEvent->name)])); ?>">View More</a>
-                  </div>
-              </div>
-
-                        </div>
-                     </div>
-
-
-                       
-                       <?php $__empty_2 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
-                         <div class="carousel-item">
-                        <div class="row">                          
-                              <strong class="banner_taital">Get Start <br>Your favriot shoping</strong>                                                 
-                          <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
-              <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                  <div class="p-3" style="max-width: 700px;">
-                      <strong class="display-4 text-white mb-3 animate__animated animate__fadeInDown">#</strong>
-                      <ul class="#">
-                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event->name); ?></strong></li>
-                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event->event_type); ?></strong></li>
-                      </ul>
-
-
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$event->id, slug($event->name)])); ?>">View More</a>
-                  </div>
-              </div>
-               </div>
-                        </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-                
-
-                  </div>
-                  <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-                  <i class="fa fa-angle-left"></i>
-                  </a>
-                  <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-                  <i class="fa fa-angle-right"></i>
-                  </a>
-               </div>
-            </div>
- </div>
-
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 <hr>
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
@@ -128,7 +46,7 @@
                 </div>
 
       <div class="row">
-<?php $__empty_3 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_3 = false; ?>
+<?php $__empty_2 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
@@ -190,7 +108,7 @@
                     </div>
                 </div>
 
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_3): ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
                         <?php endif; ?>
                         
                     
@@ -210,32 +128,27 @@
                  </section>
 
 
-<section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
-    <?php
-        $banners = getContent('banner.element');
-
-        $brands = \App\Models\Brand::active()->orderBy('name')->get();
-        $seats = \App\Models\Seater::active()->orderBy('number')->get();
-    ?>
-
-   </section>
-
-
-              <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
-            <?php
-                $banners = getContent('banner.element');
-
-                $brands = \App\Models\Brand::active()->orderBy('name')->get();
-                $seats = \App\Models\Seater::active()->orderBy('number')->get();
-            ?>
-
-          </section>
-
-
-<hr>
 
 
 
+
+ <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b1.png)">
+        <div class="container h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-12">
+                    <div class="cta-content text-center">
+                        <h5 class="wow fadeInUp" data-wow-delay="300ms" style="color:fff"><span style="color:yellow;">We must expose all evil events</span></h5>
+                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The timeless rallying cry for justice, unity, and unbreakable power of solidarity</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+     
     <script type="text/javascript">
 function scrollToNextSection() {
   const currentSection = document.activeElement.closest('section');

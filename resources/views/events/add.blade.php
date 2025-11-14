@@ -37,11 +37,11 @@
                                     <select class="form-control" id="event_type" name="event_type" required="">
                                         <option value="">-- @lang('chagua') --</option>
 
-                                        <option value="kidnapped">kidnapped(Katekwa)</option>
+                                        <option value="kidnapped">kidnapped(Kutekwa)</option>
                                          <option value="killed">killed(Kauwawa)</option>
                                          <option value="Missed">Missed(Kapotea bila Taarifa)</option>
                                           <option value="Totured">Totured(Kuteswa)</option>
-                                              <option value="Other">Other(Vinginevyo)</option>
+                                            <option value="Other">Other(Vinginevyo)</option>
                                     </select>
                                 </div>
                             </div>

@@ -20,6 +20,8 @@ use App\Models\SupportTicket;
 use Carbon\Carbon;
 use App\Models\Vehicle;
 
+use App\Models\Suspect;
+
 use Illuminate\Http\Request;
 
 
@@ -32,8 +34,8 @@ class SiteController extends Controller
     public function index(){
          //dd($this->activeTemplate);
         $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
-      // dd($count);
-        if($count == 0){
+      
+           if($count == 0){
             $page = new Page();
             $page->tempname = $this->activeTemplate;
             $page->name = 'HOME';

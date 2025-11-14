@@ -14,6 +14,10 @@ use App\Models\cartype;
 use App\Models\Brand;
 use App\Models\Vehicle;
 use App\Models\service;
+use App\Models\Event;
+
+use App\Models\Suspect;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -50,6 +54,7 @@ if ($this->app->isLocal()) {
     public function boot()
     {
 
+         
         $activeTemplate = activeTemplate();
         $general = GeneralSetting::first();
         $viewShare['general'] = $general;
@@ -72,11 +77,45 @@ if ($this->app->isLocal()) {
           $viewShare['view_services'] = service::where('category','!=','Main')
           ->orderBy('title','asc')->get();
 
+// $viewShare['general'] = $eventCounts;
+//  $viewShare['eventCounts'] = Event::where('status',1)->get();
+     
+
+
+      view()->composer('*',function($view) {
+  // $view->with('userCount', Auth::user());
+  //$view->with('user', Auth::user());
+   //$view->with('user', Auth::user());
+
+  $view['eventCounts'] = Event::where('status',1)->get();
+  $view['eventCounts'] =collect($view->eventCounts);
+         
+
+    $view['suspectCounts'] = Suspect::where('status',1)->get();
+  $view['suspectCounts'] =collect($view->suspectCounts);
+
+         //dd($view->eventCounts);
+
+            //$view->with('user', Auth::user());
+            // $view->with('userx', user::all());
+
+
+            //->select('properties.property_name')->first());
+             //$view->with('qnsCount', collect($qnsCount));
+
+             // $view->with('company', myCompany::where('id',$company_id)->where('status','Active')->first());
+        });
+
+
+
+
+
+
+
+
+
          //dd($viewShare['view_brands']);
         view()->share($viewShare);
-
-
-
 
         view()->composer('admin.partials.sidenav', function ($view) {
             $view->with([
@@ -88,6 +127,9 @@ if ($this->app->isLocal()) {
             ]);
 
         });
+
+
+
 
          view()->composer('admin.partialsuser.sidenav', function ($view) {
             $view->with([
@@ -126,7 +168,6 @@ if ($this->app->isLocal()) {
                 'seo' => $seo ? $seo->data_values : $seo,
             ]);
         });
-
 
 
         if($general->force_ssl){

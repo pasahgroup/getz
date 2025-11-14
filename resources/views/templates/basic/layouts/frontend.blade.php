@@ -54,15 +54,15 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
 
 
-  <link rel="stylesheet" href="../../../sonamaster/style.css">
-   <link rel="stylesheet" href="../../../assetstaxio/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../../../sonamaster/style.css"> -->
+<!--    <link rel="stylesheet" href="../../../assetstaxio/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/all-fontawesome.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/animate.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/magnific-popup.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/jquery-ui.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/jquery.timepicker.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/nice-select.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/style.css">
+    <link rel="stylesheet" href="../../../assetstaxio/css/style.css"> -->
 
   @stack('style-lib')
     @stack('style')
@@ -138,21 +138,31 @@
                                     <div class="megamenu">
                                         <ul class="single-mega cn-col-4">
                                             <li class="title">--Events report summary--</li>
-                                            <li><a href="#">kidnapped(Katekwa)</a></li>
-                                            <li><a href="#">killed(Kauwawa)</a></li>
-                                            <li><a href="#">Missed(Kapotea bila Taarifa)</a></li>
-                                            <li><a href="#">Totured(Kuteswa)</a></li>
-                                            <li><a href="#">Other(Nyingine)</a></li>
+                                            <li><a href="#">kidnapped(Kutekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
+
+                                            <li><a href="#">killed(Kauwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a></li>
+
+                                            <li><a href="#">Missed(Kupotea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a></li>
+
+
+                                            <li><a href="#">Totured(Kuteswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a></li>
+
+                                            <li><a href="#">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a></li>
 
                                         </ul>
                                         <ul class="single-mega cn-col-4">
                                                <li class="title">--Suspected report summary--</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
+                                                                                             <li><a href="#">Individual(Mtu:<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a></li>
+
+                                            <li><a href="#">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> {{$suspectCounts->where('category','People')->count()}}</span></a></li>
+
+
+                                            <li><a href="#">Institute(Taasisi):<span class="badge badge-pill badge-primary"> {{$suspectCounts->where('category','Institute')->count()}}</span></a></li>
+
+                                            <li><a href="#">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$suspectCounts->where('category','Other')->count()}}</span></a></li>
+
+
+                                                        </ul>
                                         <ul class="single-mega cn-col-4">
                                             <li class="title">Headline 3</li>
                                             <li><a href="#">Mega Menu Item 1</a></li>

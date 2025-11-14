@@ -490,7 +490,7 @@ img {
         padding: 0.5em 30px; } }
   .main-header-area .classynav ul li a {
     color: #ffffff;
-    text-transform: uppercase;
+    text-transform: lowerercase;
     font-weight: 600; }
   .main-header-area .nav-brand {
     line-height: 1; }
