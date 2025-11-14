@@ -121,15 +121,13 @@
 </div>
 <br>
     
-        </div>
-        <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+
+     <section class="showcase container">
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
                  </section>
-
-
-
-
+        </div>
+ 
 
 
  <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b2.jpg)">
