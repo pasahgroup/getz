@@ -4,8 +4,12 @@
     <div class="account-section pt-120 pb-120">
         <div class="container">
             <div class="row justify-content-center">
+                   <p for="username" class="form--label">Don't write your Mobile number any where</p>
+                                <div for="username" class="form--label"></div>   
+                                <p for="username" class="form--label">Everything is Encrypted and confidential. Don't share your user name with any one</p>
+
                 <div class="col-lg-10">
-                    <div class="account__wrapper bg--section" style="background-color:#a6a876;padding:1px">
+                    <div class="account__wrapper bg--section" style="background-image: url(../../../img/bg-img/b3.png);opacity:1;">
                        {{--
                         <div class="logo">
                                   <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:; height:;"></a>
@@ -14,23 +18,19 @@
                         <form class="account-form row g-4" action="{{ route('user.register') }}" method="POST" onsubmit="return submitUserForm();">
                             @csrf
 
-            
-              <p for="username" class="form--label">Don't write your Mobile number any where</p>
-                                <div for="username" class="form--label"></div>   
-                                <p for="username" class="form--label">Everything is confidential. Don't share your user name with any one</p>
-
+                                     
                            <br>
                             <div class="col-md-6">
-                                <label for="username" class="form--label">{{ __('Username') }}</label>
+                                <label for="username" class="form--label text--base">{{ __('Username') }}</label>
                                 <input id="username" type="text" class="form-control checkUser" name="username" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
-                                <label for="email" class="form--label">@lang('E-Mail Address')</label>
+                                <label for="email" class="form--label text--base">@lang('E-Mail Address')</label>
                                 <input id="email" type="email" class="form-control checkUser" name="email" value="{{ old('email') }}" placeholder="@lang('E-Mail Address')" required>
                             </div>
                             <div class="col-md-6 hover-input-popup">
-                                <label for="password" class="form--label">@lang('Password')</label>
+                                <label for="password" class="form--label text--base">@lang('Password')</label>
                                 <input id="password" type="password" class="form-control " name="password" placeholder="@lang('Password')" required>
                                 @if($general->secure_password)
                                     <div class="input-popup">
@@ -43,7 +43,7 @@
                                 @endif
                             </div>
                             <div class="col-md-6">
-                                <label for="select" class="form--label">@lang('Confirm Password')</label>
+                                <label for="select" class="form--label text--base">@lang('Confirm Password')</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="@lang('Confirm Password')" required autocomplete="new-password">
                             </div>
 <br><br>
@@ -73,7 +73,7 @@
                                         </div>
                                     @endif
                                     <div>
-                                        @lang('Already have an account?') <a href="{{ route('user.login') }}" class="text--base">@lang('Sign In Now')</a>
+                                        @lang('Already have an account?') <a href="{{ route('user.login') }}" class="text--base">@lang('Sign In')</a>
                                     </div>
                                 </div>
                             </div>

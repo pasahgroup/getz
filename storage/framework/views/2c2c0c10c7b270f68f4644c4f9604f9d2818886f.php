@@ -3,29 +3,29 @@
     <div class="account-section pt-120 pb-120">
         <div class="container">
             <div class="row justify-content-center">
+                   <p for="username" class="form--label">Don't write your Mobile number any where</p>
+                                <div for="username" class="form--label"></div>   
+                                <p for="username" class="form--label">Everything is Encrypted and confidential. Don't share your user name with any one</p>
+
                 <div class="col-lg-10">
-                    <div class="account__wrapper bg--section" style="background-color:#a6a876;padding:1px">
+                    <div class="account__wrapper bg--section" style="background-image: url(../../../img/bg-img/b3.png);opacity:1;">
                        
                         <form class="account-form row g-4" action="<?php echo e(route('user.register')); ?>" method="POST" onsubmit="return submitUserForm();">
                             <?php echo csrf_field(); ?>
 
-            
-              <p for="username" class="form--label">Don't write your Mobile number any where</p>
-                                <div for="username" class="form--label"></div>   
-                                <p for="username" class="form--label">Everything is confidential. Don't share your user name with any one</p>
-
+                                     
                            <br>
                             <div class="col-md-6">
-                                <label for="username" class="form--label"><?php echo e(__('Username')); ?></label>
+                                <label for="username" class="form--label text--base"><?php echo e(__('Username')); ?></label>
                                 <input id="username" type="text" class="form-control checkUser" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo e(__('Username')); ?>" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
-                                <label for="email" class="form--label"><?php echo app('translator')->get('E-Mail Address'); ?></label>
+                                <label for="email" class="form--label text--base"><?php echo app('translator')->get('E-Mail Address'); ?></label>
                                 <input id="email" type="email" class="form-control checkUser" name="email" value="<?php echo e(old('email')); ?>" placeholder="<?php echo app('translator')->get('E-Mail Address'); ?>" required>
                             </div>
                             <div class="col-md-6 hover-input-popup">
-                                <label for="password" class="form--label"><?php echo app('translator')->get('Password'); ?></label>
+                                <label for="password" class="form--label text--base"><?php echo app('translator')->get('Password'); ?></label>
                                 <input id="password" type="password" class="form-control " name="password" placeholder="<?php echo app('translator')->get('Password'); ?>" required>
                                 <?php if($general->secure_password): ?>
                                     <div class="input-popup">
@@ -38,7 +38,7 @@
                                 <?php endif; ?>
                             </div>
                             <div class="col-md-6">
-                                <label for="select" class="form--label"><?php echo app('translator')->get('Confirm Password'); ?></label>
+                                <label for="select" class="form--label text--base"><?php echo app('translator')->get('Confirm Password'); ?></label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="<?php echo app('translator')->get('Confirm Password'); ?>" required autocomplete="new-password">
                             </div>
 <br><br>
@@ -69,7 +69,7 @@
                                         </div>
                                     <?php endif; ?>
                                     <div>
-                                        <?php echo app('translator')->get('Already have an account?'); ?> <a href="<?php echo e(route('user.login')); ?>" class="text--base"><?php echo app('translator')->get('Sign In Now'); ?></a>
+                                        <?php echo app('translator')->get('Already have an account?'); ?> <a href="<?php echo e(route('user.login')); ?>" class="text--base"><?php echo app('translator')->get('Sign In'); ?></a>
                                     </div>
                                 </div>
                             </div>
