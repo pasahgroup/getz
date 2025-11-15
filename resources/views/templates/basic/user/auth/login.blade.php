@@ -18,11 +18,11 @@
   <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>
 
                             <div class="col-md-12">
-                                <label for="username" class="form--label bg--section">@lang('Username or Email')</label>
+                                <label for="username" class="form--label" style="color:yellow;">@lang('Username or Email')</label>
                                 <input type="text" name="username" value="{{ old('username') }}" placeholder="@lang('Username or Email')" class="form-control form--control" required>
                             </div>
                             <div class="col-md-12">
-                                <label for="password" class="form--label">{{ __('Password') }}</label>
+                                <label for="password" class="form--label" style="color:yellow;">{{ __('Password') }}</label>
                                 <input id="password" type="password" class="form-control form--control" placeholder="@lang('Password')" name="password" required>
                             </div>
 

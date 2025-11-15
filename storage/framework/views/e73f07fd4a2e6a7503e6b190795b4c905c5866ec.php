@@ -12,11 +12,11 @@
   <input type="hidden" name="fullurl" value="<?php echo e($fullUrl); ?>"/>
 
                             <div class="col-md-12">
-                                <label for="username" class="form--label bg--section"><?php echo app('translator')->get('Username or Email'); ?></label>
+                                <label for="username" class="form--label" style="color:yellow;"><?php echo app('translator')->get('Username or Email'); ?></label>
                                 <input type="text" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo app('translator')->get('Username or Email'); ?>" class="form-control form--control" required>
                             </div>
                             <div class="col-md-12">
-                                <label for="password" class="form--label"><?php echo e(__('Password')); ?></label>
+                                <label for="password" class="form--label" style="color:red;"><?php echo e(__('Password')); ?></label>
                                 <input id="password" type="password" class="form-control form--control" placeholder="<?php echo app('translator')->get('Password'); ?>" name="password" required>
                             </div>
 
