@@ -5,9 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="account__wrapper bg--section" style="background-color:#a6a876;padding:1px">
-                        <div class="logo">
-                                  <a href="<?php echo e(route('home')); ?>" class="d-block"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'] .'/logo.png')); ?>" alt="logo" style="width:; height:;"></a>
-                        </div>
+                       
                         <form class="account-form row g-4" action="<?php echo e(route('user.register')); ?>" method="POST" onsubmit="return submitUserForm();">
                             <?php echo csrf_field(); ?>
 
