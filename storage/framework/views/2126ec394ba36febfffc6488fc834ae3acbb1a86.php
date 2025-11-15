@@ -13,7 +13,7 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="hero-slides-contentx">
-                                <h2 data-animation="fadeInUp" data-delay="100ms"><?php echo e($event->event_type); ?></h2>
+                                <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;"><?php echo e($event->event_type); ?></h2>
                             </div>
                       <ul class="#">
                           <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event->name); ?></strong></li>
