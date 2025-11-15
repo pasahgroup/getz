@@ -51,7 +51,7 @@
                                     <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
                                    
                                         <td data-label="@lang('Date event')">                                            
-      <img class="" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
+      <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="height:80px;">
                                         </td>
 
    <td data-label="@lang('Event details')">{{ __($item->details) }}</td>

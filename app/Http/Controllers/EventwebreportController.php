@@ -53,12 +53,14 @@ class EventwebreportController extends Controller
 
 $pageTitle=$event;
 
-            $eventWR=Event::where('status',1)  
+           $eventWR=Event::where('status',1)  
         ->select('events.*')
         ->where('event_type',$event)
         ->paginate(getPaginate(15));
+        //dd($eventWR);
 
-        return view('reports.eventWebReportSummary', compact('eventWR','pageTitle'));
+$empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
     }
 
 
@@ -72,9 +74,9 @@ $pageTitle=$sus;
         ->select('suspects.*')
         ->where('category',$sus)
         ->paginate(getPaginate(15));
-      
 
-        return view('reports.suspectWebReportSummary', compact('suspectWR','pageTitle'));
+        $empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('reports.suspectWebReportSummary', compact('suspectWR','empty_message','pageTitle'));
     }
 
 

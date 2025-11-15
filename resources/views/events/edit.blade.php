@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="row">
 
-<div class="row">                          
+                        <div class="row">                         
 
                             <div class="col-md-7">
                                 <div class="form-group">
@@ -28,7 +28,6 @@
                                             value="{{ $event->date_event }}">
                                 </div>
                             </div>
-
  
 
                                <div class="col-md-7">
@@ -38,11 +37,12 @@
                                         <option
                                                 value="{{ $event->event_type }}" selected>{{ $event->event_type }}</option>
 
-                                        <option value="kidnapped">kidnapped(Kutekwa)</option>
-                                         <option value="killed">killed(Kauwawa)</option>
-                                         <option value="Missed">Missed(Kapotea bila Taarifa)</option>
-                                         <option value="Totured">Totured(Kuteswa)</option>
-                                        <option value="Other">Other(Vinginevyo)</option>
+                                  <option value="Injured">Injured(Jeruhiwa)</option>
+                                        <option value="kidnapped">kidnapped(Tekwa)</option>
+                                         <option value="killed">killed(Uwawa)</option>
+                                         <option value="Missed">Missed(Potea bila Taarifa)</option>
+                                          <option value="Totured">Totured(Teswa)</option>
+                                            <option value="Other">Other(Ingineyo)</option>
                                     </select>
                                 </div>
                             </div>

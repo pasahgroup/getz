@@ -30,7 +30,7 @@
                   </thead>
                   <tbody>
               
-   @if(isset($suspectWR))
+@isset($suspectWR)
        @forelse ($suspectWR as $item)
                                 <tr>                                    
                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
@@ -55,7 +55,7 @@
                                     <td class="text-muted text-center" colspan="100%">{{ __($empty_message) }}</td>
                                 </tr>
                             @endforelse
-                             @endif
+                             @endisset
                   </tbody>
                   <tfoot>
                     <tr>

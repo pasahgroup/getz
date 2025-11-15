@@ -51,7 +51,7 @@
                                     <td data-label="<?php echo app('translator')->get('Date event'); ?>"><?php echo e(__($item->date_event)); ?></td>
                                    
                                         <td data-label="<?php echo app('translator')->get('Date event'); ?>">                                            
-      <img class="" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
+      <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size'])); ?>" style="height:80px;">
                                         </td>
 
    <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->details)); ?></td>

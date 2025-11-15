@@ -70,9 +70,7 @@
 
                                 </tr>
                             @empty
-                                <tr>
-                                    <td class="text-muted text-center" colspan="100%">{{ __($empty_message) }}</td>
-                                </tr>
+                              
                             @endforelse
                   </tbody>
                   <tfoot>

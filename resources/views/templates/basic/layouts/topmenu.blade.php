@@ -12,7 +12,7 @@
                
                 <div class="phone-number d-flex">
                     <div class="icon">
-                        <img src="img/icons/phone-call.png" alt="">
+                        <img src="img/icons/phone-call.png" alt="" style="height:50px;">
                     </div>
                     <div class="number">
                         <a href="tel:+45 677 8993000 223">+000 000 000</a>
@@ -29,7 +29,7 @@
                 <nav class="classy-navbar justify-content-between" id="southNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="index.html"><img src="../.../../img/core-img/logo.png" alt="" style="height:50px;"></a>
+                    <a class="nav-brand" href="index.html"><img src="../.../../img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -71,16 +71,19 @@
                                     <div class="megamenu">
                                         <ul class="single-mega cn-col-4">
                                             <li class="title">--Events report summary--</li>
-                                            <li><a href="/event-web/kidnapped">kidnapped(Kutekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
+
+                                               <li><a href="/event-web/Injured">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','Injured')->count()}}</span></a></li>
+
+                                            <li><a href="/event-web/kidnapped">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
 
                                             <li><a href="/event-web/killed">killed(Uwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a></li>
 
-                                            <li><a href="/event-web/Missed">Missed(Kupotea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a></li>
+                                            <li><a href="/event-web/Missed">Missed(Potea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a></li>
 
 
-                                            <li><a href="/event-web/Totured">Totured(Kuteswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a></li>
+                                            <li><a href="/event-web/Totured">Totured(Teswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a></li>
 
-                                            <li><a href="/event-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a></li>
+                                            <li><a href="/event-web/Other">Other(Ingineyo):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a></li>
                                         </ul>
                                         
                                         <ul class="single-mega cn-col-4">

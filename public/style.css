@@ -94,8 +94,12 @@ ol {
     list-style: none; }
 
 img {
+  height: 80px;
+  max-width: 100%; }
+  img2 {
   height: auto;
   max-width: 100%; }
+
 
 .mt-15 {
   margin-top: 15px; }
