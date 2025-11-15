@@ -43,6 +43,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         ->paginate(getPaginate(15));
 
 
+
         $pageTitle = 'Suspected People,Group or Institute';
         $empty_message = 'No vehicle has been added.';
         return view('suspects.index', compact('pageTitle', 'empty_message','tags','suspects'));

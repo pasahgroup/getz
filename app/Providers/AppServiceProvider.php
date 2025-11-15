@@ -53,7 +53,6 @@ if ($this->app->isLocal()) {
      */
     public function boot()
     {
-
          
         $activeTemplate = activeTemplate();
         $general = GeneralSetting::first();
@@ -81,7 +80,6 @@ if ($this->app->isLocal()) {
 //  $viewShare['eventCounts'] = Event::where('status',1)->get();
      
 
-
       view()->composer('*',function($view) {
   // $view->with('userCount', Auth::user());
   //$view->with('user', Auth::user());
@@ -91,7 +89,7 @@ if ($this->app->isLocal()) {
   $view['eventCounts'] =collect($view->eventCounts);
          
 
-    $view['suspectCounts'] = Suspect::where('status',1)->get();
+ $view['suspectCounts'] = Suspect::where('status',1)->get();
   $view['suspectCounts'] =collect($view->suspectCounts);
 
          //dd($view->eventCounts);

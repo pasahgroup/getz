@@ -1,15 +1,9 @@
 
-
 <?php $__env->startSection('panel'); ?>
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <a href="<?php echo e(route('user.events.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Event (Sajili Tukio)'); ?></a>
 <?php $__env->stopPush(); ?>
-
-
-
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
- 
 
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -26,32 +20,24 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('District'); ?></th>
-                           <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Suspected name'); ?></th>                               
+                                      <th scope="col"><?php echo app('translator')->get('Category'); ?></th>
+                                       <th scope="col"><?php echo app('translator')->get('Titles'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Photos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Crime Details'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
                   </thead>
                   <tbody>
               
-       <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+   <?php if(!isset($suspectWR)): ?>
+       <?php $__empty_1 = true; $__currentLoopData = $suspectWR; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>                                    
                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
                                     
-                                    <td data-label="<?php echo app('translator')->get('Event_type'); ?>"><?php echo e(__($item->event_type)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Event_place'); ?>"><?php echo e(__($item->event_place)); ?></td>
-                                     <td data-label="<?php echo app('translator')->get('Region'); ?>"><?php echo e(__($item->region)); ?></td>
-                                      <td data-label="<?php echo app('translator')->get('District'); ?>"><?php echo e(__($item->district)); ?></td>
-
-                                    <td data-label="<?php echo app('translator')->get('Date event'); ?>"><?php echo e(__($item->date_event)); ?></td>
-                                   
-                                        <td data-label="<?php echo app('translator')->get('Date event'); ?>">                                            
+                                    <td data-label="<?php echo app('translator')->get('Titles'); ?>"><?php echo e(__($item->title)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Category'); ?>"><?php echo e(__($item->category)); ?></td>
+                                    <td>                                                                                
       <img class="" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
                                         </td>
 
@@ -63,37 +49,22 @@
                                             <span class="text--small badge font-weight-normal badge--warning"><?php echo app('translator')->get('Deactive'); ?></span>
                                         <?php endif; ?>
                                     </td>
-                                
-
-                                    <td data-label="<?php echo app('translator')->get('Action'); ?>">
-                                        <a href="<?php echo e(route('user.events.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
-                                            <i class="la la-edit"></i>
-                                        </a>
-
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('user.events.status', $item->id)); ?>">
-                                            <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
-                                        </a>
-                                    </td>
-
-                                </tr>
+                                                                </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                 <tr>
                                     <td class="text-muted text-center" colspan="100%"><?php echo e(__($empty_message)); ?></td>
                                 </tr>
                             <?php endif; ?>
+                             <?php endif; ?>
                   </tbody>
                   <tfoot>
                     <tr>
-                                <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('District'); ?></th>
-                           <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
+                                  <th scope="col"><?php echo app('translator')->get('Suspected name'); ?></th>                               
+                                      <th scope="col"><?php echo app('translator')->get('Category'); ?></th>
+                                       <th scope="col"><?php echo app('translator')->get('Titles'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Photos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Crime Details'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
                   </tfoot>
                 </table>
@@ -230,6 +201,5 @@
       $('#summernote3').summernote()
     })
 
-  </script>  
-
-<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/events/index.blade.php ENDPATH**/ ?>
+  </script>
+<?php echo $__env->make('admin.layoutsuser.appweb', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/reports/suspectWebReportSummary.blade.php ENDPATH**/ ?>

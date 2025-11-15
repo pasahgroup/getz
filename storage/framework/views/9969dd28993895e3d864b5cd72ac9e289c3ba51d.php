@@ -71,28 +71,28 @@
                                     <div class="megamenu">
                                         <ul class="single-mega cn-col-4">
                                             <li class="title">--Events report summary--</li>
-                                            <li><a href="/event-web/kidnapped">kidnapped(Kutekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
+                                            <li><a href="/event-web/kidnapped">kidnapped(Kutekwa):<span class="badge badge-pill badge-warning"> <?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?></span></a></li>
 
-                                            <li><a href="/event-web/killed">killed(Uwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a></li>
+                                            <li><a href="/event-web/killed">killed(Uwawa):<span class="badge badge-pill badge-danger"> <?php echo e($eventCounts->where('event_type','killed')->count()); ?></span></a></li>
 
-                                            <li><a href="/event-web/Missed">Missed(Kupotea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a></li>
+                                            <li><a href="/event-web/Missed">Missed(Kupotea bila Taarifa):<span class="badge badge-pill badge-info"> <?php echo e($eventCounts->where('event_type','Missed')->count()); ?></span></a></li>
 
 
-                                            <li><a href="/event-web/Totured">Totured(Kuteswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a></li>
+                                            <li><a href="/event-web/Totured">Totured(Kuteswa):<span class="badge badge-pill badge-primary"> <?php echo e($eventCounts->where('event_type','Totured')->count()); ?></span></a></li>
 
-                                            <li><a href="/event-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a></li>
+                                            <li><a href="/event-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> <?php echo e($eventCounts->where('event_type','Other')->count()); ?></span></a></li>
                                         </ul>
                                         
                                         <ul class="single-mega cn-col-4">
                                                <li class="title">--Suspected report summary--</li>
-                                                                                             <li><a href="/suspect-web/Individual">Individual(Mtu):<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a></li>
+                                                                                             <li><a href="/suspect-web/Individual">Individual(Mtu):<span class="badge badge-pill badge-danger"> <?php echo e($suspectCounts->where('category','Individual')->count()); ?></span></a></li>
 
-                                            <li><a href="/suspect-web/People">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> {{$suspectCounts->where('category','People')->count()}}</span></a></li>
+                                            <li><a href="/suspect-web/People">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> <?php echo e($suspectCounts->where('category','People')->count()); ?></span></a></li>
 
 
-                                            <li><a href="/suspect-web/Institute">Institute(Taasisi):<span class="badge badge-pill badge-primary"> {{$suspectCounts->where('category','Institute')->count()}}</span></a></li>
+                                            <li><a href="/suspect-web/Institute">Institute(Taasisi):<span class="badge badge-pill badge-primary"> <?php echo e($suspectCounts->where('category','Institute')->count()); ?></span></a></li>
 
-                                            <li><a href="/suspect-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$suspectCounts->where('category','Other')->count()}}</span></a></li>
+                                            <li><a href="/suspect-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> <?php echo e($suspectCounts->where('category','Other')->count()); ?></span></a></li>
 
 
                                                         </ul>
@@ -133,4 +133,4 @@
                 </nav>
             </div>
         </div>
-    </header>
+    </header><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>

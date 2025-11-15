@@ -10,6 +10,8 @@ use App\Http\Controllers\AzampayController;
 use App\Http\Controllers\ComboboxController;
 use App\Http\Controllers\VehiclesController;
 
+use App\Http\Controllers\EventwebreportController;
+
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 });
@@ -587,15 +589,28 @@ Route::get('web-servise/{s}', 'SiteController@webservice')->name('web-service');
 
 // AzamPay
  // Route::get('azam', DepartController::class)->name('azam.index');
-Route::get('/azam/{r}', 'DepartController@index');
+ Route::get('/azam/{r}', 'DepartController@index');
 
 // Route::resource('azam', AzampayController::class, 'index');
  // Route::resource('azamx', AzampayController::class);
 // Route::resource('azam', DepartmentController::class);
 
-// Route::resource('dk', DepartmentController::class);
  Route::get('/ddp/{d}', [DepartController::class, 'show']);
 
 
 //Route::resource('yyy', SiteController::class);
 //Route::resource('/', 'SiteController@index')->name('home');
+
+//Route::resource('azam', AzampayController::class, 'index');
+//Route::resource('dk', EventwebreportController::class);
+Route::get('event-web/{x}', 'EventwebreportController@show')->name('event-web.show');
+Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
+
+        //    Route::get('events/add', 'EventController@add')->name('events.add');
+        //       Route::post('events/store', 'EventController@store')->name('events.store');
+        
+        // Route::get('events/{id}', 'EventController@edit')->name('events.edit');
+
+        //  Route::post('events/update/{id}', 'EventController@update')->name('events.update');
+        //  Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
+        // Route::post('events/{id}/status', 'EventController@status')->name('events.status');

@@ -6,6 +6,7 @@ use App\Models\department;
 use App\Models\employee;
 use App\Http\Requests\StoredepartmentRequest;
 use App\Http\Requests\UpdatedepartmentRequest;
+use Illuminate\Http\Request;
 
 class DepartController extends Controller
 {
