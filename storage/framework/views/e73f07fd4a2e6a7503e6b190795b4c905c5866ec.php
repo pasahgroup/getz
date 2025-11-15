@@ -2,7 +2,7 @@
     <!-- Account Section Starts Here -->
     <div class="account-section pt-120 pb-120" style="#">
             <div style="border:1px solid rgba(1,0,0,.9);">
-            <div class="row justify-content-center" style="background-color:#a6a876">
+            <div class="row justify-content-center" style="background-image: url(../../../img/bg-img/b4.jpeg)">
                 <div class="col-xxl-6 col-lg-8" >
                     <div class="account__wrapper bg--section">
                         
@@ -12,7 +12,7 @@
   <input type="hidden" name="fullurl" value="<?php echo e($fullUrl); ?>"/>
 
                             <div class="col-md-12">
-                                <label for="username" class="form--label"><?php echo app('translator')->get('Username or Email'); ?></label>
+                                <label for="username" class="form--label bg--section"><?php echo app('translator')->get('Username or Email'); ?></label>
                                 <input type="text" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo app('translator')->get('Username or Email'); ?>" class="form-control form--control" required>
                             </div>
                             <div class="col-md-12">
@@ -41,7 +41,7 @@
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <a href="<?php echo e(route('user.password.request')); ?>" class="text--base"><?php echo app('translator')->get('Forgot Password?'); ?></a>
                                     <div>
-                                        <?php echo app('translator')->get('New here?'); ?> <a href="<?php echo e(route('user.register')); ?>" class="text--base"><?php echo app('translator')->get('Create Account'); ?></a>
+                                        <a href="<?php echo e(route('user.register')); ?>" class="text--base"><?php echo app('translator')->get('Create Account'); ?></a>
                                     </div>
                                 </div>
                             </div>

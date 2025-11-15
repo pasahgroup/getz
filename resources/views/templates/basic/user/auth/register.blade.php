@@ -9,7 +9,7 @@
                                 <p for="username" class="form--label">Everything is Encrypted and confidential. Don't share your user name with any one</p>
 
                 <div class="col-lg-10">
-                    <div class="account__wrapper bg--section" style="background-image: url(../../../img/bg-img/b3.png);opacity:1;">
+                    <div class="account__wrapper bg--section" style="background-image: url(../../../img/bg-img/b3.jpg)">
                        {{--
                         <div class="logo">
                                   <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:; height:;"></a>
@@ -73,7 +73,7 @@
                                         </div>
                                     @endif
                                     <div>
-                                        @lang('Already have an account?') <a href="{{ route('user.login') }}" class="text--base">@lang('Sign In')</a>
+                                     <a href="{{ route('user.login') }}" class="text--base"> @lang('Already have an account?') | @lang('Sign In')</a>
                                     </div>
                                 </div>
                             </div>

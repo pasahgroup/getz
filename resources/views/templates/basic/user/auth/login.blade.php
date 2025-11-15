@@ -4,7 +4,7 @@
     <!-- Account Section Starts Here -->
     <div class="account-section pt-120 pb-120" style="#">
             <div style="border:1px solid rgba(1,0,0,.9);">
-            <div class="row justify-content-center" style="background-color:#a6a876">
+            <div class="row justify-content-center" style="background-image: url(../../../img/bg-img/b4.jpeg)">
                 <div class="col-xxl-6 col-lg-8" >
                     <div class="account__wrapper bg--section">
                         {{--
@@ -18,7 +18,7 @@
   <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>
 
                             <div class="col-md-12">
-                                <label for="username" class="form--label">@lang('Username or Email')</label>
+                                <label for="username" class="form--label bg--section">@lang('Username or Email')</label>
                                 <input type="text" name="username" value="{{ old('username') }}" placeholder="@lang('Username or Email')" class="form-control form--control" required>
                             </div>
                             <div class="col-md-12">
@@ -47,7 +47,7 @@
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <a href="{{route('user.password.request')}}" class="text--base">@lang('Forgot Password?')</a>
                                     <div>
-                                        @lang('New here?') <a href="{{ route('user.register') }}" class="text--base">@lang('Create Account')</a>
+                                        <a href="{{ route('user.register') }}" class="text--base">@lang('Create Account')</a>
                                     </div>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@
                                 <p for="username" class="form--label">Everything is Encrypted and confidential. Don't share your user name with any one</p>
 
                 <div class="col-lg-10">
-                    <div class="account__wrapper bg--section" style="background-image: url(../../../img/bg-img/b3.png);opacity:1;">
+                    <div class="account__wrapper bg--section" style="background-image: url(../../../img/bg-img/b3.jpg)">
                        
                         <form class="account-form row g-4" action="<?php echo e(route('user.register')); ?>" method="POST" onsubmit="return submitUserForm();">
                             <?php echo csrf_field(); ?>
@@ -69,7 +69,7 @@
                                         </div>
                                     <?php endif; ?>
                                     <div>
-                                        <?php echo app('translator')->get('Already have an account?'); ?> <a href="<?php echo e(route('user.login')); ?>" class="text--base"><?php echo app('translator')->get('Sign In'); ?></a>
+                                     <a href="<?php echo e(route('user.login')); ?>" class="text--base"> <?php echo app('translator')->get('Already have an account?'); ?> | <?php echo app('translator')->get('Sign In'); ?></a>
                                     </div>
                                 </div>
                             </div>
