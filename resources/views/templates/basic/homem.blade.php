@@ -121,12 +121,13 @@
                      </div>
   </span>
 </div>
-
+     <br>
+          <br>
      <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More Events <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incidents <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
                  </section>
-                 <br>
+            
         </div>
  
 
