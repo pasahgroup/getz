@@ -153,9 +153,13 @@ class RegisterController extends Controller
            $user->nida = isset($data['nida']) ? $data['nida'] : null;
               $user->driving_license = isset($data['driving_license']) ? $data['driving_license'] : null;
 
+        
+
         $user->email = strtolower(trim($data['email']));
         $user->password = Hash::make($data['password']);
         $user->username = trim($data['username']);
+           $user->usertype ="Normal";
+
         $user->ref_by = $referUser ? $referUser->id : 0;
         // $user->country_code = $data['country_code'];
         // $user->mobile = $data['mobile_code'].$data['mobile'];

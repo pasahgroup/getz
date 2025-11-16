@@ -466,7 +466,13 @@ Route::name('user.')->prefix('user')->group(function () {
          Route::post('suspects/image/remove/{id}/{image}', 'SuspectController@deleteImage')->name('suspects.image.delete');
         Route::post('suspects/{id}/status', 'SuspectController@status')->name('suspects.status');
 
+// add videos
 
+    Route::get('movies', 'VideosController@movies_list');   
+    Route::get('videos/add_video', 'VideosController@addMovie'); 
+    Route::get('movies/edit_movie/{id}', 'VideosController@editMovie'); 
+    Route::post('movies/add_edit_movie', 'VideosController@addnew');    
+    Route::get('movies/delete/{id}', 'VideosController@delete');
 
   // Location
         Route::get('locations', 'LocationController@index')->name('location.index');

@@ -1,117 +1,149 @@
-@extends('admin.layouts.master')
-@section('content')
+<!DOCTYPE html>
+<html>
+
 <head>
-    <title>Auto populate Dropdown with jQuery AJAX in Laravel 9</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{getcong('site_name')}} Admin">
+  <meta name="author" content="Viaviwebtech">
+  
+  @if(getcong('site_favicon'))
+  <link rel="shortcut icon" href="{{ URL::asset('/'.getcong('site_favicon')) }}">
+  @else
+  <link rel="shortcut icon" href="{{ URL::asset('site_assets/images/favicon.png') }}">
+  @endif
+  <title>{{getcong('site_name')}} Admin</title>
+
+  <!-- App css -->
+  @if(getcong('external_css_js')=="CDN")
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <script src="{{ URL::asset('admin_assets/js/modernizr.min.js') }}"></script>
+  @else
+  <link href="{{ URL::asset('admin_assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('admin_assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('admin_assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ URL::asset('admin_assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+  <script src="{{ URL::asset('admin_assets/js/modernizr.min.js') }}"></script>
+  @endif
+  
+  <!-- SweetAlert2 -->
+  <script src="{{ URL::asset('admin_assets/js/sweetalert2@11.js') }}"></script>
+
 </head>
+
 <body>
+  <div class="account-pages"></div>
+  <div class="clearfix"></div>
+  <div class="wrapper-page">
+    <div class="text-center">
+       
+      @if(getcong('site_logo'))
+        <a class="navbar-brand" href="{{ URL::to('/') }}" target="_blank"> <img src="{{ URL::asset('/'.getcong('site_logo')) }}" alt="Site Logo" width="150"> </a> 
+      @else
+        <a class="navbar-brand" href="{{ URL::to('/') }}" target="_blank"> <img src="{{ URL::asset('site_assets/images/logo.png') }}" alt="Site Logo"> </a>          
+      @endif
+     
+    </div>
+    <div class="m-t-20 card-box">
+      <div class="text-center">
+        <h3 class="text-uppercase font-bold m-b-0" style="color: #f9f9f9;">{{trans('words.sign_in')}}</h3>
+  
 
-    <!-- Department Dropdown -->
-    Department : <select id='sel_depart' name='sel_depart'>
-        <option value='0'>-- Select department --</option>
+      </div>
+      <div class="p-10">
+         {!! Form::open(array('url' => 'admin/login','class'=>'form-horizontal m-t-20','id'=>'loginform','role'=>'form')) !!}    
+          <div class="form-group">
+            <div class="col-xs-12">
+              <input name="email" class="form-control" type="text" required placeholder="{{trans('words.email')}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <input name="password" class="form-control" type="password" required placeholder="{{trans('words.password')}}">
+            </div>
+          </div>
+          <div class="form-group ">
+            <div class="col-xs-12">
+              <div class="checkbox checkbox-custom">
+                <input id="checkbox-signup" type="checkbox" name="remember" value="remember">
+                <label for="checkbox-signup"> {{trans('words.remember_me')}} </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center m-t-10">
+            <div class="col-xs-12">
+              <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">{{trans('words.login_text')}}</button>
+            </div>
+          </div>
+          <div class="form-group m-t-20 m-b-0 text-center">
+            <div class="col-sm-12"> <a href="{{ URL::to('password/email') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i>
+                {{trans('words.forgot_pass_text')}}</a> </div>
+          </div>
+           
+        {!! Form::close() !!} 
+      </div>
+    </div>
+  </div>
 
-        <!-- Read Departments -->
-        @foreach($departments['data'] as $department)
-            <option value='{{ $department->id }}'>{{ $department->color }}</option>
-        @endforeach
-    </select>
+  @if(getcong('external_css_js')=="CDN")
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{{ URL::asset('admin_assets/js/popper.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script> 
 
-    <br><br>
-    <!-- Department Employees Dropdown -->
-    Employee : <select id='sel_emp' name='sel_emp'>
-        <option value='0'>-- Select Employee --</option>
-    </select>
-
-        Employee2 : <select id='sel_emp2' name='sel_emp2'>
-        <option value='0'>-- Select Employee --</option>
-    </select>
-
-
-    <!-- Script -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-
-     <script type="text/javascript" src="../js/jquery360.min.js"></script>
-
-
-       <script type='text/javascript'>
-       $(document).ready(function(){
-
-           // Department Change
-           $('#sel_depart').change(function(){
-
-                // Department id
-                var id = $(this).val();
-
-                // Empty the dropdown
-                $('#sel_emp').find('option').not(':first').remove();
-   //alert(id);
-                // AJAX request
-                $.ajax({
-                    url: 'Employee/'+id,
-                    type: 'get',
-                    dataType: 'json',
-                    success: function(response){
-
-                        var len = 0;
-                        if(response['data'] != null){
-                             len = response['data'].length;
-                        }
-
-                      //  alert(len);
-                        if(len > 0){
-                             // Read data and create <option >
-                             for(var i=0; i<len; i++){
-                                  var id = response['data'][i].id;
-                                  var name = response['data'][i].color;
-                                  var option = "<option value='"+id+"'>"+name+"</option>";
-                                  $("#sel_emp").append(option);
-                             }
-                        }
-
-                    }
-                });
-           });
-       });
+  @else  
+  <script src="{{ URL::asset('admin_assets/js/jquery.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/popper.min.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/bootstrap.min.js') }}"></script>  
+  @endif
+     
+   
+  <!-- App js -->
+  <script src="{{ URL::asset('admin_assets/js/jquery.core.js') }}"></script>
+  <script src="{{ URL::asset('admin_assets/js/jquery.app.js') }}"></script>
 
 
-        $(document).ready(function(){
+  <script type="text/javascript">
+    
+    @if(Session::has('flash_message'))     
+ 
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: false,
+        /*didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }*/
+      })
 
-           // Department Change
-           $('#sel_emp').change(function(){
+      Toast.fire({
+        icon: 'success',
+        title: '{{ Session::get('flash_message') }}'
+      })     
+     
+  @endif
 
-                // Department id
-                var id = $(this).val();
+  @if (count($errors) > 0)
+                  
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: '<p>@foreach ($errors->all() as $error) {{$error}}<br/> @endforeach</p>',
+            showConfirmButton: true,
+            confirmButtonColor: '#10c469',
+            background:"#1a2234",
+            color:"#fff"
+           }) 
+  @endif
 
-   //alert(id);
-                // Empty the dropdown
-                $('#sel_emp2').find('option').not(':first').remove();
+  </script>  
 
-                // AJAX request
-                $.ajax({
-                    url: 'getEmpl/'+id,
-                    type: 'get',
-                    dataType: 'json',
-                    success: function(response){
-
-                        var len = 0;
-                        if(response['data'] != null){
-                             len = response['data'].length;
-                        }
-
-                        if(len > 0){
-                             // Read data and create <option >
-                             for(var i=0; i<len; i++){
-
-                                  var id = response['data'][i].id;
-                                  var name = response['data'][i].color;
-                                  var option = "<option value='"+id+"'>"+name+"</option>";
-                                  $("#sel_emp2").append(option);
-                             }
-                        }
-
-                    }
-                });
-           });
-       });
-       </script>
 </body>
-@endsection
+
+</html>

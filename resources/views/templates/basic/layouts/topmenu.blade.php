@@ -1,4 +1,10 @@
     <header class="header-area">
+<style>
+    wider {
+  width: 300px; /* Full width of parent */
+}
+</style>
+
 
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -29,7 +35,7 @@
                 <nav class="classy-navbar justify-content-between" id="southNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="index.html"><img src="../.../../img/core-img/logo.png" alt=""></a>
+                    <a class="nav-brand" href="#"><img src="../.../../img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -47,31 +53,18 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li><a href="#">Pages</a>
+                                <li><a href="#">Incidents</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="#">Listings</a>
-                                            <ul class="dropdown">
-                                                <li><a href="listings.html">Listings</a></li>
-                                                <li><a href="single-listings.html">Single Listings</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Blog</a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Single Blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
-                                    </ul>
-                                </li>
-                                                             <li><a href="#">Reports</a>
-                                    <div class="megamenu">
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">--Events report summary--</li>
+                                        <li><a href="#">Upload Photos</a></li>
+                                       <li><a href="#">Upload Videos</a></li>
+                                                                          </ul>
+                           </li>
 
+
+  <li><a href="#">Reports</a>
+                                    <ul class="dropdown"  style="width:240px">
+                                        <li><a href="#">Events report summary</a>
+                                            <ul class="dropdown" style="width:250px">
                                                <li><a href="/event-web/Injured">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','Injured')->count()}}</span></a></li>
 
                                             <li><a href="/event-web/kidnapped">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
@@ -84,11 +77,13 @@
                                             <li><a href="/event-web/Totured">Totured(Teswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a></li>
 
                                             <li><a href="/event-web/Other">Other(Ingineyo):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a></li>
-                                        </ul>
-                                        
-                                        <ul class="single-mega cn-col-4">
-                                               <li class="title">--Suspected report summary--</li>
-                                                                                             <li><a href="/suspect-web/Individual">Individual(Mtu):<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a></li>
+                                            </ul>
+                                        </li>
+
+
+ <li><a href="#">Suspected report summary</a>
+                                         <ul class="dropdown" style="width:280px">
+                                              <li><a href="/suspect-web/Individual">Individual(Mtu):<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a></li>
 
                                             <li><a href="/suspect-web/People">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> {{$suspectCounts->where('category','People')->count()}}</span></a></li>
 
@@ -96,27 +91,11 @@
                                             <li><a href="/suspect-web/Institute">Institute(Taasisi):<span class="badge badge-pill badge-primary"> {{$suspectCounts->where('category','Institute')->count()}}</span></a></li>
 
                                             <li><a href="/suspect-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$suspectCounts->where('category','Other')->count()}}</span></a></li>
-
-
-                                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 3</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 4</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                    </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
+
                                 <li><a href="#">Contact</a></li>
                             </ul>
 

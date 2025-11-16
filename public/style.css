@@ -703,7 +703,7 @@ img {
 
 /* :: 10.0 Advanced Search Area */
 .form-control {
-  background-color: transparent;
+  /*background-color: transparent;*/
   width: 100%;
   height: 38px;
   border-radius: 0;
