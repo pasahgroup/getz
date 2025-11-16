@@ -64,7 +64,12 @@
                                     </div> -->
 
                                     <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class="">{{ showAmount($event_data->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span></div>
+                                        <div class="blog-date"><span class="">{{$event_data->name}} 
+                                              {{--
+                                            <sub>/@lang('day')</span>
+                                            --}}
+                                            </div>
+                                                
 
 
                                           <div class="rent__content text-center mt-n1">
@@ -72,36 +77,20 @@
                                                </ul>
                                        </div>
 
-                                        <strong>{{$event_data->name}}</strong>
+                                        <strong>({{$event_data->event_type}})</strong>
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">{{ __(@$event_data->model) }} ({{ __(@$event_data->car_model_no?? 1) }})</span>
+                                                        <span class="">Region:{{ $event_data->region }} ({{ $event_data->district }})</span>
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                        <div class="rent__content text-center mt-n1">
-                                             <ul class="d-flex_org car-info text-center">
-                                                  <li class="pr-1 text-center">
-                                                      <div class="row gy-2 gx-0 text-center mb-2">
-                                                           <div class="col-4 border-end border-white">
-                                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">{{ __(@$event_data->seat) }} Seat</span>
-                                                           </div>
-                                                           <div class="col-4 border-end border-white">
-                                                               <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">{{ __(@$event_data->transmission) }}</span>
-                                                           </div>
-                                                           <div class="col-4">
-                                                               <i class="las la-gas-pump"></i> <span class="text-body ms-1">{{ __(@$event_data->fuel_type) }}</span>
-                                                           </div>
-                                                       </div>
-
-                                                 </li>
-                                             </ul>
-                                       </div>
-                                    </div>
+                                          <strong>({{$event_data->event_title}})</strong>
+                                      </br>
                                       <a href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                 

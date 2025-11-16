@@ -72,7 +72,7 @@ $models = Vehicle::orderby('model')
 
  $events = Event::where('status',1)
       ->select('events.*')
-     ->get();
+     ->paginate(getPaginate(8));
 
 
  $metaFirstEvent = Event::where('status',1)
