@@ -689,7 +689,6 @@ if(request('search'))
              ->select('id','name')
              ->get();
 
-//dd('loo');
 
         return view($this->activeTemplate.'vehicles.index',compact('departments','max_price','car_name','cartags','cartype_datas','cartag_datas','seat_data','model_data','model_datas','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carBodies'));
     }

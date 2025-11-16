@@ -542,12 +542,19 @@ Route::get('/cookie/accept', 'SiteController@cookieAccept')->name('cookie.accept
 
 Route::get('vehicles', 'VehicleController@vehicles')->name('vehicles');
 
-Route::get('vehicle/details/{id}/{slug}', 'VehicleController@vehicleDetails')->name('event.details');
+Route::get('vehicle/details/{id}/{slug}', 'VehicleController@vehicleDetails')->name('vehicle.details');
 Route::get('vehicle/booking/{id}/{slug}', 'VehicleController@vehicleBooking')->name('vehicle.booking');
 
 Route::post('vehicle/booking/confirm/{id}', 'VehicleController@vehicleBookingConfirm')->name('vehicle.booking.confirm');
 
 Route::get('vehicle-search', 'VehicleController@vehicleSearch')->name('vehicle.search'); //changed from vehicle/search to vehicle-search
+
+
+Route::get('event/details/{id}/{slug}', 'EventController@eventDetails')->name('event.details');
+Route::get('events-search', 'EventController@eventSearch')->name('events.search');
+
+  // Route::get('events', 'EventController@index')->name('events.index');
+
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
 Route::get('vehicle/search/{seat_id}/seater', 'VehicleController@seaterVehicles')->name('vehicle.seater');
   Route::get('getModel/{id}', 'VehicleController@getModel')->name('getModel');
@@ -612,11 +619,4 @@ Route::get('web-servise/{s}', 'SiteController@webservice')->name('web-service');
 Route::get('event-web/{x}', 'EventwebreportController@show')->name('event-web.show');
 Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
 
-        //    Route::get('events/add', 'EventController@add')->name('events.add');
-        //       Route::post('events/store', 'EventController@store')->name('events.store');
-        
-        // Route::get('events/{id}', 'EventController@edit')->name('events.edit');
-
-        //  Route::post('events/update/{id}', 'EventController@update')->name('events.update');
-        //  Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
-        // Route::post('events/{id}/status', 'EventController@status')->name('events.status');
+   

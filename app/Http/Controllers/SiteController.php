@@ -67,7 +67,7 @@ $models = Vehicle::orderby('model')
  ->select('vehicles.id','vehicles.model','vehicles.brand_id','vehicles.price','vehicles.images','vehicles.car_model_no','vehicles.transmission','vehicles.fuel_type','vehicles.doors','vehicles.specifications','brands.name')
  ->groupBy('vehicles.model')
  ->paginate(getPaginate(8));
-//dd($vehicles);
+
 
 
  $events = Event::where('status',1)
@@ -125,6 +125,9 @@ $models = Vehicle::orderby('model')
 //dd($escourt);
  $services=service::where('status',1)
  ->get();
+
+
+ //dd($vehicles);
 
         return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','events','metaVehicleCount','metaFirstEvent','metaFirstVehicle2','metaFirstVehicle3'));
     }

@@ -21,11 +21,11 @@ use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->activeTemplate = activeTemplate();
+    }
+
+
     public function index()
     {        
 $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
@@ -75,6 +75,23 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+    public function eventDetails($id, $slug){
+        // $vehicle = Vehicle::active()->where('id', $id)->with('ratings')->withCount('ratings')->withAvg('ratings', 'rating')->firstOrFail();
+        $vehicle = Event::where('id', $id)->firstOrFail();
+        $fullUrl = url()->full();
+      
+
+        $rental_terms = getContent('rental_terms.content', true);
+        $pageTitle = 'Vehicle Details';
+
+         //dd($event->images);
+        return view($this->activeTemplate.'events.details',compact('vehicle','pageTitle', 'rental_terms','fullUrl'));
+    }
+
+
     public function create()
     {
         //

@@ -217,8 +217,7 @@
                         --}}
                         <marquee style="color:#03153e;float: right">Book car with Rhond's Company Ltd</marquee>
                     </div>
-                    <div>
-                     <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                      <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
   </span>
 </div>
