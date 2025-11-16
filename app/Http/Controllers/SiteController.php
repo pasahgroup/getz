@@ -19,6 +19,7 @@ use App\Models\SupportMessage;
 use App\Models\SupportTicket;
 use Carbon\Carbon;
 use App\Models\Vehicle;
+// use App\Models\Event;
 
 use App\Models\Suspect;
 
@@ -107,7 +108,9 @@ $models = Vehicle::orderby('model')
 
     // $metavehicles = collect($metaVehicles);
 //$vehicles = Vehicle::active()->latest()->paginate(4);
- //dd($metaVehicles->count());
+
+//dd($events);
+
 
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();

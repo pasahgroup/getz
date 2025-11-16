@@ -23,7 +23,7 @@
                       <div>
                         <strong><?php echo e($event->details); ?></strong>
                       </div>
- <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$event->id, slug($event->name)])); ?>">View More</a>
+ <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>">View More</a>
                         </div>
                     </div>
                 </div>
@@ -46,15 +46,16 @@
                 </div>
 
       <div class="row">
-<?php $__empty_2 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
+<?php $__empty_2 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
+
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="blog-item">
                             <div class="rent__thumb" style="background-color:#9ca494">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
+                                        <a href="<?php echo e(route('event.details', [$event_data->id, slug($event_data->name)])); ?>">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
@@ -63,7 +64,7 @@
                                     </div> -->
 
                                     <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class=""><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></div>
+                                        <div class="blog-date"><span class=""><?php echo e(showAmount($event_data->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></div>
 
 
                                           <div class="rent__content text-center mt-n1">
@@ -71,12 +72,12 @@
                                                </ul>
                                        </div>
 
-                                        <strong><?php echo e($vehicle->name); ?></strong>
+                                        <strong><?php echo e($event_data->name); ?></strong>
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class=""><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</span>
+                                                        <span class=""><?php echo e(__(@$event_data->model)); ?> (<?php echo e(__(@$event_data->car_model_no?? 1)); ?>)</span>
                                                     </li>
                                                 </ul>
                                         </div>
@@ -86,13 +87,13 @@
                                                   <li class="pr-1 text-center">
                                                       <div class="row gy-2 gx-0 text-center mb-2">
                                                            <div class="col-4 border-end border-white">
-                                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seat)); ?> Seat</span>
+                                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$event_data->seat)); ?> Seat</span>
                                                            </div>
                                                            <div class="col-4 border-end border-white">
-                                                               <i class="fa fa-car text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->transmission)); ?></span>
+                                                               <i class="fa fa-car text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$event_data->transmission)); ?></span>
                                                            </div>
                                                            <div class="col-4">
-                                                               <i class="las la-gas-pump"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->fuel_type)); ?></span>
+                                                               <i class="las la-gas-pump"></i> <span class="text-body ms-1"><?php echo e(__(@$event_data->fuel_type)); ?></span>
                                                            </div>
                                                        </div>
 
@@ -100,13 +101,14 @@
                                              </ul>
                                        </div>
                                     </div>
-                                      <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                      <a href="<?php echo e(route('event.details', [$event_data->id, slug($event_data->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
                 
                           </div>
                     </div>
                 </div>
+               
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
                         <?php endif; ?>
@@ -124,13 +126,13 @@
      <section class="showcase container">
                   <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incidents <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
-                 </section>
+    </section>
             
         </div>
  
 
 
- <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b2.jpg)">
+  <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b2.jpg)">
         <div class="container h-100">
             <div class="row align-items-center h-100">
                 <div class="col-12">
@@ -172,7 +174,7 @@ function scrollToNextSection() {
             language: 'en',
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
-                var price = parseFloat("<?php echo e($vehicle->price); ?>");
+                var price = parseFloat("#");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
 

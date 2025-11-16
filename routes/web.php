@@ -542,7 +542,7 @@ Route::get('/cookie/accept', 'SiteController@cookieAccept')->name('cookie.accept
 
 Route::get('vehicles', 'VehicleController@vehicles')->name('vehicles');
 
-Route::get('vehicle/details/{id}/{slug}', 'VehicleController@vehicleDetails')->name('vehicle.details');
+Route::get('vehicle/details/{id}/{slug}', 'VehicleController@vehicleDetails')->name('event.details');
 Route::get('vehicle/booking/{id}/{slug}', 'VehicleController@vehicleBooking')->name('vehicle.booking');
 
 Route::post('vehicle/booking/confirm/{id}', 'VehicleController@vehicleBookingConfirm')->name('vehicle.booking.confirm');

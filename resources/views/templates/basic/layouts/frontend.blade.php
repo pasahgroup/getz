@@ -79,6 +79,7 @@
    @if(!request()->routeIs('home'))
     @include($activeTemplate.'partials.breadcrumb')
 @endif
+
 @yield('content')
 
 <!-- footer section start -->
