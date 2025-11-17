@@ -440,7 +440,7 @@ img {
       .top-header-area .email-address {
         padding: 15px 30px; } }
     .top-header-area .email-address a {
-      color: #808080;
+      /*color: #808080;*/
       font-size: 12px;
       position: relative;
       z-index: 1;

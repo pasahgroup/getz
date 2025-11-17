@@ -444,9 +444,10 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::post('verify-sms', 'AuthorizationController@smsVerification')->name('verify.sms');
         Route::post('verify-g2fa', 'AuthorizationController@g2faVerification')->name('go2fa.verify');
 
+
           Route::get('events', 'EventController@index')->name('events.index');
            Route::get('events/add', 'EventController@add')->name('events.add');
-              Route::post('events/store', 'EventController@store')->name('events.store');
+           Route::post('events/store', 'EventController@store')->name('events.store');
         
         Route::get('events/{id}', 'EventController@edit')->name('events.edit');
 
@@ -454,11 +455,24 @@ Route::name('user.')->prefix('user')->group(function () {
          Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
         Route::post('events/{id}/status', 'EventController@status')->name('events.status');
 
+// videos
+
+          Route::get('videos', 'VideoUploadController@index')->name('videos.index');
+           Route::get('videos/add', 'VideoUploadController@add')->name('videos.add');
+           Route::post('videos/store', 'VideoUploadController@store')->name('videos.store');
+        
+        Route::get('videos/{id}', 'VideoUploadController@edit')->name('videos.edit');
+
+         Route::post('videos/update/{id}', 'VideoUploadController@update')->name('videos.update');
+         Route::post('videos/image/remove/{id}/{image}', 'VideoUploadController@deleteImage')->name('videos.image.delete');
+        Route::post('videos/{id}/status', 'VideoUploadController@status')->name('videos.status');
+//End videos
 
 
- Route::get('suspects', 'SuspectController@index')->name('suspects.index');
-           Route::get('suspects/add', 'SuspectController@add')->name('suspects.add');
-              Route::post('suspects/store', 'SuspectController@store')->name('suspects.store');
+
+       Route::get('suspects', 'SuspectController@index')->name('suspects.index');
+       Route::get('suspects/add', 'SuspectController@add')->name('suspects.add');
+       Route::post('suspects/store', 'SuspectController@store')->name('suspects.store');
         
         Route::get('suspects/{id}', 'SuspectController@edit')->name('suspects.edit');
 
@@ -553,7 +567,6 @@ Route::get('vehicle-search', 'VehicleController@vehicleSearch')->name('vehicle.s
 Route::get('event/details/{id}/{slug}', 'EventController@eventDetails')->name('event.details');
 Route::get('events-search', 'EventController@eventSearch')->name('events.search');
 
-  // Route::get('events', 'EventController@index')->name('events.index');
 
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
 Route::get('vehicle/search/{seat_id}/seater', 'VehicleController@seaterVehicles')->name('vehicle.seater');

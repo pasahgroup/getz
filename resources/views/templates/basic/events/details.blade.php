@@ -37,8 +37,8 @@
 <div class="col-lg-3">
 <div class="btn__grp">
                             @auth
-                                <a href="#" class="cmn--btn">@lang('Upload photos')</a>
-                                   <a href="#" class="cmn--btn">@lang('Upload videos')</a>
+                                                                   <a href="{{ route('user.events.index') }}" class="cmn--btn">@lang('Upload photos')</a>
+                                   <a href="{{ route('user.videos.index') }}" class="cmn--btn">@lang('Upload videos')</a>
                             @else
                               
                     <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">

@@ -37,8 +37,8 @@
 <div class="col-lg-3">
 <div class="btn__grp">
                             <?php if(auth()->guard()->check()): ?>
-                                <a href="#" class="cmn--btn"><?php echo app('translator')->get('Upload photos'); ?></a>
-                                   <a href="#" class="cmn--btn"><?php echo app('translator')->get('Upload videos'); ?></a>
+                                                                   <a href="<?php echo e(route('user.events.index')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload photos'); ?></a>
+                                   <a href="<?php echo e(route('user.videos.index')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload videos'); ?></a>
                             <?php else: ?>
                               
                     <form  method="GET"  action="<?php echo e(route('user.login')); ?>" enctype="multipart/form-data">

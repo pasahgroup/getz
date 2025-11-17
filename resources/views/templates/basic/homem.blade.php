@@ -35,6 +35,93 @@
 
 
 
+<hr>
+ <!-- Car categories Start -->
+        <div class="container categories blog pb-5" id="section3">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                    <h1 class="display-5 text-capitalize mb-3">List of Tanzanian People who <span class="text-primary">Killed,Kidnapped Or</span> <span class="text-primary">Missing</span></h1>
+                    <p class="mb-0">(Tumeni picha zote za matukio halisi ya picha mnato na videos)
+                    </p>
+                </div>
+
+      <div class="row">
+@forelse($events as $event_data)
+
+                     <div class="col-md-3">
+                    <div class="categories-item">
+                        <div class="rent__item">
+                            <div class="blog-item">
+                            <div class="rent__thumb" style="background-color:#9ca494">
+                                        <a href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
+                                        </a>
+                                    </div>
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
+                                    <!-- <div class="blog-img">
+                                        <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
+                                    </div> -->
+
+                                    <div class="blog-content rounded-bottom p-3">
+                                        <div class="blog-date"><span class="">{{$event_data->name}} 
+                                              {{--
+                                            <sub>/@lang('day')</span>
+                                            --}}
+                                            </div>
+                                                
+
+
+                                          <div class="rent__content text-center mt-n1">
+                                               <ul class="d-flex car-info text-center">
+                                               </ul>
+                                       </div>
+
+                                        <strong>({{$event_data->event_type}})</strong>
+                                           <div class="rent__content mt-n1">
+                                                <ul class="d-flex car-info center">
+                                                     <!-- <li class="pr-3 text-center"> -->
+                                                      <li class="text-center center">
+                                                        <span class="">Region:{{ $event_data->region }} ({{ $event_data->district }})</span>
+                                                    </li>
+                                                </ul>
+                                        </div>
+
+                                          <strong>({{$event_data->event_title}})</strong>
+                                      </br>
+                                      <a href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                
+                          </div>
+                    </div>
+                </div>
+               
+
+                        @empty
+                        @endforelse
+                        {{--
+                        {!! $vehicles->links() !!}
+                        --}}
+                    
+                    </div>
+                    <div>
+                        <div>
+                   
+                     </div>
+  </span>
+</div>
+     <br>
+          <br>
+     <section class="showcase container">
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Photos<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                         </a>
+    </section>
+            
+        </div>
+ 
+
+
 
 <hr>
  <!-- Car categories Start -->
@@ -115,7 +202,7 @@
      <br>
           <br>
      <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incidents <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Videos <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
     </section>
             
@@ -127,90 +214,14 @@
 
       <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
-                    <p class="mb-0">Book your appropriate Car Type
+                    <p class="mb-0">The truth must be revealed.
                     </p>
                 </div>
 
-      <div class="row">
-@forelse($vehicles as $vehicle)
-                     <div class="col-md-3">
-                    <div class="categories-item">
-                        <div class="rent__item">
-                            <div class="blog-item">
-                            <div class="rent__thumb" style="background-color:#9ca494">
-                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
-                                        </a>
-                                    </div>
-                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
-                                    <!-- <div class="blog-img">
-                                        <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                                    </div> -->
-
-                                    <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class="">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span></div>
-
-
-                                          <div class="rent__content text-center mt-n1">
-                                               <ul class="d-flex car-info text-center">
-                                               </ul>
-                                       </div>
-
-                                        <strong>{{$vehicle->name}}</strong>
-                                           <div class="rent__content mt-n1">
-                                                <ul class="d-flex car-info center">
-                                                     <!-- <li class="pr-3 text-center"> -->
-                                                      <li class="text-center center">
-                                                        <span class="">{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</span>
-                                                    </li>
-                                                </ul>
-                                        </div>
-
-                                        <div class="rent__content text-center mt-n1">
-                                             <ul class="d-flex_org car-info text-center">
-                                                  <li class="pr-1 text-center">
-                                                      <div class="row gy-2 gx-0 text-center mb-2">
-                                                           <div class="col-4 border-end border-white">
-                                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->seat) }} Seat</span>
-                                                           </div>
-                                                           <div class="col-4 border-end border-white">
-                                                               <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->transmission) }}</span>
-                                                           </div>
-                                                           <div class="col-4">
-                                                               <i class="las la-gas-pump"></i> <span class="text-body ms-1">{{ __(@$vehicle->fuel_type) }}</span>
-                                                           </div>
-                                                       </div>
-
-                                                 </li>
-                                             </ul>
-                                       </div>
-                                    </div>
-                                      <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                 <!-- <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a> -->
-                          </div>
-                    </div>
-                </div>
-
-                        @empty
-                        @endforelse
-                        {{--
-                        {!! $vehicles->links() !!}
-                        --}}
-                        <marquee style="color:#03153e;float: right">Book car with Rhond's Company Ltd</marquee>
-                    </div>
-                                      <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                         </a>
+                           
   </span>
 </div>
         </div>
-
-
-
-
 
 
 

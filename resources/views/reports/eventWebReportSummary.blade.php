@@ -6,12 +6,9 @@
 @endpush
 
 
-
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
- 
-
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../../../appweb/jquery171.min.js"></script>
+    <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
+  
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 

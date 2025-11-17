@@ -3,7 +3,11 @@
     wider {
   width: 300px; /* Full width of parent */
 }
+.element {
+  padding-left: 80px; /* Adds space inside the element before its content */
+}
 </style>
+
 
 
         <!-- Top Header Area -->
@@ -11,6 +15,15 @@
             <div class="h-100 d-md-flex justify-content-between align-items-center">
                 <div class="email-address">
                     <a href="mailto:contact@southtemplate.com">No Email</a>
+                      <a href="mailto:contact@southtemplate.com"  class="element"></a>
+                            <?php if(auth()->guard()->check()): ?>
+                                <a href="<?php echo e(route('user.events.index')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload photos'); ?></a>
+                                   <a href="<?php echo e(route('user.videos.index')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload videos'); ?></a>
+                            <?php else: ?>
+                                <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Login'); ?></a>
+
+                                <a href="<?php echo e(route('user.register')); ?>" class="cmn--btn"><?php echo app('translator')->get('Sign up'); ?></a>
+                            <?php endif; ?>
                 </div>
  <div class="email-address">
                      <marquee style="color:yellow;float: right">Tanzania general genocide(TGG)</marquee>
@@ -55,9 +68,9 @@
                                 <li><a href="/">Home</a></li>
                                 <li><a href="#">Incidents</a>
                                     <ul class="dropdown">
-                                        <li><a href="#">Upload Photos</a></li>
-                                       <li><a href="#">Upload Videos</a></li>
-                                                                          </ul>
+                                        <li><a href="#">Photos</a></li>
+                                       <li><a href="#">Videos</a></li>
+                                    </ul>
                            </li>
 
 

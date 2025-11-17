@@ -37,11 +37,12 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')}}">
     <!-- bootstrap-pincode css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-pincode-input.css')}}">
+        <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
     <!-- dashdoard main css -->
     <!-- <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}"> -->
 
         <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
-          <link rel="stylesheet" href="../../../style.css">
+          <link rel="stylesheet" href="../../../../style.css">
 
 <!-- Important css style -->
 
@@ -66,7 +67,7 @@
 <script src="{{asset('assets/admin/js/vendor/jquery.slimscroll.min.js')}}"></script>
 <!-- custom select box js -->
 <script src="{{asset('assets/admin/js/vendor/jquery.nice-select.min.js')}}"></script>
-
+<script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
 
 @include('partials.notify')
 @stack('script-lib')

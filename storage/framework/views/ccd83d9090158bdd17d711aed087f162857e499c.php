@@ -37,28 +37,18 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')); ?>">
     <!-- bootstrap-pincode css -->
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap-pincode-input.css')); ?>">
-        <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/main.css')); ?>">
     <!-- dashdoard main css -->
-    <!-- <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/app.css')); ?>"> -->
-
-        <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
-          <link rel="stylesheet" href="../../../../style.css">
-
-<!-- Important css style -->
-
-
-<!-- custom css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/app.css')); ?>">
     <?php echo $__env->yieldPushContent('style'); ?>
 </head>
 <body>
-    <?php echo $__env->make($activeTemplate.'layouts.topmenu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->yieldContent('content'); ?>
 
-<!-- jQuery library -->
-<!-- <script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script> -->
-<!-- bootstrap js -->
- <?php echo $__env->make($activeTemplate.'layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+
+<!-- jQuery library -->
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
+<!-- bootstrap js -->
 <script src="<?php echo e(asset('assets/admin/js/vendor/bootstrap.bundle.min.js')); ?>"></script>
 <!-- bootstrap-toggle js -->
 <script src="<?php echo e(asset('assets/admin/js/vendor/bootstrap-toggle.min.js')); ?>"></script>
@@ -67,7 +57,7 @@
 <script src="<?php echo e(asset('assets/admin/js/vendor/jquery.slimscroll.min.js')); ?>"></script>
 <!-- custom select box js -->
 <script src="<?php echo e(asset('assets/admin/js/vendor/jquery.nice-select.min.js')); ?>"></script>
-<script src="<?php echo e(asset($activeTemplateTrue.'js/main.js')); ?>"></script>
+
 
 <?php echo $__env->make('partials.notify', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->yieldPushContent('script-lib'); ?>
@@ -99,18 +89,7 @@
 
 <?php echo $__env->yieldPushContent('script'); ?>
 
-  <!-- jQuery (Necessary for All JavaScript Plugins) -->
 
-    <!-- Popper js -->
-    <script src="../../../js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="../../../js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="../../../js/plugins.js"></script>
-    <script src="../../../js/classy-nav.min.js"></script>
-    <script src="../../../js/jquery-ui.min.js"></script>
-    <!-- Active js -->
-    <script src="../../../js/active.js"></script>
 </body>
 </html>
-<?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/layoutsuser/masterweb.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/layouts/master.blade.php ENDPATH**/ ?>

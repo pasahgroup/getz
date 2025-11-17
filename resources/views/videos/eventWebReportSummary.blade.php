@@ -3,13 +3,17 @@
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.suspects.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Suspects (Watuhumiwa Wapya)')</a>
+    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
 @endpush
 
 
-  <script src="../../../../appweb/jquery171.min.js"></script>
-    <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
-<!-- DataTables -->
+
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+ 
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+   <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 @section('panel')
@@ -22,24 +26,32 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col">@lang('Suspected name')</th>                               
-                                      <th scope="col">@lang('Category')</th>
-                                       <th scope="col">@lang('Titles')</th>
+                                <th scope="col">@lang('Name')</th>
+                                <th scope="col">@lang('Event type')</th>
+                                <th scope="col">@lang('Event Place')</th>
+                                <th scope="col">@lang('Region')</th>
+                                <th scope="col">@lang('District')</th>
+                           <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Photos')</th>
-                                <th scope="col">@lang('Crime Details')</th>
+                                <th scope="col">@lang('Event Details')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
                   </thead>
                   <tbody>
               
-       @forelse ($suspects as $item)
+       @forelse ($events as $item)
                                 <tr>                                    
                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
                                     
-                                    <td data-label="@lang('Titles')">{{ __($item->title) }}</td>
-                                    <td data-label="@lang('Category')">{{ __($item->category) }}</td>
-                                    <td>                                                                                
+                                    <td data-label="@lang('Event_type')">{{ __($item->event_type) }}</td>
+                                    <td data-label="@lang('Event_place')">{{ __($item->event_place) }}</td>
+                                     <td data-label="@lang('Region')">{{ __($item->region) }}</td>
+                                      <td data-label="@lang('District')">{{ __($item->district) }}</td>
+
+                                    <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
+                                   
+                                        <td data-label="@lang('Date event')">                                            
       <img class="" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
                                         </td>
 
@@ -54,27 +66,32 @@
                                 
 
                                     <td data-label="@lang('Action')">
-                                        <a href="{{ route('user.suspects.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
+                                        <a href="{{ route('user.events.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.suspects.status', $item->id) }}">
+                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.events.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
                                     </td>
 
                                 </tr>
                             @empty
-                              
+                                <tr>
+                                    <td class="text-muted text-center" colspan="100%">{{ __($empty_message) }}</td>
+                                </tr>
                             @endforelse
                   </tbody>
                   <tfoot>
                     <tr>
-                                  <th scope="col">@lang('Suspected name')</th>                               
-                                      <th scope="col">@lang('Category')</th>
-                                       <th scope="col">@lang('Titles')</th>
+                                <th scope="col">@lang('Name')</th>
+                                <th scope="col">@lang('Event type')</th>
+                                <th scope="col">@lang('Event Place')</th>
+                                <th scope="col">@lang('Region')</th>
+                                <th scope="col">@lang('District')</th>
+                           <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Photos')</th>
-                                <th scope="col">@lang('Crime Details')</th>
+                                <th scope="col">@lang('Event Details')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
