@@ -613,9 +613,9 @@ Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
 Route::get('web-servise/{s}', 'SiteController@webservice')->name('web-service');
 
- Route::get('view-photos', 'SiteController@photos')->name('photos');
- Route::get('view-videos', 'SiteController@videos')->name('videos');
- 
+ Route::get('view-photos/{p}', 'SiteController@photos')->name('photos');
+ Route::get('view-videos/{v}', 'SiteController@videos')->name('videos');
+
 // AzamPay
  // Route::get('azam', DepartController::class)->name('azam.index');
  Route::get('/azam/{r}', 'DepartController@index');

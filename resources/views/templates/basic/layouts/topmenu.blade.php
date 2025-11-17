@@ -9,7 +9,6 @@
 </style>
 
 
-
         <!-- Top Header Area -->
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
@@ -68,8 +67,8 @@
                                 <li><a href="/">Home</a></li>
                                 <li><a href="#">Incidents</a>
                                     <ul class="dropdown">
-                                        <li><a href="#">Photos</a></li>
-                                       <li><a href="#">Videos</a></li>
+                                        <li><a href="/view-photos/photos">Incident Photos</a></li>
+                                       <li><a href="/view-videos/videos">Incident Videos</a></li>
                                     </ul>
                            </li>
 

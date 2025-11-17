@@ -114,7 +114,7 @@
      <br>
           <br>
      <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Photos<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Photos <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
     </section>
             
@@ -202,7 +202,7 @@
      <br>
           <br>
      <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Videos <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Videos  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
     </section>
             

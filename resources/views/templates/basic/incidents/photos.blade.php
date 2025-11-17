@@ -1,5 +1,8 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
+<style>
+    
+</style>
 
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
