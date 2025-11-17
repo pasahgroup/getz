@@ -127,4 +127,5 @@
                 </nav>
             </div>
         </div>
-    </header><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>
+    </header>
+    <hr><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>

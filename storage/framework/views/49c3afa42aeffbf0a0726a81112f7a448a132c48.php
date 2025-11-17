@@ -1,10 +1,10 @@
 
 <?php $__env->startSection('content'); ?>
-<style>
+<!-- <style>
     .top{
         padding-top:8%;
     }
-</style>
+</style> -->
 
  <!-- Car categories Start -->
         <div class="container categories blog pb-5 top" id="section3">
@@ -15,7 +15,7 @@
                 </div>
 
       <div class="row">
-<?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+<?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 
                      <div class="col-md-3">
                     <div class="categories-item">
@@ -202,4 +202,4 @@ if(no_car>0)
         })
     </script>
 <?php $__env->stopPush(); ?>
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/incidents/photos.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/incidents/videos.blade.php ENDPATH**/ ?>

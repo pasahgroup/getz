@@ -1,8 +1,13 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
+<!-- <style>
+    .top{
+        padding-top:8%;
+    }
+</style> -->
 
  <!-- Car categories Start -->
-        <div class="container categories blog pb-5" id="section3">
+        <div class="container categories blog pb-5 top" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                      <h2 class="display-5 text-capitalize mb-3">Incident <span class="text-primary">Videos</span> <span class="text-primary"></span></h2>
                     <p class="mb-0">(Tumeni picha zote za matukio halisi ya picha mnato na videos)
@@ -10,7 +15,7 @@
                 </div>
 
       <div class="row">
-@forelse($events as $event_data)
+@forelse($videos as $event_data)
 
                      <div class="col-md-3">
                     <div class="categories-item">
@@ -99,6 +104,12 @@
   </span>
 </div>
         </div>
+
+
+
+
+
+
 
 
   <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b2.jpg)">

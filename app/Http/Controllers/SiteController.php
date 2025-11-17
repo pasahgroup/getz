@@ -164,6 +164,33 @@ $models = Vehicle::orderby('model')
 
 
 
+   public function videos(){
+        $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
+      
+           if($count == 0){
+            $page = new Page();
+            $page->tempname = $this->activeTemplate;
+            $page->name = 'HOME';
+            $page->slug = 'home';
+            $page->save();
+        }
+
+        $reference = @$_GET['reference'];
+        if ($reference) {
+            session()->put('reference', $reference);
+        }
+
+
+ $videos = Event::where('status',1)
+      ->select('events.*')
+     ->paginate(getPaginate(8));
+
+        $pageTitle = 'Home';
+     
+
+        return view($this->activeTemplate . 'incidents.videos', compact('pageTitle','videos'));
+    }
+
 
 
 
