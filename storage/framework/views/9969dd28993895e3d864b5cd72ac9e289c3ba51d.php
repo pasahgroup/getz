@@ -24,7 +24,7 @@
                                 <a href="<?php echo e(route('user.register')); ?>" class="cmn--btn"><?php echo app('translator')->get('Sign up'); ?></a>
                             <?php endif; ?>
                 </div>
- <div class="email-address">
+     <div class="email-address">
                      <marquee style="color:yellow;float: right">Tanzania general genocide(TGG)</marquee>
                 </div>
                

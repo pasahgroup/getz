@@ -24,7 +24,7 @@
                                 <a href="{{ route('user.register') }}" class="cmn--btn">@lang('Sign up')</a>
                             @endauth
                 </div>
- <div class="email-address">
+     <div class="email-address">
                      <marquee style="color:yellow;float: right">Tanzania general genocide(TGG)</marquee>
                 </div>
                
