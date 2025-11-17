@@ -7,6 +7,8 @@
 </style> -->
 
  <!-- Car categories Start -->
+
+ <section>
         <div class="container categories blog pb-5 top" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                      <h2 class="display-5 text-capitalize mb-3">Incident <span class="text-primary">Videos</span> <span class="text-primary"></span></h2>
@@ -101,8 +103,7 @@
 </div>
         </div>
 
-
-
+</section>
 
 
 

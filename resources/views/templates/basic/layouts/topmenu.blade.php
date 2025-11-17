@@ -128,4 +128,3 @@
             </div>
         </div>
     </header>
-    <hr>
