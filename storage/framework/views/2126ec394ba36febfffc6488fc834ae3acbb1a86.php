@@ -39,7 +39,7 @@
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">List of Tanzanian People who <span class="text-primary">Killed,Kidnapped Or</span> <span class="text-primary">Missing</span></h1>
+                    <h2 class="display-5 text-capitalize mb-3">Incident <span class="text-primary">Photos</span> <span class="text-primary"></span></h2>
                     <p class="mb-0">(Tumeni picha zote za matukio halisi ya picha mnato na videos)
                     </p>
                 </div>
@@ -123,7 +123,7 @@
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">List of Tanzanian People who <span class="text-primary">Killed,Kidnapped Or</span> <span class="text-primary">Missing</span></h1>
+                     <h2 class="display-5 text-capitalize mb-3">Incident <span class="text-primary">Videos</span> <span class="text-primary"></span></h2>
                     <p class="mb-0">(Tumeni picha zote za matukio halisi ya picha mnato na videos)
                     </p>
                 </div>

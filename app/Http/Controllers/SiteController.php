@@ -134,6 +134,98 @@ $models = Vehicle::orderby('model')
 
 
 
+
+   public function photos(){
+        $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
+      
+           if($count == 0){
+            $page = new Page();
+            $page->tempname = $this->activeTemplate;
+            $page->name = 'HOME';
+            $page->slug = 'home';
+            $page->save();
+        }
+
+        $reference = @$_GET['reference'];
+        if ($reference) {
+            session()->put('reference', $reference);
+        }
+
+$carbodytypes = cartype::orderby('car_body_type')
+->groupBy('car_body_type')
+->get();
+
+$carTags = Tag::orderby('tag')
+->groupBy('tag')
+->get();
+
+$models = Vehicle::orderby('model')
+->select('model')
+->groupBy('model')
+->get();
+
+
+ $vehicles = Vehicle::join('brands','brands.id','vehicles.brand_id')
+ ->select('vehicles.id','vehicles.model','vehicles.brand_id','vehicles.price','vehicles.images','vehicles.car_model_no','vehicles.transmission','vehicles.fuel_type','vehicles.doors','vehicles.specifications','brands.name')
+ ->groupBy('vehicles.model')
+ ->paginate(getPaginate(8));
+
+
+
+ $events = Event::where('status',1)
+      ->select('events.*')
+     ->paginate(getPaginate(8));
+
+
+ $metaFirstEvent = Event::where('status',1)
+      ->select('events.*')
+     ->first();
+
+     $metaFirstVehicle2 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+          ->select('vehicles.*','cartypes.car_body_type')
+          ->offset(1)
+         ->first();
+
+         $metaFirstVehicle3 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+              ->select('vehicles.*','cartypes.car_body_type')
+              ->offset(2)
+             ->first();
+
+     //dd($metaFirstVehicles)
+
+  $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+      ->select('vehicles.*','cartypes.car_body_type')
+     ->paginate(getPaginate(8));
+     $metaVehicleCount=$metaVehicles->count();
+
+
+
+        $pageTitle = 'Home';
+        $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
+
+
+        $main_service=service::where('category','Main')->where('status','1')->first();
+        $escourt=service::where('category','Escourt')->where('status','1')->first();
+        $wedding=service::where('category','Wedding & Sendoff')->where('status','1')->first();
+
+        $car_hiring=service::where('category','Car hiring')->where('status','1')->first();
+        $transportation=service::where('category','Transportation')->where('status','1')->first();
+//dd($escourt);
+ $services=service::where('status',1)
+ ->get();
+
+
+ dd($vehicles);
+
+        return view($this->activeTemplate . 'incidents.photos', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','events','metaVehicleCount','metaFirstEvent','metaFirstVehicle2','metaFirstVehicle3'));
+    }
+
+
+
+
+
+
+
     public function pages($slug)
     {
         $page = Page::where('tempname',$this->activeTemplate)->where('slug',$slug)->firstOrFail();
