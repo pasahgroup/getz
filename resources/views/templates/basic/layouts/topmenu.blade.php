@@ -13,11 +13,15 @@
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
                 <div class="email-address">
-                    <a href="mailto:contact@southtemplate.com">No Email</a>
+                    <a href="mailto:contact@southtemplate.com">Email: info@tanzaniagenocide.com</a>
                       <a href="mailto:contact@southtemplate.com"  class="element"></a>
                             @auth
-                                <a href="{{ route('user.events.index') }}" class="cmn--btn">@lang('Upload photos')</a>
-                                   <a href="{{ route('user.videos.index') }}" class="cmn--btn">@lang('Upload videos')</a>
+                                <a href="{{ route('user.events.add') }}" class="cmn--btn">@lang('Upload Incident photos')</a>
+                                   <a href="{{ route('user.videos.add') }}" class="cmn--btn">@lang('Upload Incident videos')</a>
+
+                                          <a href="#" class="cmn--btn">@lang('Victims')</a>
+                                   <a href="#" class="cmn--btn">@lang('Suspects')</a>
+
                             @else
                                 <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Login')</a>
 

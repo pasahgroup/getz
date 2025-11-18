@@ -53,9 +53,9 @@ $carbodytypes = cartype::orderby('car_body_type')
 ->groupBy('car_body_type')
 ->get();
 
-$carTags = Tag::orderby('tag')
-->groupBy('tag')
-->get();
+// $carTags = Tag::orderby('tag')
+// ->groupBy('tag')
+// ->get();
 
 $models = Vehicle::orderby('model')
 ->select('model')

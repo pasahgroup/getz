@@ -3,7 +3,7 @@
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
+    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Incident Photos(Sajili Picha ya Tukio)')</a>
 @endpush
 
 
@@ -29,8 +29,11 @@
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
-                                <th scope="col">@lang('Photos')</th>
+                                <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Event Details')</th>
+                                 <th scope="col">@lang('Elapsed time')</th>
+                                  <th scope="col">@lang('Last update')</th>
+
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
@@ -48,11 +51,15 @@
 
                                     <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
                                    
-                                        <td data-label="@lang('Date event')">                                            
+                                        <td data-label="@lang('Date event')"> 
+
       <img class="" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
                                         </td>
 
    <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
+    <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
+       <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
+
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
@@ -87,8 +94,10 @@
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
-                                <th scope="col">@lang('Photos')</th>
+                                <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Event Details')</th>
+                                 <th scope="col">@lang('Elapsed time')</th>
+                                  <th scope="col">@lang('Last update')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>

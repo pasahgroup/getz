@@ -3,16 +3,13 @@
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
+    <a href="{{ route('user.videos.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Incident video (Sajili Picha Mjongeo)')</a>
 @endpush
 
 
 
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
- 
-
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../../../appweb/jquery171.min.js"></script>
+    <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
@@ -32,15 +29,17 @@
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
-                                <th scope="col">@lang('Photos')</th>
+                                <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Event Details')</th>
+                                 <th scope="col">@lang('Elapsed time')</th>
+                                  <th scope="col">@lang('Last update')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
                   </thead>
                   <tbody>
               
-       @forelse ($events as $item)
+       @forelse ($videos as $item)
                                 <tr>                                    
                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
                                     
@@ -51,11 +50,19 @@
 
                                     <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
                                    
-                                        <td data-label="@lang('Date event')">                                            
-      <img class="" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
-                                        </td>
+                                        <td data-label="@lang('Date event')"> 
+
+                                                                           <video controls width="640" height="360">
+    <source src="{{ Storage::url($item->path) }}" type="video/mp4" style="object-fit: cover;">
+    Your browser does not support the video tag.
+</video>                                                    
+</td>
 
    <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
+     <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
+       <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
+
+
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
@@ -90,8 +97,10 @@
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
-                                <th scope="col">@lang('Photos')</th>
+                                <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Event Details')</th>
+                                 <th scope="col">@lang('Elapsed time')</th>
+                                  <th scope="col">@lang('Last update')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>

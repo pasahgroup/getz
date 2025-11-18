@@ -41,14 +41,20 @@
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.vehicles*',3)}}">
                         <i class="menu-icon las la-skull-crossbones"></i>
-                        <span class="menu-title">@lang('Events') </span>
+                        <span class="menu-title">@lang('Incidents') </span>
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.vehicles*',2)}} ">
                         <ul>
                             <li class="sidebar-menu-item {{menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])}}">
                                 <a href="{{route('user.events.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('All Events')</span>
+                                    <span class="menu-title">@lang('Photos')</span>
+                                </a>
+                            </li>
+                             <li class="sidebar-menu-item {{menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])}}">
+                                <a href="{{route('user.videos.index')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">@lang('Videos')</span>
                                 </a>
                             </li>
 

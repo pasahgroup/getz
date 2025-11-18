@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\Video;
 use App\Models\Vehicle;
 use App\Models\Tag;
 use App\Models\Brand;
@@ -15,6 +15,7 @@ use App\Models\Seater;
 use App\Http\Requests\StoretukioRequest;
 use App\Http\Requests\UpdatetukioRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
@@ -37,15 +38,15 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         $tags = Tag::where('status',1)->get();     
       
      //dd($vehicles);
-        $events=Event::where('status',1)  
-        ->select('events.*')
+        $videos=Video::where('status',1)  
+        ->select('videos.*')
         ->paginate(getPaginate(15));
 
-//dd($events);
+//dd($videos);
 
         $pageTitle = 'People who killed';
         $empty_message = 'No vehicle has been added.';
-        return view('events.index', compact('pageTitle', 'empty_message', 'vehicles','tags','events'));
+        return view('videos.index', compact('pageTitle', 'empty_message', 'vehicles','tags','videos'));
     }
 
 
@@ -63,11 +64,11 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
           ->orderBy('car_model')->get();
 
 
-          $tags = Tag::where('status',1)->get(); 
+         // $tags = Tag::where('status',1)->get(); 
            $locations = Location::where('status',1)->get();   
 
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('events.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations','modelbs'));
+        return view('videos.addVideo', compact('pageTitle', 'brands', 'seaters','cartypes','colors','locations','modelbs'));
     }
 
     /**
@@ -103,7 +104,75 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
      * @param  \App\Http\Requests\StoretukioRequest  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
+protected function validator(array $data, $table)
+{
+    return Validator::make($data, [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:'.$table],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ]);
+}
+
+
     public function store(Request $request)
+   {
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'video' => 'required|file|mimetypes:video/mp4',
+        ]);
+ 
+       
+       //dd('popo');
+
+        $fileName = $request->video->getClientOriginalName();
+        $filePath = 'videos/' . $fileName;
+ 
+        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+ 
+        // File URL to access the video in frontend
+        $url = Storage::disk('public')->url($filePath); 
+        if ($isFileUploaded) {
+            $video = new Video();
+
+
+
+             $video->name = $request->name;
+         $video->event_title = $request->event_title;
+         $video->event_type = $request->event_type;
+          $video->event_place = $request->event_place;
+
+         $video->region = $request->region;
+        $video->district = $request->district;
+
+         $video->date_event = $request->date_event;
+           $video->details = $request->details;
+            $video->title = $request->title;         
+          $video->path = $filePath;
+            $video->save();
+ 
+            
+
+$notify[] = ['success', 'Video has been successfully uploaded!'];
+        return back()->withNotify($notify);
+
+            // return back()
+            // ->with('success','Video has been successfully uploaded.');
+        }
+ 
+        return back()
+            ->with('error','Unexpected error occured');
+    }
+
+
+
+
+
+
+
+    public function store_org(Request $request)
     {
 
         $request->validate([
@@ -135,7 +204,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
 
 
-        $event = new Event();
+        $event = new Video();
         $event->name = $request->name;
          $event->event_title = $request->event_title;
          $event->event_type = $request->event_type;
@@ -156,7 +225,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         }
 
      
-        $event->images = $images;      
+        $event->images = $images;     
 
         $event->save();
 

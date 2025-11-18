@@ -15,7 +15,7 @@
 
                             <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="name">@lang('Event title(Kichwa cha Tukio)')</label>
+                                    <label for="name">@lang('Incident title(Kichwa cha Tukio)')</label>
                                     <input type="text" id="event_title" name="event_title" class="form-control"
                                            value="{{ $event->event_title }}">
                                 </div>
@@ -32,7 +32,7 @@
 
                                <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="category">@lang('Event type(Aina ya tukio)')</label>
+                                    <label for="category">@lang('Incident type(Aina ya tukio)')</label>
                                     <select class="form-control" id="event_type" name="event_type" required="">
                                         <option
                                                 value="{{ $event->event_type }}" selected>{{ $event->event_type }}</option>
@@ -93,7 +93,7 @@
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="nicEditor0">@lang('Event details(Maelezo ya Tukio)')</label>
+                                    <label for="nicEditor0">@lang('Incident details(Maelezo ya Tukio)')</label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
                                                id="nicEditor0">{{ $event->details }}</textarea>
                                 </div>

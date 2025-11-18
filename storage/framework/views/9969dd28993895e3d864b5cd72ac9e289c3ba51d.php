@@ -13,11 +13,15 @@
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
                 <div class="email-address">
-                    <a href="mailto:contact@southtemplate.com">No Email</a>
+                    <a href="mailto:contact@southtemplate.com">Email: info@tanzaniagenocide.com</a>
                       <a href="mailto:contact@southtemplate.com"  class="element"></a>
                             <?php if(auth()->guard()->check()): ?>
-                                <a href="<?php echo e(route('user.events.index')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload photos'); ?></a>
-                                   <a href="<?php echo e(route('user.videos.index')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload videos'); ?></a>
+                                <a href="<?php echo e(route('user.events.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload Incident photos'); ?></a>
+                                   <a href="<?php echo e(route('user.videos.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload Incident videos'); ?></a>
+
+                                          <a href="#" class="cmn--btn"><?php echo app('translator')->get('Victims'); ?></a>
+                                   <a href="#" class="cmn--btn"><?php echo app('translator')->get('Suspects'); ?></a>
+
                             <?php else: ?>
                                 <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Login'); ?></a>
 
