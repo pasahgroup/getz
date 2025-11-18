@@ -19,7 +19,7 @@ class video extends Model
     
     public static function getMoviesInfo($id,$field_name) 
     { 
-        $movie_info = video::where('status','1')->where('id',$id)->first();
+        $movie_info = Video::where('status','1')->where('id',$id)->first();
         
         if($movie_info)
         {
