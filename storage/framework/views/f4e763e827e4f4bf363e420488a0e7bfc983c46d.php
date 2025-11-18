@@ -37,9 +37,9 @@
                             </div>
                             <!-- Address -->
                             <div class="address">
-                                <h6><img src="img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
-                                <h6><img src="img/icons/envelope.png" alt=""> office@template.com</h6>
-                                <h6><img src="img/icons/location.png" alt=""> Main Str. no 45-46, b3, 56832, Los Angeles, CA</h6>
+                                <h6><img src="img/icons/phone-call.png" alt="">000 000 </h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> ino@tanzaniagenocide.com</h6>
+                                <h6><img src="img/icons/location.png" alt="">####</h6>
                             </div>
                         </div>
                     </div>

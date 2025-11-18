@@ -275,8 +275,8 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
        public function edit($id)
     {
-        $event = Event::findOrFail($id);
-        $pageTitle = 'Edit Event';
+        $event = Video::findOrFail($id);
+        $pageTitle = 'Edit Video';
           $locations = Location::where('status',1)->get(); 
  $locations = Location::where('status',1)->get();  
 

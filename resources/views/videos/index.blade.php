@@ -24,13 +24,13 @@
                   <thead>
                 <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Event type')</th>
-                                <th scope="col">@lang('Event Place')</th>
+                                <th scope="col">@lang('Incident type')</th>
+                                <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Videos')</th>
-                                <th scope="col">@lang('Event Details')</th>
+                                <th scope="col">@lang('Incident Details')</th>
                                  <th scope="col">@lang('Elapsed time')</th>
                                   <th scope="col">@lang('Last update')</th>
                                      <th scope="col">@lang('Status')</th>
@@ -73,7 +73,7 @@
                                 
 
                                     <td data-label="@lang('Action')">
-                                        <a href="{{ route('user.events.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
+                                        <a href="{{ route('user.videos.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
 
@@ -92,13 +92,13 @@
                   <tfoot>
                     <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Event type')</th>
-                                <th scope="col">@lang('Event Place')</th>
+                                <th scope="col">@lang('Incident type')</th>
+                                <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Videos')</th>
-                                <th scope="col">@lang('Event Details')</th>
+                                <th scope="col">@lang('Incident Details')</th>
                                  <th scope="col">@lang('Elapsed time')</th>
                                   <th scope="col">@lang('Last update')</th>
                                      <th scope="col">@lang('Status')</th>

@@ -24,13 +24,13 @@
                   <thead>
                 <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Event type')</th>
-                                <th scope="col">@lang('Event Place')</th>
+                                <th scope="col">@lang('Incident type')</th>
+                                <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Event Date')</th>
+                           <th scope="col">@lang('Incident Date')</th>
                                 <th scope="col">@lang('Photos')</th>
-                                <th scope="col">@lang('Event Details')</th>
+                                <th scope="col">@lang('Incident Details')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
@@ -82,13 +82,13 @@
                   <tfoot>
                     <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Event type')</th>
-                                <th scope="col">@lang('Event Place')</th>
+                                <th scope="col">@lang('Incident type')</th>
+                                <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Event Date')</th>
+                           <th scope="col">@lang('Incident Date')</th>
                                 <th scope="col">@lang('Photos')</th>
-                                <th scope="col">@lang('Event Details')</th>
+                                <th scope="col">@lang('Incident Details')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>

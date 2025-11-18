@@ -24,13 +24,13 @@
                   <thead>
                 <tr>
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
                                   <th scope="col"><?php echo app('translator')->get('Last update'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
@@ -73,7 +73,7 @@
                                 
 
                                     <td data-label="<?php echo app('translator')->get('Action'); ?>">
-                                        <a href="<?php echo e(route('user.events.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
+                                        <a href="<?php echo e(route('user.videos.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
                                             <i class="la la-edit"></i>
                                         </a>
 
@@ -92,13 +92,13 @@
                   <tfoot>
                     <tr>
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
                                   <th scope="col"><?php echo app('translator')->get('Last update'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
