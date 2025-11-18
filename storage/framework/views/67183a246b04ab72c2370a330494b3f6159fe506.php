@@ -24,13 +24,13 @@
                   <thead>
                 <tr>
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
                                   <th scope="col"><?php echo app('translator')->get('Last update'); ?></th>
 
@@ -89,13 +89,13 @@
                   <tfoot>
                     <tr>
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
                                   <th scope="col"><?php echo app('translator')->get('Last update'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>

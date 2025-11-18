@@ -54,7 +54,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
     {
         $pageTitle = 'Add New Incidents';
 
-           $locations = Location::where('status',1)->get();   
+           $locations = Location::where('status',1)->get();
 
         $seaters = Seater::active()->orderBy('number')->get();
         return view('events.add', compact('pageTitle','locations'));

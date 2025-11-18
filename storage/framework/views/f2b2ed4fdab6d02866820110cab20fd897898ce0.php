@@ -52,7 +52,7 @@
                                    
                                         <td data-label="<?php echo app('translator')->get('Date event'); ?>"> 
 
-                                                                           <video controls width="640" height="360">
+                                                                           <video controls width="80" height="80">
     <source src="<?php echo e(Storage::url($item->path)); ?>" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video>                                                    
