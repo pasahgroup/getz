@@ -52,22 +52,12 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
      public function add()
     {
-        $pageTitle = 'Add New Events';
-        $brands = Brand::where('status','1')
-        ->active()->orderBy('name')->get();
-        $cartypes = Cartype::where('status','1')
-        ->orderBy('car_body_type')->get();
-         $colors = Color::where('status','1')
-         ->orderBy('color')->get();
-          $modelbs = modelb::where('status','1')
-          ->orderBy('car_model')->get();
+        $pageTitle = 'Add New Incidents';
 
-
-          $tags = Tag::where('status',1)->get(); 
            $locations = Location::where('status',1)->get();   
 
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('events.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations','modelbs'));
+        return view('events.add', compact('pageTitle','locations'));
     }
 
     /**
