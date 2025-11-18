@@ -129,7 +129,7 @@ $models = Vehicle::orderby('model')
 
  //dd($vehicles);
 
-        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','events','metaVehicleCount','metaFirstEvent','metaFirstVehicle2','metaFirstVehicle3'));
+        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','models','metaVehicles','events','metaVehicleCount','metaFirstEvent','metaFirstVehicle2','metaFirstVehicle3'));
     }
 
 
