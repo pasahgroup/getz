@@ -52,7 +52,7 @@
                                    
                                         <td data-label="@lang('Date event')"> 
 
-                                                                           <video controls width="80" height="80">
+                                                                           <video controls width="120" height="120">
     <source src="{{ Storage::url($item->path) }}" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video>                                                    
