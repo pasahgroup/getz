@@ -3,7 +3,7 @@
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.videos.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
+    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
 @endpush
 
 
@@ -24,13 +24,13 @@
                   <thead>
                 <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Incident type')</th>
-                                <th scope="col">@lang('Incident Place')</th>
+                                <th scope="col">@lang('Event type')</th>
+                                <th scope="col">@lang('Event Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Incident Date')</th>
+                           <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Photos')</th>
-                                <th scope="col">@lang('Incident Details')</th>
+                                <th scope="col">@lang('Event Details')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
@@ -63,11 +63,11 @@
                                 
 
                                     <td data-label="@lang('Action')">
-                                        <a href="{{ route('user.videos.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
+                                        <a href="{{ route('user.events.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.videos.status', $item->id) }}">
+                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.events.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
                                     </td>
@@ -82,13 +82,13 @@
                   <tfoot>
                     <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Incident type')</th>
-                                <th scope="col">@lang('Incident Place')</th>
+                                <th scope="col">@lang('Event type')</th>
+                                <th scope="col">@lang('Event Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Incident Date')</th>
+                           <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Photos')</th>
-                                <th scope="col">@lang('Incident Details')</th>
+                                <th scope="col">@lang('Event Details')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>

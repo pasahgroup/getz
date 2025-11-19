@@ -9,7 +9,7 @@
 
 
   <script src="../../../../appweb/jquery171.min.js"></script>
-    <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
+    <!-- <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css"> -->
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
@@ -40,8 +40,8 @@
                   <tbody>
               
        @forelse ($videos as $item)
-                                <tr>                                    
-                                    <td data-label="@lang('Name')">{{ __($item->name) }}</td>
+                                <tr>                   
+                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
                                     
                                     <td data-label="@lang('Event_type')">{{ __($item->event_type) }}</td>
                                     <td data-label="@lang('Event_place')">{{ __($item->event_place) }}</td>
@@ -50,9 +50,9 @@
 
                                     <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
                                    
-                                        <td data-label="@lang('Date event')"> 
+                                        <td data-label="@lang('Videos')"> 
 
-                                                                           <video controls width="120" height="120">
+                                                                           <video controls width="140" height="120">
     <source src="{{ Storage::url($item->path) }}" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video>                                                    
@@ -91,6 +91,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                         
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Incident type')</th>
                                 <th scope="col">@lang('Incident Place')</th>

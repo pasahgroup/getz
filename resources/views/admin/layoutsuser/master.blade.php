@@ -9,7 +9,7 @@
     <title>{{ $general->sitename($pageTitle ?? '') }}</title>
     <!-- site favicon -->
     <link rel="shortcut icon" type="image/png" href="{{getImage(imagePath()['logoIcon']['path'] .'/favicon.png')}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"> -->
     <!-- bootstrap 4  -->
     <link rel="stylesheet" href="{{ asset('assets/admin/css/vendor/bootstrap.min.css') }}">
     <!-- bootstrap toggle css -->

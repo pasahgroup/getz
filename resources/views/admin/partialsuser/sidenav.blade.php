@@ -58,6 +58,14 @@
                                 </a>
                             </li>
 
+                              <li class="sidebar-menu-item {{menuActive(['admin.victims.index','admin.vehicles.add','admin.vehicles.edit'])}}">
+                                <a href="{{route('user.victims.index')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">@lang('Victims')</span>
+                                </a>
+                            </li>
+
+
                            <li class="sidebar-menu-item {{menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])}}">
                                 <a href="{{route('user.suspects.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>

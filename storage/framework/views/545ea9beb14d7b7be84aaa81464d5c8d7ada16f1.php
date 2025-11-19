@@ -1,44 +1,43 @@
-@extends('admin.layoutsuser.app')
 
-<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
-
-@section('panel')
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
+<?php $__env->startSection('panel'); ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('user.videos.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form action="<?php echo e(route('user.events.update', $event->id)); ?>" method="post"
+                      enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
 
                     <div class="card-body">
-                        
-                        <div class="row">                          
+                        <div class="row">
+
+                        <div class="row">                         
 
                             <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="name">@lang('Incident title(Kichwa cha Tukio)')</label>
+                                    <label for="name"><?php echo app('translator')->get('Incident title(Kichwa cha Tukio)'); ?></label>
                                     <input type="text" id="event_title" name="event_title" class="form-control"
-                                           value="{{ old('event_title') }}">
+                                           value="<?php echo e($event->event_title); ?>">
                                 </div>
                             </div>
 
                          <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="name">@lang('Date(Tarehe ya Tukio)')</label>
+                                    <label for="name"><?php echo app('translator')->get('Date(Tarehe ya Tukio)'); ?></label>
                                     <input type="date" id="date_event" name="date_event" class="form-control"
-                                           value="{{ old('event_date') }}">
+                                            value="<?php echo e($event->date_event); ?>">
                                 </div>
                             </div>
-
  
 
                                <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="category">@lang('Incident type(Aina ya tukio)')</label>
+                                    <label for="category"><?php echo app('translator')->get('Incident type(Aina ya tukio)'); ?></label>
                                     <select class="form-control" id="event_type" name="event_type" required="">
-                                        <option value="">-- @lang('chagua') --</option>
+                                        <option
+                                                value="<?php echo e($event->event_type); ?>" selected><?php echo e($event->event_type); ?></option>
 
-
-                                          <option value="Injured">Injured(Jeruhiwa)</option>
+                                  <option value="Injured">Injured(Jeruhiwa)</option>
                                         <option value="kidnapped">kidnapped(Tekwa)</option>
                                          <option value="killed">killed(Uwawa)</option>
                                          <option value="Missed">Missed(Potea bila Taarifa)</option>
@@ -50,29 +49,28 @@
 
                                <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="name">@lang('Full name(Jina la aliouwawa/Tekwa/Potea)')</label>
+                                    <label for="name"><?php echo app('translator')->get('Full name(Jina la aliouwawa/Tekwa/Potea)'); ?></label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ old('name') }}">
+                                           value="<?php echo e($event->name); ?>">
                                 </div>
                             </div>
 
                              <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="name">@lang('Sehemu Ya Tukio')</label>
+                                    <label for="name"><?php echo app('translator')->get('Sehemu Ya Tukio'); ?></label>
                                     <input type="text" id="event_place" name="event_place" class="form-control"
-                                           value="{{ old('event_place') }}">
+                                          value="<?php echo e($event->event_place); ?>">
                                 </div>
                             </div>
 
                                <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="seater">@lang('Region/State(Mkoa)')</label>
+                                    <label for="seater"><?php echo app('translator')->get('Region/State(Mkoa)'); ?></label>
                                     <select class="form-control" id="region" name="region" required="">
-                                        <option value="">-- @lang('chagua') --</option>
-                                        @forelse($locations as $location)
-                                            <option value="{{ $location->name }}">{{ __(@$location->name) }}</option>
-                                        @empty
-                                        @endforelse
+                                       <option
+                                                value="<?php echo e($event->region); ?>" selected><?php echo e($event->region); ?></option>
+                                                  <option>--- ----- --</option>
+                                                                    
                                     </select>
                                 </div>
                             </div>
@@ -80,9 +78,9 @@
                             
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="category">@lang('District(Wilaya)')</label>
+                                    <label for="category"><?php echo app('translator')->get('District(Wilaya)'); ?></label>
                                       <input type="text" id="district" name="district" class="form-control"
-                                           value="{{ old('district') }}">
+                                          value="<?php echo e($event->district); ?>">
                                 </div>
                             </div>
 
@@ -91,25 +89,17 @@
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="nicEditor0">@lang('Incident details(Maelezo ya Tukio)')</label>
+                                    <label for="nicEditor0"><?php echo app('translator')->get('Incident details(Maelezo ya Tukio)'); ?></label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
-                                              id="nicEditor0">{{ old('details') }}</textarea>
+                                               id="nicEditor0"><?php echo e($event->details); ?></textarea>
                                 </div>
                             </div>
-
-
-<div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="name">@lang('Upload Video')</label>
-                                    <input type="file" name="video"  id="video" class="form-control"/>
-                                </div>
-                            </div>
-                 
-                                  </div>
-
-
+                              </div>                         
+                       
+                        </div>
                     </div>
-                    <div class="card-footer row">
+                
+                      <div class="card-footer row">
                              <div class="col-md-9">
                                 <div class="form-group">
                                   
@@ -118,7 +108,7 @@
                             
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <button class="btn btn--primary w-100">@lang('Submit(Wasilisha)')</button>
+                                   <button class="btn btn--primary w-100"><?php echo app('translator')->get('Update(Sahihisha)'); ?></button>
                                 </div>
                             </div>
                     </div>
@@ -126,52 +116,14 @@
             </div><!-- card end -->
         </div>
     </div>
+   
+<?php $__env->stopSection(); ?>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">@lang('Add New Specification')</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body specification">
-                    <div class="form-group">
-                        <label for="icon" class="font-weight-bold">@lang('Select Icon')</label>
-                        <div class="input-group has_append">
-                            <input type="text" class="form-control icon" id="icon" required>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary iconPicker" data-icon="las la-home" role="iconpicker"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="label" class="font-weight-bold">@lang('Label')</label>
-                        <input class="form-control" id="label" type="text" required placeholder="@lang('Label')">
-                    </div>
-                    <div class="form-group">
-                        <label for="label" class="font-weight-bold">@lang('Value')</label>
-                        <input class="form-control" id="value" type="text" required placeholder="@lang('Value')">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button type="button" class="btn btn--primary addNewInformation">@lang('Add')</button>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
-
-
-@push('breadcrumb-plugins')
-    <a href="{{ route('user.videos.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
-@endpush
-
-@push('style')
+<?php $__env->startPush('breadcrumb-plugins'); ?>
+    <a href="<?php echo e(route('user.events.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+            class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
+<?php $__env->stopPush(); ?>
+<?php $__env->startPush('style'); ?>
     <style>
         .avatar-remove {
             position: absolute;
@@ -188,25 +140,70 @@
             font-size: 15px;
             cursor: pointer;
         }
+
+        .avatar-remove button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 15px;
+            font-size: 15px;
+            cursor: pointer;
+            padding-left: 6px;
+        }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
-@push('style-lib')
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-iconpicker.min.css') }}">
-@endpush
-@push('script-lib')
-    <script src="{{ asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js') }}"></script>
-@endpush
+<?php $__env->startPush('style-lib'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/bootstrap-iconpicker.min.css')); ?>">
+<?php $__env->stopPush(); ?>
+<?php $__env->startPush('script-lib'); ?>
+    <script src="<?php echo e(asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js')); ?>"></script>
+<?php $__env->stopPush(); ?>
 
-@push('script')
+<?php $__env->startPush('script'); ?>
     <script>
         (function ($) {
             "use strict";
 
+            $(document).ready(function () {
+                $(window).keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+            });
+
+            //Delete Old Image
+            $('.deleteOldImage').on('click', function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var url = $(this).data('deletelink');
+                var removeindex = $(this).data('removeindex');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    success: function (data) {
+                        if (data.success) {
+                            $('#' + removeindex).remove();
+                            notify('success', data.message);
+                        } else {
+                            notify('error', 'Failed to delete the image!')
+                        }
+                    }
+                });
+            });
+
             var counter = 0;
             $('.addBtn').click(function () {
                 counter++;
-                $('.element').append(`<div class="col-md-2 imageItem"><div class="payment-method-item"><div class="payment-method-header d-flex flex-wrap"><div class="thumb" style="position: relative;"><div class="avatar-preview"><div class="profilePicPreview" style="background-image: url('{{asset('assets/images/default.png')}}')"></div></div><div class="avatar-edit"><input type="file" name="images[]" class="profilePicUpload" required id="image${counter}" accept=".png, .jpg, .jpeg" /><label for="image${counter}" class="bg-primary"><i class="la la-pencil"></i></label></div>
+                $('.element').append(`<div class="col-md-2 imageItem"><div class="payment-method-item"><div class="payment-method-header d-flex flex-wrap"><div class="thumb" style="position: relative;"><div class="avatar-preview"><div class="profilePicPreview" style="background-image: url('<?php echo e(asset('assets/images/default.png')); ?>')"></div></div><div class="avatar-edit"><input type="file" name="images[]" class="profilePicUpload" required id="image${counter}" accept=".png, .jpg, .jpeg" /><label for="image${counter}" class="bg-primary"><i class="la la-pencil"></i></label></div>
                 <div class="avatar-remove">
                     <label class="bg-danger removeBtn">
                         <i class="la la-close"></i>
@@ -216,13 +213,6 @@
                 remove()
                 upload()
             });
-
-            function scrol() {
-                var bottom = $(document).height() - $(window).height();
-                $('html, body').animate({
-                    scrollTop: bottom
-                }, 200);
-            }
 
             function remove() {
                 $('.removeBtn').on('click', function () {
@@ -248,12 +238,6 @@
                 $(".profilePicUpload").on('change', function () {
                     proPicURL(this);
                 });
-
-                $(".remove-image").on('click', function () {
-                    $(this).parents(".profilePicPreview").css('background-image', 'none');
-                    $(this).parents(".profilePicPreview").removeClass('has-image');
-                    $(this).parents(".thumb").find('input[type=file]').val('');
-                });
             }
 
             //----- Add Information fields-------//
@@ -275,10 +259,10 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <input name="label[]" class="form-control" type="text" value="${label}" required placeholder="@lang('Label')" readonly>
+                                <input name="label[]" class="form-control" type="text" value="${label}" required placeholder="<?php echo app('translator')->get('Label'); ?>" readonly>
                             </div>
                             <div class="col-md-3 mt-md-0 mt-2">
-                                <input name="value[]" class="form-control" value="${value}" type="text" required placeholder="@lang('Value')" readonly>
+                                <input name="value[]" class="form-control" value="${value}" type="text" required placeholder="<?php echo app('translator')->get('Value'); ?>" readonly>
                             </div>
                             <div class="col-md-1 mt-md-0 mt-2 text-right">
                                 <span class="input-group-btn">
@@ -304,9 +288,12 @@
                 $(this).closest('.other-info-data').remove();
             });
 
-
-            $('select[name=brand]').val('{{old('brand')}}');
-            $('select[name=seater]').val('{{old('seater')}}');
+            function scrol() {
+                var bottom = $(document).height() - $(window).height();
+                $('html, body').animate({
+                    scrollTop: bottom
+                }, 200);
+            }
 
             // Icon picker
             $('.iconPicker').iconpicker({
@@ -332,58 +319,6 @@
             });
         })(jQuery);
     </script>
+<?php $__env->stopPush(); ?>
 
-
-      <script type="text/javascript">
-       $(document).ready(function(){
-      // Department Change
-      $('#brand').change(function(){
-         // ward
-
-  //alert('changed');
-
-         var v = $(this).val();
-             // alert(v);
-           // Empty the dropdown
-         // $('#model').find('option').not(':first').remove();
-            // document.getElementById("classgf").value =v;
-         // $('#village').find('option').not(':first').remove();
-         // $('#project_name').find('option').not(':first').remove();
-         // $('#project_activities').find('option').not(':first').remove();
-
-
-         // AJAX request
-
-         $.ajax({
-          url: 'getA/'+v,            
-           type: 'get',
-           dataType: 'json',
-           success: function(response){
-      //alet('fffff');
-
-             var len = 0;
-            
-             if(response['dataA'] != null){
-               len = response['dataA'].length;
-             }
-         //alet(len);
-
-                       if(len > 0){
-               // Read data and create <option >
-               for(var i=0; i<len; i++){
-
-                 var id = response['dataA'][i].id;
-                 var name = response['dataA'][i].car_model;
-                 var option = "<option value='"+id+"'>"+name+"</option>";
-                 $("#model").append(option);
-               }
-             }
-             //DAta are here
-
-           }
-        });
-      });
-    });
-     </script>
-
-@endpush
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/videos/edit.blade.php ENDPATH**/ ?>

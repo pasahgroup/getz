@@ -40,7 +40,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
      //dd($vehicles);
         $videos=Video::where('status',1)  
         ->select('videos.*')
-        ->paginate(getPaginate(15));
+        ->paginate(getPaginate(10));
 
 //dd($videos);
 
@@ -109,8 +109,10 @@ protected function validator(array $data, $table)
     public function store(Request $request)
    {
         $this->validate($request, [
-            'title' => 'required|string|max:255',
-            'video' => 'required|file|mimetypes:video/mp4',
+           // 'title' => 'required|string|max:255',
+            'video' => 'required|file|mimetypes:video/mp4|max:5128',
+             //'video' => 'required|file|mimes:mp4,mov,avi|max:51200', 
+             //'video' => 'required|max:5128',
         ]);
  
        
@@ -137,8 +139,7 @@ protected function validator(array $data, $table)
         $video->district = $request->district;
 
          $video->date_event = $request->date_event;
-           $video->details = $request->details;
-            $video->title = $request->title;         
+           $video->details = $request->details;        
           $video->path = $filePath;
             $video->save();
  
@@ -275,12 +276,13 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
        public function edit($id)
     {
-        $event = Video::findOrFail($id);
+        $video = Video::findOrFail($id);
         $pageTitle = 'Edit Video';
           $locations = Location::where('status',1)->get(); 
- $locations = Location::where('status',1)->get();  
+ $locations = Location::where('status',1)->get(); 
+ //dd($locations); 
 
-        return view('events.edit', compact('event','locations','pageTitle'));
+        return view('videos.editVideo', compact('video','locations','pageTitle'));
     }
 
     /**

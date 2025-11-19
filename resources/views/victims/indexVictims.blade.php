@@ -3,7 +3,7 @@
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.videos.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
+    <a href="{{ route('user.victims.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Victim Photos(Sajili Picha ya Tukio)')</a>
 @endpush
 
 
@@ -28,16 +28,20 @@
                                 <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Incident Date')</th>
+                           <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Photos')</th>
+                                <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Incident Details')</th>
+                                 <th scope="col">@lang('Elapsed time')</th>
+                                  <th scope="col">@lang('Last update')</th>
+
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
                   </thead>
                   <tbody>
               
-       @forelse ($events as $item)
+       @forelse ($victims as $item)
                                 <tr>                                    
                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
                                     
@@ -48,11 +52,23 @@
 
                                     <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
                                    
-                                        <td data-label="@lang('Date event')">                                            
+                                        <td data-label="@lang('Date event')"> 
+
       <img class="" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
                                         </td>
 
+                                                                        <td data-label="@lang('Videos')"> 
+
+                                                                           <video controls width="120" height="120">
+    <source src="{{ Storage::url($item->path) }}" type="video/mp4" style="object-fit: cover;">
+    Your browser does not support the video tag.
+</video>                                                    
+</td>
+
    <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
+    <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
+       <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
+
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
@@ -63,11 +79,11 @@
                                 
 
                                     <td data-label="@lang('Action')">
-                                        <a href="{{ route('user.videos.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
+                                        <a href="{{ route('user.victims.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.videos.status', $item->id) }}">
+                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.victims.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
                                     </td>
@@ -86,9 +102,12 @@
                                 <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Incident Date')</th>
-                                <th scope="col">@lang('Photos')</th>
+                           <th scope="col">@lang('Event Date')</th>
+                            <th scope="col">@lang('Photos')</th>
+                                <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Incident Details')</th>
+                                 <th scope="col">@lang('Elapsed time')</th>
+                                  <th scope="col">@lang('Last update')</th>
                                      <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>

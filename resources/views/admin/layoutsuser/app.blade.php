@@ -1,4 +1,4 @@
-@extends('admin.layoutsuser.master')
+a @extends('admin.layoutsuser.master')
 
 @section('content')
     <!-- page-wrapper start -->

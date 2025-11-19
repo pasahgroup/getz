@@ -1,23 +1,21 @@
 @extends('admin.layoutsuser.app')
-
 <script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
-
 @section('panel')
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('user.videos.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('user.videos.update', $video->id) }}" method="post"
+                      enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
-                        
-                        <div class="row">                          
+                        <div class="row">                      
 
                             <div class="col-md-7">
                                 <div class="form-group">
                                     <label for="name">@lang('Incident title(Kichwa cha Tukio)')</label>
                                     <input type="text" id="event_title" name="event_title" class="form-control"
-                                           value="{{ old('event_title') }}">
+                                           value="{{ $video->event_title }}">
                                 </div>
                             </div>
 
@@ -25,20 +23,19 @@
                                 <div class="form-group">
                                     <label for="name">@lang('Date(Tarehe ya Tukio)')</label>
                                     <input type="date" id="date_event" name="date_event" class="form-control"
-                                           value="{{ old('event_date') }}">
+                                            value="{{ $video->date_event }}">
                                 </div>
                             </div>
-
  
 
                                <div class="col-md-7">
                                 <div class="form-group">
                                     <label for="category">@lang('Incident type(Aina ya tukio)')</label>
                                     <select class="form-control" id="event_type" name="event_type" required="">
-                                        <option value="">-- @lang('chagua') --</option>
+                                        <option
+                                                value="{{ $video->event_type }}" selected>{{ $video->event_type }}</option>
 
-
-                                          <option value="Injured">Injured(Jeruhiwa)</option>
+                                  <option value="Injured">Injured(Jeruhiwa)</option>
                                         <option value="kidnapped">kidnapped(Tekwa)</option>
                                          <option value="killed">killed(Uwawa)</option>
                                          <option value="Missed">Missed(Potea bila Taarifa)</option>
@@ -52,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="name">@lang('Full name(Jina la aliouwawa/Tekwa/Potea)')</label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ old('name') }}">
+                                           value="{{ $video->name }}" required>
                                 </div>
                             </div>
 
@@ -60,7 +57,7 @@
                                 <div class="form-group">
                                     <label for="name">@lang('Sehemu Ya Tukio')</label>
                                     <input type="text" id="event_place" name="event_place" class="form-control"
-                                           value="{{ old('event_place') }}">
+                                          value="{{ $video->event_place }}">
                                 </div>
                             </div>
 
@@ -68,11 +65,15 @@
                                 <div class="form-group">
                                     <label for="seater">@lang('Region/State(Mkoa)')</label>
                                     <select class="form-control" id="region" name="region" required="">
-                                        <option value="">-- @lang('chagua') --</option>
+                                       <option
+                                                value="{{ $video->region }}" selected>{{ $video->region }}</option>
+                                                  <option>--- ----- --</option>
+                                  {{--
                                         @forelse($locations as $location)
                                             <option value="{{ $location->name }}">{{ __(@$location->name) }}</option>
                                         @empty
-                                        @endforelse
+                                        @endforelse  
+                                        --}}                                  
                                     </select>
                                 </div>
                             </div>
@@ -82,7 +83,7 @@
                                 <div class="form-group">
                                     <label for="category">@lang('District(Wilaya)')</label>
                                       <input type="text" id="district" name="district" class="form-control"
-                                           value="{{ old('district') }}">
+                                          value="{{ $video->district }}">
                                 </div>
                             </div>
 
@@ -93,23 +94,33 @@
                                 <div class="form-group">
                                     <label for="nicEditor0">@lang('Incident details(Maelezo ya Tukio)')</label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
-                                              id="nicEditor0">{{ old('details') }}</textarea>
+                                               id="nicEditor0">{{ $video->details }}</textarea>
                                 </div>
                             </div>
+                        
 
-
-<div class="col-md-12">
+                          <div class="col-md-6">
+                             <label for="name">{{$video->path}}</label>
+                             <br>
+            <video controls width="120" height="120">
+    <source src="{{ Storage::url($video->path) }}" type="video/mp4" style="object-fit: cover;">
+    Your browser does not support the video tag.
+</video> 
+                            </div>
+  <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">@lang('Upload Video')</label>
-                                    <input type="file" name="video"  id="video" class="form-control"/>
+                                    <label for="name">@lang('Upload new Video')</label>
+                                    <input type="file" name="video"  id="video" value="hgfhffh.mp4" class="form-control"/>
                                 </div>
                             </div>
                  
                                   </div>
 
-
+                       
+                        </div>
                     </div>
-                    <div class="card-footer row">
+                
+                      <div class="card-footer row">
                              <div class="col-md-9">
                                 <div class="form-group">
                                   
@@ -118,7 +129,7 @@
                             
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <button class="btn btn--primary w-100">@lang('Submit(Wasilisha)')</button>
+                                   <button class="btn btn--primary w-100">@lang('Update(Sahihisha)')</button>
                                 </div>
                             </div>
                     </div>
@@ -126,51 +137,13 @@
             </div><!-- card end -->
         </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">@lang('Add New Specification')</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body specification">
-                    <div class="form-group">
-                        <label for="icon" class="font-weight-bold">@lang('Select Icon')</label>
-                        <div class="input-group has_append">
-                            <input type="text" class="form-control icon" id="icon" required>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary iconPicker" data-icon="las la-home" role="iconpicker"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="label" class="font-weight-bold">@lang('Label')</label>
-                        <input class="form-control" id="label" type="text" required placeholder="@lang('Label')">
-                    </div>
-                    <div class="form-group">
-                        <label for="label" class="font-weight-bold">@lang('Value')</label>
-                        <input class="form-control" id="value" type="text" required placeholder="@lang('Value')">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button type="button" class="btn btn--primary addNewInformation">@lang('Add')</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 @endsection
-
 
 @push('breadcrumb-plugins')
     <a href="{{ route('user.videos.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
-
 @push('style')
     <style>
         .avatar-remove {
@@ -188,6 +161,17 @@
             font-size: 15px;
             cursor: pointer;
         }
+
+        .avatar-remove button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 15px;
+            font-size: 15px;
+            cursor: pointer;
+            padding-left: 6px;
+        }
     </style>
 @endpush
 
@@ -203,6 +187,40 @@
         (function ($) {
             "use strict";
 
+            $(document).ready(function () {
+                $(window).keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+            });
+
+            //Delete Old Image
+            $('.deleteOldImage').on('click', function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var url = $(this).data('deletelink');
+                var removeindex = $(this).data('removeindex');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    success: function (data) {
+                        if (data.success) {
+                            $('#' + removeindex).remove();
+                            notify('success', data.message);
+                        } else {
+                            notify('error', 'Failed to delete the image!')
+                        }
+                    }
+                });
+            });
+
             var counter = 0;
             $('.addBtn').click(function () {
                 counter++;
@@ -216,13 +234,6 @@
                 remove()
                 upload()
             });
-
-            function scrol() {
-                var bottom = $(document).height() - $(window).height();
-                $('html, body').animate({
-                    scrollTop: bottom
-                }, 200);
-            }
 
             function remove() {
                 $('.removeBtn').on('click', function () {
@@ -247,12 +258,6 @@
 
                 $(".profilePicUpload").on('change', function () {
                     proPicURL(this);
-                });
-
-                $(".remove-image").on('click', function () {
-                    $(this).parents(".profilePicPreview").css('background-image', 'none');
-                    $(this).parents(".profilePicPreview").removeClass('has-image');
-                    $(this).parents(".thumb").find('input[type=file]').val('');
                 });
             }
 
@@ -304,9 +309,12 @@
                 $(this).closest('.other-info-data').remove();
             });
 
-
-            $('select[name=brand]').val('{{old('brand')}}');
-            $('select[name=seater]').val('{{old('seater')}}');
+            function scrol() {
+                var bottom = $(document).height() - $(window).height();
+                $('html, body').animate({
+                    scrollTop: bottom
+                }, 200);
+            }
 
             // Icon picker
             $('.iconPicker').iconpicker({
@@ -332,58 +340,4 @@
             });
         })(jQuery);
     </script>
-
-
-      <script type="text/javascript">
-       $(document).ready(function(){
-      // Department Change
-      $('#brand').change(function(){
-         // ward
-
-  //alert('changed');
-
-         var v = $(this).val();
-             // alert(v);
-           // Empty the dropdown
-         // $('#model').find('option').not(':first').remove();
-            // document.getElementById("classgf").value =v;
-         // $('#village').find('option').not(':first').remove();
-         // $('#project_name').find('option').not(':first').remove();
-         // $('#project_activities').find('option').not(':first').remove();
-
-
-         // AJAX request
-
-         $.ajax({
-          url: 'getA/'+v,            
-           type: 'get',
-           dataType: 'json',
-           success: function(response){
-      //alet('fffff');
-
-             var len = 0;
-            
-             if(response['dataA'] != null){
-               len = response['dataA'].length;
-             }
-         //alet(len);
-
-                       if(len > 0){
-               // Read data and create <option >
-               for(var i=0; i<len; i++){
-
-                 var id = response['dataA'][i].id;
-                 var name = response['dataA'][i].car_model;
-                 var option = "<option value='"+id+"'>"+name+"</option>";
-                 $("#model").append(option);
-               }
-             }
-             //DAta are here
-
-           }
-        });
-      });
-    });
-     </script>
-
 @endpush

@@ -143,9 +143,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
             $path = imagePath()['vehicles']['path'];
             $size = imagePath()['vehicles']['size'];
             $images[] = uploadImage($image, $path, $size);
-        }
-
-     
+        }     
         $event->images = $images;      
 
         $event->save();

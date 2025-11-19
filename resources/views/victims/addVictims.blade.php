@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('user.videos.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('user.victims.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
@@ -96,15 +96,60 @@
                                               id="nicEditor0">{{ old('details') }}</textarea>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="card border--dark mb-4">
+                                    <div class="card-header bg--dark d-flex justify-content-between">
+                                        <h5 class="text-white">@lang('Images-(Picha za Tukio Weka za kutosha)')</h5>
+                                        <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
+                                                class="fa fa-fw fa-plus"></i>@lang('Add New (Ongeza Picha)')
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><small class="text-facebook">@lang('Images will be resize into')
+                                                {{ imagePath()['vehicles']['size'] }}px</small></p>
+                                        <div class="row element">
 
+                                            <div class="col-md-2 imageItem">
+                                                <div class="payment-method-item">
+                                                    <div class="payment-method-header d-flex flex-wrap">
+                                                        <div class="thumb" style="position: relative;">
+                                                            <div class="avatar-preview">
+                                                                <div class="profilePicPreview"
+                                                                     style="background-image: url('{{asset('assets/images/default.png')}}')">
 
-<div class="col-md-12">
+                                                                </div>
+                                                            </div>
+                                                            <div class="avatar-edit">
+                                                                <input type="file" name="images[]"
+                                                                       class="profilePicUpload" id="0"
+                                                                       accept=".png, .jpg, .jpeg" required>
+                                                                <label for="0" class="bg-primary">
+                                                                    <i class="la la-pencil"></i>
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">@lang('Upload Video')</label>
+                                    <label for="name">@lang('Upload Video if any(Wasilisha Video kama zipo)')</label>
                                     <input type="file" name="video"  id="video" class="form-control"/>
                                 </div>
-                            </div>
-                 
+                            </div>  
+                               <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">@lang('Last Update(Taarifa za Mwisho,Mfano: Aliuwawa, Alipotea, Alikutwa kafa Ufukweni n.k)')</label>
+                                    <input type="text" name="last_update"  id="last_update" maxlength="200" class="form-control"/>
+                                </div>
+                            </div>                  
                                   </div>
 
 
@@ -167,7 +212,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.videos.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="{{ route('user.victims.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
 

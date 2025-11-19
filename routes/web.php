@@ -455,6 +455,17 @@ Route::name('user.')->prefix('user')->group(function () {
          Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
         Route::post('events/{id}/status', 'EventController@status')->name('events.status');
 
+        // Custims
+            Route::get('victims', 'VictimsController@index')->name('victims.index');
+           Route::get('victims/add', 'VictimsController@add')->name('victims.add');
+           Route::post('victims/store', 'VictimsController@store')->name('victims.store');
+        
+        Route::get('victims/{id}', 'VictimsController@edit')->name('victims.edit');
+
+         Route::post('victims/update/{id}', 'VictimsController@update')->name('victims.update');
+         Route::post('victims/image/remove/{id}/{image}', 'VictimsController@deleteImage')->name('victims.image.delete');
+        Route::post('victims/{id}/status', 'VictimsController@status')->name('victims.status');
+
 // videos
 
           Route::get('videos', 'VideoUploadController@index')->name('videos.index');

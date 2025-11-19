@@ -58,6 +58,14 @@
                                 </a>
                             </li>
 
+                              <li class="sidebar-menu-item <?php echo e(menuActive(['admin.victims.index','admin.vehicles.add','admin.vehicles.edit'])); ?>">
+                                <a href="<?php echo e(route('user.victims.index')); ?>" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title"><?php echo app('translator')->get('Victims'); ?></span>
+                                </a>
+                            </li>
+
+
                            <li class="sidebar-menu-item <?php echo e(menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])); ?>">
                                 <a href="<?php echo e(route('user.suspects.index')); ?>" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
