@@ -158,6 +158,7 @@ protected function validator(array $data, $table)
             $images[] = uploadImage($image, $path, $size);        }     
             $victims->images = $images; 
 
+           $victims->last_update = $request->last_update;  
             $victims->save();
  
             
@@ -309,7 +310,7 @@ protected function validator(array $data, $table)
              }     
             $victims->images = $images; 
  $victims->last_update = $request->last_update;  
- 
+
             $victims->save(); 
             
     $notify[] = ['success', 'Video has been Updated successfully uploaded!'];

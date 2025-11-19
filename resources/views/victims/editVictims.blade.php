@@ -156,13 +156,17 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
   <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">@lang('Upload new Video')</label>
-                                    <input type="file" name="video"  id="video" value="hgfhffh.mp4" class="form-control"/>
+                                    <input type="file" name="video"  id="video" class="form-control"/>
                                 </div>
                             </div>
+                            <br>
 
-
-
-
+                             <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name">@lang('Last Update(Taarifa za Mwisho,Mfano: Aliuwawa, Alipotea, Alikutwa kafa Ufukweni n.k)')</label>
+                                    <input type="text" name="last_update"  id="last_update" value="{{$victim->last_update}}" maxlength="200" class="form-control"/>
+                                </div>
+                            </div>
 
 
                         </div>

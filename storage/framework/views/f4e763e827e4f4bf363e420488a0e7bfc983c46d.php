@@ -38,7 +38,7 @@
                             <!-- Address -->
                             <div class="address">
                                 <h6><img src="img/icons/phone-call.png" alt="">000 000 </h6>
-                                <h6><img src="img/icons/envelope.png" alt=""> ino@tanzaniagenocide.com</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> info@tanzaniagenocide.com</h6>
                                 <h6><img src="img/icons/location.png" alt="">####</h6>
                             </div>
                         </div>
