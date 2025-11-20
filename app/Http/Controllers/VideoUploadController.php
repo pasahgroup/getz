@@ -68,17 +68,17 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
 
 
-    public function eventDetails($id, $slug){
+   public function videoDetails($id, $slug){
         // $vehicle = Vehicle::active()->where('id', $id)->with('ratings')->withCount('ratings')->withAvg('ratings', 'rating')->firstOrFail();
-        $vehicle = Event::where('id', $id)->firstOrFail();
+        $vehicle = Video::where('id', $id)->firstOrFail();
         $fullUrl = url()->full();
       
 
         $rental_terms = getContent('rental_terms.content', true);
-        $pageTitle = 'Vehicle Details';
+            $pageTitle = $vehicle->event_type.' Details';
 
          //dd($event->images);
-        return view($this->activeTemplate.'events.details',compact('vehicle','pageTitle', 'rental_terms','fullUrl'));
+        return view($this->activeTemplate.'events.videoDetails',compact('vehicle','pageTitle', 'rental_terms','fullUrl'));
     }
 
 

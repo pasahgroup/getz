@@ -21,6 +21,7 @@
 
                                           <a href="#" class="cmn--btn">@lang('Victims')</a>
                                    <a href="#" class="cmn--btn">@lang('Suspects')</a>
+                                      <a href="{{ route('user.logout') }}" class="cmn--btn badge-primary" style="background-color:red">@lang('Logout')</a>
 
                             @else
                                 <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Login')</a>

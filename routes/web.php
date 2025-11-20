@@ -579,6 +579,10 @@ Route::get('event/details/{id}/{slug}', 'EventController@eventDetails')->name('e
 Route::get('events-search', 'EventController@eventSearch')->name('events.search');
 
 
+Route::get('video/details/{id}/{slug}', 'VideoUploadController@videoDetails')->name('video.details');
+
+
+
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
 Route::get('vehicle/search/{seat_id}/seater', 'VehicleController@seaterVehicles')->name('vehicle.seater');
   Route::get('getModel/{id}', 'VehicleController@getModel')->name('getModel');

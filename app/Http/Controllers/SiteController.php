@@ -13,6 +13,8 @@ use App\Models\Tag;
 use App\Models\service;
 use App\Models\Event;
 
+use App\Models\Video;
+
 use App\Models\Subscriber;
 use App\Models\SupportAttachment;
 use App\Models\SupportMessage;
@@ -74,20 +76,25 @@ $models = Vehicle::orderby('model')
       ->select('events.*')
      ->paginate(getPaginate(8));
 
+ $videos = video::where('status',1)
+      ->select('videos.*')
+     ->paginate(getPaginate(8));
 
- $metaFirstEvent = Event::where('status',1)
-      ->select('events.*')
-     ->first();
+//dd($videos);
 
-     $metaFirstVehicle2 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
-          ->select('vehicles.*','cartypes.car_body_type')
-          ->offset(1)
-         ->first();
+ // $metaFirstEvent = Event::where('status',1)
+ //      ->select('events.*')
+ //     ->first();
 
-         $metaFirstVehicle3 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
-              ->select('vehicles.*','cartypes.car_body_type')
-              ->offset(2)
-             ->first();
+ //     $metaFirstVehicle2 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+ //          ->select('vehicles.*','cartypes.car_body_type')
+ //          ->offset(1)
+ //         ->first();
+
+ //         $metaFirstVehicle3 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+ //              ->select('vehicles.*','cartypes.car_body_type')
+ //              ->offset(2)
+ //             ->first();
 
      //dd($metaFirstVehicles)
 
@@ -98,18 +105,6 @@ $models = Vehicle::orderby('model')
 
 
 
-  // $events = Event::join('cartypes','cartypes.id','vehicles.car_body_type_id')
-  //     ->select('vehicles.*','cartypes.car_body_type')
-  //    ->paginate(getPaginate(8));
-  //    $metaVehicleCount=$metaVehicles->count();
-
-
-    //dd($events->count());
-
-    // $metavehicles = collect($metaVehicles);
-//$vehicles = Vehicle::active()->latest()->paginate(4);
-
-//dd($events);
 
 
         $pageTitle = 'Home';
@@ -129,7 +124,7 @@ $models = Vehicle::orderby('model')
 
  //dd($vehicles);
 
-        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','models','metaVehicles','events','metaVehicleCount','metaFirstEvent','metaFirstVehicle2','metaFirstVehicle3'));
+        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','models','metaVehicles','events','metaVehicleCount','videos'));
     }
 
 

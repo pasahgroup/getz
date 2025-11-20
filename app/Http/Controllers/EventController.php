@@ -75,9 +75,11 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
       
 
         $rental_terms = getContent('rental_terms.content', true);
-        $pageTitle = 'Vehicle Details';
+        $pageTitle = 'Event Details';
 
-         //dd($event->images);
+
+
+        // dd($vehicle->images);
         return view($this->activeTemplate.'events.details',compact('vehicle','pageTitle', 'rental_terms','fullUrl'));
     }
 

@@ -57,7 +57,7 @@ class AuthorizationController extends Controller
                 $pageTitle = 'Google Authenticator';
                 return view($this->activeTemplate.'user.auth.authorization.2fa', compact('user', 'pageTitle'));
             }else{
-                return redirect()->route('user.home');
+                return redirect()->route('user.dashboard');
             }
 
         }
@@ -120,7 +120,7 @@ class AuthorizationController extends Controller
             $user->ver_code = null;
             $user->ver_code_send_at = null;
             $user->save();
-            return redirect()->route('user.home');
+            return redirect()->route('user.dashboard');
         }
         throw ValidationException::withMessages(['email_verified_code' => 'Verification code didn\'t match!']);
     }
@@ -140,7 +140,7 @@ class AuthorizationController extends Controller
             $user->ver_code = null;
             $user->ver_code_send_at = null;
             $user->save();
-            return redirect()->route('user.home');
+            return redirect()->route('user.dashboard');
         }
         throw ValidationException::withMessages(['sms_verified_code' => 'Verification code didn\'t match!']);
     }

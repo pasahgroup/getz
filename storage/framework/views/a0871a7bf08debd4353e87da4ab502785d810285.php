@@ -20,7 +20,7 @@
                     <div class="sidebar-submenu <?php echo e(menuActive('admin.dashboard')); ?> ">
                         <ul>
 
-                             <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
+                <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
                     <a href="<?php echo e(route('user.dashboard')); ?>" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Main Dashboard'); ?></span>

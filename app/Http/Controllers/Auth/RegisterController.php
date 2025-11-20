@@ -255,7 +255,7 @@ class RegisterController extends Controller
 
     public function registered()
     {
-        return redirect()->route('user.home');
+        return redirect()->route('user.dashboard');
     }
 
 }

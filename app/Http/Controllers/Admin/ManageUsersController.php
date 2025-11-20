@@ -296,7 +296,7 @@ class ManageUsersController extends Controller
     public function login($id){
         $user = User::findOrFail($id);
         Auth::login($user);
-        return redirect()->route('user.home');
+        return redirect()->route('user.dashboard');
     }
 
     public function emailLog($id){

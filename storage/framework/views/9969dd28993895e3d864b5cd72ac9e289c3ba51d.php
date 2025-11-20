@@ -21,6 +21,7 @@
 
                                           <a href="#" class="cmn--btn"><?php echo app('translator')->get('Victims'); ?></a>
                                    <a href="#" class="cmn--btn"><?php echo app('translator')->get('Suspects'); ?></a>
+                                      <a href="<?php echo e(route('user.logout')); ?>" class="cmn--btn badge-primary" style="background-color:red"><?php echo app('translator')->get('Logout'); ?></a>
 
                             <?php else: ?>
                                 <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Login'); ?></a>
