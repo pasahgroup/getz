@@ -142,12 +142,16 @@
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="blog-item">
+                            
+
                             <div class="rent__thumb" style="background-color:#9ca494">
                                         <a href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}">
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
+
+
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
                                     <!-- <div class="blog-img">
                                         <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">

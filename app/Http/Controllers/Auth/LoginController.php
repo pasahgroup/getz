@@ -210,6 +210,6 @@ $fullUrl=request('fullurl');
         $userLogin->os = @$userAgent['os_platform'];
         $userLogin->save();
 
-        return redirect()->route('user.home');
+        return redirect()->route('user.dashboard');
     }
 }
