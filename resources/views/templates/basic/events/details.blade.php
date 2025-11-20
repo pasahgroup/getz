@@ -6,6 +6,7 @@
              <div class="widget border--dashed" style="background-color:#fff">
             <div class="row gy-3">
                 <!-- 6d846c -->
+               
                 <div class="col-md-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
@@ -28,7 +29,7 @@
                       <div class="col-md-8">
                     <div class="rent__single border--dashed" style="padding:35px">
                       <br>
-                            <h4><span class="text--body">Vehicle details</span></h4>
+                            <h4><span class="text--body">{{ __(@$vehicle->event_type) }} details</span></h4>
 <div class="row">
                      <div class="col-lg-9">
                         <h3 class="title">{{ __(@$vehicle->name) }}
@@ -59,7 +60,11 @@
                         <div class="ratings mb-4">
                             <span><i class="las la-star"></i></span>
                             <span>({{ @$vehicle->ratings_avg_rating+0 }})</span>
-                            <span class="text--body">{{ @$vehicle->ratings_count }} @lang('Customer Review')</span>
+                            <span class="text--body">@lang('Other Summary')</span>
+                            {{--
+                                <span class="text--body">{{ @$vehicle->ratings_count }} @lang('Other Summary')</span>
+                                --}}                            
+                            
                         </div>
                         <div class="price-area mb-4">
                             <h5 class="item">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>

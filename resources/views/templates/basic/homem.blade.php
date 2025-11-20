@@ -1,8 +1,11 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
+
 <br>
   <!-- ##### Hero Area Start ##### -->
+
     <section class="hero-area">
+
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
                       <!-- Single Hero Slide -->
@@ -225,11 +228,6 @@
 
 
 
-
-
-
-
-
   <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/b2.jpg)">
         <div class="container h-100">
             <div class="row align-items-center h-100">
@@ -323,4 +321,33 @@ if(no_car>0)
             }
         })
     </script>
+
+        <script>
+            $(function (){
+
+                /* Example options:
+                
+                    let options = {
+                        autostart: true,
+                        property: 'value',
+                        onComplete: null,
+                        duration: 20000,
+                        padding: 10,
+                        marquee_class: '.marquee',
+                        container_class: '.simple-marquee-container',
+                        sibling_class: 0,
+                        hover: true,
+                        velocity: 0.1
+                        direction: 'right'
+                    }
+
+                    $('.simple-marquee-container').SimpleMarquee(options);
+                    
+                */
+
+                $('.simple-marquee-container').SimpleMarquee();
+                
+            });
+
+        </script>
 @endpush

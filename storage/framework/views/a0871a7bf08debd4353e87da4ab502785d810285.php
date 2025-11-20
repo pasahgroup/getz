@@ -21,16 +21,9 @@
                         <ul>
 
                              <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
-                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="nav-link ">
+                    <a href="<?php echo e(route('user.dashboard')); ?>" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Main Dashboard'); ?></span>
-                    </a>
-                </li>
-
-                <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
-                    <a href="<?php echo e(route('admin.pending-customer')); ?>" class="nav-link ">
-                        <i class="menu-icon las la-feather"></i>
-                        <span class="menu-title"><?php echo app('translator')->get('Pending Customers'); ?></span>
                     </a>
                 </li>
 
@@ -78,7 +71,7 @@
 
 
                 <li class="sidebar-menu-item sidebar-dropdown">
-                    <a href="javascript:void(0)" class="<?php echo e(menuActive('admin.ticket*',3)); ?>">
+                    <a href="javascript:void(0)" class="<?php echo e(menuActive('ticket*',3)); ?>">
                         <i class="menu-icon la la-ticket"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Support Ticket'); ?> </span>
                         <?php if(0 < $pending_ticket_count): ?>
@@ -87,39 +80,7 @@
                             </span>
                         <?php endif; ?>
                     </a>
-                    <div class="sidebar-submenu <?php echo e(menuActive('admin.ticket*',2)); ?> ">
-                        <ul>
-
-                            <li class="sidebar-menu-item <?php echo e(menuActive('admin.ticket')); ?> ">
-                                <a href="<?php echo e(route('admin.ticket')); ?>" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title"><?php echo app('translator')->get('All Ticket'); ?></span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item <?php echo e(menuActive('admin.ticket.pending')); ?> ">
-                                <a href="<?php echo e(route('admin.ticket.pending')); ?>" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title"><?php echo app('translator')->get('Pending Ticket'); ?></span>
-                                    <?php if($pending_ticket_count): ?>
-                                        <span
-                                            class="menu-badge pill bg--primary ml-auto"><?php echo e($pending_ticket_count); ?></span>
-                                    <?php endif; ?>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item <?php echo e(menuActive('admin.ticket.closed')); ?> ">
-                                <a href="<?php echo e(route('admin.ticket.closed')); ?>" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title"><?php echo app('translator')->get('Closed Ticket'); ?></span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item <?php echo e(menuActive('admin.ticket.answered')); ?> ">
-                                <a href="<?php echo e(route('admin.ticket.answered')); ?>" class="nav-link">
-                                    <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title"><?php echo app('translator')->get('Answered Ticket'); ?></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </li>
 
 

@@ -3,7 +3,7 @@
 <?php $__env->startSection('panel'); ?>
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.victims.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Victim Photos(Sajili Picha ya Tukio)'); ?></a>
+    <a href="<?php echo e(route('user.events.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Incident Photos(Sajili Picha ya Tukio)'); ?></a>
 <?php $__env->stopPush(); ?>
 
 
@@ -29,7 +29,6 @@
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Photos'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
@@ -41,7 +40,7 @@
                   </thead>
                   <tbody>
               
-       <?php $__empty_1 = true; $__currentLoopData = $victims; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+       <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>                                    
                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
                                     
@@ -57,14 +56,6 @@
       <img class="" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
                                         </td>
 
-                                                                        <td data-label="<?php echo app('translator')->get('Videos'); ?>"> 
-
-                                                                           <video controls width="120" height="120">
-    <source src="<?php echo e(Storage::url($item->path)); ?>" type="video/mp4" style="object-fit: cover;">
-    Your browser does not support the video tag.
-</video>                                                    
-</td>
-
    <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->details)); ?></td>
     <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->elapsed_time)); ?></td>
        <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->last_update)); ?></td>
@@ -79,11 +70,11 @@
                                 
 
                                     <td data-label="<?php echo app('translator')->get('Action'); ?>">
-                                        <a href="<?php echo e(route('user.victims.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
+                                        <a href="<?php echo e(route('user.events.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('user.victims.status', $item->id)); ?>">
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('user.events.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
                                     </td>
@@ -103,7 +94,6 @@
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
-                            <th scope="col"><?php echo app('translator')->get('Photos'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
@@ -248,4 +238,4 @@
 
   </script>  
 
-<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/victims/indexVictims.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/events/index.blade.php ENDPATH**/ ?>
