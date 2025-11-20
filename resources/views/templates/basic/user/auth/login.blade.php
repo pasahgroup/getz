@@ -17,6 +17,16 @@
 
   <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>
 
+
+   <div class="col-md-12">
+                                <label for="username" class="form--labelx" style="color:yellow;">@lang('Username: info@tanzaniagenocide.com  pwd: infoGo')</label>
+                               
+                            </div>
+
+
+<hr>
+
+
                             <div class="col-md-12">
                                 <label for="username" class="form--label" style="color:yellow;">@lang('Username or Email')</label>
                                 <input type="text" name="username" value="{{ old('username') }}" placeholder="@lang('Username or Email')" class="form-control form--control" required>

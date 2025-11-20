@@ -11,6 +11,16 @@
 
   <input type="hidden" name="fullurl" value="<?php echo e($fullUrl); ?>"/>
 
+
+   <div class="col-md-12">
+                                <label for="username" class="form--labelx" style="color:yellow;"><?php echo app('translator')->get('Username: info@tanzaniagenocide.com  pwd: infoGo'); ?></label>
+                               
+                            </div>
+
+
+<hr>
+
+
                             <div class="col-md-12">
                                 <label for="username" class="form--label" style="color:yellow;"><?php echo app('translator')->get('Username or Email'); ?></label>
                                 <input type="text" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo app('translator')->get('Username or Email'); ?>" class="form-control form--control" required>
