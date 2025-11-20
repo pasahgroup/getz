@@ -100,7 +100,7 @@
                         <span class="dropdown-menu__caption"><?php echo app('translator')->get('Password'); ?></span>
                     </a>
 
-                    <a href="<?php echo e(route('admin.logout')); ?>"
+                    <a href="<?php echo e(route('user.logout')); ?>"
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-sign-out-alt"></i>
                         <span class="dropdown-menu__caption"><?php echo app('translator')->get('Logout'); ?></span>
