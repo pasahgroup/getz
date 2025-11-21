@@ -255,3 +255,7 @@
 #56 C:\\xampp\\htdocs\\getz\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #57 {main}
 "} 
+[2025-11-21 06:07:38] local.ERROR: Cannot redeclare App\Http\Controllers\UserController::home() {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare App\\Http\\Controllers\\UserController::home() at C:\\xampp\\htdocs\\getz\\app\\Http\\Controllers\\UserController.php:44)
+[stacktrace]
+#0 {main}
+"} 

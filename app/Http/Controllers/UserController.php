@@ -33,6 +33,14 @@ class UserController extends Controller
         $this->activeTemplate = activeTemplate();
     }
 
+
+  public function dashboardDetail()
+    {
+dd('Dashboard details');
+    }
+
+
+
     public function home()
     {
       //   $pageTitle = 'Dashboard';
@@ -52,11 +60,6 @@ class UserController extends Controller
       //   $logs = auth()->user()->deposits()->with(['gateway', 'rent', 'planlog'])->orderBy('id','desc')->take(10)->get();
       // //dd($logs);
        
-
-
-
-
-
 
  $pageTitle = 'Dashboard';
 
