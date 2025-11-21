@@ -66,25 +66,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
-                    <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="la la-envelope"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{$eventCounts->where('event_type','killed')->count()}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('killed(Uwawa)')</span>
-                    </div>
+   
 
-                    <a href="/event-web/killed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-                <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
+                <!-- <div class="dashboard-w1 bg--orange b-radius--10 box-shadow "> -->
+                      <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
                 <div class="icon">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
@@ -104,7 +90,8 @@
 
 
           <div class="col-xl-2 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
+              <!-- <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" > -->
+                  <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
                   <div class="icon">
                       <i class="las la-car-side"></i>
                   </div>
@@ -137,6 +124,25 @@
                   </div>
               </div>
           </div>
+
+
+               <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
+                    <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="la la-envelope"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount">{{$eventCounts->where('event_type','killed')->count()}}</span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small">@lang('killed(Uwawa)')</span>
+                    </div>
+
+                    <a href="/event-web/killed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
  </div><!-- row end-->
 
 <!-- Second row -->
@@ -203,17 +209,18 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount">{{ @$data['upcoming_plan_booking'] }}</span>
+                          <span class="amount"> {{$suspectCounts->where('category','Other')->count()}}</span>
                       </div>
                       <div class="desciption">
-                          <span>@lang('Total Plan Booking')</span>
+                          <span>@lang('Other(Nyingine)')</span>
                       </div>
 
-                      <a href="{{ route('admin.plans.booking.log.upcoming') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                      <a href="/suspect-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                   </div>
               </div>
           </div>
 
+{{--
           <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
               <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
                   <div class="icon">
@@ -249,98 +256,9 @@
                   </div>
               </div>
           </div>
+          --}}
 
       </div>
-
-    <div class="row mt-50 mb-none-30">
-        <div class="col-xl-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Last 30 days Payment History')</h5>
-                    <div id="deposit-line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 mb-30">
-            <div class="row mb-none-30">
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--success  box--shadow2">
-                            <i class="la la-bank"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{showAmount($payment['total_deposit_amount'])}} {{$general->cur_text}}</h2>
-                            <p class="text--small">@lang('Total Payment')</p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
-                            <i class="las la-money-bill"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{$payment['total_deposit_amount_count']}}</h2>
-                            <p class="text--small"><a href="{{route('admin.deposit.approved')}}">@lang('Total Payment')</a></p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--info  box--shadow2">
-                            <i class="las la-credit-card"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{showAmount($payment['total_deposit_charge'])}}</h2>
-                            <p class="text--small">@lang('Total Payment Charge')</p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
-                            <i class="las la-cloud-download-alt"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{$payment['total_deposit_pending']}}</h2>
-                            <p class="text--small"><a href="{{route('admin.deposit.pending')}}">@lang('Pending Payment')</a></p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-            </div>
-        </div>
-    </div><!-- row end -->
-
-
-    <div class="row mb-none-30 mt-5">
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card overflow-hidden">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Login By Browser')</h5>
-                    <canvas id="userBrowserChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Login By OS')</h5>
-                    <canvas id="userOsChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Login By Country')</h5>
-                    <canvas id="userCountryChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @push('script')

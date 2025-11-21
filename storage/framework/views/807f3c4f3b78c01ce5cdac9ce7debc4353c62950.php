@@ -50,25 +50,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
-                    <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="la la-envelope"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($eventCounts->where('event_type','killed')->count()); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('killed(Uwawa)'); ?></span>
-                    </div>
+   
 
-                    <a href="/event-web/killed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-                <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
+                <!-- <div class="dashboard-w1 bg--orange b-radius--10 box-shadow "> -->
+                      <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
                 <div class="icon">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
@@ -88,7 +74,8 @@
 
 
           <div class="col-xl-2 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
+              <!-- <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" > -->
+                  <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
                   <div class="icon">
                       <i class="las la-car-side"></i>
                   </div>
@@ -121,6 +108,25 @@
                   </div>
               </div>
           </div>
+
+
+               <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
+                    <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
+                <div class="icon">
+                    <i class="la la-envelope"></i>
+                </div>
+                <div class="details">
+                    <div class="numbers">
+                        <span class="amount"><?php echo e($eventCounts->where('event_type','killed')->count()); ?></span>
+                    </div>
+                    <div class="desciption">
+                        <span class="text--small"><?php echo app('translator')->get('killed(Uwawa)'); ?></span>
+                    </div>
+
+                    <a href="/event-web/killed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                </div>
+            </div>
+        </div><!-- dashboard-w1 end -->
  </div><!-- row end-->
 
 <!-- Second row -->
@@ -187,144 +193,20 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['upcoming_plan_booking']); ?></span>
+                          <span class="amount"> <?php echo e($suspectCounts->where('category','Other')->count()); ?></span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Total Plan Booking'); ?></span>
+                          <span><?php echo app('translator')->get('Other(Nyingine)'); ?></span>
                       </div>
 
-                      <a href="<?php echo e(route('admin.plans.booking.log.upcoming')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="/suspect-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                   </div>
               </div>
           </div>
 
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['running_plan_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Running Plan Booking'); ?></span>
-                      </div>
 
-                      <a href="<?php echo e(route('admin.plans.booking.log.running')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-check-circle"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['completed_plan_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Completed Plan Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.plans.booking.log.completed')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
 
       </div>
-
-    <div class="row mt-50 mb-none-30">
-        <div class="col-xl-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Last 30 days Payment History'); ?></h5>
-                    <div id="deposit-line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 mb-30">
-            <div class="row mb-none-30">
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--success  box--shadow2">
-                            <i class="la la-bank"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e(showAmount($payment['total_deposit_amount'])); ?> <?php echo e($general->cur_text); ?></h2>
-                            <p class="text--small"><?php echo app('translator')->get('Total Payment'); ?></p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
-                            <i class="las la-money-bill"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e($payment['total_deposit_amount_count']); ?></h2>
-                            <p class="text--small"><a href="<?php echo e(route('admin.deposit.approved')); ?>"><?php echo app('translator')->get('Total Payment'); ?></a></p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--info  box--shadow2">
-                            <i class="las la-credit-card"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e(showAmount($payment['total_deposit_charge'])); ?></h2>
-                            <p class="text--small"><?php echo app('translator')->get('Total Payment Charge'); ?></p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-
-                <div class="col-lg-6 col-sm-6 mb-30">
-                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                        <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
-                            <i class="las la-cloud-download-alt"></i>
-                        </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e($payment['total_deposit_pending']); ?></h2>
-                            <p class="text--small"><a href="<?php echo e(route('admin.deposit.pending')); ?>"><?php echo app('translator')->get('Pending Payment'); ?></a></p>
-                        </div>
-                    </div><!-- widget-two end -->
-                </div>
-            </div>
-        </div>
-    </div><!-- row end -->
-
-
-    <div class="row mb-none-30 mt-5">
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card overflow-hidden">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Login By Browser'); ?></h5>
-                    <canvas id="userBrowserChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Login By OS'); ?></h5>
-                    <canvas id="userOsChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Login By Country'); ?></h5>
-                    <canvas id="userCountryChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('script'); ?>

@@ -7,6 +7,7 @@
 @endpush
 
 
+
   <script src="../../../../appweb/jquery171.min.js"></script>
     <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
    <!-- DataTables -->
