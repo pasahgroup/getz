@@ -21,9 +21,11 @@
             <i class="fullscreen-open las la-compress" onclick="openFullscreen();"></i>
             <i class="fullscreen-close las la-compress-arrows-alt" onclick="closeFullscreen();"></i>
 
-              <a href="{{ route('home') }}" class="btn btn-secondary btn-md-square rounded-circle me-3">@lang('Website')</a>
-
+              <a href="{{ route('home') }}" class="btn btn-secondary">@lang('Website')</a>
+                 <a href="{{ route('user.dashboard') }}" class="btn btn-primary">@lang('Dashboard')</a>
         </button>
+
+       
     </div>
 
     <div class="navbar__right">
