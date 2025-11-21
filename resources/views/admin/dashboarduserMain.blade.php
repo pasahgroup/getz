@@ -1,224 +1,40 @@
-<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
-<?php $__env->startSection('panel'); ?>
-   
-        <?php if(@json_decode($general->sys_version)->message): ?>
+@extends('admin.layoutsuser.app')
+<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
+@section('panel')
+   {{--   @if(@json_decode($general->sys_version)->version > systemDetails()['version'])
         <div class="row">
-            <?php $__currentLoopData = json_decode($general->sys_version)->message; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-md-12">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title"> @lang('New Version Available') <button class="btn btn--dark float-right">@lang('Version') {{json_decode($general->sys_version)->version}}</button> </h3>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">@lang('What is the Update ?')</h5>
+                        <p><pre  class="f-size--24">{{json_decode($general->sys_version)->details}}</pre></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        --}}
+        @if(@json_decode($general->sys_version)->message)
+        <div class="row">
+            @foreach(json_decode($general->sys_version)->message as $msg)
               <div class="col-md-12">
                   <div class="alert border border--primary" role="alert">
                       <div class="alert__icon bg--primary"><i class="far fa-bell"></i></div>
-                      <p class="alert__message"><?php echo $msg; ?></p>
+                      <p class="alert__message">@php echo $msg; @endphp</p>
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
               </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            @endforeach
         </div>
-        <?php endif; ?>
+        @endif
 
+<div>-- Comming Soon --</div>
 
-
-
- <div class="row mt-50 mb-none-30">
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e($suspectCounts->where('category','Individual')->count()); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Individual(Mtu)'); ?></span>
-                      </div>
-
-                      <a href="/suspect-web/Individual" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--success b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-check-circle"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e($suspectCounts->where('category','People')->count()); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Group of People(Kundi la Watu)'); ?></span>
-                      </div>
-
-                      <a href="/suspect-web/People" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="lab la-product-hunt"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e($suspectCounts->where('category','Institute')->count()); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Institute(Taasisi)'); ?></span>
-                      </div>
-
-                      <a href="/suspect-web/Institute" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--2 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-hourglass-half"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"> <?php echo e($suspectCounts->where('category','Other')->count()); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Other(Nyingine)'); ?></span>
-                      </div>
-
-                      <a href="/suspect-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-
-
-      </div>
-
-
-
-<br>
-
-
-
-
-
-
-    <div class="row mb-none-30">
-        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"> <?php echo e($eventCounts->where('event_type','Injured')->count()); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Injured(Jeruhiwa)'); ?></span>
-                    </div>
-                    <a href="/event-web/Injured" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('kidnapped(Tekwa)'); ?></span>
-                    </div>
-                    <a href="/event-web/kidnapped" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div>
-   
-
-        <div class="col-xl-2 col-lg-2 col-sm-6 mb-30">
-                <!-- <div class="dashboard-w1 bg--orange b-radius--10 box-shadow "> -->
-                      <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
-                <div class="icon">
-                    <i class="fa fa-shopping-cart"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($eventCounts->where('event_type','Missed')->count()); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Missed(Potea bila Taarifa)'); ?></span>
-                    </div>
-
-                    <a href="/event-web/Missed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-   
-
-
-          <div class="col-xl-2 col-lg-6 col-sm-6 mb-30">
-              <!-- <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" > -->
-                  <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
-                  <div class="icon">
-                      <i class="las la-car-side"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e($eventCounts->where('event_type','Totured')->count()); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Totured(Teswa)'); ?></span>
-                      </div>
-                      <a href="<?php echo e(route('admin.vehicles.booking.log')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="col-xl-2 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-hourglass-half"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e($eventCounts->where('event_type','Other')->count()); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Other(Ingineyo)'); ?></span>
-                      </div>
-                      <a href="/event-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-
-               <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
-                    <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="la la-envelope"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($eventCounts->where('event_type','killed')->count()); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('killed(Uwawa)'); ?></span>
-                    </div>
-
-                    <a href="/event-web/killed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
- </div><!-- row end-->
-
-<!-- Second row -->
 
       <div class="row mt-50 mb-none-30">
           <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
@@ -228,13 +44,13 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e($suspectCounts->where('category','Individual')->count()); ?></span>
+                          <span class="amount">{{$eventCounts->count()}}</span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Individual(Mtu)'); ?></span>
+                          <span>@lang('Photos')</span>
                       </div>
 
-                      <a href="/suspect-web/Individual" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="{{route('user.events.index')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                   </div>
               </div>
           </div>
@@ -246,13 +62,13 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e($suspectCounts->where('category','People')->count()); ?></span>
+                          <span class="amount">{{$videosCounts->count()}}</span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Group of People(Kundi la Watu)'); ?></span>
+                          <span>@lang('Videos')</span>
                       </div>
 
-                      <a href="/suspect-web/People" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="{{route('user.videos.index')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                   </div>
               </div>
           </div>
@@ -264,44 +80,62 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e($suspectCounts->where('category','Institute')->count()); ?></span>
+                          <span class="amount">{{$victimsCounts->count()}}</span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Institute(Taasisi)'); ?></span>
+                          <span>@lang('Victims')</span>
                       </div>
 
-                      <a href="/suspect-web/Institute" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="{{route('user.victims.index')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                   </div>
               </div>
           </div>
 
           <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--2 b-radius--10 box-shadow">
+      <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
                   <div class="icon">
                       <i class="las la-hourglass-half"></i>
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"> <?php echo e($suspectCounts->where('category','Other')->count()); ?></span>
+                          <span class="amount">{{$suspectCounts->count()}}</span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Other(Nyingine)'); ?></span>
+                          <span>@lang('Suspects')</span>
                       </div>
 
-                      <a href="/suspect-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="{{route('user.suspects.index')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                   </div>
               </div>
           </div>
+{{--
 
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-check-circle"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount">{{ @$data['completed_plan_booking'] }}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Completed Plan Booking')</span>
+                      </div>
 
+                      <a href="{{ route('admin.plans.booking.log.completed') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+  --}}
 
       </div>
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startPush('script'); ?>
+@push('script')
 
-    <script src="<?php echo e(asset('assets/admin/js/vendor/apexcharts.min.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/admin/js/vendor/chart.js.2.8.0.js')); ?>"></script>
+    <script src="{{asset('assets/admin/js/vendor/apexcharts.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/vendor/chart.js.2.8.0.js')}}"></script>
 
     <script>
         "use strict";
@@ -310,9 +144,9 @@
             series: [{
                 name: 'Total Payment',
                 data: [
-                  <?php $__currentLoopData = $months; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <?php echo e(getAmount(@$depositsMonth->where('months',$month)->first()->depositAmount)); ?>,
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  @foreach($months as $month)
+                    {{ getAmount(@$depositsMonth->where('months',$month)->first()->depositAmount) }},
+                  @endforeach
                 ]
             }],
             chart: {
@@ -338,11 +172,11 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: <?php echo json_encode($months, 15, 512) ?>,
+                categories: @json($months),
             },
             yaxis: {
                 title: {
-                    text: "<?php echo e(__($general->cur_sym)); ?>",
+                    text: "{{__($general->cur_sym)}}",
                     style: {
                         color: '#7c97bb'
                     }
@@ -366,7 +200,7 @@
             tooltip: {
                 y: {
                     formatter: function (val) {
-                        return "<?php echo e(__($general->cur_sym)); ?>" + val + " "
+                        return "{{__($general->cur_sym)}}" + val + " "
                     }
                 }
             }
@@ -466,7 +300,7 @@
                 series: [
                     {
                         name: "Series 1",
-                        data: <?php echo json_encode($deposits['per_day_amount']->flatten(), 15, 512) ?>
+                        data: @json($deposits['per_day_amount']->flatten())
                     }
                 ],
                 fill: {
@@ -479,7 +313,7 @@
                     }
                 },
                 xaxis: {
-                    categories: <?php echo json_encode($deposits['per_day']->flatten(), 15, 512) ?>
+                    categories: @json($deposits['per_day']->flatten())
                 },
                 grid: {
                     padding: {
@@ -508,9 +342,9 @@
         var myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: <?php echo json_encode($chart['user_browser_counter']->keys(), 15, 512) ?>,
+                labels: @json($chart['user_browser_counter']->keys()),
                 datasets: [{
-                    data: <?php echo e($chart['user_browser_counter']->flatten()); ?>,
+                    data: {{ $chart['user_browser_counter']->flatten() }},
                     backgroundColor: [
                         '#ff7675',
                         '#6c5ce7',
@@ -573,9 +407,9 @@
         var myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: <?php echo json_encode($chart['user_os_counter']->keys(), 15, 512) ?>,
+                labels: @json($chart['user_os_counter']->keys()),
                 datasets: [{
-                    data: <?php echo e($chart['user_os_counter']->flatten()); ?>,
+                    data: {{ $chart['user_os_counter']->flatten() }},
                     backgroundColor: [
                         '#ff7675',
                         '#6c5ce7',
@@ -637,9 +471,9 @@
         var myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: <?php echo json_encode($chart['user_country_counter']->keys(), 15, 512) ?>,
+                labels: @json($chart['user_country_counter']->keys()),
                 datasets: [{
-                    data: <?php echo e($chart['user_country_counter']->flatten()); ?>,
+                    data: {{ $chart['user_country_counter']->flatten() }},
                     backgroundColor: [
                         '#ff7675',
                         '#6c5ce7',
@@ -696,6 +530,4 @@
         });
 
     </script>
-<?php $__env->stopPush(); ?>
-
-<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/dashboarduser.blade.php ENDPATH**/ ?>
+@endpush

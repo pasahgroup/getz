@@ -17,6 +17,8 @@ use App\Models\service;
 use App\Models\Event;
 
 use App\Models\Suspect;
+use App\Models\Video;
+use App\Models\victims;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -88,9 +90,18 @@ if ($this->app->isLocal()) {
   $view['eventCounts'] = Event::where('status',1)->get();
   $view['eventCounts'] =collect($view->eventCounts);
          
+ $view['videosCounts'] = Video::where('status',1)->get();
+  $view['videosCounts'] =collect($view->videosCounts);
 
  $view['suspectCounts'] = Suspect::where('status',1)->get();
   $view['suspectCounts'] =collect($view->suspectCounts);
+
+        
+         $view['victimsCounts'] = victims::where('status',1)->get();
+  $view['victimsCounts'] =collect($view->victimsCounts);
+
+
+
 
          //dd($view->eventCounts);
 

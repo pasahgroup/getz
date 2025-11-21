@@ -33,6 +33,131 @@
         </div>
         @endif
 
+
+
+
+ <div class="row mt-50 mb-none-30">
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount">{{$suspectCounts->where('category','Individual')->count()}}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Individual(Mtu)')</span>
+                      </div>
+
+                      <a href="/suspect-web/Individual" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--success b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-check-circle"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount">{{$suspectCounts->where('category','People')->count()}}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Group of People(Kundi la Watu)')</span>
+                      </div>
+
+                      <a href="/suspect-web/People" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="lab la-product-hunt"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount">{{$suspectCounts->where('category','Institute')->count()}}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Institute(Taasisi)')</span>
+                      </div>
+
+                      <a href="/suspect-web/Institute" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--2 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-hourglass-half"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount"> {{$suspectCounts->where('category','Other')->count()}}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Other(Nyingine)')</span>
+                      </div>
+
+                      <a href="/suspect-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+
+{{--
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount">{{ @$data['running_plan_booking'] }}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Running Plan Booking')</span>
+                      </div>
+
+                      <a href="{{ route('admin.plans.booking.log.running') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-check-circle"></i>
+                  </div>
+                  <div class="details">
+                      <div class="numbers">
+                          <span class="amount">{{ @$data['completed_plan_booking'] }}</span>
+                      </div>
+                      <div class="desciption">
+                          <span>@lang('Completed Plan Booking')</span>
+                      </div>
+
+                      <a href="{{ route('admin.plans.booking.log.completed') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                  </div>
+              </div>
+          </div>
+          --}}
+
+      </div>
+
+
+
+<br>
+
+
+
+
+
+
     <div class="row mb-none-30">
         <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
@@ -68,7 +193,7 @@
         </div>
    
 
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+        <div class="col-xl-2 col-lg-2 col-sm-6 mb-30">
                 <!-- <div class="dashboard-w1 bg--orange b-radius--10 box-shadow "> -->
                       <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
                 <div class="icon">

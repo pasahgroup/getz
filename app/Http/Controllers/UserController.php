@@ -149,7 +149,7 @@ dd('Dashboard details');
        
 
 
-        return view('admin.dashboarduser', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data'));
+        return view('admin.dashboarduserMain', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data'));
        // return view($this->activeTemplate . 'user.dashboard', compact('pageTitle', 'logs', 'data'));
     }
 

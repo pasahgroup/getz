@@ -1649,7 +1649,7 @@ p, li, a {
 }
 
 .text--small {
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
 }
 
 .f-size--24 {
@@ -4457,7 +4457,7 @@ th.w-85 {
     font-size: 14px;
     font-weight: 300;
     display: inline-block;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
 }
 
 /* widget css end */
