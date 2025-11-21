@@ -18,87 +18,86 @@
         <?php endif; ?>
 
     <div class="row mb-none-30">
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
                 <div class="icon">
                     <i class="fa fa-users"></i>
                 </div>
                 <div class="details">
                     <div class="numbers">
-                        <span class="amount"><?php echo e($widget['total_users']); ?></span>
+                        <span class="amount"> <?php echo e($eventCounts->where('event_type','Injured')->count()); ?></span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total Users'); ?></span>
+                        <span class="text--small"><?php echo app('translator')->get('Injured(Jeruhiwa)'); ?></span>
                     </div>
-                    <a href="<?php echo e(route('admin.users.all')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                    <a href="/event-web/Injured" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                 </div>
             </div>
         </div><!-- dashboard-w1 end -->
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
+        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
             <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
                 <div class="icon">
                     <i class="fa fa-users"></i>
                 </div>
                 <div class="details">
                     <div class="numbers">
-                        <span class="amount"><?php echo e($widget['verified_users']); ?></span>
+                        <span class="amount"><?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?></span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total Verified Users'); ?></span>
+                        <span class="text--small"><?php echo app('translator')->get('kidnapped(Tekwa)'); ?></span>
                     </div>
-                    <a href="<?php echo e(route('admin.users.active')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                    <a href="/event-web/kidnapped" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
+        <div class="col-xl-2 col-lg-4 col-sm-6 mb-30">
+                    <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
                 <div class="icon">
                     <i class="la la-envelope"></i>
                 </div>
                 <div class="details">
                     <div class="numbers">
-                        <span class="amount"><?php echo e($widget['email_unverified_users']); ?></span>
+                        <span class="amount"><?php echo e($eventCounts->where('event_type','killed')->count()); ?></span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total Email Unverified Users'); ?></span>
+                        <span class="text--small"><?php echo app('translator')->get('killed(Uwawa)'); ?></span>
                     </div>
 
-                    <a href="<?php echo e(route('admin.users.email.unverified')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                    <a href="/event-web/killed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                 </div>
             </div>
         </div><!-- dashboard-w1 end -->
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
+                <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
                 <div class="icon">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
                 <div class="details">
                     <div class="numbers">
-                        <span class="amount"><?php echo e($widget['sms_unverified_users']); ?></span>
+                        <span class="amount"><?php echo e($eventCounts->where('event_type','Missed')->count()); ?></span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total SMS Unverified Users'); ?></span>
+                        <span class="text--small"><?php echo app('translator')->get('Missed(Potea bila Taarifa)'); ?></span>
                     </div>
 
-                    <a href="<?php echo e(route('admin.users.sms.unverified')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                    <a href="/event-web/Missed" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                 </div>
             </div>
         </div><!-- dashboard-w1 end -->
-    </div><!-- row end-->
+   
 
 
-      <div class="row mt-50 mb-none-30">
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+          <div class="col-xl-2 col-lg-6 col-sm-6 mb-30">
               <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
                   <div class="icon">
                       <i class="las la-car-side"></i>
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['total_vehicle_booking']); ?></span>
+                          <span class="amount"><?php echo e($eventCounts->where('event_type','Totured')->count()); ?></span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Total Vehicle Booking'); ?></span>
+                          <span><?php echo app('translator')->get('Totured(Teswa)'); ?></span>
                       </div>
                       <a href="<?php echo e(route('admin.vehicles.booking.log')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                   </div>
@@ -106,23 +105,27 @@
           </div>
 
 
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+          <div class="col-xl-2 col-lg-6 col-sm-6 mb-30">
               <div class="dashboard-w1 bg--3 b-radius--10 box-shadow" >
                   <div class="icon">
                       <i class="las la-hourglass-half"></i>
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['upcoming_vehicle_booking']); ?></span>
+                          <span class="amount"><?php echo e($eventCounts->where('event_type','Other')->count()); ?></span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Upcoming Vehicle Booking'); ?></span>
+                          <span><?php echo app('translator')->get('Other(Ingineyo)'); ?></span>
                       </div>
-                      <a href="<?php echo e(route('admin.vehicles.booking.log.upcoming')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="/event-web/Other" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                   </div>
               </div>
           </div>
+ </div><!-- row end-->
 
+<!-- Second row -->
+
+      <div class="row mt-50 mb-none-30">
           <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
               <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
                   <div class="icon">
@@ -130,13 +133,13 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['running_vehicle_booking']); ?></span>
+                          <span class="amount"><?php echo e($suspectCounts->where('category','Individual')->count()); ?></span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Running Vehicle Booking'); ?></span>
+                          <span><?php echo app('translator')->get('Individual(Mtu)'); ?></span>
                       </div>
 
-                      <a href="<?php echo e(route('admin.vehicles.booking.log.running')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="/suspect-web/Individual" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                   </div>
               </div>
           </div>
@@ -148,13 +151,13 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['completed_vehicle_booking']); ?></span>
+                          <span class="amount"><?php echo e($suspectCounts->where('category','People')->count()); ?></span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Completed Vehicle Booking'); ?></span>
+                          <span><?php echo app('translator')->get('Group of People(Kundi la Watu)'); ?></span>
                       </div>
 
-                      <a href="<?php echo e(route('admin.vehicles.booking.log.completed')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="/suspect-web/People" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                   </div>
               </div>
           </div>
@@ -166,13 +169,13 @@
                   </div>
                   <div class="details">
                       <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['total_plan_booking']); ?></span>
+                          <span class="amount"><?php echo e($suspectCounts->where('category','Institute')->count()); ?></span>
                       </div>
                       <div class="desciption">
-                          <span><?php echo app('translator')->get('Total Plan Booking'); ?></span>
+                          <span><?php echo app('translator')->get('Institute(Taasisi)'); ?></span>
                       </div>
 
-                      <a href="<?php echo e(route('admin.plans.booking.log')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
+                      <a href="/suspect-web/Institute" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
                   </div>
               </div>
           </div>
