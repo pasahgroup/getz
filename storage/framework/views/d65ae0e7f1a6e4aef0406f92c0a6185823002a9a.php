@@ -79,12 +79,11 @@
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
                                                          <?php if(auth()->guard()->check()): ?>
-                                <a href="<?php echo e(route('user.events.add')); ?>" class="dropdown-item"><?php echo app('translator')->get('Upload Incident photos'); ?></a>
-                                   <a href="<?php echo e(route('user.videos.add')); ?>" class="dropdown-item"><?php echo app('translator')->get('Upload Incident videos'); ?></a>
-
-                                          <a href="#" class="cmn--btn"><?php echo app('translator')->get('Victims'); ?></a>
-                                   <a href="#" class="cmn--btn"><?php echo app('translator')->get('Suspects'); ?></a>
-                                      <a href="<?php echo e(route('user.logout')); ?>" class="cmn--btn badge-primary" style="background-color:red"><?php echo app('translator')->get('Logout'); ?></a>
+                              
+                         
+                                        <span class="navbar-user__name">Name: <?php echo e(auth()->user()->username); ?></span>
+                                        <hr>
+                                      <a href="<?php echo e(route('user.logout')); ?>" class="cmn--btn badge-primary float-right" style="background-color:red"><?php echo app('translator')->get('Logout'); ?></a>
 
                             <?php else: ?>
                                 <a href="<?php echo e(route('user.login')); ?>" class="dropdown-item"><?php echo app('translator')->get('Login'); ?></a>
@@ -126,7 +125,7 @@
             <div class="col-lg-4 col-6 text-left">
                 <form action="">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
+                        <input type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
@@ -204,14 +203,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="/" class="nav-item nav-link active">Home</a>
-                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
-                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
+                            
                             <a href="#" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
@@ -281,7 +273,14 @@
     <!-- Active js -->
     <script src="../../../js/active.js"></script>
 
-    <script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-ui.js')); ?>"></script>
+    <!-- Custom2 -->
+      <!-- <script src="../../../eflyer/js/jquery.min.js"></script> -->
+      <script src="../../../eflyer/js/popper.min.js"></script>
+      <script src="../../../eflyer/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="../../../eflyer/js/jquery-3.0.0.min.js"></script> -->
+     
+    <!-- ?Custom Javascript -->
+<script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-ui.js')); ?>"></script>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/bootstrap.min.js')); ?>"></script>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/rafcounter.min.js')); ?>"></script>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/magnific-popup.min.js')); ?>"></script>

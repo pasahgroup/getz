@@ -30,6 +30,7 @@
                     </ol>
                     <div class="carousel-inner">
 
+<!-- 
                         <div class="carousel-item position-relative active" style="height: 430px;">
                             <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -39,11 +40,30 @@
                                     <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="">Shop Now</a>
                                 </div>
                             </div>
+                        </div> -->
+
+
+                              <div class="carousel-item position-relative active" style="height: 430px;">
+                            <img class="position-absolute w-100 h-100" src="url(<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size'])); ?>);" style="object-fit: cover;">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                
+                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;"><?php echo e($event_data->event_type); ?></h2>                                
+
+                                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event_data->name); ?></strong></div>
+                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event_data->event_type); ?></strong></div>
+
+                               <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong><?php echo e($event_data->details); ?></strong></div>
+
+                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event_data->id, slug($event_data->name)])); ?>">View More</a>
+                                </div>
+                            </div>
                         </div>
-                     
+                        
+                  
                             <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="url(<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>);" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                 
@@ -52,7 +72,8 @@
                                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event->name); ?></strong></div>
                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event->event_type); ?></strong></div>
 
-                               <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                               <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong><?php echo e($event->details); ?></strong></div>
+
                                    <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>">View More</a>
                                 </div>
                             </div>
@@ -66,17 +87,15 @@
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="img/offer-1.jpg" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                         <h6 class="text-white text-uppercase">Image1</h6>
+                        
                     </div>
                 </div>
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="img/offer-2.jpg" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                       <h6 class="text-white text-uppercase">Image2</h6>
+                      
                     </div>
                 </div>
             </div>

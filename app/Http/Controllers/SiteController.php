@@ -98,6 +98,17 @@ $models = Vehicle::orderby('model')
 
      //dd($metaFirstVehicles)
 
+ 
+ $event_data = Event::where('status',1)
+              ->select('events.*')
+              ->offset(1)
+             ->first();
+
+ $events = Event::where('status',1)
+      ->select('events.*')
+      ->offset(1)
+     ->paginate(getPaginate(8));
+
   $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')
      ->paginate(getPaginate(8));
@@ -122,9 +133,8 @@ $models = Vehicle::orderby('model')
  ->get();
 
 
- //dd($vehicles);
-
-        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','models','metaVehicles','events','metaVehicleCount','videos'));
+ // dd($event_data->id);
+        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','models','metaVehicles','events','event_data','metaVehicleCount','videos'));
     }
 
 
@@ -152,8 +162,7 @@ $models = Vehicle::orderby('model')
      ->paginate(getPaginate(8));
 
         $pageTitle = 'Home';
-     
-
+    
         return view($this->activeTemplate . 'incidents.photos', compact('pageTitle','events'));
     }
 

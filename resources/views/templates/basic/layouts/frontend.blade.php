@@ -81,12 +81,11 @@
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
                                                          @auth
-                                <a href="{{ route('user.events.add') }}" class="dropdown-item">@lang('Upload Incident photos')</a>
-                                   <a href="{{ route('user.videos.add') }}" class="dropdown-item">@lang('Upload Incident videos')</a>
-
-                                          <a href="#" class="cmn--btn">@lang('Victims')</a>
-                                   <a href="#" class="cmn--btn">@lang('Suspects')</a>
-                                      <a href="{{ route('user.logout') }}" class="cmn--btn badge-primary" style="background-color:red">@lang('Logout')</a>
+                              
+                         
+                                        <span class="navbar-user__name">Name: {{auth()->user()->username}}</span>
+                                        <hr>
+                                      <a href="{{ route('user.logout') }}" class="cmn--btn badge-primary float-right" style="background-color:red">@lang('Logout')</a>
 
                             @else
                                 <a href="{{ route('user.login') }}" class="dropdown-item">@lang('Login')</a>
@@ -137,7 +136,7 @@
             <div class="col-lg-4 col-6 text-left">
                 <form action="">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
+                        <input type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
@@ -215,6 +214,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="/" class="nav-item nav-link active">Home</a>
+                            {{--
                             <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
@@ -223,6 +223,7 @@
                                     <a href="checkout.html" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
+                            --}}
                             <a href="#" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
@@ -292,7 +293,14 @@
     <!-- Active js -->
     <script src="../../../js/active.js"></script>
 
-    <script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
+    <!-- Custom2 -->
+      <!-- <script src="../../../eflyer/js/jquery.min.js"></script> -->
+      <script src="../../../eflyer/js/popper.min.js"></script>
+      <script src="../../../eflyer/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="../../../eflyer/js/jquery-3.0.0.min.js"></script> -->
+     
+    <!-- ?Custom Javascript -->
+<script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
