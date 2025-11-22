@@ -76,7 +76,7 @@
 
 
                               <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size']) }};" style="object-fit: cover;">
+                        <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                 
@@ -91,15 +91,16 @@
                                 </div>
                             </div>
                         </div>
-{{$events}}
+
                   
                             @forelse($events as $event)
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="url({{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }});" style="object-fit: cover;">
+                              <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                 
-                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;">{{$event->event_type}}</h2>                                
+                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;">{{$event->event_type}} {{$events}}</h2>                                
 
                                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$event->name}}</strong></div>
                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$event->event_type}}</strong></div>
@@ -152,16 +153,16 @@
                 </div>
 
       <div class="row">
-@forelse($events as $event_data)
+@forelse($events as $event_dataa)
 
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="blog-item">
                             <div class="rent__thumb" style="background-color:#9ca494">
-                                        <a href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
+                                        <a href="{{ route('event.details', [$event_dataa->id, slug($event_dataa->name)]) }}">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_dataa->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event_dataa->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
@@ -170,7 +171,7 @@
                                     </div> -->
 
                                     <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class="">{{$event_data->name}} 
+                                        <div class="blog-date"><span class="">{{$event_dataa->name}} 
                                               {{--
                                             <sub>/@lang('day')</span>
                                             --}}
@@ -183,19 +184,19 @@
                                                </ul>
                                        </div>
 
-                                        <strong>({{$event_data->event_type}})</strong>
+                                        <strong>({{$event_dataa->event_type}})</strong>
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:{{ $event_data->region }} ({{ $event_data->district }})</span>
+                                                        <span class="">Region:{{ $event_dataa->region }} ({{ $event_dataa->district }})</span>
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                          <strong>({{$event_data->event_title}})</strong>
+                                          <strong>({{$event_dataa->event_title}})</strong>
                                       </br>
-                                      <a href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                      <a href="{{ route('event.details', [$event_dataa->id, slug($event_dataa->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
