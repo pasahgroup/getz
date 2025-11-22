@@ -80,7 +80,7 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                 
-                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;">{{$event_data->event_type}}</h2>                                
+                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;">{{$event_data->event_type??''}}</h2>                                
 
                                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$event_data->name}}</strong></div>
                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$event_data->event_type}}</strong></div>
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                   
                             @forelse($events as $event)
                         <div class="carousel-item position-relative" style="height: 430px;">
