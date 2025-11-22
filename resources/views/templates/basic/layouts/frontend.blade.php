@@ -33,55 +33,215 @@
 
 
 <!-- eflyer -->
+  <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
 
-   <link rel="stylesheet" type="text/css" href="../../../eflyer/css/bootstrap.min.css">
-      <!-- style css -->
-      <!-- <link rel="stylesheet" type="text/css" href="../../../eflyer/css/style.css"> -->
-      <!-- Responsive-->
-      <link rel="stylesheet" href="../../../eflyer/css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="../../../eflyer/images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="../../../eflyer/css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"> -->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-  <!-- <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet"> -->
-      <link rel="stylesheet" href="../../../eflyer/css/owl.carousel.min.css">
-      <link rel="stylesoeet" href="../../../eflyer/css/owl.theme.default.min.css">
-      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> -->
-  
+    <!-- Libraries Stylesheet -->
+    <link href="../../../multishop/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../../multishop/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-<!-- Style CSS -->
-    <link rel="stylesheet" href="../../../style.css">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../../multishop/css/style.css" rel="stylesheet">
 
-     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
+
+ <link rel="stylesheet" href="../../../style.css">
+       <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
-
-
-  <!-- <link rel="stylesheet" href="../../../sonamaster/style.css"> -->
-   <link rel="stylesheet" href="../../../assetstaxio/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/all-fontawesome.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/animate.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/jquery.timepicker.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/nice-select.min.css">
-    <link rel="stylesheet" href="../../../assetstaxio/css/style.css">
 
   @stack('style-lib')
     @stack('style')
 </head>
 
 <body>
-     <!-- ##### Header Area Start ##### -->
-
-    <!-- ##### Header Area End ##### -->
-
+    {{--
  @include($activeTemplate.'layouts.topmenu')
+--}}
+
+
+   <div class="container-fluid">
+        <div class="row bg-secondary py-1 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center h-100">
+                    <a class="text-body mr-3" href="#">About</a>
+                    <a class="text-body mr-3" href="#">Contact</a>
+                    <a class="text-body mr-3" href="#">Help</a>
+                    <a class="text-body mr-3" href="#">FAQs</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Account</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                                                         @auth
+                                <a href="{{ route('user.events.add') }}" class="dropdown-item">@lang('Upload Incident photos')</a>
+                                   <a href="{{ route('user.videos.add') }}" class="dropdown-item">@lang('Upload Incident videos')</a>
+
+                                          <a href="#" class="cmn--btn">@lang('Victims')</a>
+                                   <a href="#" class="cmn--btn">@lang('Suspects')</a>
+                                      <a href="{{ route('user.logout') }}" class="cmn--btn badge-primary" style="background-color:red">@lang('Logout')</a>
+
+                            @else
+                                <a href="{{ route('user.login') }}" class="dropdown-item">@lang('Login')</a>
+
+                                <a href="{{ route('user.register') }}" class="dropdown-item">@lang('Sign up')</a>
+                            @endauth
+                        </div>
+                    </div>
+
+                    {{--
+                    <div class="btn-group mx-2">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">EUR</button>
+                            <button class="dropdown-item" type="button">GBP</button>
+                            <button class="dropdown-item" type="button">CAD</button>
+                        </div>
+                    </div>
+                    --}}
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">FR</button>
+                            <button class="dropdown-item" type="button">AR</button>
+                            <button class="dropdown-item" type="button">RU</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-shopping-cart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center bg-light py-1 px-xl-5 d-none d-lg-flex">
+            <div class="col-lg-4">
+                <a href="" class="text-decoration-none">
+                    <span class="text-primary bg-dark px-2">Tanzania General</span>
+                    <span class="text-dark bg-primary px-2 ml-n1">Genocide(TGG)</span>
+                </a>
+            </div>
+            <div class="col-lg-4 col-6 text-left">
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for products">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-6 text-right">
+                <!-- <p class="m-0">Customer Service</p> -->
+                <h5 class="m-0">+000 0000 0000</h5>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-fluid bg-dark mb-30">
+        <div class="row px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+                    <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>General Summary Reports</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+                    <div class="navbar-nav w-100">
+                        <div class="nav-item dropdown dropright">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incidents <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                  <a href="/event-web/Injured" class="dropdown-item">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','Injured')->count()}}</span></a>
+                               <li><a href="/event-web/kidnapped" class="dropdown-item">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
+
+                                            <a href="/event-web/killed" class="dropdown-item">killed(Uwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a>
+
+                                            <a href="/event-web/Missed" class="dropdown-item">Missed(Potea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a>
+
+
+                                            <a href="/event-web/Totured" class="dropdown-item">Totured(Teswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a>
+
+                                <a href="/event-web/Other" class="dropdown-item">Other(Ingineyo):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a>
+
+                            </div>
+                        </div>
+         <div class="nav-item dropdown dropright">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Suspects <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                  <a href="/suspect-web/Individual" class="dropdown-item">Individual(Mtu):<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a>
+
+                                            <a href="/suspect-web/People" class="dropdown-item">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> {{$suspectCounts->where('category','People')->count()}}</span></a>
+
+
+                                            <a href="/suspect-web/Institute" class="dropdown-item">Institute(Taasisi):<span class="badge badge-pill badge-primary"> {{$suspectCounts->where('category','Institute')->count()}}</span></a>
+
+                                            <a href="/suspect-web/Other" class="dropdown-item">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$suspectCounts->where('category','Other')->count()}}</span></a>
+
+                            </div>
+                        </div>
+                        
+                        <a href="" class="nav-item nav-link">victims</a>
+                                <a href="/view-photos/photos" class="nav-item nav-link">Incident Photos</a>
+                                       <a href="/view-videos/videos" class="nav-item nav-link">Incident Videos</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <span class="text-dark bg-light px-2">Tanzania General</span>
+                        <span class="text-light bg-primary px-2 ml-n1">Genocide(TGG)</span>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="/" class="nav-item nav-link active">Home</a>
+                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
+                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
+                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                </div>
+                            </div>
+                            <a href="#" class="nav-item nav-link">Contact</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <a href="" class="btn px-0">
+                                <i class="fas fa-heart text-primary"></i>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                            <a href="" class="btn px-0 ml-3">
+                                <i class="fas fa-shopping-cart text-primary"></i>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
 
 @stack('fbComment')
    @if(!request()->routeIs('home'))
@@ -98,11 +258,26 @@
  
  @include($activeTemplate.'layouts.footer')
 
-    <!-- ##### Footer Area End ##### -->
+
+ <!-- JavaScript Libraries -->
+    <script src="../../../multishop/https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../../../multishop/https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../multishop/lib/easing/easing.min.js"></script>
+    <script src="../../../multishop/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../../../multishop/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../../../multishop/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../../multishop/js/main.js"></script>
+
+
+
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
     <script src="../../../js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 
 
     
@@ -117,23 +292,12 @@
     <!-- Active js -->
     <script src="../../../js/active.js"></script>
 
-    <!-- Custom2 -->
-      <!-- <script src="../../../eflyer/js/jquery.min.js"></script> -->
-      <script src="../../../eflyer/js/popper.min.js"></script>
-      <script src="../../../eflyer/js/bootstrap.bundle.min.js"></script>
-      <script src="../../../eflyer/js/jquery-3.0.0.min.js"></script>
-      <!-- <script src="../../../eflyer/js/plugin.js"></script> -->
-   
-      <script src="../../../eflyer/js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="../../../eflyer/js/custom.js"></script>
-
-    <!-- ?Custom Javascript -->
-
-<script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/owl.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
+
 </body>
 </html>

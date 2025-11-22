@@ -1,15 +1,27 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
 
-<br>
-  <!-- ##### Hero Area Start ##### -->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../../multishop/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../../multishop/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../../multishop/css/style.css" rel="stylesheet">
+
+
+{{--
     <section class="hero-area">
-
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
                       <!-- Single Hero Slide -->
                    <!-- Single Hero Slide -->
+                   {{$events}}
               @forelse($events as $event)
             <div class="single-hero-slide bg-img" style="background-image: url({{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }});">
                 <div class="container h-100">
@@ -35,10 +47,75 @@
 
         </div>
     </section>
+--}}
+
+    <div class="container-fluid mb-3">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
 
 
+                        <li data-target="#header-carousel" data-slide-to="1"></li>
+                        <li data-target="#header-carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        
+                        <div class="carousel-item position-relative active" style="height: 430px;">
+                            <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                     
+                            @forelse($events as $event)
+                        <div class="carousel-item position-relative" style="height: 430px;">
+                            <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                
+                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;">{{$event->event_type}}</h2>                                
 
-<hr>
+                                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$event->name}}</strong></div>
+                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$event->event_type}}</strong></div>
+
+                               <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+  @endforeach 
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="product-offer mb-30" style="height: 200px;">
+                    <img class="img-fluid" src="img/offer-1.jpg" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">Save 20%</h6>
+                        <h3 class="text-white mb-3">Special Offer</h3>
+                        <a href="" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="product-offer mb-30" style="height: 200px;">
+                    <img class="img-fluid" src="img/offer-2.jpg" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">Save 20%</h6>
+                        <h3 class="text-white mb-3">Special Offer</h3>
+                        <a href="" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
@@ -119,8 +196,7 @@
      <section class="showcase container">
                   <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Photos <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
-    </section>
-            
+    </section>            
         </div>
  
 
@@ -258,6 +334,41 @@ function scrollToNextSection() {
 }
 
     </script>
+
+
+
+
+
+<!-- start multishop -->
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../multishop/lib/easing/easing.min.js"></script>
+    <script src="../../../multishop/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../../../multishop/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../../../multishop/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../../multishop/js/main.js"></script>
+
+
+<!-- end multishop -->
+
+
+
+
+
+
+
+
+
+
+
+
+
              </body>
 @endsection
 @push('style')

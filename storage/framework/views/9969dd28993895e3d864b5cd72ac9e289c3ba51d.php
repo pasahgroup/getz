@@ -1,15 +1,8 @@
+    
+
     <header class="header-area">
-<style>
-    wider {
-  width: 300px; /* Full width of parent */
-}
-.element {
-  padding-left: 80px; /* Adds space inside the element before its content */
-}
-</style>
-
-
         <!-- Top Header Area -->
+     
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
                 <div class="email-address">
@@ -132,5 +125,6 @@
                 </nav>
             </div>
         </div>
+        
     </header>
 <?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>
