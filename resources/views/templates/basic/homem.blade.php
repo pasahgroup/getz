@@ -87,7 +87,7 @@
 
                                <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong>{{$event_data->details?? ''}}</strong></div>
 
-                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('event.details', [$event_data->id, slug($event_data->name)]) }}">View More</a>
+                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('event.details', [$event_data->id?? 0, slug($event_data->name?? '')]) }}">View More</a>
                                 </div>
                             </div>
                         </div>

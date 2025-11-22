@@ -50,12 +50,12 @@
                                 
                                  <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;"><?php echo e($event_data->event_type??''); ?></h2>                                
 
-                                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event_data->name); ?></strong></div>
-                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event_data->event_type); ?></strong></div>
+                                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event_data->name?? ''); ?></strong></div>
+                            <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event_data->event_type?? ''); ?></strong></div>
 
-                               <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong><?php echo e($event_data->details); ?></strong></div>
+                               <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong><?php echo e($event_data->details?? ''); ?></strong></div>
 
-                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event_data->id, slug($event_data->name)])); ?>">View More</a>
+                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event_data->id?? 0, slug($event_data->name?? '')])); ?>">View More</a>
                                 </div>
                             </div>
                         </div>
