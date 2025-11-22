@@ -2,8 +2,8 @@
 
 @section('content')
     <!-- Account Section Starts Here -->
-    <div class="account-section pt-120 pb-120" style="#">
-            <div style="border:1px solid rgba(1,0,0,.9);">
+    <div>
+              <div class="account-section pb-120">
             <div class="row justify-content-center" style="background-image: url(../../../img/bg-img/b4.jpeg)">
                 <div class="col-xxl-6 col-lg-8" >
                     <div class="account__wrapper bg--section">

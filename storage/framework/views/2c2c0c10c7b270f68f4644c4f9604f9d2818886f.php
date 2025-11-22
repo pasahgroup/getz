@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <!-- Account Section Starts Here -->
-    <div class="account-section pt-120 pb-120">
+    <div class="account-section pb-120">
         <div class="container">
             <div class="row justify-content-center">
                    <p for="username" class="form--label">Don't write your Mobile number any where</p>
