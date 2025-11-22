@@ -48,7 +48,7 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                 
-                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;"><?php echo e($event_data->event_type); ?></h2>                                
+                                 <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;"><?php echo e($event_data->event_type??''); ?></h2>                                
 
                                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event_data->name); ?></strong></div>
                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event_data->event_type); ?></strong></div>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                   
                             <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <div class="carousel-item position-relative" style="height: 430px;">
