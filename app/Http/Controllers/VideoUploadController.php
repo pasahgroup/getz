@@ -110,7 +110,7 @@ protected function validator(array $data, $table)
    {
         $this->validate($request, [
            // 'title' => 'required|string|max:255',
-            'video' => 'required|file|mimetypes:video/mp4|max:5128',
+            'video' => 'required|file|mimetypes:video/mp4|max:120000',
              //'video' => 'required|file|mimes:mp4,mov,avi|max:51200', 
              //'video' => 'required|max:5128',
         ]);
