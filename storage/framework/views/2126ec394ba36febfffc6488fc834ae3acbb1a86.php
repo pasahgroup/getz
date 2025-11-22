@@ -113,16 +113,16 @@
                 </div>
 
       <div class="row">
-<?php $__empty_2 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
+<?php $__empty_2 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event_dataa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
 
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="blog-item">
                             <div class="rent__thumb" style="background-color:#9ca494">
-                                        <a href="<?php echo e(route('event.details', [$event_data->id, slug($event_data->name)])); ?>">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_data->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
+                                        <a href="<?php echo e(route('event.details', [$event_dataa->id, slug($event_dataa->name)])); ?>">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_dataa->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event_dataa->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
@@ -131,7 +131,7 @@
                                     </div> -->
 
                                     <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class=""><?php echo e($event_data->name); ?> 
+                                        <div class="blog-date"><span class=""><?php echo e($event_dataa->name); ?> 
                                               
                                             </div>
                                                 
@@ -142,19 +142,19 @@
                                                </ul>
                                        </div>
 
-                                        <strong>(<?php echo e($event_data->event_type); ?>)</strong>
+                                        <strong>(<?php echo e($event_dataa->event_type); ?>)</strong>
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:<?php echo e($event_data->region); ?> (<?php echo e($event_data->district); ?>)</span>
+                                                        <span class="">Region:<?php echo e($event_dataa->region); ?> (<?php echo e($event_dataa->district); ?>)</span>
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                          <strong>(<?php echo e($event_data->event_title); ?>)</strong>
+                                          <strong>(<?php echo e($event_dataa->event_title); ?>)</strong>
                                       </br>
-                                      <a href="<?php echo e(route('event.details', [$event_data->id, slug($event_data->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                      <a href="<?php echo e(route('event.details', [$event_dataa->id, slug($event_dataa->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
