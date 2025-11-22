@@ -130,7 +130,7 @@
             <div class="col-lg-4">
                 <a href="" class="text-decoration-none">
                     <span class="text-primary bg-dark px-2">Tanzania General</span>
-                    <span class="text-dark bg-primary px-2 ml-n1">Genocide(TGG)</span>
+                    <span class="text-dark bg-primary px-2 ml-n1">Genocide(TGG)-(29th-Oct-2025)</span>
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
