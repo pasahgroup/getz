@@ -1,6 +1,6 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
-    <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
+    <div>
         <div class="shape">@lang('Book Now')</div>
         <div class="container">
              <div class="widget border--dashed" style="background-color:#fff">
