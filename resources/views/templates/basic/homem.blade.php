@@ -13,28 +13,24 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
+
+
 <style>
-    .truncate {
+.truncate {
   width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  position: relative;
+  transition: all 0.3s ease;
 }
 
-.truncate:hover::after {
-  content: attr(data-full);
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: #333;
-  color: #fff;
-  padding: 5px 8px;
-  border-radius: 4px;
-  white-space: normal;   /* allow wrapping in tooltip */
-  z-index: 10;
+.truncate:hover {
+  white-space: normal;   
+  overflow: visible;    
+  text-overflow: clip;
 }
 </style>
+
 
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
@@ -149,35 +145,29 @@
                                               {{--
                                             <sub>/@lang('day')</span>
                                             --}}
-                                            </div>
-                                                
+                                            </div>                                               
 
 
                                           <div class="rent__content text-center mt-n1">
                                                <ul class="d-flex car-info text-center">
                                                </ul>
-                                       </div>
+                                          </div>
 
                                         <strong>({{$event_dataa->event_type}})</strong>
+
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
-                                                     <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:{{ $event_dataa->region }} ({{ $event_dataa->district }})</span>
+                                                        <span class="truncate" onclick="this.classList.toggle('expanded')">Region:{{ $event_dataa->region }} ({{ $event_dataa->district }})</span>
+                                                    
+
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                          <strong>({{$event_dataa->event_title}})</strong>
-                                          <details>
-  <summary>Click to expand</summary>
-  <p>({{$event_dataa->event_title}})</p>
-</details>
-
-
-
-<div class="truncate" data-full="This is the full detail that will show on hover">
-  This is the full detail that will show on hover
+  
+<div class="truncate" onclick="this.classList.toggle('expanded')">
+  ({{$event_dataa->event_title}})
 </div>
 
 
@@ -213,9 +203,6 @@
     </section>            
         </div>
  
-
-
-
 <hr>
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
@@ -240,8 +227,6 @@
 </video>
 </a>
   
-
-
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
                                     <!-- <div class="blog-img">
                                         <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
@@ -365,18 +350,6 @@ function scrollToNextSection() {
 
 
 <!-- end multishop -->
-
-
-
-
-
-
-
-
-
-
-
-
 
              </body>
 @endsection

@@ -48,12 +48,6 @@ class LoginController extends Controller
     public function showLoginForm(Request $request)
     {
 
-//dd(request('fullurl'));
-// if(!session()->has('url.intended'))
-//     {
-//         session(['url.intended' => url()->previous()]);
-//     }
-    //return view('auth.login');
 $fullUrl=request('fullurl');
         $pageTitle = "Sign In";
         return view(activeTemplate() . 'user.auth.login', compact('pageTitle','fullUrl'));

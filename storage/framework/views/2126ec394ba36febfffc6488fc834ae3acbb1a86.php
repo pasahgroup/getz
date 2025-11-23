@@ -13,28 +13,24 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
+
+
 <style>
-    .truncate {
+.truncate {
   width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  position: relative;
+  transition: all 0.3s ease;
 }
 
-.truncate:hover::after {
-  content: attr(data-full);
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: #333;
-  color: #fff;
-  padding: 5px 8px;
-  border-radius: 4px;
-  white-space: normal;   /* allow wrapping in tooltip */
-  z-index: 10;
+.truncate:hover {
+  white-space: normal;   
+  overflow: visible;    
+  text-overflow: clip;
 }
 </style>
+
 
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
@@ -49,20 +45,7 @@
                     </ol>
                     <div class="carousel-inner">
 
-<!-- 
-                        <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
-                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="">Shop Now</a>
-                                </div>
-                            </div>
-                        </div> -->
-
-
-                              <div class="carousel-item position-relative active" style="height: 430px;">
+                <div class="carousel-item position-relative active" style="height: 430px;">
                         <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
@@ -152,35 +135,29 @@
                                     <div class="blog-content rounded-bottom p-3">
                                         <div class="blog-date"><span class=""><?php echo e($event_dataa->name); ?> 
                                               
-                                            </div>
-                                                
+                                            </div>                                               
 
 
                                           <div class="rent__content text-center mt-n1">
                                                <ul class="d-flex car-info text-center">
                                                </ul>
-                                       </div>
+                                          </div>
 
                                         <strong>(<?php echo e($event_dataa->event_type); ?>)</strong>
+
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
-                                                     <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:<?php echo e($event_dataa->region); ?> (<?php echo e($event_dataa->district); ?>)</span>
+                                                        <span class="truncate" onclick="this.classList.toggle('expanded')">Region:<?php echo e($event_dataa->region); ?> (<?php echo e($event_dataa->district); ?>)</span>
+                                                    
+
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                          <strong>(<?php echo e($event_dataa->event_title); ?>)</strong>
-                                          <details>
-  <summary>Click to expand</summary>
-  <p>(<?php echo e($event_dataa->event_title); ?>)</p>
-</details>
-
-
-
-<div class="truncate" data-full="This is the full detail that will show on hover">
-  This is the full detail that will show on hover
+  
+<div class="truncate" onclick="this.classList.toggle('expanded')">
+  (<?php echo e($event_dataa->event_title); ?>)
 </div>
 
 
@@ -214,9 +191,6 @@
     </section>            
         </div>
  
-
-
-
 <hr>
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
@@ -241,8 +215,6 @@
 </video>
 </a>
   
-
-
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
                                     <!-- <div class="blog-img">
                                         <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
@@ -310,7 +282,7 @@
                            
   </span>
 </div>
-        </div>
+</div>
 
 
 
@@ -362,18 +334,6 @@ function scrollToNextSection() {
 
 
 <!-- end multishop -->
-
-
-
-
-
-
-
-
-
-
-
-
 
              </body>
 <?php $__env->stopSection(); ?>
