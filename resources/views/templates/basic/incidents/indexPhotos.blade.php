@@ -60,10 +60,7 @@
                                         </a>
                                     </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
-                                    <!-- <div class="blog-img">
-                                        <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                                    </div> -->
-
+                                
                                     <div class="blog-content rounded-bottom p-3">
                                         <div class="blog-date"><span class="">{{$event->name}} 
                                               {{--
