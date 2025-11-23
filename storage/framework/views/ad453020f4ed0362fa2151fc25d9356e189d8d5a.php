@@ -80,12 +80,15 @@
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:<?php echo e($video_data->region); ?> (<?php echo e($video_data->district); ?>)</span>
+                                                        <span class="truncate" onclick="this.classList.toggle('expanded')">Region:<?php echo e($video_data->region); ?> (<?php echo e($video_data->district); ?>)</span>
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                          <strong>(<?php echo e($video_data->event_title); ?>)</strong>
+                                                                              <div class="truncate" onclick="this.classList.toggle('expanded')">
+  (<?php echo e($video_data->event_title); ?>)
+</div>
+
                                       </br>
                                       <a href="<?php echo e(route('video.details', [$video_data->id, slug($video_data->name)])); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                                     </div>

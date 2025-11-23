@@ -507,9 +507,9 @@ Route::name('user.')->prefix('user')->group(function () {
 
 
 
-        Route::middleware(['checkStatus'])->group(function () {
+            Route::middleware(['checkStatus'])->group(function () {
             Route::get('dashboard', 'UserController@home')->name('dashboard');
-            Route::get('get_', 'UserController@home')->name('dashboard');
+            Route::get('get_dashboard', 'UserController@home')->name('dashboard');
 
             
             Route::get('profile-setting', 'UserController@profile')->name('profile.setting');
