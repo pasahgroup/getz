@@ -87,12 +87,15 @@
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:{{ $video_data->region }} ({{ $video_data->district }})</span>
+                                                        <span class="truncate" onclick="this.classList.toggle('expanded')">Region:{{ $video_data->region }} ({{ $video_data->district }})</span>
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                          <strong>({{$video_data->event_title}})</strong>
+                                                                              <div class="truncate" onclick="this.classList.toggle('expanded')">
+  ({{$video_data->event_title}})
+</div>
+
                                       </br>
                                       <a href="{{ route('video.details', [$video_data->id, slug($video_data->name)]) }}" class="">Read More <i class="fa fa-arrow-right"></i></a>
                                     </div>
