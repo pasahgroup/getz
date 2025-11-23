@@ -1,9 +1,9 @@
-@extends($activeTemplate.'layouts.frontend')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
    <div class="search-section">
-        <div class="shape right-side">@lang('Rent')</div>
-        <div class="shape">@lang('Vehicles')</div>
+        <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
+        <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
         <div class="container-fluid">
             <div class="row">               
                 <div class="col-lg-12">
@@ -12,27 +12,22 @@
                     </div>
 
                     <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('event.search') }}" method="get" class="priceForm">
+                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('event.search')); ?>" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
-                                        <i class="las la-car-side"></i> @lang('--Select category--')
+                                        <i class="las la-car-side"></i> <?php echo app('translator')->get('--Select category--'); ?>
                                     </label>
                                     <select name="brand" id="brand" class="form-control">
-                                        <option value="">@lang('--Select category--')</option>
+                                        <option value=""><?php echo app('translator')->get('--Select category--'); ?></option>
                                            <option value="1">1</option>
                                               <option value="2">2</option>
 
-                                        @if(!empty($brand_data))
-                                          <option value="{{$brand_data->id}}" selected>{{$brand_data->name}}</option>
-                                          @endif
+                                        <?php if(!empty($brand_data)): ?>
+                                          <option value="<?php echo e($brand_data->id); ?>" selected><?php echo e($brand_data->name); ?></option>
+                                          <?php endif; ?>
                                         <option value="0">All</option>
-                                        {{--
-                                        @forelse($brandss as $brand)
-                                            <option value="{{ $brand->brand_id }}">{{ __(@$brand->name) }}</option>
-                                        @empty
-                                        @endforelse
-                                        --}}
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -40,7 +35,7 @@
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit" value="search" name="search">@lang('Search')</button>
+                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit" value="search" name="search"><?php echo app('translator')->get('Search'); ?></button>
                                 </div>
                             </div>
                         </form>
@@ -48,24 +43,22 @@
 
 
                     <div class="row g-4" style="margin-top:-42px">
-                        @forelse($events as $event)              
+                        <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>              
          <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="blog-item">
                             <div class="rent__thumb" style="background-color:#9ca494">
-                                        <a href="{{ route('event.details', [$event->id, slug($event->name)]) }}">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
+                                        <a href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
                                 
                                     <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class="">{{$event->name}} 
-                                              {{--
-                                            <sub>/@lang('day')</span>
-                                            --}}
+                                        <div class="blog-date"><span class=""><?php echo e($event->name); ?> 
+                                              
                                             </div>
                                                 
 
@@ -75,23 +68,22 @@
                                                </ul>
                                        </div>
 
-                                        <strong>({{$event->event_type}})</strong>
+                                        <strong>(<?php echo e($event->event_type); ?>)</strong>
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                         <span class="truncate" onclick="this.classList.toggle('expanded')">Region:{{ $event_dataa->region }} ({{ $event_dataa->district }})</span>
-                                                    
+                                                        <span class="">Region:<?php echo e($event->region); ?> (<?php echo e($event->district); ?>)</span>
                                                     </li>
                                                 </ul>
                                         </div>
 
                                        <div class="truncate" onclick="this.classList.toggle('expanded')">
-  ({{$event->event_title}})
+  (<?php echo e($event->event_title); ?>)
 </div>
 
                                       </br>
-                                      <a href="{{ route('event.details', [$event->id, slug($event->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                      <a href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -100,9 +92,10 @@
                     </div>
                       <br>
                 </div>
-                        @empty
-                        @endforelse
-{!! $events->links() !!}
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
+<?php echo $events->links(); ?>
+
 
                     </div>
 
@@ -247,10 +240,10 @@
           });
       });
       </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@push('script')
+<?php $__env->startPush('script'); ?>
     <script>
         (function ($) {
             "use strict";
@@ -270,4 +263,6 @@
             });
         })(jQuery);
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/incidents/indexPhotos.blade.php ENDPATH**/ ?>

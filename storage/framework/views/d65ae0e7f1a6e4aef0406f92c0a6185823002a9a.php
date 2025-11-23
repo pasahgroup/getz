@@ -28,6 +28,23 @@
     <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
            <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<!-- Don't remove the below CSS code -->
+<style>
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+}
+
+.truncate:hover {
+  white-space: normal;   
+  overflow: visible;    
+  text-overflow: clip;
+}
+</style>
+
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
@@ -48,7 +65,7 @@
 
 
  <link rel="stylesheet" href="../../../style.css">
- 
+
        <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/line-awesome.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/magnific-popup.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/owl.min.css')); ?>">
@@ -193,8 +210,11 @@
                         </div>
                         
                         <a href="" class="nav-item nav-link">victims</a>
-                                <a href="/view-photos/photos" class="nav-item nav-link">Incident Photos</a>
-                                       <a href="/view-videos/videos" class="nav-item nav-link">Incident Videos</a>
+                               <!--  <a href="/view-photos/photos" class="nav-item nav-link">Incident Photos</a>
+                                       <a href="/view-videos/videos" class="nav-item nav-link">Incident Videos</a> -->
+
+                                         <a href="<?php echo e(route('event.search')); ?>" class="nav-item nav-link">Incident Photos</a>
+                                       <a href="<?php echo e(route('video.search')); ?>" class="nav-item nav-link">Incident Videos</a>
                     </div>
                 </nav>
             </div>

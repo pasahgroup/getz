@@ -14,25 +14,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
 
-
-<style>
-.truncate {
-  width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: all 0.3s ease;
-}
-
-.truncate:hover {
-  white-space: normal;   
-  overflow: visible;    
-  text-overflow: clip;
-}
-</style>
-
-
-    <div class="container-fluid mb-3">
+ <div class="container-fluid mb-3">
         <div class="row px-xl-5">
             <div class="col-lg-8">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
@@ -169,6 +151,7 @@
                 
                           </div>
                     </div>
+                      <br>
                 </div>
                
 
