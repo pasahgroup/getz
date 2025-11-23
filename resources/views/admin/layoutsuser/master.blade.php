@@ -40,7 +40,7 @@
     <!-- dashdoard main css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}">
 
-        <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../../../../css/style.css" rel="stylesheet" type="text/css" />
 
         
     @stack('style')

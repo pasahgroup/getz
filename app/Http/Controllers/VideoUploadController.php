@@ -128,8 +128,6 @@ protected function validator(array $data, $table)
         if ($isFileUploaded) {
             $video = new Video();
 
-
-
              $video->name = $request->name;
          $video->event_title = $request->event_title;
          $video->event_type = $request->event_type;

@@ -18,7 +18,6 @@
      <!-- Main content -->
              <div class="card">
         <div class="card-body">
-            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
@@ -80,7 +79,6 @@
                             </tr>
                   </tfoot>
                 </table>
-              </div>
 
         </div>
         <!-- /.card-body -->

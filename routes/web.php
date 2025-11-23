@@ -574,7 +574,9 @@ Route::get('vehicle/booking/{id}/{slug}', 'VehicleController@vehicleBooking')->n
 
 Route::post('vehicle/booking/confirm/{id}', 'VehicleController@vehicleBookingConfirm')->name('vehicle.booking.confirm');
 
-Route::get('vehicle-search', 'VehicleController@vehicleSearch')->name('vehicle.search'); //changed from vehicle/search to vehicle-search
+Route::get('event-search', 'VehicleController@eventSearch')->name('event.search'); //changed from vehicle/search to vehicle-search
+Route::get('video-search', 'VehicleController@videoSearch')->name('video.search'); //changed from vehicle/search to vehicle-search
+
 
 
 Route::get('event/details/{id}/{slug}', 'EventController@eventDetails')->name('event.details');

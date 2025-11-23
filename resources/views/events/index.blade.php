@@ -18,7 +18,6 @@
      <!-- Main content -->
              <div class="card">
         <div class="card-body">
-            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
@@ -27,7 +26,7 @@
                                 <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
-                           <th scope="col">@lang('Event Date')</th>
+                                <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Videos')</th>
                                 <th scope="col">@lang('Incident Details')</th>
                                  <th scope="col">@lang('Elapsed time')</th>
@@ -55,7 +54,11 @@
       <img class="" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
                                         </td>
 
-   <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
+
+
+   <td data-label="@lang('Event details')"><textarea rows="10" name="details" class="form-control"
+                                               id="nicEditor0" readonly>{{ $item->details }}</textarea></td>
+
     <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
        <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
 
@@ -69,9 +72,11 @@
                                 
 
                                     <td data-label="@lang('Action')">
+                                  {{--
                                         <a href="{{ route('user.events.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
+                                        --}}
 
                                         <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.events.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
@@ -102,7 +107,6 @@
                             </tr>
                   </tfoot>
                 </table>
-              </div>
 
         </div>
         <!-- /.card-body -->

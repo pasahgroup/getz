@@ -5,9 +5,6 @@
 @push('breadcrumb-plugins')
     <a href="{{ route('user.videos.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Incident video (Sajili Picha Mjongeo)')</a>
 @endpush
-
-
-
   <script src="../../../../appweb/jquery171.min.js"></script>
     <!-- <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css"> -->
    <!-- DataTables -->
@@ -19,7 +16,6 @@
      <!-- Main content -->
              <div class="card">
         <div class="card-body">
-            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
@@ -55,10 +51,12 @@
                                                                            <video controls width="140" height="120">
     <source src="{{ Storage::url($item->path) }}" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
-</video>                                                    
-</td>
+</video> 
+</td>                                                   
+ <td data-label="@lang('Event details')"><textarea rows="10" cols="100%" name="details" class="form-control"
+                                               id="nicEditor0" readonly>{{ $item->details }}</textarea></td>
 
-   <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
+
      <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
        <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
 
@@ -73,9 +71,11 @@
                                 
 
                                     <td data-label="@lang('Action')">
+                                        {{--
                                         <a href="{{ route('user.videos.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
+                                        --}}
 
                                         <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.events.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
@@ -107,8 +107,6 @@
                             </tr>
                   </tfoot>
                 </table>
-              </div>
-
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -240,4 +238,4 @@
       $('#summernote3').summernote()
     })
 
-  </script>  
+  </script>

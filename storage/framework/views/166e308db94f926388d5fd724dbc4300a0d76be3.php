@@ -40,7 +40,7 @@
     <!-- dashdoard main css -->
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/app.css')); ?>">
 
-        <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../../../../css/style.css" rel="stylesheet" type="text/css" />
 
         
     <?php echo $__env->yieldPushContent('style'); ?>

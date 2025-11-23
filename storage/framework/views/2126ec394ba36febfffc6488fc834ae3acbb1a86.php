@@ -178,7 +178,7 @@
      <br>
           <br>
      <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Photos <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <a class="btn-transparent" href="/event-search" target="_blank"  style="float: right;color:red;">View More Incident Photos <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
     </section>            
         </div>
@@ -241,7 +241,7 @@
 
                                           <strong>(<?php echo e($video_data->event_title); ?>)</strong>
                                       </br>
-                                      <a href="<?php echo e(route('video.details', [$video_data->id, slug($video_data->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                                      <a href="<?php echo e(route('video.details', [$video_data->id, slug($video_data->name)])); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -265,16 +265,11 @@
      <br>
           <br>
      <section class="showcase container">
-                  <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="float: right;color:red;">View More Incident Videos  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <a class="btn-transparent" href="/video-search" target="_blank"  style="float: right;color:red;">View More Incident Videos  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
-    </section>
-            
+    </section>            
         </div>
  
-
-
-
-
       <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <p class="mb-0">The truth must be revealed.

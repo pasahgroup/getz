@@ -5,9 +5,6 @@
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <a href="<?php echo e(route('user.videos.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Incident video (Sajili Picha Mjongeo)'); ?></a>
 <?php $__env->stopPush(); ?>
-
-
-
   <script src="../../../../appweb/jquery171.min.js"></script>
     <!-- <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css"> -->
    <!-- DataTables -->
@@ -19,7 +16,6 @@
      <!-- Main content -->
              <div class="card">
         <div class="card-body">
-            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
@@ -55,10 +51,12 @@
                                                                            <video controls width="140" height="120">
     <source src="<?php echo e(Storage::url($item->path)); ?>" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
-</video>                                                    
-</td>
+</video> 
+</td>                                                   
+ <td data-label="<?php echo app('translator')->get('Event details'); ?>"><textarea rows="10" cols="100%" name="details" class="form-control"
+                                               id="nicEditor0" readonly><?php echo e($item->details); ?></textarea></td>
 
-   <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->details)); ?></td>
+
      <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->elapsed_time)); ?></td>
        <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->last_update)); ?></td>
 
@@ -73,9 +71,7 @@
                                 
 
                                     <td data-label="<?php echo app('translator')->get('Action'); ?>">
-                                        <a href="<?php echo e(route('user.videos.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
-                                            <i class="la la-edit"></i>
-                                        </a>
+                                        
 
                                         <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('user.events.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
@@ -107,8 +103,6 @@
                             </tr>
                   </tfoot>
                 </table>
-              </div>
-
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -240,6 +234,5 @@
       $('#summernote3').summernote()
     })
 
-  </script>  
-
+  </script>
 <?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/videos/index.blade.php ENDPATH**/ ?>
