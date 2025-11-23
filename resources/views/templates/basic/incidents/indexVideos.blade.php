@@ -55,7 +55,7 @@
                             <div class="blog-item">
                                                              <a href="{{ route('event.details', [$video_data->id, slug($video_data->name)]) }}">                                                                                 
 
-                                                                       <video controls width="250" height="150">
+                                                                       <video controls width="286" height="150">
     <source src="{{ Storage::url($video_data->path) }}" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video>
