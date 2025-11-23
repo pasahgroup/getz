@@ -48,6 +48,7 @@
 
 
  <link rel="stylesheet" href="../../../style.css">
+ 
        <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
