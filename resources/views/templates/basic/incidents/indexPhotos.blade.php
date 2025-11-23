@@ -80,7 +80,7 @@
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                         <span class="truncate" onclick="this.classList.toggle('expanded')">Region:{{ $event_dataa->region }} ({{ $event_dataa->district }})</span>
+                                                         <span class="truncate" onclick="this.classList.toggle('expanded')">Region:{{ $event->region }} ({{ $event->district }})</span>
                                                     
                                                     </li>
                                                 </ul>

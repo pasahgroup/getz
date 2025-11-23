@@ -73,7 +73,8 @@
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="">Region:<?php echo e($event->region); ?> (<?php echo e($event->district); ?>)</span>
+                                                         <span class="truncate" onclick="this.classList.toggle('expanded')">Region:<?php echo e($event->region); ?> (<?php echo e($event->district); ?>)</span>
+                                                    
                                                     </li>
                                                 </ul>
                                         </div>
