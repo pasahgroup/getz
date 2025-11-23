@@ -101,6 +101,7 @@
                 
                           </div>
                     </div>
+                      <br>
                 </div>
                         @empty
                         @endforelse

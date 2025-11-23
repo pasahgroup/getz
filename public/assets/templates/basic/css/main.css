@@ -5190,15 +5190,15 @@ button.cmn--btn:hover {
 
 .pagination .page-item a,
     .pagination .page-item span {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
 /*    background: rgba(255, 255, 255, 0.1);*/
     color: #fcf6f5ff;
     padding: 0;
-    line-height: 45px;
+    line-height: 30px;
     display: block;
     margin: 0;
     border: 1px solid rgba(220, 243, 255, 0.2);

@@ -254,7 +254,9 @@
                 
                           </div>
                     </div>
+                      <br>
                 </div>
+
                
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
