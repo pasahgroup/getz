@@ -13,9 +13,28 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
+<style>
+    .truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
 
-
-
+.truncate:hover::after {
+  content: attr(data-full);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #333;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: normal;   /* allow wrapping in tooltip */
+  z-index: 10;
+}
+</style>
 
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
@@ -153,6 +172,18 @@
                                         </div>
 
                                           <strong>(<?php echo e($event_dataa->event_title); ?>)</strong>
+                                          <details>
+  <summary>Click to expand</summary>
+  <p>(<?php echo e($event_dataa->event_title); ?>)</p>
+</details>
+
+
+
+<div class="truncate" data-full="This is the full detail that will show on hover">
+  This is the full detail that will show on hover
+</div>
+
+
                                       </br>
                                       <a href="<?php echo e(route('event.details', [$event_dataa->id, slug($event_dataa->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                     </div>

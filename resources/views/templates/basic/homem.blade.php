@@ -13,41 +13,28 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
+<style>
+    .truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
 
-
-{{--
-    <section class="hero-area">
-        <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slide -->
-                      <!-- Single Hero Slide -->
-                   <!-- Single Hero Slide -->
-                   {{$events}}
-              @forelse($events as $event)
-            <div class="single-hero-slide bg-img" style="background-image: url({{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-contentx">
-                                <h2 data-animation="fadeInUp" data-delay="100ms" style="color:yellow;">{{$event->event_type}}</h2>
-                            </div>
-                      <ul class="#">
-                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong>{{$event->name}}</strong></li>
-                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong>{{$event->event_type}}</strong></li>
-
-                      </ul>
-                      <div>
-                        <strong>{{$event->details}}</strong>
-                      </div>
- <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('event.details', [$event->id, slug($event->name)]) }}">View More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-  @endforeach                              
-
-        </div>
-    </section>
---}}
+.truncate:hover::after {
+  content: attr(data-full);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #333;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: normal;   /* allow wrapping in tooltip */
+  z-index: 10;
+}
+</style>
 
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
@@ -62,20 +49,7 @@
                     </ol>
                     <div class="carousel-inner">
 
-<!-- 
-                        <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
-                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="">Shop Now</a>
-                                </div>
-                            </div>
-                        </div> -->
-
-
-                              <div class="carousel-item position-relative active" style="height: 430px;">
+                <div class="carousel-item position-relative active" style="height: 430px;">
                         <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
@@ -195,6 +169,18 @@
                                         </div>
 
                                           <strong>({{$event_dataa->event_title}})</strong>
+                                          <details>
+  <summary>Click to expand</summary>
+  <p>({{$event_dataa->event_title}})</p>
+</details>
+
+
+
+<div class="truncate" data-full="This is the full detail that will show on hover">
+  This is the full detail that will show on hover
+</div>
+
+
                                       </br>
                                       <a href="{{ route('event.details', [$event_dataa->id, slug($event_dataa->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                     </div>
@@ -327,7 +313,7 @@
                            
   </span>
 </div>
-        </div>
+</div>
 
 
 
