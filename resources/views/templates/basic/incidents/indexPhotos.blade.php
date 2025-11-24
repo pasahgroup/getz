@@ -11,6 +11,9 @@
                         <i class="las la-filter"></i>
                     </div>
 
+
+  <div style="padding-top:2px;"><marquee><a href="{{ route('user.events.add') }}" class="cmn--btn">@lang('Upload New Photos')</a></marquee></div>
+
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('event.search') }}" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">

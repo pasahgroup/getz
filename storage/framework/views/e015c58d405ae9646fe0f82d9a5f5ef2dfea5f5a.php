@@ -11,6 +11,9 @@
                         <i class="las la-filter"></i>
                     </div>
 
+
+  <div style="padding-top:2px;"><marquee><a href="<?php echo e(route('user.events.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload New Photos'); ?></a></marquee></div>
+
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('event.search')); ?>" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">

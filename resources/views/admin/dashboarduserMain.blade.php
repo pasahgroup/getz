@@ -1,5 +1,5 @@
 @extends('admin.layoutsuser.app')
-<!-- <script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script> -->
+<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
 @section('panel')
    {{--   @if(@json_decode($general->sys_version)->version > systemDetails()['version'])
         <div class="row">

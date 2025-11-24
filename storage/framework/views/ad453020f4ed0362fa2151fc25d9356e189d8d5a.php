@@ -11,6 +11,8 @@
                         <i class="las la-filter"></i>
                     </div>
 
+              <div style="padding-top:2px;"><marquee><a href="<?php echo e(route('user.videos.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload New videos'); ?></a></marquee></div>
+
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('video.search')); ?>" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
@@ -40,7 +42,6 @@
                             </div>
                         </form>
                     </div>
-
 
                     <div class="row g-4" style="margin-top:-42px">
                         <?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>              

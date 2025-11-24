@@ -651,7 +651,7 @@ Route::get('web-servise/{s}', 'SiteController@webservice')->name('web-service');
 
 //Route::resource('azam', AzampayController::class, 'index');
 //Route::resource('dk', EventwebreportController::class);
-Route::get('event-web/{x}', 'EventwebreportController@show')->name('event-web.show');
+Route::get('photoReport-web/{x}', 'EventwebreportController@show')->name('event-web.show');
 Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
 
    

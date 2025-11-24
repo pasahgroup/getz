@@ -178,7 +178,7 @@
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                     <div class="navbar-nav w-100">
                         <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incidents <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incident Reports <i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                                   <a href="/event-web/Injured" class="dropdown-item">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> <?php echo e($eventCounts->where('event_type','Injured')->count()); ?></span></a>
                                <li><a href="/event-web/kidnapped" class="dropdown-item">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> <?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?></span></a></li>
@@ -195,7 +195,7 @@
                             </div>
                         </div>
          <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Suspects <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Suspect Reports<i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                                   <a href="/suspect-web/Individual" class="dropdown-item">Individual(Mtu):<span class="badge badge-pill badge-danger"> <?php echo e($suspectCounts->where('category','Individual')->count()); ?></span></a>
 
@@ -209,12 +209,12 @@
                             </div>
                         </div>
                         
-                        <a href="" class="nav-item nav-link">victims</a>
+                        <a href="" class="nav-item nav-link">Victim Reports</a>
                                <!--  <a href="/view-photos/photos" class="nav-item nav-link">Incident Photos</a>
                                        <a href="/view-videos/videos" class="nav-item nav-link">Incident Videos</a> -->
 
-                                         <a href="<?php echo e(route('event.search')); ?>" class="nav-item nav-link">Incident Photos</a>
-                                       <a href="<?php echo e(route('video.search')); ?>" class="nav-item nav-link">Incident Videos</a>
+                                         <a href="photoReport-web/{x}" class="nav-item nav-link">Incident Photo Reports</a>
+                                       <a href="suspect-web/{x}" class="nav-item nav-link">Incident Video Reports</a>
                     </div>
                 </nav>
             </div>
@@ -230,7 +230,16 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="/" class="nav-item nav-link active">Home</a>
-                            
+                           
+                            <a href="detail.html" class="nav-item nav-link"></a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incidents<i class="fa fa-angle-down mt-1"></i></a>
+                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                                       <a href="<?php echo e(route('event.search')); ?>" class="dropdown-item">Incident Photos</a>
+                                       <a href="<?php echo e(route('video.search')); ?>" class="dropdown-item">Incident Videos</a>
+                                </div>
+                            </div>
+                       
                             <a href="#" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">

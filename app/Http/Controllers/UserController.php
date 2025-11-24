@@ -45,22 +45,6 @@ dd('Dashboard details');
     {
       //   $pageTitle = 'Dashboard';
 
-      //   //Vehicle booking
-      //   $data['total_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->count();
-      //   $data['upcoming_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->upcoming()->count();
-      //   $data['running_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->running()->count();
-      //   $data['completed_vehicle_booking'] = RentLog::active()->where('user_id', \auth()->id())->completed()->count();
-
-      //   //Plan booking
-      //   $data['total_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->count();
-      //   $data['upcoming_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->upcoming()->count();
-      //   $data['running_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->running()->count();
-      //   $data['completed_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->completed()->count();
-
-      //   $logs = auth()->user()->deposits()->with(['gateway', 'rent', 'planlog'])->orderBy('id','desc')->take(10)->get();
-      // //dd($logs);
-       
-
  $pageTitle = 'Dashboard';
 
         // User Info
@@ -148,9 +132,7 @@ dd('Dashboard details');
 
        
 
-
-        return view('admin.dashboarduserMain', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data'));
-       // return view($this->activeTemplate . 'user.dashboard', compact('pageTitle', 'logs', 'data'));
+       return view('admin.dashboarduserMain', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data'));
     }
 
     public function profile()
