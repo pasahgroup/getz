@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Storage;
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
 
+
+
+use App\Jobs\ConvertVideoToMp4;
+use Illuminate\Support\Str;
+
 class VideoUploadController extends Controller
 {
     public function __construct(){
@@ -108,15 +113,37 @@ protected function validator(array $data, $table)
 
     public function store(Request $request)
    {
+
+
+
+
+
+ // $request->validate([
+ //           'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi'
+ //        ]);
+
+ //        $file = $request->file('video');
+ //        $originalFileName = $file->getClientOriginalName();
+ //        $tempPath = $file->storeAs('temp_videos', Str::uuid() . '-' . $originalFileName);
+
+ //        // Dispatch the job to convert the video
+ //        ConvertVideoToMp4::dispatch(
+ //            storage_path('app/' . $tempPath),
+ //            storage_path('app/converted_videos'), // Desired output directory
+ //            $originalFileName
+ //        );
+
+ //        return back()->with('success', 'Video uploaded and conversion initiated.');
+
+
+
+
         $this->validate($request, [
-           // 'title' => 'required|string|max:255',
-            'video' => 'required|file|mimetypes:video/mp4|max:120000',
-             //'video' => 'required|file|mimes:mp4,mov,avi|max:51200', 
-             //'video' => 'required|max:5128',
+             'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi'
         ]);
  
        
-       //dd('popo');
+      // dd('popo');
 
         $fileName = $request->video->getClientOriginalName();
         $filePath = 'videos/' . $fileName;

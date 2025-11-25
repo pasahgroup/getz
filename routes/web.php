@@ -508,7 +508,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
 
             Route::middleware(['checkStatus'])->group(function () {
-            Route::get('dashboard', 'UserController@home')->name('dashboard');
+            //Route::get('dashboard', 'UserController@home')->name('dashboard');
             Route::get('get_dashboard', 'UserController@home')->name('dashboard');
 
             
@@ -652,6 +652,7 @@ Route::get('web-servise/{s}', 'SiteController@webservice')->name('web-service');
 //Route::resource('azam', AzampayController::class, 'index');
 //Route::resource('dk', EventwebreportController::class);
 Route::get('photoReport-web/{x}', 'EventwebreportController@show')->name('event-web.show');
+Route::get('event-web/{x}', 'EventwebreportController@show')->name('event-web.show');
 Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
 
    
