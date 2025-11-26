@@ -3783,7 +3783,7 @@ table.dataTable thead tr th {
     -o-border-radius: 5px !important;
     width: auto;
     height: auto;
-    padding: 8px 15px;
+    padding: 1px 10px;
 }
 
 .dataTables_paginate .pagination li a:focus {
@@ -4124,7 +4124,7 @@ table.table--light.style--two tbody td {
     background-color: #7367f0;
     border-color: #7367f0;
     color: #ffffff;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);*/
 }
 
 .pagination .page-item.previous .page-link, .pagination .page-item.next .page-link {
@@ -4159,7 +4159,7 @@ table.table--light.style--two tbody td {
     display: flex;
     width: 36px;
     height: 36px;
-    margin: 0 3px;
+    margin: 0 1px;
     padding: 0;
     border-radius: 50% !important;
     align-items: center;

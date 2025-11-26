@@ -1,4 +1,6 @@
 
+
+
 <?php $__env->startSection('panel'); ?>
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
@@ -12,7 +14,14 @@
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+<div class="content-wrapper">
+      <div class="card">
+        <div class="card-body">
 <?php $__env->startSection('panel'); ?>
+</div>
+</div>
+</div>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
      <!-- Main content -->

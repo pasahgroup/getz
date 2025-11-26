@@ -1,94 +1,128 @@
-
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <header class="header-area">
+        <!-- Top Header Area -->
+     
+        <div class="top-header-area">
+            <div class="h-100 d-md-flex justify-content-between align-items-center">
+                <div class="email-address">
+                    <a href="mailto:contact@southtemplate.com">Email: info@tanzaniagenocide.com</a>
+                      <a href="mailto:contact@southtemplate.com"  class="element"></a>
+                            @auth
+                                <a href="{{ route('user.events.add') }}" class="cmn--btn">@lang('Upload Incident photos')</a>
+                                   <a href="{{ route('user.videos.add') }}" class="cmn--btn">@lang('Upload Incident videos')</a>
 
-    <link rel="stylesheet" href="../../menu/css/owl.carousel.min.css">
+                                          <a href="#" class="cmn--btn">@lang('Victims')</a>
+                                   <a href="#" class="cmn--btn">@lang('Suspects')</a>
+                                      <a href="{{ route('user.logout') }}" class="cmn--btn badge-primary" style="background-color:red">@lang('Logout')</a>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../menu/css/bootstrap.min.css">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="../../menu/css/style.css">
+                            @else
+                                <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Login')</a>
 
-    <title>Website Menu #1</title>
-  </head>
-  
-
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+                                <a href="{{ route('user.register') }}" class="cmn--btn">@lang('Sign up')</a>
+                            @endauth
+                </div>
+     <div class="email-address">
+                     <marquee style="color:yellow;float: right">Tanzania general genocide(TGG)</marquee>
+                </div>
+               
+                <div class="phone-number d-flex">
+                    <div class="icon">
+                        <img src="img/icons/phone-call.png" alt="" style="height:50px;">
+                    </div>
+                    <div class="number">
+                        <a href="tel:+45 677 8993000 223">+000 000 000</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-   
-    
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
-      <div class="container">
-        <div class="row align-items-center">
-          
-          <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html">Brand<span class="text-primary">.</span> </a></h1>
-          </div>
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
 
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
 
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li class="has-children">
-                  <a href="#about-section" class="nav-link">About Us</a>
-                  <ul class="dropdown">
-                    <li><a href="#team-section" class="nav-link">Team</a></li>
-                    <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
-                    <li><a href="#faq-section" class="nav-link">FAQ</a></li>
-                    <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-                    <li><a href="#services-section" class="nav-link">Services</a></li>
-                    <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                
-                
-                <li><a href="#blog-section" class="nav-link">Blog</a></li>
-                <li><a href="#contact-section" class="nav-link">Contact</a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
-              </ul>
-            </nav>
-          </div>
+                    <!-- Logo -->
+                    <a class="nav-brand" href="#"><img src="../.../../img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Incidents</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/view-photos/photos">Incident Photos</a></li>
+                                       <li><a href="/view-videos/videos">Incident Videos</a></li>
+                                    </ul>
+                           </li>
 
 
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+  <li><a href="#">Reports</a>
+                                    <ul class="dropdown"  style="width:240px">
+                                        <li><a href="#">Events report summary</a>
+                                            <ul class="dropdown" style="width:250px">
+                                               <li><a href="/event-web/Injured">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','Injured')->count()}}</span></a></li>
 
-        </div>
-      </div>
-      
+                                            <li><a href="/event-web/kidnapped">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
+
+                                            <li><a href="/event-web/killed">killed(Uwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a></li>
+
+                                            <li><a href="/event-web/Missed">Missed(Potea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a></li>
+
+
+                                            <li><a href="/event-web/Totured">Totured(Teswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a></li>
+
+                                            <li><a href="/event-web/Other">Other(Ingineyo):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a></li>
+                                            </ul>
+                                        </li>
+
+
+ <li><a href="#">Suspected report summary</a>
+                                         <ul class="dropdown" style="width:280px">
+                                              <li><a href="/suspect-web/Individual">Individual(Mtu):<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a></li>
+
+                                            <li><a href="/suspect-web/People">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> {{$suspectCounts->where('category','People')->count()}}</span></a></li>
+
+
+                                            <li><a href="/suspect-web/Institute">Institute(Taasisi):<span class="badge badge-pill badge-primary"> {{$suspectCounts->where('category','Institute')->count()}}</span></a></li>
+
+                                            <li><a href="/suspect-web/Other">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$suspectCounts->where('category','Other')->count()}}</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+
+                            <!-- Search Form -->
+                            <div class="south-search-form">
+                                <form action="#" method="post">
+                                    <input type="search" name="search" id="search" placeholder="Search Anything ...">
+                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- Search Button -->
+                            <a href="#" class="searchbtn"><i class="fa" aria-hidden="true"></i></a>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>        
     </header>
-
-    <div class="hero"></div>
-  
-   
-
-    <script src="../../menu/js/jquery-3.3.1.min.js"></script>
-    <script src="../../menu/js/popper.min.js"></script>
-    <script src="../../menu/js/bootstrap.min.js"></script>
-    <script src="../../menu/js/jquery.sticky.js"></script>
-    <script src="../../menu/js/main.js"></script>

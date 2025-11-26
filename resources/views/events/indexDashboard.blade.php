@@ -1,11 +1,9 @@
-
 @extends('admin.layoutsuser.app')
 @section('panel')
 
 @push('breadcrumb-plugins')
     <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Incident Photos(Sajili Picha ya Tukio)')</a>
 @endpush
-
 
 
   <script src="../../../../appweb/jquery171.min.js"></script>

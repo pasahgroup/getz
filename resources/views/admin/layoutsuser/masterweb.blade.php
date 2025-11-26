@@ -9,7 +9,7 @@
     <title>{{ $general->sitename($pageTitle ?? '') }}</title>
     <!-- site favicon -->
     <link rel="shortcut icon" type="image/png" href="{{getImage(imagePath()['logoIcon']['path'] .'/favicon.png')}}">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"> -->
+
     <!-- bootstrap 4  -->
     <link rel="stylesheet" href="{{ asset('assets/admin/css/vendor/bootstrap.min.css') }}">
     <!-- bootstrap toggle css -->
@@ -29,23 +29,23 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/select2.min.css')}}">
     <!-- jvectormap css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/jquery-jvectormap-2.0.5.css')}}">
+
     <!-- datepicker css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/datepicker.min.css')}}">
     <!-- timepicky for time picker css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/jquery-timepicky.css')}}">
     <!-- bootstrap-clockpicker css -->
-    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')}}"> -->
     <!-- bootstrap-pincode css -->
-    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-pincode-input.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-pincode-input.css')}}"> -->
         <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
     <!-- dashdoard main css -->
-    <!-- <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}"> -->
 
-        <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="../../../css/style.css" rel="stylesheet" type="text/css" /> -->
           <link rel="stylesheet" href="../../../../style.css">
 
 <!-- Important css style -->
-
+  <!-- <script src="../../../../appweb/jquery171.min.js"></script> -->
 
 <!-- custom css -->
     @stack('style')
@@ -103,13 +103,10 @@
 
     <!-- Popper js -->
     <script src="../../../js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="../../../js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="../../../js/plugins.js"></script>
+      <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/plugins.js"></script>  
     <script src="../../../js/classy-nav.min.js"></script>
     <script src="../../../js/jquery-ui.min.js"></script>
-    <!-- Active js -->
     <script src="../../../js/active.js"></script>
 </body>
 </html>

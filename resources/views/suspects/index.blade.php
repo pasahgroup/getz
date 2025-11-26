@@ -21,7 +21,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col">@lang('Suspected name')</th>                               
+                                <th scope="col">@lang('Suspect name')</th>                               
                                       <th scope="col">@lang('Category')</th>
                                        <th scope="col">@lang('Titles')</th>
                                 <th scope="col">@lang('Photos')</th>

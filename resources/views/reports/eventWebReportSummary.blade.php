@@ -1,4 +1,8 @@
+
 @extends('admin.layoutsuser.appweb')
+{{--
+@extends($activeTemplate.'layouts.frontend')
+--}}
 @section('panel')
 
 @push('breadcrumb-plugins')
@@ -12,7 +16,14 @@
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+<div class="content-wrapper">
+      <div class="card">
+        <div class="card-body">
 @section('panel')
+</div>
+</div>
+</div>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
      <!-- Main content -->

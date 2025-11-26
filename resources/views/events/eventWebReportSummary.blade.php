@@ -13,9 +13,9 @@
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-@section('panel')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    @section('panel')
      <!-- Main content -->
              <div class="card">
         <div class="card-body">

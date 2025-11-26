@@ -11,17 +11,24 @@
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+
+
+
+<div class="content-wrapper">
+        <div class="card-body">
 @section('panel')
+</div>
+</div>
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
      <!-- Main content -->
-             <div class="card">
-        <div class="card-body">
-            <div class="card-body">
+                  <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col">@lang('Suspected name')</th>                               
+                                <th scope="col">@lang('Suspect name')</th>                               
                                       <th scope="col">@lang('Category')</th>
                                        <th scope="col">@lang('Titles')</th>
                                 <th scope="col">@lang('Photos')</th>
@@ -69,9 +76,7 @@
                             </tr>
                   </tfoot>
                 </table>
-              </div>
-
-        </div>
+        
         <!-- /.card-body -->
         <div class="card-footer">
           Footer

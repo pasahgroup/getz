@@ -62,7 +62,7 @@
                            <li class="sidebar-menu-item <?php echo e(menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])); ?>">
                                 <a href="<?php echo e(route('user.suspects.index')); ?>" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title"><?php echo app('translator')->get('Suspected'); ?></span>
+                                    <span class="menu-title"><?php echo app('translator')->get('Suspects'); ?></span>
                                 </a>
                             </li>
                                                   </ul>

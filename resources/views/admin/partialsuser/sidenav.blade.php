@@ -69,7 +69,7 @@
                            <li class="sidebar-menu-item {{menuActive(['admin.vehicles.index','admin.vehicles.add','admin.vehicles.edit'])}}">
                                 <a href="{{route('user.suspects.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">@lang('Suspected')</span>
+                                    <span class="menu-title">@lang('Suspects')</span>
                                 </a>
                             </li>
                                                   </ul>
