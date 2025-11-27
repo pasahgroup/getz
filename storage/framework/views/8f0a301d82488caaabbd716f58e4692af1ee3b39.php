@@ -13,13 +13,11 @@
 
 
 
-
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
         <div class="card-body">
-<?php $__env->startSection('panel'); ?>
 </div>
 </div>
-
+ -->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

@@ -13,13 +13,11 @@
 
 
 
-
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
         <div class="card-body">
-@section('panel')
 </div>
 </div>
-
+ -->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

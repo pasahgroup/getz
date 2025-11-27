@@ -109,5 +109,4 @@
     <script src="../../../js/jquery-ui.min.js"></script>
     <script src="../../../js/active.js"></script>
 </body>
-</html>
-<?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/layoutsuser/masterweb.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/layoutsuser/masterweb.blade.php ENDPATH**/ ?>

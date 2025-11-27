@@ -52,6 +52,7 @@ class EventwebreportController extends Controller
     {
 
 $pageTitle=$event;
+//dd($pageTitle);
 
            $eventWR=Event::where('status',1)  
         ->select('events.*')
@@ -63,6 +64,20 @@ $empty_message = 'No any '.$pageTitle. ' has been added';
         return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
     }
 
+        public function photos(Request $request,$event)
+    {
+
+$pageTitle=$event;
+//dd($pageTitle);
+
+           $eventWR=Event::where('status',1)  
+        ->select('events.*')
+        ->paginate(getPaginate(15));
+        //dd($eventWR);
+
+$empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
+    }
 
 
     public function suspect(Request $request,$sus)

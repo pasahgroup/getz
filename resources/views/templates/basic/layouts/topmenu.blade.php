@@ -129,8 +129,9 @@
                                <!--  <a href="/view-photos/photos" class="nav-item nav-link">Incident Photos</a>
                                        <a href="/view-videos/videos" class="nav-item nav-link">Incident Videos</a> -->
 
-                                         <a href="photoReport-web/{x}" class="nav-item nav-link">Incident Photo Reports</a>
-                                       <a href="suspect-web/{x}" class="nav-item nav-link">Incident Video Reports</a>
+                                         <a href="/photoReport-web/photos"} class="nav-item nav-link">Incident Photo Reports</a>
+                                       <a href="/suspect-web/videos" class="nav-item nav-link">Incident Video Reports</a>
+
                     </div>
                 </nav>
             </div>
@@ -149,7 +150,7 @@
                            
                             <a href="detail.html" class="nav-item nav-link"></a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incidents</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incidents </a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                        <a href="{{ route('event.search') }}" class="dropdown-item">Incident Photos</a>
                                        <a href="{{ route('video.search') }}" class="dropdown-item">Incident Videos</a>

@@ -6,96 +6,105 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="<?php echo e(route('user.suspects.store')); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo e(route('user.videos.store')); ?>" method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
                     <div class="card-body">
                         
                         <div class="row">                          
 
-                           <div class="col-md-7">
+                            <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="name"><?php echo app('translator')->get('Suspect name(Jina/kikundi cha Kutuhumiwa)'); ?></label>
+                                    <label for="name"><?php echo app('translator')->get('Incident title(Kichwa cha Tukio)'); ?></label>
+                                    <input type="text" id="event_title" name="event_title" class="form-control"
+                                           value="<?php echo e(old('event_title')); ?>">
+                                </div>
+                            </div>
+
+                         <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="name"><?php echo app('translator')->get('Date(Tarehe ya Tukio)'); ?></label>
+                                    <input type="date" id="date_event" name="date_event" class="form-control"
+                                           value="<?php echo e(old('event_date')); ?>">
+                                </div>
+                            </div>
+
+ 
+
+                               <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="category"><?php echo app('translator')->get('Incident type(Aina ya tukio)'); ?></label>
+                                    <select class="form-control" id="event_type" name="event_type" required="">
+                                        <option value="">-- <?php echo app('translator')->get('chagua'); ?> --</option>
+
+
+                                          <option value="Injured">Injured(Jeruhiwa)</option>
+                                        <option value="kidnapped">kidnapped(Tekwa)</option>
+                                         <option value="killed">killed(Uwawa)</option>
+                                         <option value="Missed">Missed(Potea bila Taarifa)</option>
+                                          <option value="Totured">Totured(Teswa)</option>
+                                            <option value="Other">Other(Ingineyo)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                               <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="name"><?php echo app('translator')->get('Full name(Jina la aliouwawa/Tekwa/Potea)'); ?></label>
                                     <input type="text" id="name" name="name" class="form-control"
                                            value="<?php echo e(old('name')); ?>">
                                 </div>
                             </div>
 
-                        <div class="col-md-5">
+                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="category"><?php echo app('translator')->get('Category(Aina ya Watu)'); ?></label>
-                                    <select class="form-control" id="category" name="category" required="">
-                                        <option value="">-- <?php echo app('translator')->get('chagua'); ?> --</option>
-                                        <option value="Individual">Individual(Mtu)</option>
-                                         <option value="People">Group of People(Kundi la Watu)</option>
-                                         <option value="Institute">Institute(Taasisi)</option>
-                                        <option value="Other">Other(Vinginevyo)</option>
+                                    <label for="name"><?php echo app('translator')->get('Sehemu Ya Tukio'); ?></label>
+                                    <input type="text" id="event_place" name="event_place" class="form-control"
+                                           value="<?php echo e(old('event_place')); ?>">
+                                </div>
+                            </div>
 
+                               <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="seater"><?php echo app('translator')->get('Region/State(Mkoa)'); ?></label>
+                                    <select class="form-control" id="region" name="region" required="">
+                                        <option value="">-- <?php echo app('translator')->get('chagua'); ?> --</option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($location->name); ?>"><?php echo e(__(@$location->name)); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                             </div>
 
- 
-                           <div class="col-md-12">
+                            
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="name"><?php echo app('translator')->get('Title(Wasifu wa Mtu au Kundi)'); ?></label>
-                                    <p>mfano: Mkurugenzi wa Jiji au Kikosi cha usalama Tanzania</p>
-                                    <input type="text" id="title" name="title" class="form-control"
-                                           value="<?php echo e(old('title')); ?>">
+                                    <label for="category"><?php echo app('translator')->get('District(Wilaya)'); ?></label>
+                                      <input type="text" id="district" name="district" class="form-control"
+                                           value="<?php echo e(old('district')); ?>">
                                 </div>
                             </div>
 
-                                            
+
 
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="nicEditor0"><?php echo app('translator')->get('Suspecting details(Maelezo ya Tukio)'); ?></label>
+                                    <label for="nicEditor0"><?php echo app('translator')->get('Incident details(Maelezo ya Tukio)'); ?></label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
                                               id="nicEditor0"><?php echo e(old('details')); ?></textarea>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="card border--dark mb-4">
-                                    <div class="card-header bg--dark d-flex justify-content-between">
-                                        <h5 class="text-white"><?php echo app('translator')->get('Images-(Picha za Tukio Weka za kutosha)'); ?></h5>
-                                        <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
-                                                class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New (Ongeza Picha)'); ?>
-                                        </button>
-                                    </div>
-                                    <div class="card-body">
-                                        <p><small class="text-facebook"><?php echo app('translator')->get('Images will be resize into'); ?>
-                                                <?php echo e(imagePath()['vehicles']['size']); ?>px</small></p>
-                                        <div class="row element">
 
-                                            <div class="col-md-2 imageItem">
-                                                <div class="payment-method-item">
-                                                    <div class="payment-method-header d-flex flex-wrap">
-                                                        <div class="thumb" style="position: relative;">
-                                                            <div class="avatar-preview">
-                                                                <div class="profilePicPreview"
-                                                                     style="background-image: url('<?php echo e(asset('assets/images/default.png')); ?>')">
 
-                                                                </div>
-                                                            </div>
-                                                            <div class="avatar-edit">
-                                                                <input type="file" name="images[]"
-                                                                       class="profilePicUpload" id="0"
-                                                                       accept=".png, .jpg, .jpeg" required>
-                                                                <label for="0" class="bg-primary">
-                                                                    <i class="la la-pencil"></i>
-                                                                </label>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
+<div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name"><?php echo app('translator')->get('Upload Video'); ?></label>
+                                    <input type="file" name="video"  id="video" class="form-control"/>
                                 </div>
-                            </div>                     
+                            </div>
+                 
                                   </div>
 
 
@@ -158,7 +167,7 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.suspects.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="<?php echo e(route('user.videos.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
 
@@ -379,4 +388,4 @@
 
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/suspects/add.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/videos/addVideo.blade.php ENDPATH**/ ?>

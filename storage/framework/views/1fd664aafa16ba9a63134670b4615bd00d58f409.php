@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div>
         <div class="shape"><?php echo app('translator')->get('Book Now'); ?></div>
@@ -9,22 +8,21 @@
                
                 <div class="col-md-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
-
-                       
-                                                    <a href="<?php echo e(route('event.details', [$vehicle->id, slug($vehicle->name)])); ?>">                                                                                
-
-                                                                       <video controls width="250" height="150">
-    <source src="<?php echo e(Storage::url($vehicle->path)); ?>" type="video/mp4" style="object-fit: cover;">
-    Your browser does not support the video tag.
-</video>
-</a>
-
-
-
-                        
-
+                        <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius:2px 1px 2px;">
+                                <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
                     </div>
-                    
+                    <div class="slider-bottom owl-theme owl-carousel mt-4">
+                        <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            <div class="rental__thumbnails bg--body">
+                                <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
               
                       <div class="col-md-8">
@@ -104,6 +102,18 @@
                         <div class="single__details-content p-4">
                             <div class="row g-4">
 
+                                <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                    <div class="col-lg-2 col-md-6">
+                                        <div class="gallery__item">
+                                            <a href="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. @$image, imagePath()['vehicles']['size'])); ?>" class="img-pop">
+                                                <i class="las la-plus"></i>
+                                            </a>
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. @$image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
+                                        </div>
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                <?php endif; ?>
+                              
 
                             </div>
                         </div>
@@ -183,4 +193,4 @@
     </div>
     </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/events/videoDetails.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/events/details.blade.php ENDPATH**/ ?>

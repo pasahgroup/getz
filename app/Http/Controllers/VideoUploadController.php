@@ -78,7 +78,6 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         $vehicle = Video::where('id', $id)->firstOrFail();
         $fullUrl = url()->full();
       
-
         $rental_terms = getContent('rental_terms.content', true);
             $pageTitle = $vehicle->event_type.' Details';
 
@@ -114,10 +113,6 @@ protected function validator(array $data, $table)
     public function store(Request $request)
    {
 
-
-
-
-
  // $request->validate([
  //           'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi'
  //        ]);
@@ -139,7 +134,7 @@ protected function validator(array $data, $table)
 
 
         $this->validate($request, [
-             'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi'
+             'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi|max:120800'
         ]);
  
        
