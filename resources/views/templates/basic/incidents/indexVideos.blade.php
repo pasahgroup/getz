@@ -109,9 +109,9 @@
                 </div>
                         @empty
                         @endforelse
-{!! $videos->links() !!}
 
                     </div>
+                    {!! $videos->links() !!}
                 </div>
             </div>
         </div>
