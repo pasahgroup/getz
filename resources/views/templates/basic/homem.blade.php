@@ -166,9 +166,9 @@
 
                         @empty
                         @endforelse
-                        {{--
-                        {!! $vehicles->links() !!}
-                        --}}
+                   
+                        {!! $events->links() !!}
+                      
                     
                     </div>
                     <div>
@@ -195,7 +195,6 @@
                 </div>
 
       <div class="row">
-        {{$videos}}
 @forelse($videos as $video_data)
 
                      <div class="col-md-3">
@@ -251,16 +250,15 @@
                 
                           </div>
                     </div>
-                      <br>
                 </div>
 
                
 
                         @empty
                         @endforelse
-                        {{--
-                        {!! $vehicles->links() !!}
-                        --}}
+                    
+                        {!! $videos->links() !!}
+                        
                     
                     </div>
                     <div>
