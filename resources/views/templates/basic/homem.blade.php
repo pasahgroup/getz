@@ -165,10 +165,8 @@
                
 
                         @empty
-                        @endforelse
-                   
-                        {!! $events->links() !!}
-                      
+                        @endforelse                  
+                                            
                     
                     </div>
                     <div>
@@ -256,9 +254,6 @@
 
                         @empty
                         @endforelse
-                    
-                        {!! $videos->links() !!}
-                        
                     
                     </div>
                     <div>

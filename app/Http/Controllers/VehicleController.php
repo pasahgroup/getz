@@ -557,7 +557,6 @@ $events = $events->latest()->paginate(8);
     $pageTitle="Videos of Incidents";
   $videos = new Video();
 
-
 if(request('search'))
 {
 

@@ -95,18 +95,7 @@
                     <div class="tab-pane fade show active" id="specifications">
                         <h5 class="single__title">@lang('All Specifications')</h5>
                         <div class="single__details-content">
-{{--
-                            @forelse($vehicle->specifications as $spec)
-                                <div class="specification-item">
-                                    @php echo @$spec[0] @endphp
-                                    <div class="specification-item-cont">
-                                        <h6 class="specification-item-title">{{ @$spec[1] }}: </h6>
-                                        <span>{{ @$spec[2] }}</span>
-                                    </div>
-                                </div>
-                            @empty
-                            @endforelse
-                            --}}
+
 
                         </div>
                     </div>
@@ -195,36 +184,7 @@
                         <h5 class="single__title">@lang('Review')</h5>
                         <div class="single__details-content px-sm-4">
                             <ul class="content">
-{{--
-                                @forelse($vehicle->ratings as $rating)
-                                    <li class="review-item">
-                                        <div class="review-thumb">
-                                            <img src="{{ getImage(imagePath()['profile']['user']['path'].'/'. $rating->user->image, '100x100') }}" alt="client">
-                                        </div>
-                                        <div class="review-content">
-                                            <div class="entry-meta">
-                                                <div class="posted-on">
-                                                    {{ $rating->user->fullname }} &nbsp;
-                                                    <p>@lang('Posted on') {{ showDateTime($rating->created_at) }}</p>
-                                                </div>
-                                                <div class="rating">
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                        @if ($rating->rating >= $i)
-                                                            <i class="las la-star"></i>
-                                                        @else
-                                                            <i class="lar la-star"></i>
-                                                        @endif
-                                                    @endfor
-                                                </div>
-                                            </div>
-                                            <div class="entry-content">
-                                                <p>{{ __(@$rating->comment) }}</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @empty
-                                @endforelse
-                                --}}
+
 
                             </ul>
                         </div>
