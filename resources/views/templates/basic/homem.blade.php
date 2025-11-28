@@ -195,6 +195,7 @@
                 </div>
 
       <div class="row">
+        {{$videos}}
 @forelse($videos as $video_data)
 
                      <div class="col-md-3">
@@ -207,12 +208,6 @@
     <source src="{{ Storage::url($video_data->path) }}" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video>
-
-<!-- <object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" width="400" height="300" type="application/x-oleobject">
-    <param name="FileName" value="{{ Storage::url($video_data->path) }}">
-    <param name="autoStart" value="true">
-    <embed src="{{ Storage::url($video_data->path) }}" width="400" height="300" type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/MediaPlayer">
-</embed></object> -->
 </a>
   
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">

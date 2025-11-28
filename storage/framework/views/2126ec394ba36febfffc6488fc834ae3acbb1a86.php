@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
@@ -425,5 +424,4 @@ if(no_car>0)
 
         </script>
 <?php $__env->stopPush(); ?>
-
 <?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/homem.blade.php ENDPATH**/ ?>
