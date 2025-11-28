@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
@@ -155,7 +156,10 @@
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
                         <?php endif; ?>
-                        
+                   
+                        <?php echo $events->links(); ?>
+
+                      
                     
                     </div>
                     <div>
@@ -194,12 +198,6 @@
     <source src="<?php echo e(Storage::url($video_data->path)); ?>" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video>
-
-<!-- <object classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95" width="400" height="300" type="application/x-oleobject">
-    <param name="FileName" value="<?php echo e(Storage::url($video_data->path)); ?>">
-    <param name="autoStart" value="true">
-    <embed src="<?php echo e(Storage::url($video_data->path)); ?>" width="400" height="300" type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/MediaPlayer">
-</embed></object> -->
 </a>
   
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
@@ -241,13 +239,15 @@
                 
                           </div>
                     </div>
-                      <br>
                 </div>
 
                
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
                         <?php endif; ?>
+                    
+                        <?php echo $videos->links(); ?>
+
                         
                     
                     </div>
@@ -424,4 +424,5 @@ if(no_car>0)
 
         </script>
 <?php $__env->stopPush(); ?>
+
 <?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/homem.blade.php ENDPATH**/ ?>

@@ -130,8 +130,9 @@
 
                         @empty
                         @endforelse
-{!! $vehicles->links() !!}
+
                     </div>
+                    {!! $vehicles->links() !!}
                 </div>
             </div>
         </div>
