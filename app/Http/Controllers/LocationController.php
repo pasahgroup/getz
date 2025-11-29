@@ -16,6 +16,7 @@ class LocationController extends Controller
         return view('admin.location.index', compact('pageTitle', 'empty_message', 'locations'));
     }
 
+    
     public function store(Request $request)
     {
         $request->validate([
