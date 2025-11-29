@@ -155,11 +155,8 @@
                
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
-                        <?php endif; ?>
-                   
-                        <?php echo $events->links(); ?>
-
-                      
+                        <?php endif; ?>                  
+                                            
                     
                     </div>
                     <div>
@@ -245,10 +242,6 @@
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
                         <?php endif; ?>
-                    
-                        <?php echo $videos->links(); ?>
-
-                        
                     
                     </div>
                     <div>

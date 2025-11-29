@@ -11,10 +11,11 @@
                         <i class="las la-filter"></i>
                     </div>
 
-              <div style="padding-top:2px;"><marquee><a href="<?php echo e(route('user.videos.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload New videos'); ?></a></marquee></div>
+
+  <div style="padding-top:2px;"><marquee><a href="<?php echo e(route('user.events.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload New Photos'); ?></a></marquee></div>
 
                     <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('video.search')); ?>" method="get" class="priceForm">
+                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('event.search')); ?>" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
@@ -43,29 +44,23 @@
                         </form>
                     </div>
 
+
                     <div class="row g-4" style="margin-top:-42px">
-                        <?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>              
-            <div class="col-md-3">
+                        <?php $__empty_1 = true; $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>              
+         <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="blog-item">
-                                                             <a href="<?php echo e(route('event.details', [$video_data->id, slug($video_data->name)])); ?>">                                                                                 
-
-                                                                       <video controls width="286" height="150">
-    <source src="<?php echo e(Storage::url($video_data->path)); ?>" type="video/mp4" style="object-fit: cover;">
-    Your browser does not support the video tag.
-</video>
-</a>
-  
-
-
+                            <div class="rent__thumb" style="background-color:#9ca494">
+                                        <a href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
+                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$event->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
+                                        </a>
+                                    </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
-                                    <!-- <div class="blog-img">
-                                        <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                                    </div> -->
-
+                                
                                     <div class="blog-content rounded-bottom p-3">
-                                        <div class="blog-date"><span class=""><?php echo e($video_data->name); ?> 
+                                        <div class="blog-date"><span class=""><?php echo e($event->name); ?> 
                                               
                                             </div>
                                                 
@@ -76,22 +71,23 @@
                                                </ul>
                                        </div>
 
-                                        <strong>(<?php echo e($video_data->event_type); ?>)</strong>
+                                        <strong>(<?php echo e($event->event_type); ?>)</strong>
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
                                                       <li class="text-center center">
-                                                        <span class="truncate" onclick="this.classList.toggle('expanded')">Region:<?php echo e($video_data->region); ?> (<?php echo e($video_data->district); ?>)</span>
+                                                         <span class="truncate" onclick="this.classList.toggle('expanded')">Region:<?php echo e($event->region); ?> (<?php echo e($event->district); ?>)</span>
+                                                    
                                                     </li>
                                                 </ul>
                                         </div>
 
-                                                                              <div class="truncate" onclick="this.classList.toggle('expanded')">
-  (<?php echo e($video_data->event_title); ?>)
+                                       <div class="truncate" onclick="this.classList.toggle('expanded')">
+  (<?php echo e($event->event_title); ?>)
 </div>
 
                                       </br>
-                                      <a href="<?php echo e(route('video.details', [$video_data->id, slug($video_data->name)])); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                                      <a href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -102,15 +98,17 @@
                 </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <?php endif; ?>
+<?php echo $events->links(); ?>
+
 
                     </div>
-                    <?php echo $videos->links(); ?>
+
 
                 </div>
             </div>
         </div>
     </div>
-<div style="padding-top:2px;"><marquee>Upload more Videos</marquee></div>
+<div style="padding-top:2px;"><marquee>Upload more Photos</marquee></div>
 
     <script type='text/javascript'>
       $(document).ready(function(){
@@ -271,4 +269,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/incidents/indexVideos.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/incidents/indexPhotos.blade.php ENDPATH**/ ?>

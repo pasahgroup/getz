@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\File;
 
 
 use App\Jobs\ConvertVideoToMp4;
@@ -113,25 +113,6 @@ protected function validator(array $data, $table)
     public function store(Request $request)
    {
 
- // $request->validate([
- //           'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi'
- //        ]);
-
- //        $file = $request->file('video');
- //        $originalFileName = $file->getClientOriginalName();
- //        $tempPath = $file->storeAs('temp_videos', Str::uuid() . '-' . $originalFileName);
-
- //        // Dispatch the job to convert the video
- //        ConvertVideoToMp4::dispatch(
- //            storage_path('app/' . $tempPath),
- //            storage_path('app/converted_videos'), // Desired output directory
- //            $originalFileName
- //        );
-
- //        return back()->with('success', 'Video uploaded and conversion initiated.');
-
-
-
 
         $this->validate($request, [
              'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi|max:120800'
@@ -178,71 +159,6 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
 
 
-
-
-
-
-    public function store_org(Request $request)
-    {
-
-        $request->validate([
-            'name' => 'required|string',
-            // 'brand' => 'required|integer|gt:0',
-            // 'seater' => 'required|integer|gt:0',
-            // 'price' => 'required|numeric|gt:0',
-            // 'details' => 'required|string',
-            // 'model' => 'required|string',
-            // 'car_model_no' => 'required|integer',
-
-            // 'doors' => 'required|integer|gt:0',
-            // 'transmission' => 'required|string',
-            // 'fuel_type' => 'required|string',
-            //  'car_body_type' => 'required|string',
-            //  'tag' => 'required|string',
-            //  'color' => 'required|string',
-             'region' => 'required|string',
-              'district' => 'required|string',
-
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
-            // 'icon' => 'required|array',
-            // 'icon.*' => 'required|string',
-            // 'label' => 'required|array',
-            // 'label.*' => 'required|string',
-            // 'value' => 'required|array',
-            // 'value.*' => 'required|string',
-        ]);
-
-
-
-        $event = new Video();
-        $event->name = $request->name;
-         $event->event_title = $request->event_title;
-         $event->event_type = $request->event_type;
-          $event->event_place = $request->event_place;
-
-         $event->region = $request->region;
-        $event->district = $request->district;
-
-         $event->date_event = $request->date_event;
-           $event->details = $request->details;
-      
-       
-        // Upload image
-        foreach ($request->images as $image) {
-            $path = imagePath()['vehicles']['path'];
-            $size = imagePath()['vehicles']['size'];
-            $images[] = uploadImage($image, $path, $size);
-        }
-
-     
-        $event->images = $images;     
-
-        $event->save();
-
-        $notify[] = ['success', 'Report submitted Successfully!'];
-        return back()->withNotify($notify);
-    }
-
     /**
      * Display the specified resource.
      *
@@ -253,7 +169,7 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
   public function status($id)
     {
-        $event = Event::findOrFail($id);
+        $event = video::findOrFail($id);
         $event->status = ($event->status ? 0 : 1);
         $event->save();
 
@@ -264,7 +180,7 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
  public function deleteImage($id, $image)
     {
-        $vehicle = Event::findOrFail($id);
+        $vehicle = video::findOrFail($id);
 
         $images = $vehicle->images;
         $path = imagePath()['vehicles']['path'];
@@ -325,35 +241,63 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
 
-        $event = Event::findOrFail($id);
+        $video = video::findOrFail($id);
        
-        $event->name = $request->name;
-         $event->event_title = $request->event_title;
-         $event->event_type = $request->event_type;
-          $event->event_place = $request->event_place;
+        $video->name = $request->name;
+         $video->event_title = $request->event_title;
+         $video->event_type = $request->event_type;
+          $video->event_place = $request->event_place;
 
-         $event->region = $request->region;
-        $event->district = $request->district;
+         $video->region = $request->region;
+        $video->district = $request->district;
 
-         $event->date_event = $request->date_event;
-           $event->details = $request->details;
-
+         $video->date_event = $request->date_event;
+        $video->details = $request->details;
       
 
-        // Upload and Update image
-        if ($request->images){
-            foreach ($request->images as $image) {
-                $path = imagePath()['vehicles']['path'];
-                $size = imagePath()['vehicles']['size'];
 
-                $images[] = uploadImage($image, $path, $size);
-            }
-            $event->images = array_merge($event->images, $images);
-        }
 
-        $event->save();
+// Source - https://stackoverflow.com/q
+// Posted by Ajmal Razeel
+// Retrieved 2025-11-29, License - CC BY-SA 3.0
 
-        $notify[] = ['success', 'Event Updated Successfully!'];
+File::Delete('/storage/app/'.$video->path);
+
+
+// $path = 'videos/vb.mp4'; // relative path stored in DB
+// if (!file_exists(public_path($path))) {
+//     unlink(public_path($path)); // delete file
+// }
+
+
+
+
+
+
+
+
+
+
+if ($request->hasFile('video')) {
+    //$file = $request->file('video');
+    //$filename = $file->getClientOriginalName();
+
+    $fileName = $request->video->getClientOriginalName();
+        $filePath = 'videos/' . $fileName;
+ 
+        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+ 
+        // File URL to access the video in frontend
+        $url = Storage::disk('public')->url($filePath); 
+        if ($isFileUploaded) {
+          $video->path = $filePath;
+      }
+    
+  } 
+   
+
+        $video->save();
+        $notify[] = ['success', 'Video Updated Successfully!'];
         return back()->withNotify($notify);
     }
 
