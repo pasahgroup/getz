@@ -80,14 +80,15 @@
                         <div class="ratings mb-4">
                             <span><i class="las la-star"></i></span>
                             <span>({{ @$vehicle->ratings_avg_rating+0 }})</span>
-                            <span class="text--body">@lang('Other Summary')</span>
+                            <span class="text--body">@lang('Other Summary ')</span>
                             {{--
                                 <span class="text--body">{{ @$vehicle->ratings_count }} @lang('Other Summary')</span>
                                 --}}                            
                             
                         </div>
-                        <div class="price-area mb-4">
-                            <h5 class="item">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
+                        <div class="mb-4">
+                               <span>Incident date:</span>
+                            <span class="text--body">{{ $vehicle->date_event }}</span>
                         </div>
                         <div class="content">
                             @php echo @$vehicle->details @endphp

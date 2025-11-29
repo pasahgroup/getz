@@ -64,8 +64,9 @@
                                                         
                             
                         </div>
-                        <div class="price-area mb-4">
-                            <h5 class="item"><?php echo e($general->cur_sym); ?><?php echo e(showAmount($vehicle->price)); ?> <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
+                       <div class="mb-4">
+                               <span>Incident date:</span>
+                            <span class="text--body"><?php echo e($vehicle->date_event); ?></span>
                         </div>
                         <div class="content">
                             <?php echo @$vehicle->details ?>
