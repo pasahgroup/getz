@@ -43,6 +43,7 @@
                                          <option value="killed">killed(Uwawa)</option>
                                           <option value="Massacre">Massacre(Mauaji ya halaiki)</option>
                                          <option value="Missed">Missed(Potea bila Taarifa)</option>
+                                              <option value="Rape">Rape(Kubaka)</option>
                                           <option value="Totured">Totured(Teswa)</option>
                                             <option value="Other">Other(Ingineyo)</option>
                                     </select>
