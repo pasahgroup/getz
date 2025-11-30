@@ -11,7 +11,7 @@
                     <div class="slider-top owl-theme owl-carousel border--dashed">
 
                        
-                                                    <a href="{{ route('event.details', [$vehicle->id, slug($vehicle->name)]) }}">                                                                                
+                                                    <a href="#">                                                                                
 
                                                                        <video controls width="250" height="150">
     <source src="{{ Storage::url($vehicle->path) }}" type="video/mp4" style="object-fit: cover;">
