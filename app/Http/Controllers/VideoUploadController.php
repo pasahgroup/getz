@@ -45,16 +45,16 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
      //dd($vehicles);
         $videos=Video::where('status',1)  
         ->select('videos.*')
-        ->paginate(getPaginate(10));
+        ->get();
 
-           $events=Event::where('status',1)  
-        ->select('events.*')
-        ->paginate(getPaginate(10));
+        //    $events=Event::where('status',1)  
+        // ->select('events.*')
+        // ->paginate(getPaginate(10));
 
 
         $pageTitle = 'People who killed';
         $empty_message = 'No vehicle has been added.';
-        return view('videos.index', compact('pageTitle', 'empty_message','events', 'vehicles','tags','videos'));
+        return view('videos.index', compact('pageTitle', 'empty_message', 'vehicles','tags','videos'));
     }
 
 

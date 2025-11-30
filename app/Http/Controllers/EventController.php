@@ -39,7 +39,7 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
      //dd($vehicles);
         $events=Event::where('status',1)  
         ->select('events.*')
-        ->paginate(getPaginate(15));
+        ->get();
 
 //dd($events);
 
