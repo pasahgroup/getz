@@ -41,6 +41,7 @@
                                           <option value="Injured">Injured(Jeruhiwa)</option>
                                         <option value="kidnapped">kidnapped(Tekwa)</option>
                                          <option value="killed">killed(Uwawa)</option>
+                                          <option value="Massacre">Massacre(Uwa watu wengi kwa pamoja)</option>
                                          <option value="Missed">Missed(Potea bila Taarifa)</option>
                                           <option value="Totured">Totured(Teswa)</option>
                                             <option value="Other">Other(Ingineyo)</option>
