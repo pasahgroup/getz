@@ -14,7 +14,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
 
- <div class="container-fluid mb-3">
+
+ <div class="mb-3">
         <div class="row px-xl-5">
             <div class="col-lg-8">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">

@@ -8,7 +8,7 @@ use App\Models\Tag;
 use App\Models\Brand;
 use App\Models\Cartype;
 use App\Models\Color;
-use App\Models\modelb;
+use App\Models\Event;
 use App\Models\Location;
 use App\Models\Seater;
 
@@ -47,11 +47,14 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
         ->select('videos.*')
         ->paginate(getPaginate(10));
 
-//dd($videos);
+           $events=Event::where('status',1)  
+        ->select('events.*')
+        ->paginate(getPaginate(10));
+
 
         $pageTitle = 'People who killed';
         $empty_message = 'No vehicle has been added.';
-        return view('videos.index', compact('pageTitle', 'empty_message', 'vehicles','tags','videos'));
+        return view('videos.index', compact('pageTitle', 'empty_message','events', 'vehicles','tags','videos'));
     }
 
 

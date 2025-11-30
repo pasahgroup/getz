@@ -6,7 +6,7 @@
     <a href="<?php echo e(route('user.videos.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Incident video (Sajili Picha Mjongeo)'); ?></a>
 <?php $__env->stopPush(); ?>
   <script src="../../../../appweb/jquery171.min.js"></script>
-    <!-- <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css"> -->
+    <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
