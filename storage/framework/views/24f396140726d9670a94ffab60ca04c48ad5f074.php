@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="<?php echo e(route('user.videos.store')); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo e(route('user.events.store')); ?>" method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
                     <div class="card-body">
@@ -38,12 +38,12 @@
                                         <option value="">-- <?php echo app('translator')->get('chagua'); ?> --</option>
 
 
-                                          <option value="Injured">Injured(Jeruhiwa)</option>
+                                    <option value="Injured">Injured(Jeruhiwa)</option>
                                         <option value="kidnapped">kidnapped(Tekwa)</option>
                                          <option value="killed">killed(Uwawa)</option>
-                                             <option value="Massacre">Massacre(Mauaji ya halaiki)</option>
-                                         <option value="Missed">Missed(Potea bila Taarifa)</option>
-                                              <option value="Rape">Rape(Kubaka)</option>
+                                           <option value="killed">killed(Uwawa)</option>
+                                         <option value="Massacre">Massacre(Mauaji ya halaiki)</option>
+                                           <option value="Rape">Rape(Kubaka)</option>
                                           <option value="Totured">Totured(Teswa)</option>
                                             <option value="Other">Other(Ingineyo)</option>
                                     </select>
@@ -98,15 +98,47 @@
                                               id="nicEditor0"><?php echo e(old('details')); ?></textarea>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="card border--dark mb-4">
+                                    <div class="card-header bg--dark d-flex justify-content-between">
+                                        <h5 class="text-white"><?php echo app('translator')->get('Images-(Picha za Tukio Weka za kutosha)'); ?></h5>
+                                        <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
+                                                class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New (Ongeza Picha)'); ?>
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><small class="text-facebook"><?php echo app('translator')->get('Images will be resize into'); ?>
+                                                <?php echo e(imagePath()['vehicles']['size']); ?>px</small></p>
+                                        <div class="row element">
 
+                                            <div class="col-md-2 imageItem">
+                                                <div class="payment-method-item">
+                                                    <div class="payment-method-header d-flex flex-wrap">
+                                                        <div class="thumb" style="position: relative;">
+                                                            <div class="avatar-preview">
+                                                                <div class="profilePicPreview"
+                                                                     style="background-image: url('<?php echo e(asset('assets/images/default.png')); ?>')">
 
-<div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="name"><?php echo app('translator')->get('Upload Video'); ?></label>
-                                    <input type="file" name="video"  id="video" class="form-control"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="avatar-edit">
+                                                                <input type="file" name="images[]"
+                                                                       class="profilePicUpload" id="0"
+                                                                       accept=".png, .jpg, .jpeg" required>
+                                                                <label for="0" class="bg-primary">
+                                                                    <i class="la la-pencil"></i>
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                 
+                            </div>                     
                                   </div>
 
 
@@ -169,7 +201,7 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.videos.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="<?php echo e(route('user.events.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
 
@@ -390,4 +422,4 @@
 
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/videos/addVideo.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/events/add.blade.php ENDPATH**/ ?>

@@ -41,7 +41,10 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}">
 
         <link href="../../../../css/style.css" rel="stylesheet" type="text/css" />
-    
+
+        <!-- Custom css -->
+        <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
     @stack('style')
 </head>
 <body>

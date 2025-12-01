@@ -1,69 +1,8 @@
-<?php $__env->startSection('panel'); ?>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!DOCTYPE html>
-
-<html lang="en">
-    <head>
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <meta name="author" content="sumit kumar"> 
-    <title>admin-template</title> 
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"> 
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-    </head>
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
 
 
-<body>
-    
- <style>
-     
-     body{background-color: #ecf0f1;}
+ <style>    
 
-.navbar-inverse {
-    background-color: #2C3E50;
-    border-color: #2C3E50;
-}
-
-.navbar {
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 0px;
-    border: 0px solid transparent;
-}
-.navbar-nav > li > a {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    line-height: 20px;
-}
-@media (min-width: 768px){
-
-.navbar {
-    border-radius: 0px;
-}}
-
-.navbar-brand {
-    float: left;
-    height: auto;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-}
-.sidebar-toggle {
-    color: #fff;
-    font-size: 28px;
-    display: inline-block;
-    padding: 3px 22px;
-}
-@media (min-width:768px){
-.container-1{width:15%;float:left;}
-.container-2{width:100%;float: left;}
-}
 
 @media (max-width:768px){
 .container-1{width:100%;}
@@ -272,15 +211,6 @@
     margin-right: -15px;
 }
 
-#page-wrapper .breadcrumb {
-    padding: 8px 15px;
-    margin-bottom: 20px;
-    list-style: none;
-    background-color: #e0e7e8;
-    border-radius: 0px;
-    
-}
-
 
 
 
@@ -419,10 +349,6 @@
 }
 
 
-.morning {
-    background: url(https://lh3.googleusercontent.com/-1YbV7nsVnX8/WMugaq-6BEI/AAAAAAAADSg/0wPfQ84vMUcCle_SkgiUDOumUKscMaA8QCL0B/w530-d-h353-p-rw/widget-bg-morning.jpg) center bottom no-repeat;
-    background-size: cover;
-}
 
 .time-widget {
     margin-top: 5px;
@@ -449,206 +375,100 @@
     color: #fff;
 }
  </style>
-                                  <!--=============================
-                                             NAVIGATION
-                                   =============================-->
 
-    
-    <!-- begin SIDE NAV USER PANEL -->     
-<div class="container-1" id="user-profil">                  
-<ul id="side" class="nav navbar-nav-1 side-nav">
-    
- <li class="side-user">  
-  <img class="img-circle" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" alt="sumit kumar">
-    <p class="welcome"><i class="fa fa-key"></i> Logged in as</p>
-    <p class="name tooltip-sidebar-logout"> Sumit
-    <span class="last-name">Kumar</span>
-    <a href="#"><i class="fa fa-sign-out"></i></a>
-    </p>        
- </li>
-    
-    <li class="nav-search">
-   <form class="navbar-form">
-    <div class="input-group">
-     <input type="text" class="form-control" placeholder="Search">
-     <div class="input-group-btn">
-     <button class="btn btn-default" type="submit">
-     <i class="glyphicon glyphicon-search"></i>
-     </button>
-     </div>
-   </div>
-  </form>
- </li>
-    
-    <li class="dashboard">
-   <a class="active" href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
- </li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#charts">
-   <i class="fa fa-bar-chart-o"></i> Charts <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="charts">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#calendar">
-   <i class="fa fa-calendar"></i> calendar <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="calendar">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#clipboard">
-   <i class="fa fa-clipboard"></i> clipboard <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="clipboard">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#edit">
-   <i class="fa fa-edit"></i> edit <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="edit">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#inbox">
-   <i class="fa fa-inbox"></i> inbox <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="inbox">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#cogs">
-   <i class="fa fa-cogs"></i> cogs <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="cogs">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-    
-    <li class="panel">
-   <a href="javascript:;" data-toggle="collapse" data-target="#paper">
-   <i class="fa fa-paper-plane"></i> paper <i class="fa fa-caret-down pull-right"></i>
-   </a>
-    
-  <ul class="collapse nav" id="paper">
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a>
-    </li>
-  </ul>
-</li>
-                 
-</ul>      
-    </div>    
+
+<?php $__env->startSection('panel'); ?>
    
-    
-    <div class="container-2">
-     <div id="page-wrapper">   
+        <?php if(@json_decode($general->sys_version)->message): ?>
+        <div class="row">
+            <?php $__currentLoopData = json_decode($general->sys_version)->message; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="col-md-12">
+                  <div class="alert border border--primary" role="alert">
+                      <div class="alert__icon bg--primary"><i class="far fa-bell"></i></div>
+                      <p class="alert__message"><?php echo $msg; ?></p>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+              </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
+        <?php endif; ?>
+
+<div>-- Comming Soon --</div>
+
+
+   <div class="container">    
+      <div class="row mt-50 mb-none-30">
+           <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="desciption">
+                          <span> <a href="<?php echo e(route('user.events.index')); ?>"><?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+                  <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+      <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="desciption">
+                          <span> <a href="<?php echo e(route('user.videos.index')); ?>"><?php echo app('translator')->get('Videos'); ?>(<?php echo e($videosCounts->count()); ?>)</a></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+              <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="desciption">
+                          <span> <a href="<?php echo e(route('user.suspects.index')); ?>"><?php echo app('translator')->get('Suspects'); ?>(<?php echo e($suspectCounts->count()); ?>)</a></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+              <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="desciption">
+                          <span> <a href="<?php echo e(route('user.victims.index')); ?>"><?php echo app('translator')->get('Victims'); ?>(<?php echo e($victimsCounts->count()); ?>)</a></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+     
       <div class="row">
      <div class="col-md-12">
       <div class="page-title">
         <ol class="breadcrumb">
-         <li class="active">Summary </li>
           <li class="pull-right">
-           <div id="reportrange" class="btn btn-green btn-square date-picker orange">
-            <div class="details">
-                    
-                      <div class="desciption orange">
-                          <span> <a href="<?php echo e(route('user.events.index')); ?>"> <?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
-                      </div>
-
-            </div>
-           </div>
-
-            <div id="reportrange" class="btn btn-green btn-square date-picker dark-blue">
-            <div class="details">
-                    
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.videos.index')); ?>"> <?php echo app('translator')->get('Videos'); ?>(<?php echo e($videosCounts->count()); ?>)</a></span>
-                      </div>
-
-            </div>
-           </div>
-
-            <div id="reportrange" class="btn btn-green btn-square date-picker purple">
-            <div class="details">
-                    
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.victims.index')); ?>"> <?php echo app('translator')->get('Victms'); ?>(<?php echo e($victimsCounts->count()); ?>)</a></span>
-                      </div>
-
-            </div>
-           </div>
-
-
-            <div id="reportrange" class="btn btn-green btn-square date-picker dark-blue">
-            <div class="details">
-                    
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.suspects.index')); ?>"> <?php echo app('translator')->get('Suspects'); ?>(<?php echo e($suspectCounts->count()); ?>)</a></span>
-                      </div>
-
-            </div>
-           </div>
-          </li>
+              
+      </li>
         </ol>
        </div>
       </div>
      </div> 
                                                  
         <div class="row" >
-                    <div class="col-lg-2 col-sm-6">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading dark-blue">
@@ -667,11 +487,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-6">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading green">
-                                    <i class="fa fa-money fa-fw fa-3x"></i>
+                               <i class="fa fa-comments fa-fw fa-3x"></i>>
                                 </div>
                             </a>
                             <div class="circle-tile-content green">
@@ -685,7 +505,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-6">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading orange">
@@ -703,7 +523,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-6">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading blue">
@@ -721,45 +541,7 @@
                                 <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading red">
-                                    <i class="fa fa-shopping-cart fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content red">
-                                <div class="circle-tile-description text-faded">
-                                    Orders
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    24
-                                    <span id="sparklineC"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading purple">
-                                    <i class="fa fa-comments fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content purple">
-                                <div class="circle-tile-description text-faded">
-                                    Mentions
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    96
-                                    <span id="sparklineD"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    </div>               
                 </div>
                                                      
         <div class="row">
@@ -777,49 +559,407 @@
         </div>
         
     </div><!-- page-wrapper END-->
-   </div><!-- container-1 END-->
- 
-    
-    
+     
 
-
- 
-
-    
-    
-    <script src="js/jquery-3.1.1.js"></script>    
-    <script src="js/bootstrap.js"></script>
-    
-
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".sidebar-toggle").click(function(){
-            $(this).hide();
-            
-           $("#user-profil").show();
-            
-           $("#hide-btn").show();
-            
-           $(".container-2").css("width", "85%");
-            
-             
-        });
-        
-        $("#hide-btn").click(function(){
-            $(this).hide();
-            
-           $("#user-profil").hide();
-            
-           $(".sidebar-toggle").show();
-            
-           $(".container-2").css("width", "100%");
-            
-             
-        });
-    });
-</script>   
-</body>
-</html>
 <?php $__env->stopSection(); ?>
+<?php $__env->startPush('script'); ?>
+
+    <script src="<?php echo e(asset('assets/admin/js/vendor/apexcharts.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/admin/js/vendor/chart.js.2.8.0.js')); ?>"></script>
+
+    <script>
+        "use strict";
+        // apex-bar-chart js
+        var options = {
+            series: [{
+                name: 'Total Payment',
+                data: [
+                  <?php $__currentLoopData = $months; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php echo e(getAmount(@$depositsMonth->where('months',$month)->first()->depositAmount)); ?>,
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                ]
+            }],
+            chart: {
+                type: 'bar',
+                height: 400,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '50%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: <?php echo json_encode($months, 15, 512) ?>,
+            },
+            yaxis: {
+                title: {
+                    text: "<?php echo e(__($general->cur_sym)); ?>",
+                    style: {
+                        color: '#7c97bb'
+                    }
+                }
+            },
+            grid: {
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                },
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "<?php echo e(__($general->cur_sym)); ?>" + val + " "
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#apex-bar-chart"), options);
+        chart.render();
+
+
+        // apex-line chart
+        var options = {
+            chart: {
+                height: 430,
+                type: "area",
+                toolbar: {
+                    show: false
+                },
+                dropShadow: {
+                    enabled: true,
+                    enabledSeries: [0],
+                    top: -2,
+                    left: 0,
+                    blur: 10,
+                    opacity: 0.08
+                },
+                animations: {
+                    enabled: true,
+                    easing: 'linear',
+                    dynamicAnimation: {
+                        speed: 1000
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: "gradient",
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.9,
+                    stops: [0, 90, 100]
+                }
+            },
+            grid: {
+                padding: {
+                    left: 5,
+                    right: 5
+                },
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                },
+            },
+        };
+
+        chart.render();
+
+
+
+
+         // apex-line chart
+            var options = {
+                chart: {
+                    height: 430,
+                    type: "area",
+                    toolbar: {
+                        show: false
+                    },
+                    dropShadow: {
+                        enabled: true,
+                        enabledSeries: [0],
+                        top: -2,
+                        left: 0,
+                        blur: 10,
+                        opacity: 0.08
+                    },
+                    animations: {
+                        enabled: true,
+                        easing: 'linear',
+                        dynamicAnimation: {
+                            speed: 1000
+                        }
+                    },
+                },
+                 colors: ['#00E396', '#0090FF'],
+                dataLabels: {
+                    enabled: false
+                },
+                series: [
+                    {
+                        name: "Series 1",
+                        data: <?php echo json_encode($deposits['per_day_amount']->flatten(), 15, 512) ?>
+                    }
+                ],
+                fill: {
+                    type: "gradient",
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.7,
+                        opacityTo: 0.9,
+                        stops: [0, 90, 100]
+                    }
+                },
+                xaxis: {
+                    categories: <?php echo json_encode($deposits['per_day']->flatten(), 15, 512) ?>
+                },
+                grid: {
+                    padding: {
+                        left: 5,
+                        right: 5
+                    },
+                    xaxis: {
+                        lines: {
+                            show: false
+                        }
+                    },
+                    yaxis: {
+                        lines: {
+                            show: false
+                        }
+                    },
+                },
+            };
+
+            var chart = new ApexCharts(document.querySelector("#deposit-line"), options);
+
+            chart.render();
+
+
+        var ctx = document.getElementById('userBrowserChart');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: <?php echo json_encode($chart['user_browser_counter']->keys(), 15, 512) ?>,
+                datasets: [{
+                    data: <?php echo e($chart['user_browser_counter']->flatten()); ?>,
+                    backgroundColor: [
+                        '#ff7675',
+                        '#6c5ce7',
+                        '#ffa62b',
+                        '#ffeaa7',
+                        '#D980FA',
+                        '#fccbcb',
+                        '#45aaf2',
+                        '#05dfd7',
+                        '#FF00F6',
+                        '#1e90ff',
+                        '#2ed573',
+                        '#eccc68',
+                        '#ff5200',
+                        '#cd84f1',
+                        '#7efff5',
+                        '#7158e2',
+                        '#fff200',
+                        '#ff9ff3',
+                        '#08ffc8',
+                        '#3742fa',
+                        '#1089ff',
+                        '#70FF61',
+                        '#bf9fee',
+                        '#574b90'
+                    ],
+                    borderColor: [
+                        'rgba(231, 80, 90, 0.75)'
+                    ],
+                    borderWidth: 0,
+
+                }]
+            },
+            options: {
+                aspectRatio: 1,
+                responsive: true,
+                maintainAspectRatio: true,
+                elements: {
+                    line: {
+                        tension: 0 // disables bezier curves
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: false
+                    }],
+                    yAxes: [{
+                        display: false
+                    }]
+                },
+                legend: {
+                    display: false,
+                }
+            }
+        });
+
+
+
+        var ctx = document.getElementById('userOsChart');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: <?php echo json_encode($chart['user_os_counter']->keys(), 15, 512) ?>,
+                datasets: [{
+                    data: <?php echo e($chart['user_os_counter']->flatten()); ?>,
+                    backgroundColor: [
+                        '#ff7675',
+                        '#6c5ce7',
+                        '#ffa62b',
+                        '#ffeaa7',
+                        '#D980FA',
+                        '#fccbcb',
+                        '#45aaf2',
+                        '#05dfd7',
+                        '#FF00F6',
+                        '#1e90ff',
+                        '#2ed573',
+                        '#eccc68',
+                        '#ff5200',
+                        '#cd84f1',
+                        '#7efff5',
+                        '#7158e2',
+                        '#fff200',
+                        '#ff9ff3',
+                        '#08ffc8',
+                        '#3742fa',
+                        '#1089ff',
+                        '#70FF61',
+                        '#bf9fee',
+                        '#574b90'
+                    ],
+                    borderColor: [
+                        'rgba(0, 0, 0, 0.05)'
+                    ],
+                    borderWidth: 0,
+
+                }]
+            },
+            options: {
+                aspectRatio: 1,
+                responsive: true,
+                elements: {
+                    line: {
+                        tension: 0 // disables bezier curves
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: false
+                    }],
+                    yAxes: [{
+                        display: false
+                    }]
+                },
+                legend: {
+                    display: false,
+                }
+            },
+        });
+
+
+        // Donut chart
+        var ctx = document.getElementById('userCountryChart');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: <?php echo json_encode($chart['user_country_counter']->keys(), 15, 512) ?>,
+                datasets: [{
+                    data: <?php echo e($chart['user_country_counter']->flatten()); ?>,
+                    backgroundColor: [
+                        '#ff7675',
+                        '#6c5ce7',
+                        '#ffa62b',
+                        '#ffeaa7',
+                        '#D980FA',
+                        '#fccbcb',
+                        '#45aaf2',
+                        '#05dfd7',
+                        '#FF00F6',
+                        '#1e90ff',
+                        '#2ed573',
+                        '#eccc68',
+                        '#ff5200',
+                        '#cd84f1',
+                        '#7efff5',
+                        '#7158e2',
+                        '#fff200',
+                        '#ff9ff3',
+                        '#08ffc8',
+                        '#3742fa',
+                        '#1089ff',
+                        '#70FF61',
+                        '#bf9fee',
+                        '#574b90'
+                    ],
+                    borderColor: [
+                        'rgba(231, 80, 90, 0.75)'
+                    ],
+                    borderWidth: 0,
+
+                }]
+            },
+            options: {
+                aspectRatio: 1,
+                responsive: true,
+                elements: {
+                    line: {
+                        tension: 0 // disables bezier curves
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: false
+                    }],
+                    yAxes: [{
+                        display: false
+                    }]
+                },
+                legend: {
+                    display: false,
+                }
+            }
+        });
+
+    </script>
+<?php $__env->stopPush(); ?>
+
 <?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/dashboarduserMain.blade.php ENDPATH**/ ?>

@@ -4405,7 +4405,7 @@ th.w-85 {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    min-height: 130px;
+    /*min-height: 130px;*/
     justify-content: flex-end;
     overflow: hidden;
     transition: all 0.3s;
@@ -4415,7 +4415,7 @@ th.w-85 {
     -o-transition: all 0.3s;
     position: relative;
     align-items: center;
-    padding: 10px 10px;
+    /*padding: 10px 10px;*/
 }
 
 .dashboard-w1:hover {
@@ -4869,10 +4869,10 @@ th.w-85 {
 }
 
 .sidebar__menu .menu-title {
-    font-size: 0.8125rem;
+    font-size: 1.1rem;
     color: #5b6e88;
     font-weight: 300;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
 }
 
 .sidebar__menu .menu-badge {
@@ -4957,7 +4957,7 @@ th.w-85 {
 }
 
 .sidebar__menu .sidebar-submenu .sidebar-menu-item a .menu-title {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
 }
 
 .sidebar__menu-header {
