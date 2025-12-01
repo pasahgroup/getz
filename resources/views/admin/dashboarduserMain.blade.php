@@ -331,7 +331,7 @@
 .circle-tile-number {
     padding: 4px 0 15px;
     font-size: 18px;
-    font-weight: 700;
+    /*font-weight: 700;*/
     line-height: 1;
 }
 
@@ -443,18 +443,6 @@
           </div>
 
 
-              <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="desciption">
-                          <span> <a href="{{route('user.suspects.index')}}">@lang('Suspects')({{$suspectCounts->count()}})</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
 
               <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
               <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
@@ -468,6 +456,19 @@
                   </div>
               </div>
           </div>
+              <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
+              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
+                  <div class="icon">
+                      <i class="las la-spinner"></i>
+                  </div>
+                  <div class="details">
+                      <div class="desciption">
+                          <span> <a href="{{route('user.suspects.index')}}">@lang('Suspects')({{$suspectCounts->count()}})</a></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
       </div>
 
      
@@ -555,12 +556,11 @@
                 </div>
                                                      
         <div class="row">
-         <div class="col-lg-3">
+         <div class="col-lg-12">
          <div class="tile tile-img tile-time morning" style="height: 200px">
            <p class="time-widget">
-            <span class="time-widget-heading">It Is Currently</span>
              <br>
-              <strong><span id="datetime">Friday<br>March 17th, 2017<br>12:43:17 PM</span></strong>
+              <strong><span id="datetime">Massacre<br>October 29th, 2025<br></span></strong>
            </p>
          </div>
         </div>
