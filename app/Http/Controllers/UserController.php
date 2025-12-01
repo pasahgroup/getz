@@ -45,7 +45,7 @@ dd('Dashboard details');
     {
       //   $pageTitle = 'Dashboard';
 
- $pageTitle = 'Dashboard';
+            $pageTitle = 'Dashboard';
 
         // User Info
         $widget['total_users'] = User::count();

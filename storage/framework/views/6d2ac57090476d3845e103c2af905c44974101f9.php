@@ -1,6 +1,4 @@
-
-@extends('admin.layoutsuser.app')
-@section('panel')
+<?php $__env->startSection('panel'); ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -607,7 +605,7 @@
             <div class="details">
                     
                       <div class="desciption orange">
-                          <span> <a href="{{route('user.events.index')}}"> @lang('Photos')({{$eventCounts->count()}})</a></span>
+                          <span> <a href="<?php echo e(route('user.events.index')); ?>"> <?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
                       </div>
 
             </div>
@@ -617,7 +615,7 @@
             <div class="details">
                     
                       <div class="desciption">
-                          <span> <a href="{{route('user.videos.index')}}"> @lang('Videos')({{$videosCounts->count()}})</a></span>
+                          <span> <a href="<?php echo e(route('user.videos.index')); ?>"> <?php echo app('translator')->get('Videos'); ?>(<?php echo e($videosCounts->count()); ?>)</a></span>
                       </div>
 
             </div>
@@ -627,7 +625,7 @@
             <div class="details">
                     
                       <div class="desciption">
-                          <span> <a href="{{route('user.victims.index')}}"> @lang('Victms')({{$victimsCounts->count()}})</a></span>
+                          <span> <a href="<?php echo e(route('user.victims.index')); ?>"> <?php echo app('translator')->get('Victms'); ?>(<?php echo e($victimsCounts->count()); ?>)</a></span>
                       </div>
 
             </div>
@@ -638,7 +636,7 @@
             <div class="details">
                     
                       <div class="desciption">
-                          <span> <a href="{{route('user.suspects.index')}}"> @lang('Suspects')({{$suspectCounts->count()}})</a></span>
+                          <span> <a href="<?php echo e(route('user.suspects.index')); ?>"> <?php echo app('translator')->get('Suspects'); ?>(<?php echo e($suspectCounts->count()); ?>)</a></span>
                       </div>
 
             </div>
@@ -823,4 +821,5 @@
 </script>   
 </body>
 </html>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/dashboarduserMain.blade.php ENDPATH**/ ?>
