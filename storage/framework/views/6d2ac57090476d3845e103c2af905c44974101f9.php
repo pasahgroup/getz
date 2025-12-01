@@ -413,29 +413,6 @@
               </div>
           </div>
 
-
-
-
-
-  <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.events.index')); ?>"><?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-
-
-
-
-
-
                   <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
       <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
                   <div class="icon">
@@ -514,7 +491,7 @@
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading green">
-                               <i class="fa fa-comments fa-fw fa-1x"></i>>
+                               <i class="fa fa-comments fa-fw fa-1x"></i>
                                 </div>
                             </a>
                             <div class="circle-tile-content green">
