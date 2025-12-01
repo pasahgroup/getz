@@ -226,7 +226,7 @@
 }
 
 .circle-tile-heading {
-    position: relative;
+    /*position: relative;*/
     width: 80px;
     height: 80px;
     margin: 0 auto -40px;
@@ -317,7 +317,7 @@
 }
 
 .circle-tile-content {
-    padding-top: 50px;
+    padding-top: 15px;
 }
 .circle-tile-description {
     text-transform: uppercase;
@@ -328,7 +328,7 @@
 }
 
 .circle-tile-number {
-    padding: 5px 0 15px;
+    padding: 4px 0 15px;
     font-size: 26px;
     font-weight: 700;
     line-height: 1;
@@ -476,15 +476,16 @@
                                 </div>
                             </a>
                             <div class="circle-tile-content dark-blue">
-                                <div class="circle-tile-description text-faded">
-                                    Photos
-                                </div>
                                 <div class="circle-tile-number text-faded">
+                                  Photos
+                                </div>
+                              <!--   <div class="circle-tile-number text-faded">
                                     265
                                     <span id="sparklineA"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
+                                </div> -->
+                                <a href="#" class="circle-tile-footer">More Info(4) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="#" class="circle-tile-footer">More Info(3)<i class="fa fa-chevron-circle-right"></i></a>
+                                                 </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
@@ -495,9 +496,7 @@
                                 </div>
                             </a>
                             <div class="circle-tile-content green">
-                                <div class="circle-tile-description text-faded">
-                                    Videos
-                                </div>
+                              
                                 <div class="circle-tile-number text-faded">
                                     $32,384
                                 </div>
@@ -513,9 +512,7 @@
                                 </div>
                             </a>
                             <div class="circle-tile-content orange">
-                                <div class="circle-tile-description text-faded">
-                                    Alerts
-                                </div>
+                               
                                 <div class="circle-tile-number text-faded">
                                     9 New
                                 </div>
@@ -531,9 +528,6 @@
                                 </div>
                             </a>
                             <div class="circle-tile-content blue">
-                                <div class="circle-tile-description text-faded">
-                                    Tasks
-                                </div>
                                 <div class="circle-tile-number text-faded">
                                     10
                                     <span id="sparklineB"></span>
