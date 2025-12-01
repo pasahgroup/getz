@@ -231,7 +231,7 @@
     width: 80px;
     height: 80px;
     margin: 0 auto -40px;
-    border: 3px solid rgba(255,255,255,0.3);
+    /*border: 3px solid rgba(255,255,255,0.3);*/
     border-radius: 100%;
     color: #fff;
     transition: all ease-in-out .3s;
@@ -488,12 +488,12 @@
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading dark-blue">
-                                    <i class="fa fa-users fa-fw fa-3x"></i>
+                                    <i class="fa fa-users fa-fw fa-1x"></i>
                                 </div>
                             </a>
                             <div class="circle-tile-content dark-blue">
                                 <div class="circle-tile-description text-faded">
-                                    Users
+                                    Photos
                                 </div>
                                 <div class="circle-tile-number text-faded">
                                     265
@@ -507,12 +507,12 @@
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading green">
-                               <i class="fa fa-comments fa-fw fa-3x"></i>>
+                               <i class="fa fa-comments fa-fw fa-1x"></i>>
                                 </div>
                             </a>
                             <div class="circle-tile-content green">
                                 <div class="circle-tile-description text-faded">
-                                    Revenue
+                                    Videos
                                 </div>
                                 <div class="circle-tile-number text-faded">
                                     $32,384
@@ -525,7 +525,7 @@
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading orange">
-                                    <i class="fa fa-bell fa-fw fa-3x"></i>
+                                    <i class="fa fa-bell fa-fw fa-1x"></i>
                                 </div>
                             </a>
                             <div class="circle-tile-content orange">
@@ -543,7 +543,7 @@
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading blue">
-                                    <i class="fa fa-tasks fa-fw fa-3x"></i>
+                                    <i class="fa fa-tasks fa-fw fa-1x"></i>
                                 </div>
                             </a>
                             <div class="circle-tile-content blue">
