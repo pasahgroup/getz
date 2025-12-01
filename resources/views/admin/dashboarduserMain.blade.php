@@ -507,7 +507,7 @@
                         <div class="circle-tile">
                             <a href="#">
                                 <div class="circle-tile-heading green">
-                               <i class="fa fa-comments fa-fw fa-1x"></i>>
+                               <i class="fa fa-comments fa-fw fa-1x"></i>
                                 </div>
                             </a>
                             <div class="circle-tile-content green">
