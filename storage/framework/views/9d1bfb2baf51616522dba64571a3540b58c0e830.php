@@ -1,44 +1,53 @@
 
 
+
 <?php $__env->startSection('panel'); ?>
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.videos.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Incident video (Sajili Picha Mjongeo)'); ?></a>
+    <a href="<?php echo e(route('user.events.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Event (Sajili Tukio)'); ?></a>
 <?php $__env->stopPush(); ?>
-   <script src="../../../../appweb/jquery171.min.js"></script>
+
+
+  <script src="../../../../appweb/jquery171.min.js"></script>
     <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
+  
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-
+<div class="content-wrapper">
+      <div class="card">
+        <div class="card-body">
 <?php $__env->startSection('panel'); ?>
+</div>
+</div>
+</div>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
      <!-- Main content -->
              <div class="card">
         <div class="card-body">
+            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
-                                 <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
-                                  <th scope="col"><?php echo app('translator')->get('Last update'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
                   </thead>
                   <tbody>
-              
-       <?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <tr>                   
-                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
+         
+    <?php if(isset($eventWR)): ?>     
+       <?php $__empty_1 = true; $__currentLoopData = $eventWR; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <tr>                                    
+                                    <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
                                     
                                     <td data-label="<?php echo app('translator')->get('Event_type'); ?>"><?php echo e(__($item->event_type)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Event_place'); ?>"><?php echo e(__($item->event_place)); ?></td>
@@ -47,21 +56,17 @@
 
                                     <td data-label="<?php echo app('translator')->get('Date event'); ?>"><?php echo e(__($item->date_event)); ?></td>
                                    
-                                        <td data-label="<?php echo app('translator')->get('Videos'); ?>"> 
+                                                                        <td data-label="<?php echo app('translator')->get('Videos'); ?>"> 
 
                                                                            <video controls width="140" height="120">
     <source src="<?php echo e(Storage::url($item->path)); ?>" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video> 
-</td>                                                   
- <td data-label="<?php echo app('translator')->get('Event details'); ?>"><textarea rows="10" cols="100%" name="details" class="form-control"
-                                               id="nicEditor0" readonly><?php echo e($item->details); ?></textarea></td>
+</td> 
 
 
-     <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->elapsed_time)); ?></td>
-       <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->last_update)); ?></td>
 
-
+   <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->details)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
                                         <?php if($item->status === 1): ?>
                                             <span class="text--small badge font-weight-normal badge--success"><?php echo app('translator')->get('Active'); ?></span>
@@ -70,45 +75,30 @@
                                         <?php endif; ?>
                                     </td>
                                 
-
-                                    <td data-label="<?php echo app('translator')->get('Action'); ?>">
-                                       <?php if(auth()->user()->email =="buruwawa@gmail.com"): ?>                                     
-                                        <a href="<?php echo e(route('user.videos.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
-                                            <i class="la la-edit"></i>
-                                        </a>                                   
-                                       
-
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('user.events.status', $item->id)); ?>">
-                                            <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
-                                        </a>
-                                            <?php endif; ?>
-                                    </td>
-
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                 <tr>
                                     <td class="text-muted text-center" colspan="100%"><?php echo e(__($empty_message)); ?></td>
                                 </tr>
                             <?php endif; ?>
+                              <?php endif; ?>
                   </tbody>
                   <tfoot>
                     <tr>
-                         
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Event type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Event Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('District'); ?></th>
                            <th scope="col"><?php echo app('translator')->get('Event Date'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Videos'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Incident Details'); ?></th>
-                                 <th scope="col"><?php echo app('translator')->get('Elapsed time'); ?></th>
-                                  <th scope="col"><?php echo app('translator')->get('Last update'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Event Details'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
                   </tfoot>
                 </table>
+              </div>
+
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -241,4 +231,4 @@
     })
 
   </script>
-<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/videos/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layoutsuser.appweb', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/reports/videoWebReportSummary.blade.php ENDPATH**/ ?>

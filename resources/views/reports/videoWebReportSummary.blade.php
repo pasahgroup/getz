@@ -1,44 +1,55 @@
 
-@extends('admin.layoutsuser.app')
+@extends('admin.layoutsuser.appweb')
+{{--
+@extends($activeTemplate.'layouts.frontend')
+--}}
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.videos.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Incident video (Sajili Picha Mjongeo)')</a>
+    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
 @endpush
-   <script src="../../../../appweb/jquery171.min.js"></script>
+
+
+  <script src="../../../../appweb/jquery171.min.js"></script>
     <link rel="stylesheet" href="../../../../appweb/bootstrap320.min.css">
+  
    <!-- DataTables -->
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-
+<div class="content-wrapper">
+      <div class="card">
+        <div class="card-body">
 @section('panel')
+</div>
+</div>
+</div>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
      <!-- Main content -->
              <div class="card">
         <div class="card-body">
+            <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Incident type')</th>
-                                <th scope="col">@lang('Incident Place')</th>
+                                <th scope="col">@lang('Event type')</th>
+                                <th scope="col">@lang('Event Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Videos')</th>
-                                <th scope="col">@lang('Incident Details')</th>
-                                 <th scope="col">@lang('Elapsed time')</th>
-                                  <th scope="col">@lang('Last update')</th>
+                                <th scope="col">@lang('Event Details')</th>
                                      <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Actions')</th>
                             </tr>
                   </thead>
                   <tbody>
-              
-       @forelse ($videos as $item)
-                                <tr>                   
-                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
+         
+    @if(isset($eventWR))     
+       @forelse ($eventWR as $item)
+                                <tr>                                    
+                                    <td data-label="@lang('Name')">{{ __($item->name) }}</td>
                                     
                                     <td data-label="@lang('Event_type')">{{ __($item->event_type) }}</td>
                                     <td data-label="@lang('Event_place')">{{ __($item->event_place) }}</td>
@@ -46,23 +57,22 @@
                                       <td data-label="@lang('District')">{{ __($item->district) }}</td>
 
                                     <td data-label="@lang('Date event')">{{ __($item->date_event) }}</td>
-                                   
-                                        <td data-label="@lang('Videos')"> 
+                                   {{--                                       
+                                    <td data-label="@lang('Date event')"> 
+      <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" style="height:80px;">
+                                        </td>
+                                        --}}
+                                                                        <td data-label="@lang('Videos')"> 
 
                                                                            <video controls width="140" height="120">
     <source src="{{ Storage::url($item->path) }}" type="video/mp4" style="object-fit: cover;">
     Your browser does not support the video tag.
 </video> 
 </td> 
-                                                  
- <td data-label="@lang('Event details')"><textarea rows="10" cols="100%" name="details" class="form-control"
-                                               id="nicEditor0" readonly>{{ $item->details }}</textarea></td>
 
 
-     <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
-       <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
 
-
+   <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
@@ -71,45 +81,30 @@
                                         @endif
                                     </td>
                                 
-
-                                    <td data-label="@lang('Action')">
-                                       @if(auth()->user()->email =="buruwawa@gmail.com")                                     
-                                        <a href="{{ route('user.videos.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
-                                            <i class="la la-edit"></i>
-                                        </a>                                   
-                                       
-
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('user.events.status', $item->id) }}">
-                                            <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
-                                        </a>
-                                            @endif
-                                    </td>
-
                                 </tr>
                             @empty
                                 <tr>
                                     <td class="text-muted text-center" colspan="100%">{{ __($empty_message) }}</td>
                                 </tr>
                             @endforelse
+                              @endif
                   </tbody>
                   <tfoot>
                     <tr>
-                         
                                 <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Incident type')</th>
-                                <th scope="col">@lang('Incident Place')</th>
+                                <th scope="col">@lang('Event type')</th>
+                                <th scope="col">@lang('Event Place')</th>
                                 <th scope="col">@lang('Region')</th>
                                 <th scope="col">@lang('District')</th>
                            <th scope="col">@lang('Event Date')</th>
                                 <th scope="col">@lang('Videos')</th>
-                                <th scope="col">@lang('Incident Details')</th>
-                                 <th scope="col">@lang('Elapsed time')</th>
-                                  <th scope="col">@lang('Last update')</th>
+                                <th scope="col">@lang('Event Details')</th>
                                      <th scope="col">@lang('Status')</th>
-                                <th scope="col">@lang('Actions')</th>
                             </tr>
                   </tfoot>
                 </table>
+              </div>
+
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

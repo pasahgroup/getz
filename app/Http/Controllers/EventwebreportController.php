@@ -6,6 +6,8 @@ use App\Models\eventwebreport;
 use App\Http\Requests\StoreeventwebreportRequest;
 use App\Http\Requests\UpdateeventwebreportRequest;
 use App\Models\Event;
+use App\Models\Video;
+
 use App\Models\Suspect;
 use Illuminate\Http\Request;
 
@@ -73,10 +75,26 @@ $pageTitle=$event;
            $eventWR=Event::where('status',1)  
         ->select('events.*')
         ->paginate(getPaginate(15));
-        //dd($eventWR);
+    
 
-$empty_message = 'No any '.$pageTitle. ' has been added';
+$empty_message = 'No any '.$pageTitle. ' photos read';
         return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
+    }
+
+    
+    public function videos(Request $request,$video)
+    {
+
+$pageTitle=$video;
+//dd($pageTitle);
+
+           $eventWR=Video::where('status',1)  
+        ->select('videos.*')
+        ->paginate(getPaginate(15));
+    
+
+$empty_message = 'No any '.$pageTitle. ' videos read';
+        return view('reports.videoWebReportSummary', compact('eventWR','empty_message','pageTitle'));
     }
 
 

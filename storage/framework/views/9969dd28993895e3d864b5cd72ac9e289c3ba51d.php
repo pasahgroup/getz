@@ -13,8 +13,8 @@
                   
                   
                     <div class="btn-group mx-2">
-                         <a href="{{ route('user.events.add') }}" class="cmn--btn">@lang('Upload photos')</a>
-                                   <a href="{{ route('user.videos.add') }}" class="cmn--btn">@lang('Upload videos')</a>
+                         <a href="<?php echo e(route('user.events.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload photos'); ?></a>
+                                   <a href="<?php echo e(route('user.videos.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload videos'); ?></a>
                                            </div>
                
                     <div class="btn-group">
@@ -29,18 +29,18 @@
                       <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                                                         @auth
+                                                         <?php if(auth()->guard()->check()): ?>
                               
                          
-                                        <span class="navbar-user__name">Name: {{auth()->user()->username}}</span>
+                                        <span class="navbar-user__name">Name: <?php echo e(auth()->user()->username); ?></span>
                                         <hr>
-                                      <a href="{{ route('user.logout') }}" class="cmn--btn badge-primary float-right" style="background-color:red">@lang('Logout')</a>
+                                      <a href="<?php echo e(route('user.logout')); ?>" class="cmn--btn badge-primary float-right" style="background-color:red"><?php echo app('translator')->get('Logout'); ?></a>
 
-                            @else
-                                <a href="{{ route('user.login') }}" class="dropdown-item">@lang('Login')</a>
+                            <?php else: ?>
+                                <a href="<?php echo e(route('user.login')); ?>" class="dropdown-item"><?php echo app('translator')->get('Login'); ?></a>
 
-                                <a href="{{ route('user.register') }}" class="dropdown-item">@lang('Sign up')</a>
-                            @endauth
+                                <a href="<?php echo e(route('user.register')); ?>" class="dropdown-item"><?php echo app('translator')->get('Sign up'); ?></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -97,30 +97,30 @@
                         <div class="nav-item dropdown dropright">
                             <a href="#" class="nav-link" data-toggle="dropdown">Incident Reports <i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                  <a href="/event-web/Injured" class="dropdown-item">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','Injured')->count()}}</span></a>
-                               <li><a href="/event-web/kidnapped" class="dropdown-item">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> {{$eventCounts->where('event_type','kidnapped')->count()}}</span></a></li>
+                                  <a href="/event-web/Injured" class="dropdown-item">Injured(Jeruhiwa):<span class="badge badge-pill badge-warning"> <?php echo e($eventCounts->where('event_type','Injured')->count()); ?></span></a>
+                               <li><a href="/event-web/kidnapped" class="dropdown-item">kidnapped(Tekwa):<span class="badge badge-pill badge-warning"> <?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?></span></a></li>
 
-                                            <a href="/event-web/killed" class="dropdown-item">killed(Uwawa):<span class="badge badge-pill badge-danger"> {{$eventCounts->where('event_type','killed')->count()}}</span></a>
+                                            <a href="/event-web/killed" class="dropdown-item">killed(Uwawa):<span class="badge badge-pill badge-danger"> <?php echo e($eventCounts->where('event_type','killed')->count()); ?></span></a>
 
-                                            <a href="/event-web/Missed" class="dropdown-item">Missed(Potea bila Taarifa):<span class="badge badge-pill badge-info"> {{$eventCounts->where('event_type','Missed')->count()}}</span></a>
+                                            <a href="/event-web/Missed" class="dropdown-item">Missed(Potea bila Taarifa):<span class="badge badge-pill badge-info"> <?php echo e($eventCounts->where('event_type','Missed')->count()); ?></span></a>
 
 
-                                            <a href="/event-web/Totured" class="dropdown-item">Totured(Teswa):<span class="badge badge-pill badge-primary"> {{$eventCounts->where('event_type','Totured')->count()}}</span></a>
+                                            <a href="/event-web/Totured" class="dropdown-item">Totured(Teswa):<span class="badge badge-pill badge-primary"> <?php echo e($eventCounts->where('event_type','Totured')->count()); ?></span></a>
 
-                                <a href="/event-web/Other" class="dropdown-item">Other(Ingineyo):<span class="badge badge-pill badge-success"> {{$eventCounts->where('event_type','Other')->count()}}</span></a>
+                                <a href="/event-web/Other" class="dropdown-item">Other(Ingineyo):<span class="badge badge-pill badge-success"> <?php echo e($eventCounts->where('event_type','Other')->count()); ?></span></a>
 
                             </div>
                         </div>
          <div class="nav-item dropdown dropright">
                             <a href="#" class="nav-link dropdown-toggle_org" data-toggle="dropdown">Suspect Reports<i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                  <a href="/suspect-web/Individual" class="dropdown-item">Individual(Mtu):<span class="badge badge-pill badge-danger"> {{$suspectCounts->where('category','Individual')->count()}}</span></a>
+                                  <a href="/suspect-web/Individual" class="dropdown-item">Individual(Mtu):<span class="badge badge-pill badge-danger"> <?php echo e($suspectCounts->where('category','Individual')->count()); ?></span></a>
 
-                                            <a href="/suspect-web/People" class="dropdown-item">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> {{$suspectCounts->where('category','People')->count()}}</span></a>
+                                            <a href="/suspect-web/People" class="dropdown-item">Group of People(Kundi la Watu):<span class="badge badge-pill badge-info"> <?php echo e($suspectCounts->where('category','People')->count()); ?></span></a>
 
-                                            <a href="/suspect-web/Institute" class="dropdown-item">Institute(Taasisi):<span class="badge badge-pill badge-primary"> {{$suspectCounts->where('category','Institute')->count()}}</span></a>
+                                            <a href="/suspect-web/Institute" class="dropdown-item">Institute(Taasisi):<span class="badge badge-pill badge-primary"> <?php echo e($suspectCounts->where('category','Institute')->count()); ?></span></a>
 
-                                            <a href="/suspect-web/Other" class="dropdown-item">Other(Nyingine):<span class="badge badge-pill badge-success"> {{$suspectCounts->where('category','Other')->count()}}</span></a>
+                                            <a href="/suspect-web/Other" class="dropdown-item">Other(Nyingine):<span class="badge badge-pill badge-success"> <?php echo e($suspectCounts->where('category','Other')->count()); ?></span></a>
 
                             </div>
                         </div>
@@ -152,8 +152,8 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Incidents </a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                       <a href="{{ route('event.search') }}" class="dropdown-item">Incident Photos</a>
-                                       <a href="{{ route('video.search') }}" class="dropdown-item">Incident Videos</a>
+                                       <a href="<?php echo e(route('event.search')); ?>" class="dropdown-item">Incident Photos</a>
+                                       <a href="<?php echo e(route('video.search')); ?>" class="dropdown-item">Incident Videos</a>
                                 </div>
                             </div>
                        
@@ -169,3 +169,4 @@
             </div>
         </div>
     </div>
+<?php /**PATH C:\xampp\htdocs\getz\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>
