@@ -28,6 +28,8 @@
     <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
            <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+
+
 <!-- Don't remove the below CSS code -->
 <style>
 .truncate {

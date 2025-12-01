@@ -28,6 +28,8 @@
     <title>{{ $general->sitename(__($pageTitle)) }}</title>
            @include('partials.seo')
 
+
+
 <!-- Don't remove the below CSS code -->
 <style>
 .truncate {
