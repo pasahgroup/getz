@@ -107,7 +107,7 @@
 
                                 @forelse($vehicle->images as $image)
                                     <div class="col-lg-2 col-md-6">
-                                        <div class="gallery__item" style="width:200px">
+                                        <div class="gallery__item" style="width:180px">
                                             <a href="{{ getImage(imagePath()['vehicles']['path'].'/'. @$image, imagePath()['vehicles']['size']) }}" class="img-pop">
                                                 <i class="las la-plus"></i>
                                             </a>

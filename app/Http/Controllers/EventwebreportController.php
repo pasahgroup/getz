@@ -66,6 +66,26 @@ $empty_message = 'No any '.$pageTitle. ' has been added';
         return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
     }
 
+
+
+  public function video(Request $request,$event)
+    {
+
+$pageTitle=$event;
+//dd($pageTitle);
+
+           $eventWR=Video::where('status',1)  
+        ->select('videos.*')
+        ->where('event_type',$event)
+        ->paginate(getPaginate(15));
+        //dd($eventWR);
+
+$empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
+    }
+
+
+
         public function photos(Request $request,$event)
     {
 

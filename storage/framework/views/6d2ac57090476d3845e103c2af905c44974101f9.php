@@ -337,7 +337,7 @@
 .circle-tile-footer {
     display: block;
     padding: 5px;
-    color: rgba(255,255,255,0.5);
+    color:#fff;
     background-color: rgba(0,0,0,0.1);
     transition: all ease-in-out .3s;
 }
@@ -398,64 +398,8 @@
 <div>-- Comming Soon --</div>
 
 
-   <div class="container">    
-      <div class="row mt-50 mb-none-30">
-           <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.events.index')); ?>"><?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-                  <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-      <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.videos.index')); ?>"><?php echo app('translator')->get('Videos'); ?>(<?php echo e($videosCounts->count()); ?>)</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-
-
-              <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.victims.index')); ?>"><?php echo app('translator')->get('Victims'); ?>(<?php echo e($victimsCounts->count()); ?>)</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-              <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="desciption">
-                          <span> <a href="<?php echo e(route('user.suspects.index')); ?>"><?php echo app('translator')->get('Suspects'); ?>(<?php echo e($suspectCounts->count()); ?>)</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-
-     
+   <div class="container">   
+  
       <div class="row">
      <div class="col-md-12">
       <div class="page-title">
@@ -476,18 +420,34 @@
                                     <i class="fa fa-users fa-fw fa-1x"></i>
                                 </div>
                             </a>
+                           
                             <div class="circle-tile-content dark-blue">
                                 <div class="circle-tile-number text-faded">
-                                  Photos
+                                  <span> <a href="<?php echo e(route('user.events.index')); ?>"><?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
                                 </div>
-                              <!--   <div class="circle-tile-number text-faded">
-                                    265
-                                    <span id="sparklineA"></span>
-                                </div> -->
-                                <a href="#" class="circle-tile-footer">More Info(4) <i class="fa fa-chevron-circle-right"></i></a>
-                                <a href="#" class="circle-tile-footer">More Info(3)<i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/event-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($eventCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                           <a href="/event-web/kidnapped" class="circle-tile-footer">kidnapped(Tekwa(<?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+                                       <a href="/event-web/killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e($eventCounts->where('event_type','killed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+                                           <a href="/event-web/missed" class="circle-tile-footer">Missed(Potea bila Taarifa(<?php echo e($eventCounts->where('event_type','Missed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+                                       <a href="/event-web/Totured" class="circle-tile-footer">Totured(Teswa(<?php echo e($eventCounts->where('event_type','Totured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                         <a href="/event-web/Other" class="circle-tile-footer">Other(Ingineyo(<?php echo e($eventCounts->where('event_type','Other')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                  
+   <a href="/event-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($eventCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
                                                  </div>
                         </div>
+
+
+
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="circle-tile">
@@ -499,9 +459,28 @@
                             <div class="circle-tile-content green">
                               
                                 <div class="circle-tile-number text-faded">
-                                    $32,384
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                                        <span> <a href="<?php echo e(route('user.videos.index')); ?>"><?php echo app('translator')->get('Videos'); ?>(<?php echo e($videosCounts->count()); ?>)</a></span>
+                                </div>                                
+                                  <div class="circle-tile-content dark-blue">
+                                <a href="/video-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($videosCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                           <a href="/video-web/kidnapped" class="circle-tile-footer">kidnapped(Tekwa(<?php echo e($videosCounts->where('event_type','kidnapped')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+                                       <a href="/video-web/killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e($videosCounts->where('event_type','killed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+                                           <a href="/video-web/missed" class="circle-tile-footer">Missed(Potea bila Taarifa(<?php echo e($videosCounts->where('event_type','Missed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+                                       <a href="/video-web/Totured" class="circle-tile-footer">Totured(Teswa(<?php echo e($videosCounts->where('event_type','Totured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                         <a href="/video-web/Other" class="circle-tile-footer">Other(Ingineyo(<?php echo e($videosCounts->where('event_type','Other')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                  
+   <a href="/video-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($videosCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                                 </div>
                             </div>
                         </div>
                     </div>
@@ -515,9 +494,9 @@
                             <div class="circle-tile-content orange">
                                
                                 <div class="circle-tile-number text-faded">
-                                    9 New
+                                 <span> <a href="<?php echo e(route('user.victims.index')); ?>"><?php echo app('translator')->get('Victims'); ?>(<?php echo e($victimsCounts->count()); ?>)</a></span>
                                 </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="<?php echo e(route('user.victims.index')); ?>" class="circle-tile-footer">View All <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -530,10 +509,10 @@
                             </a>
                             <div class="circle-tile-content blue">
                                 <div class="circle-tile-number text-faded">
-                                    10
+                                   <span> <a href="<?php echo e(route('user.suspects.index')); ?>"><?php echo app('translator')->get('Suspects'); ?>(<?php echo e($suspectCounts->count()); ?>)</a></span>
                                     <span id="sparklineB"></span>
                                 </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="<?php echo e(route('user.suspects.index')); ?>" class="circle-tile-footer">View All <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>               
