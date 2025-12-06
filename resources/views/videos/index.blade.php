@@ -55,8 +55,12 @@
 </video> 
 </td> 
                                                   
- <td data-label="@lang('Event details')"><textarea rows="10" cols="100%" name="details" class="form-control"
-                                               id="nicEditor0" readonly>{{ $item->details }}</textarea></td>
+ <td data-label="@lang('Event details')">
+                        <div class="content">
+                            @php echo @$item->details @endphp
+                        </div> 
+
+                                           </td>
 
 
      <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>

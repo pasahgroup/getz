@@ -2,6 +2,19 @@
 @extends('admin.layoutsuser.app')
 @section('panel')
 
+
+<style>
+    .text-block {
+  text-align: justify;      /* Justifies text across the width */
+  font-family: Arial, sans-serif; /* Clean, professional font */
+  font-size: 16px;          /* Readable size */
+  line-height: 1.6;         /* Comfortable spacing between lines */
+  color: #333;              /* Neutral dark text color */
+  margin: 10px 0;           /* Space above and below */
+  padding: 5px;             /* Inner spacing */
+}
+</style>
+
 @push('breadcrumb-plugins')
     <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Incident Photos(Sajili Picha ya Tukio)')</a>
 @endpush
@@ -56,8 +69,46 @@
 
 
 
-   <td data-label="@lang('Event details')"><textarea rows="10" name="details" class="form-control"
-                                               id="nicEditor0" readonly>{{ $item->details }}</textarea></td>
+{{--
+   <td data-label="@lang('Event details')"><textarea rows="10" name="details" class="form-control content"
+                                               id="nicEditor0" readonly>{{ $item->details }}</textarea>
+
+
+                                        
+                        <div class="content">
+                            @php echo @$item->details @endphp
+                        </div>       
+</td> 
+--}}                
+
+
+
+                                     
+
+
+   <td data-label="@lang('Event details')">
+
+                                        
+                        <div class="content">
+                            @php echo @$item->details @endphp
+                        </div>
+
+                                           </td>
+          
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
        <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>

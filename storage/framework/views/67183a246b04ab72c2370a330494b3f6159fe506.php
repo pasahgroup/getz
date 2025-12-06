@@ -2,6 +2,19 @@
 
 <?php $__env->startSection('panel'); ?>
 
+
+<style>
+    .text-block {
+  text-align: justify;      /* Justifies text across the width */
+  font-family: Arial, sans-serif; /* Clean, professional font */
+  font-size: 16px;          /* Readable size */
+  line-height: 1.6;         /* Comfortable spacing between lines */
+  color: #333;              /* Neutral dark text color */
+  margin: 10px 0;           /* Space above and below */
+  padding: 5px;             /* Inner spacing */
+}
+</style>
+
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <a href="<?php echo e(route('user.events.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Incident Photos(Sajili Picha ya Tukio)'); ?></a>
 <?php $__env->stopPush(); ?>
@@ -56,8 +69,36 @@
 
 
 
-   <td data-label="<?php echo app('translator')->get('Event details'); ?>"><textarea rows="10" name="details" class="form-control"
-                                               id="nicEditor0" readonly><?php echo e($item->details); ?></textarea></td>
+                
+
+
+
+                                     
+
+
+   <td data-label="<?php echo app('translator')->get('Event details'); ?>">
+
+                                        
+                        <div class="content">
+                            <?php echo @$item->details ?>
+                        </div>
+
+                                           </td>
+          
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->elapsed_time)); ?></td>
        <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->last_update)); ?></td>

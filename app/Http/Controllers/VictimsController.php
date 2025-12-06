@@ -32,9 +32,7 @@ class VictimsController extends Controller
 
         $victims=victims::where('status',1)  
         ->select('victims.*')
-        ->paginate(getPaginate(10));
-
-//dd($events);
+        ->get();
 
         $pageTitle = 'Victims';
         $empty_message = 'No Victim has been added.';
@@ -123,22 +121,11 @@ protected function validator(array $data, $table)
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
  
-       
-       //dd('popo');
+  
+   
+       $victims = new victims();
 
-        $fileName = $request->video->getClientOriginalName();
-        $filePath = 'videos/' . $fileName;
- 
-        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
- 
-        // File URL to access the video in frontend
-        $url = Storage::disk('public')->url($filePath); 
-        if ($isFileUploaded) {
-            $victims = new victims();
-
-
-
-             $victims->name = $request->name;
+         $victims->name = $request->name;
          $victims->event_title = $request->event_title;
          $victims->event_type = $request->event_type;
           $victims->event_place = $request->event_place;
@@ -148,29 +135,44 @@ protected function validator(array $data, $table)
 
          $victims->date_event = $request->date_event;
            $victims->details = $request->details;        
-          $victims->path = $filePath;
+          //$victims->path = $filePath;     
+        
+           $victims->last_update = $request->last_update;  
+
+        
 
 
-           // Upload image
-        foreach ($request->images as $image) {
+  if ($request->video !=null) {    
+  $fileName = $request->video->getClientOriginalName();
+        $filePath = 'videos/' . $fileName;
+
+        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+
+        // File URL to access the video in frontend
+        $url = Storage::disk('public')->url($filePath); 
+
+$victims->path = $filePath;
+}
+
+//dd($request->images);
+
+  if ($request->images !=null) {
+  foreach ($request->images as $image) {
             $path = imagePath()['vehicles']['path'];
             $size = imagePath()['vehicles']['size'];
-            $images[] = uploadImage($image, $path, $size);        }     
-            $victims->images = $images; 
+            $images[] = uploadImage($image, $path, $size);       
+             }     
+            $victims->images = $images;
 
-           $victims->last_update = $request->last_update;  
-            $victims->save();
- 
-            
+}
+
+$victims->save();   
     $notify[] = ['success', 'Video has been successfully uploaded!'];
         return back()->withNotify($notify);
 
-            // return back()
-            // ->with('success','Video has been successfully uploaded.');
-        }
  
-        return back()
-            ->with('error','Unexpected error occured');
+        // return back()
+        //     ->with('error','Unexpected error occured');
     }
 
 
@@ -276,20 +278,11 @@ protected function validator(array $data, $table)
        
        //dd('popo');
 
-        $fileName = $request->video->getClientOriginalName();
-        $filePath = 'videos/' . $fileName;
- 
-        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
- 
-        // File URL to access the video in frontend
-        $url = Storage::disk('public')->url($filePath); 
-        
+   
+      // $victims = new victims();
+        $victims = victims::findOrFail($id);
 
-
-        $victims = new victims();
-        if ($isFileUploaded) {         
-
-        $victims->name = $request->name;
+         $victims->name = $request->name;
          $victims->event_title = $request->event_title;
          $victims->event_type = $request->event_type;
           $victims->event_place = $request->event_place;
@@ -299,27 +292,45 @@ protected function validator(array $data, $table)
 
          $victims->date_event = $request->date_event;
            $victims->details = $request->details;        
-          $victims->path = $filePath;
+          //$victims->path = $filePath;     
+        
+           $victims->last_update = $request->last_update;  
 
-          
-           // Upload image
-        foreach ($request->images as $image) {
+        
+
+
+  if ($request->video !=null) {    
+  $fileName = $request->video->getClientOriginalName();
+        $filePath = 'videos/' . $fileName;
+
+        $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+
+        // File URL to access the video in frontend
+        $url = Storage::disk('public')->url($filePath); 
+
+$victims->path = $filePath;
+}
+
+//dd($request->images);
+
+  if ($request->images !=null) {
+  foreach ($request->images as $image) {
             $path = imagePath()['vehicles']['path'];
             $size = imagePath()['vehicles']['size'];
             $images[] = uploadImage($image, $path, $size);       
              }     
-            $victims->images = $images; 
- $victims->last_update = $request->last_update;  
+            $victims->images = $images;
 
-            $victims->save(); 
-            
-    $notify[] = ['success', 'Video has been Updated successfully uploaded!'];
+}
+
+$victims->save();   
+    $notify[] = ['success', 'Video has been successfully uploaded!'];
         return back()->withNotify($notify);
-        }
 
+ 
 
-        return back()
-            ->with('error','Unexpected error occured');
+        // return back()
+        //     ->with('error','Unexpected error occured');
     }
 
 

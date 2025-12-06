@@ -1,0 +1,112 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+
+    <title><?php echo e($general->sitename($pageTitle ?? '')); ?></title>
+    <!-- site favicon -->
+    <link rel="shortcut icon" type="image/png" href="<?php echo e(getImage(imagePath()['logoIcon']['path'] .'/favicon.png')); ?>">
+
+    <!-- bootstrap 4  -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap.min.css')); ?>">
+    <!-- bootstrap toggle css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap-toggle.min.css')); ?>">
+    <!-- fontawesome 5  -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/all.min.css')); ?>">
+    <!-- line-awesome webfont -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/line-awesome.min.css')); ?>">
+
+    <?php echo $__env->yieldPushContent('style-lib'); ?>
+
+    <!-- custom select box css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/nice-select.css')); ?>">
+    <!-- code preview css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/prism.css')); ?>">
+    <!-- select 2 css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/select2.min.css')); ?>">
+    <!-- jvectormap css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/jquery-jvectormap-2.0.5.css')); ?>">
+
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/datepicker.min.css')); ?>">
+    <!-- timepicky for time picker css -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/jquery-timepicky.css')); ?>">
+    <!-- bootstrap-clockpicker css -->
+    <!-- <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')); ?>"> -->
+    <!-- bootstrap-pincode css -->
+    <!-- <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap-pincode-input.css')); ?>"> -->
+        <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/main.css')); ?>">
+    <!-- dashdoard main css -->
+
+        <!-- <link href="../../../css/style.css" rel="stylesheet" type="text/css" /> -->
+          <link rel="stylesheet" href="../../../../style.css">
+
+<!-- Important css style -->
+  <!-- <script src="../../../../appweb/jquery171.min.js"></script> -->
+
+<!-- custom css -->
+    <?php echo $__env->yieldPushContent('style'); ?>
+</head>
+<body>
+    <?php echo $__env->make($activeTemplate.'layouts.topmenu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->yieldContent('content'); ?>
+
+<!-- jQuery library -->
+<!-- <script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script> -->
+<!-- bootstrap js -->
+ <?php echo $__env->make($activeTemplate.'layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<script src="<?php echo e(asset('assets/admin/js/vendor/bootstrap.bundle.min.js')); ?>"></script>
+<!-- bootstrap-toggle js -->
+<script src="<?php echo e(asset('assets/admin/js/vendor/bootstrap-toggle.min.js')); ?>"></script>
+
+<!-- slimscroll js for custom scrollbar -->
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery.slimscroll.min.js')); ?>"></script>
+<!-- custom select box js -->
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery.nice-select.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/main.js')); ?>"></script>
+
+<?php echo $__env->make('partials.notify', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->yieldPushContent('script-lib'); ?>
+
+<script src="<?php echo e(asset('assets/admin/js/nicEdit.js')); ?>"></script>
+
+<!-- code preview js -->
+<script src="<?php echo e(asset('assets/admin/js/vendor/prism.js')); ?>"></script>
+<!-- seldct 2 js -->
+<script src="<?php echo e(asset('assets/admin/js/vendor/select2.min.js')); ?>"></script>
+<!-- main js -->
+<script src="<?php echo e(asset('assets/admin/js/app.js')); ?>"></script>
+
+
+<script>
+    "use strict";
+    bkLib.onDomLoaded(function() {
+        $( ".nicEdit" ).each(function( index ) {
+            $(this).attr("id","nicEditor"+index);
+            new nicEditor({fullPanel : true}).panelInstance('nicEditor'+index,{hasPanel : true});
+        });
+    });
+    (function($){
+        $( document ).on('mouseover ', '.nicEdit-main,.nicEdit-panelContain',function(){
+            $('.nicEdit-main').focus();
+        });
+    })(jQuery);
+</script>
+
+<?php echo $__env->yieldPushContent('script'); ?>
+
+  <!-- jQuery (Necessary for All JavaScript Plugins) -->
+
+    <!-- Popper js -->
+    <script src="../../../js/popper.min.js"></script>
+      <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/plugins.js"></script>  
+    <script src="../../../js/classy-nav.min.js"></script>
+    <script src="../../../js/jquery-ui.min.js"></script>
+    <script src="../../../js/active.js"></script>
+</body>
+</html><?php /**PATH C:\xampp\htdocs\getz\resources\views/admin/layoutsuser/masterweb.blade.php ENDPATH**/ ?>

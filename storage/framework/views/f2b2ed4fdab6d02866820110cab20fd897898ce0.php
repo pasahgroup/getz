@@ -55,8 +55,12 @@
 </video> 
 </td> 
                                                   
- <td data-label="<?php echo app('translator')->get('Event details'); ?>"><textarea rows="10" cols="100%" name="details" class="form-control"
-                                               id="nicEditor0" readonly><?php echo e($item->details); ?></textarea></td>
+ <td data-label="<?php echo app('translator')->get('Event details'); ?>">
+                        <div class="content">
+                            <?php echo @$item->details ?>
+                        </div> 
+
+                                           </td>
 
 
      <td data-label="<?php echo app('translator')->get('Event details'); ?>"><?php echo e(__($item->elapsed_time)); ?></td>

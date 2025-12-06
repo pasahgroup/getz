@@ -13,7 +13,15 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../../../multishop/css/style.css" rel="stylesheet">
-
+<style>
+    .demo_line {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+</style>
 
  <div class="mb-3">
         <div class="row px-xl-5">
@@ -38,7 +46,9 @@
                                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event_data->name?? ''); ?></strong></div>
                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event_data->event_type?? ''); ?></strong></div>
 
-                               <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong><?php echo e($event_data->details?? ''); ?></strong></div>
+                            <div class="mx-md-5 px-5 animate__animated animate__bounceIn content demo_line">
+                            <?php echo @$event_data->details ?>
+                        </div>
 
                                    <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event_data->id?? 0, slug($event_data->name?? '')])); ?>">View More</a>
                                 </div>
@@ -58,7 +68,11 @@
                                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Name: <strong><?php echo e($event->name); ?></strong></div>
                             <div class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Event Type: <strong><?php echo e($event->event_type); ?></strong></div>
 
-                               <div class="mx-md-5 px-5 animate__animated animate__bounceIn">  <strong><?php echo e($event->details); ?></strong></div>
+
+  <div class="mx-md-5 px-5 animate__animated animate__bounceIn content demo_line">
+                            <?php echo @$event->details ?>
+                        </div>
+
 
                                    <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('event.details', [$event->id, slug($event->name)])); ?>">View More</a>
                                 </div>
@@ -90,7 +104,7 @@
 
 
  <!-- Car categories Start -->
-        <div class="container categories blog pb-5" id="section3">
+        <div class="container categories blog pb-5" id="section3" >
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h2 class="display-5 text-capitalize mb-3">Incident <span class="text-primary">Photos</span> <span class="text-primary"></span></h2>
                     <p class="mb-0">(Tumeni picha zote za matukio halisi ya picha mnato na videos)

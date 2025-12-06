@@ -1,103 +1,58 @@
-@extends('admin.layoutsuser.app')
-<script src="{{asset('assets/admin/js/vendor/jquery-3.6.0.min.js')}}"></script>
-@section('panel')
+
+<script src="<?php echo e(asset('assets/admin/js/vendor/jquery-3.6.0.min.js')); ?>"></script>
+<?php $__env->startSection('panel'); ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('user.victims.update', $victim->id) }}" method="post"
+                <form action="<?php echo e(route('user.suspects.update', $suspect->id)); ?>" method="post"
                       enctype="multipart/form-data">
-                    @csrf
+                    <?php echo csrf_field(); ?>
 
                     <div class="card-body">
                         <div class="row">
 
-                        <div class="row">                         
-
-                            <div class="col-md-7">
+<div class="row">                                               
+<div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="name">@lang('Incident title(Kichwa cha Tukio)')</label>
-                                    <input type="text" id="event_title" name="event_title" class="form-control"
-                                           value="{{ $victim->event_title }}">
-                                </div>
-                            </div>
-
-                         <div class="col-md-5">
-                                <div class="form-group">
-                                    <label for="name">@lang('Date(Tarehe ya Tukio)')</label>
-                                    <input type="date" id="date_event" name="date_event" class="form-control"
-                                            value="{{ $victim->date_event }}">
-                                </div>
-                            </div>
- 
-
-                               <div class="col-md-7">
-                                <div class="form-group">
-                                    <label for="category">@lang('Incident type(Aina ya tukio)')</label>
-                                    <select class="form-control" id="event_type" name="event_type" required="">
-                                        <option
-                                                value="{{ $victim->event_type }}" selected>{{ $victim->event_type }}</option>
-
-                                  <option value="Injured">Injured(Jeruhiwa)</option>
-                                        <option value="kidnapped">kidnapped(Tekwa)</option>
-                                         <option value="killed">killed(Uwawa)</option>
-                                          <option value="Massacre">Massacre(Mauaji ya halaiki)</option>
-                                         <option value="Missed">Missed(Potea bila Taarifa)</option>
-                                              <option value="Rape">Rape(Kubaka)</option>
-                                          <option value="Totured">Totured(Teswa)</option>
-                                            <option value="Other">Other(Ingineyo)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                               <div class="col-md-5">
-                                <div class="form-group">
-                                    <label for="name">@lang('Full name(Jina la aliouwawa/Tekwa/Potea)')</label>
+                                    <label for="name"><?php echo app('translator')->get('Suspect name(Jina/kikundi cha Kutuhumiwa)'); ?></label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ $victim->name }}">
+                                            value="<?php echo e($suspect->name); ?>">
                                 </div>
                             </div>
 
-                             <div class="col-md-4">
+                        <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="name">@lang('Sehemu Ya Tukio')</label>
-                                    <input type="text" id="event_place" name="event_place" class="form-control"
-                                          value="{{ $victim->event_place }}">
-                                </div>
-                            </div>
+                                    <label for="category"><?php echo app('translator')->get('Category(Aina ya Watu)'); ?></label>
+                                    <select class="form-control" id="category" name="category" required="">
+                                      
+                                        <option value="<?php echo e($suspect->category); ?>" selected><?php echo e($suspect->category); ?></option>
 
-                               <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="seater">@lang('Region/State(Mkoa)')</label>
-                                    <select class="form-control" id="region" name="region" required="">
-                                       <option
-                                                value="{{ $victim->region }}" selected>{{ $victim->region }}</option>
-                                                  <option>--- ----- --</option>
-                                  
-                                        @forelse($locations as $location)
-                                            <option value="{{ $location->name }}">{{ __(@$location->name) }}</option>
-                                        @empty
-                                        @endforelse                                    
+                                        <option value="">-- <?php echo app('translator')->get('chagua'); ?> --</option>
+                                        <option value="Individual">Individual(Mtu)</option>
+                                         <option value="People">Group of People(Kundi la Watu)</option>
+                                         <option value="Institute">Institute(Taasisi)</option>
+                                          <option value="Other">Other(Vinginevyo)</option>
+
                                     </select>
                                 </div>
                             </div>
 
-                            
-                            <div class="col-md-4">
+ 
+                           <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="category">@lang('District(Wilaya)')</label>
-                                      <input type="text" id="district" name="district" class="form-control"
-                                          value="{{ $victim->district }}">
+                                    <label for="name"><?php echo app('translator')->get('Title(Wasifu wa Mtu au Kundi)'); ?></label>
+                                    <p>mfano: Mkurugenzi wa Jiji au Kikosi cha usalama Tanzania</p>
+                                    <input type="text" id="title" name="title" class="form-control"
+                                          value="<?php echo e($suspect->title); ?>">
                                 </div>
                             </div>
-
-
 
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="nicEditor0">@lang('Incident details(Maelezo ya Tukio)')</label>
+                                    <label for="nicEditor0"><?php echo app('translator')->get('Suspecting details(Maelezo ya Tukio)'); ?></label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
-                                               id="nicEditor0">{{ $victim->details }}</textarea>
+                                               id="nicEditor0"><?php echo e($suspect->details); ?></textarea>
                                 </div>
                             </div>
                               </div>
@@ -106,33 +61,32 @@
                             <div class="col-md-12">
                                 <div class="card border--dark mb-4">
                                     <div class="card-header bg--dark d-flex justify-content-between">
-                                            <h5 class="text-white">@lang('Images-(Picha za Tukio Weka za kutosha)')</h5>
+                                            <h5 class="text-white"><?php echo app('translator')->get('Images-(Picha za Tukio Weka za kutosha)'); ?></h5>
                                         <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
-                                                class="fa fa-fw fa-plus"></i>@lang('Add New')
+                                                 class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New (Ongeza Picha)'); ?>
                                         </button>
                                     </div>
                                     <div class="card-body">
-                                        <p><small class="text-facebook">@lang('Images will be resize into')
-                                                {{ imagePath()['vehicles']['size'] }}px</small></p>
+                                        <p><small class="text-facebook"><?php echo app('translator')->get('Images will be resize into'); ?>
+                                                <?php echo e(imagePath()['vehicles']['size']); ?>px</small></p>
                                         <div class="row element">
 
-@isset($victim->images)
-                                            @forelse($victim->images as $image)
-                                                <div class="col-md-2 imageItem" id="imageItem{{ $loop->iteration }}">
+                                            <?php $__empty_1 = true; $__currentLoopData = $suspect->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                <div class="col-md-2 imageItem" id="imageItem<?php echo e($loop->iteration); ?>">
                                                     <div class="payment-method-item">
                                                         <div class="payment-method-header d-flex flex-wrap">
                                                             <div class="thumb" style="position: relative;">
                                                                 <div class="avatar-preview">
                                                                     <div class="profilePicPreview"
-                                                                         style="background-image: url('{{ getImage(imagePath()["vehicles"]["path"] . "/" . $image) }}')">
+                                                                         style="background-image: url('<?php echo e(getImage(imagePath()["vehicles"]["path"] . "/" . $image)); ?>')">
 
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="avatar-remove">
 <button class="bg-danger deleteOldImage"onclick="return false"
- data-removeindex="imageItem{{ $loop->iteration }}"
-data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}">
+ data-removeindex="imageItem<?php echo e($loop->iteration); ?>"
+data-deletelink="<?php echo e(route('user.suspects.image.delete', [$suspect->id, $image])); ?>">
 <i class="la la-close"></i></button>
                                                                 </div>
 
@@ -140,35 +94,11 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @empty
-                                            @endforelse
-                                      @endisset  
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                            <?php endif; ?>
 
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-                          <div class="col-md-6">
-                             <label for="name">{{$victim->path}}</label>
-                             <br>
-            <video controls width="120" height="120">
-    <source src="{{ Storage::url($victim->path) }}" type="video/mp4" style="object-fit: cover;">
-    Your browser does not support the video tag.
-</video> 
-                            </div>
-  <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">@lang('Upload new Video')</label>
-                                    <input type="file" name="video"  id="video" class="form-control"/>
-                                </div>
-                            </div>
-                            <br>
-
-                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="name">@lang('Last Update(Taarifa za Mwisho,Mfano: Aliuwawa, Alipotea, Alikutwa kafa Ufukweni n.k)')</label>
-                                    <input type="text" name="last_update"  id="last_update" value="{{$victim->last_update}}" maxlength="200" class="form-control"/>
                                 </div>
                             </div>
 
@@ -185,22 +115,21 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
                             
                             <div class="col-md-3">
                                 <div class="form-group">
-                                   <button class="btn btn--primary w-100">@lang('Update(Sahihisha)')</button>
+                                   <button class="btn btn--primary w-100"><?php echo app('translator')->get('Update(Sahihisha)'); ?></button>
                                 </div>
                             </div>
                     </div>
                 </form>
             </div><!-- card end -->
         </div>
-    </div>
-   
-@endsection
+    </div>   
+<?php $__env->stopSection(); ?>
 
-@push('breadcrumb-plugins')
-    <a href="{{ route('user.victims.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
-@endpush
-@push('style')
+<?php $__env->startPush('breadcrumb-plugins'); ?>
+    <a href="<?php echo e(route('user.suspects.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+            class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
+<?php $__env->stopPush(); ?>
+<?php $__env->startPush('style'); ?>
     <style>
         .avatar-remove {
             position: absolute;
@@ -229,16 +158,16 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
             padding-left: 6px;
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
-@push('style-lib')
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-iconpicker.min.css') }}">
-@endpush
-@push('script-lib')
-    <script src="{{ asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js') }}"></script>
-@endpush
+<?php $__env->startPush('style-lib'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/bootstrap-iconpicker.min.css')); ?>">
+<?php $__env->stopPush(); ?>
+<?php $__env->startPush('script-lib'); ?>
+    <script src="<?php echo e(asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js')); ?>"></script>
+<?php $__env->stopPush(); ?>
 
-@push('script')
+<?php $__env->startPush('script'); ?>
     <script>
         (function ($) {
             "use strict";
@@ -280,7 +209,7 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
             var counter = 0;
             $('.addBtn').click(function () {
                 counter++;
-                $('.element').append(`<div class="col-md-2 imageItem"><div class="payment-method-item"><div class="payment-method-header d-flex flex-wrap"><div class="thumb" style="position: relative;"><div class="avatar-preview"><div class="profilePicPreview" style="background-image: url('{{asset('assets/images/default.png')}}')"></div></div><div class="avatar-edit"><input type="file" name="images[]" class="profilePicUpload" required id="image${counter}" accept=".png, .jpg, .jpeg" /><label for="image${counter}" class="bg-primary"><i class="la la-pencil"></i></label></div>
+                $('.element').append(`<div class="col-md-2 imageItem"><div class="payment-method-item"><div class="payment-method-header d-flex flex-wrap"><div class="thumb" style="position: relative;"><div class="avatar-preview"><div class="profilePicPreview" style="background-image: url('<?php echo e(asset('assets/images/default.png')); ?>')"></div></div><div class="avatar-edit"><input type="file" name="images[]" class="profilePicUpload" required id="image${counter}" accept=".png, .jpg, .jpeg" /><label for="image${counter}" class="bg-primary"><i class="la la-pencil"></i></label></div>
                 <div class="avatar-remove">
                     <label class="bg-danger removeBtn">
                         <i class="la la-close"></i>
@@ -336,10 +265,10 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <input name="label[]" class="form-control" type="text" value="${label}" required placeholder="@lang('Label')" readonly>
+                                <input name="label[]" class="form-control" type="text" value="${label}" required placeholder="<?php echo app('translator')->get('Label'); ?>" readonly>
                             </div>
                             <div class="col-md-3 mt-md-0 mt-2">
-                                <input name="value[]" class="form-control" value="${value}" type="text" required placeholder="@lang('Value')" readonly>
+                                <input name="value[]" class="form-control" value="${value}" type="text" required placeholder="<?php echo app('translator')->get('Value'); ?>" readonly>
                             </div>
                             <div class="col-md-1 mt-md-0 mt-2 text-right">
                                 <span class="input-group-btn">
@@ -396,4 +325,6 @@ data-deletelink="{{ route('user.victims.image.delete', [$victim->id, $image]) }}
             });
         })(jQuery);
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/suspects/edit.blade.php ENDPATH**/ ?>

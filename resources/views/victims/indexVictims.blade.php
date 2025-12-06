@@ -65,7 +65,12 @@
 </video>                                                    
 </td>
 
-   <td data-label="@lang('Event details')">{{ __($item->details) }}</td>
+   <td data-label="@lang('Event details')">
+ <div class="content">
+                          {{ __($item->details) }}
+                        </div>
+
+   </td>
     <td data-label="@lang('Event details')">{{ __($item->elapsed_time) }}</td>
        <td data-label="@lang('Event details')">{{ __($item->last_update) }}</td>
 

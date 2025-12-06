@@ -28,6 +28,11 @@
     <title>{{ $general->sitename(__($pageTitle)) }}</title>
            @include('partials.seo')
 
+<style>
+  .text-style{
+    white-space: pre-wrap
+}
+</style>
 
 
 <!-- Don't remove the below CSS code -->
