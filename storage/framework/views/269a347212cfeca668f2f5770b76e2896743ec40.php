@@ -23,7 +23,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
+                    <th scope="col"><?php echo app('translator')->get('SN'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('First Name'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Last Name'); ?></th>
+                                 <th scope="col"><?php echo app('translator')->get('Age'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>
@@ -42,9 +45,12 @@
                   <tbody>
               
        <?php $__empty_1 = true; $__currentLoopData = $victims; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <tr>                                    
-                                    <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
+                                <tr>   
+                                 <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->id)); ?></td>                                 
+                                    <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->first_name)); ?></td>
+                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->last_name)); ?></td>
                                     
+                                      <td data-label="<?php echo app('translator')->get('Event_type'); ?>"><?php echo e(__($item->age)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Event_type'); ?>"><?php echo e(__($item->event_type)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Event_place'); ?>"><?php echo e(__($item->event_place)); ?></td>
                                      <td data-label="<?php echo app('translator')->get('Region'); ?>"><?php echo e(__($item->region)); ?></td>
@@ -105,7 +111,10 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                                <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
+                        <th scope="col"><?php echo app('translator')->get('SN'); ?></th>
+                                 <th scope="col"><?php echo app('translator')->get('First Name'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Last Name'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Age'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Incident type'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Incident Place'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Region'); ?></th>

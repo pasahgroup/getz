@@ -101,7 +101,8 @@ protected function validator(array $data, $table)
             //'video' => 'required|file|mimetypes:video/mp4|max:5128',
              //'video' => 'required|file|mimes:mp4,mov,avi|max:51200', 
           
-            'name' => 'required|string',
+            'first_name' => 'string',
+               'last_name' => 'string',
             // 'brand' => 'required|integer|gt:0',
             // 'seater' => 'required|integer|gt:0',
             // 'price' => 'required|numeric|gt:0',
@@ -114,18 +115,20 @@ protected function validator(array $data, $table)
             // 'fuel_type' => 'required|string',
             //  'car_body_type' => 'required|string',
             //  'tag' => 'required|string',
-            //  'color' => 'required|string',
-             'region' => 'required|string',
-              'district' => 'required|string',
+             'age' => 'string',
+             'region' => 'string',
+              'district' => 'string',
 
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
+            'images.*' => ['max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
  
   
    
        $victims = new victims();
 
-         $victims->name = $request->name;
+         $victims->first_name = $request->first_name;
+             $victims->last_name = $request->last_name;
+                 $victims->age = $request->age;
          $victims->event_title = $request->event_title;
          $victims->event_type = $request->event_type;
           $victims->event_place = $request->event_place;
@@ -251,11 +254,8 @@ $victims->save();
     {
 
         $this->validate($request, [
-           // 'title' => 'required|string|max:255',
-            //'video' => 'required|file|mimetypes:video/mp4|max:5128',
-             //'video' => 'required|file|mimes:mp4,mov,avi|max:51200', 
-          
-            'name' => 'required|string',
+               'first_name' => 'string',
+               'last_name' => 'string',
             // 'brand' => 'required|integer|gt:0',
             // 'seater' => 'required|integer|gt:0',
             // 'price' => 'required|numeric|gt:0',
@@ -268,11 +268,11 @@ $victims->save();
             // 'fuel_type' => 'required|string',
             //  'car_body_type' => 'required|string',
             //  'tag' => 'required|string',
-            //  'color' => 'required|string',
-             'region' => 'required|string',
-              'district' => 'required|string',
+             'age' => 'string',
+             'region' => 'string',
+              'district' => 'string',
 
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
+            'images.*' => ['max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
  
        
@@ -282,7 +282,10 @@ $victims->save();
       // $victims = new victims();
         $victims = victims::findOrFail($id);
 
-         $victims->name = $request->name;
+         $victims->first_name = $request->first_name;
+             $victims->last_name = $request->last_name;
+                 $victims->age = $request->age;
+
          $victims->event_title = $request->event_title;
          $victims->event_type = $request->event_type;
           $victims->event_place = $request->event_place;

@@ -13,8 +13,9 @@
                   
                   
                     <div class="btn-group mx-2">
+                           <a href="{{ route('user.victims.add') }}" class="cmn--btn badge-primary float-right">@lang('Add Victims')</a>
                          <a href="{{ route('user.events.add') }}" class="cmn--btn">@lang('Upload photos')</a>
-                                   <a href="{{ route('user.videos.add') }}" class="cmn--btn">@lang('Upload videos')</a>
+                                   <a href="{{ route('user.videos.add') }}" class="cmn--btn badge-success float-right">@lang('Upload videos')</a>
                                            </div>
                
                     <div class="btn-group">

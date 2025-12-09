@@ -13,8 +13,9 @@
                   
                   
                     <div class="btn-group mx-2">
+                           <a href="<?php echo e(route('user.victims.add')); ?>" class="cmn--btn badge-primary float-right"><?php echo app('translator')->get('Add Victims'); ?></a>
                          <a href="<?php echo e(route('user.events.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload photos'); ?></a>
-                                   <a href="<?php echo e(route('user.videos.add')); ?>" class="cmn--btn"><?php echo app('translator')->get('Upload videos'); ?></a>
+                                   <a href="<?php echo e(route('user.videos.add')); ?>" class="cmn--btn badge-success float-right"><?php echo app('translator')->get('Upload videos'); ?></a>
                                            </div>
                
                     <div class="btn-group">

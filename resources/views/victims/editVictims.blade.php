@@ -13,6 +13,41 @@
 
                         <div class="row">                         
 
+
+
+
+
+  <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name">@lang('First name(Jina la Kwanza)')</label>
+                                    <input type="text" id="first_name" name="first_name" class="form-control"
+                                           value="{{ $victim->first_name }}">
+                                </div>
+                            </div>
+
+                         <div class="col-md-4">
+                                <div class="form-group">
+                                   <label for="name">@lang('Second name(Jina la Pili)')</label>
+                                    <input type="text" id="last_name" name="last_name" class="form-control"
+                                           value="{{ $victim->last_name }}">
+                                </div>
+                            </div>
+
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                   <label for="name">@lang('Age(Umri)')</label>
+                                    <input type="number" id="age" name="age" class="form-control"
+                                           value="{{ $victim->age }}">
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
                             <div class="col-md-7">
                                 <div class="form-group">
                                     <label for="name">@lang('Incident title(Kichwa cha Tukio)')</label>

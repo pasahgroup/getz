@@ -23,7 +23,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col">@lang('Name')</th>
+                    <th scope="col">@lang('SN')</th>
+                                <th scope="col">@lang('First Name')</th>
+                                <th scope="col">@lang('Last Name')</th>
+                                 <th scope="col">@lang('Age')</th>
                                 <th scope="col">@lang('Incident type')</th>
                                 <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
@@ -42,9 +45,12 @@
                   <tbody>
               
        @forelse ($victims as $item)
-                                <tr>                                    
-                                    <td data-label="@lang('Name')">{{ __($item->name) }}</td>
+                                <tr>   
+                                 <td data-label="@lang('Name')">{{ __($item->id) }}</td>                                 
+                                    <td data-label="@lang('Name')">{{ __($item->first_name) }}</td>
+                                     <td data-label="@lang('Name')">{{ __($item->last_name) }}</td>
                                     
+                                      <td data-label="@lang('Event_type')">{{ __($item->age) }}</td>
                                     <td data-label="@lang('Event_type')">{{ __($item->event_type) }}</td>
                                     <td data-label="@lang('Event_place')">{{ __($item->event_place) }}</td>
                                      <td data-label="@lang('Region')">{{ __($item->region) }}</td>
@@ -104,7 +110,10 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                                <th scope="col">@lang('Name')</th>
+                        <th scope="col">@lang('SN')</th>
+                                 <th scope="col">@lang('First Name')</th>
+                                <th scope="col">@lang('Last Name')</th>
+                                <th scope="col">@lang('Age')</th>
                                 <th scope="col">@lang('Incident type')</th>
                                 <th scope="col">@lang('Incident Place')</th>
                                 <th scope="col">@lang('Region')</th>
