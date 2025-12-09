@@ -69,7 +69,7 @@
                     
                     <div class="btn-group mx-2">
                            <a href="/victim-web/victims" class="cmn--btn badge-primary float-right">@lang('Victims')({{$victimsCounts->count()}})</a>
-                       <a href="{{ route('user.victims.add') }}" class="cmn--btn badge-success float-right">@lang('Victims Download')</a>
+                       <a href="/victims-pdf/victims" class="cmn--btn badge-success float-right">@lang('Victims Download')</a>
                                            </div>
             </div>
             <div class="col-lg-4 col-6 text-right">

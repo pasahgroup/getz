@@ -659,4 +659,8 @@ Route::get('videoReport-web/{x}', 'EventwebreportController@videos')->name('vide
 Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
 Route::get('victim-web/{x}', 'EventwebreportController@victims')->name('victim-web.victim');
 
+Route::get('victims-pdf/{x}', 'EventwebreportController@generatePDF')->name('victims-pdf.pdf');
+
+//Route::get('/users-pdf', [EventwebreportController::class, 'generatePDF']);
+
    

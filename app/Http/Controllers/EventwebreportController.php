@@ -11,6 +11,9 @@ use App\Models\Video;
 use App\Models\Suspect;
 use App\Models\victims;
 use Illuminate\Http\Request;
+use PDF;
+
+
 
 class EventwebreportController extends Controller
 {
@@ -150,6 +153,30 @@ $pageTitle=$sus;
         $empty_message = 'No any '.$pageTitle. ' has been added';
         return view('reports.suspectWebReportSummary', compact('suspectWR','empty_message','pageTitle'));
     }
+
+
+
+
+
+
+
+public function generatePDF()
+{
+     // ini_set('max_execution_time', 300);
+
+    $pageTitle="Victims";
+      $empty_message = 'No any '.$pageTitle. ' has been added';
+
+    $victims = victims::all();
+    //dd($victims);
+    $pdf = PDF::loadView('pdf.victims', compact('victims','empty_message','pageTitle'))->setPaper('a4', 'landscape');
+
+
+    return $pdf->download('victims_report.pdf');
+}
+
+
+
 
 
     /**

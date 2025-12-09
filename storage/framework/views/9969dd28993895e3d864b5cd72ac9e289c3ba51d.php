@@ -69,7 +69,7 @@
                     
                     <div class="btn-group mx-2">
                            <a href="/victim-web/victims" class="cmn--btn badge-primary float-right"><?php echo app('translator')->get('Victims'); ?>(<?php echo e($victimsCounts->count()); ?>)</a>
-                       <a href="<?php echo e(route('user.victims.add')); ?>" class="cmn--btn badge-success float-right"><?php echo app('translator')->get('Victims Download'); ?></a>
+                       <a href="/victims-pdf/victims" class="cmn--btn badge-success float-right"><?php echo app('translator')->get('Victims Download'); ?></a>
                                            </div>
             </div>
             <div class="col-lg-4 col-6 text-right">
