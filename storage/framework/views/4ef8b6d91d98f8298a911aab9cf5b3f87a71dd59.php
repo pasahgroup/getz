@@ -4,7 +4,7 @@
 <?php $__env->startSection('panel'); ?>
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.events.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Event (Sajili Tukio)'); ?></a>
+    <a href="<?php echo e(route('user.victims.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Event (Sajili Tukio)'); ?></a>
 <?php $__env->stopPush(); ?>
 
 
@@ -31,7 +31,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col"><?php echo app('translator')->get('First name'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('SN'); ?></th>
+                                   <th scope="col"><?php echo app('translator')->get('First name'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Last name'); ?></th>
                                   <th scope="col"><?php echo app('translator')->get('Age'); ?></th>
 
@@ -49,7 +50,8 @@
          
     <?php if(isset($victims)): ?>     
        <?php $__empty_1 = true; $__currentLoopData = $victims; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <tr>                                    
+                                <tr>        
+                                 <td data-label="<?php echo app('translator')->get('first_name'); ?>"><?php echo e(__($item->id)); ?></td>                            
                                     <td data-label="<?php echo app('translator')->get('first_name'); ?>"><?php echo e(__($item->first_name)); ?></td>
                                      <td data-label="<?php echo app('translator')->get('last_name'); ?>"><?php echo e(__($item->last_name)); ?></td>
                                       <td data-label="<?php echo app('translator')->get('Age'); ?>"><?php echo e(__($item->age)); ?></td>
@@ -85,6 +87,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                         <th scope="col"><?php echo app('translator')->get('SN'); ?></th>
                                      <th scope="col"><?php echo app('translator')->get('First name'); ?></th>
                                  <th scope="col"><?php echo app('translator')->get('Last name'); ?></th>
                                   <th scope="col"><?php echo app('translator')->get('Age'); ?></th>

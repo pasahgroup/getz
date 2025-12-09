@@ -6,7 +6,7 @@
 @section('panel')
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.events.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
+    <a href="{{ route('user.victims.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Event (Sajili Tukio)')</a>
 @endpush
 
 
@@ -33,7 +33,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
-                                <th scope="col">@lang('First name')</th>
+                                <th scope="col">@lang('SN')</th>
+                                   <th scope="col">@lang('First name')</th>
                                  <th scope="col">@lang('Last name')</th>
                                   <th scope="col">@lang('Age')</th>
 
@@ -51,7 +52,8 @@
          
     @if(isset($victims))     
        @forelse ($victims as $item)
-                                <tr>                                    
+                                <tr>        
+                                 <td data-label="@lang('first_name')">{{ __($item->id) }}</td>                            
                                     <td data-label="@lang('first_name')">{{ __($item->first_name) }}</td>
                                      <td data-label="@lang('last_name')">{{ __($item->last_name) }}</td>
                                       <td data-label="@lang('Age')">{{ __($item->age) }}</td>
@@ -87,6 +89,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                         <th scope="col">@lang('SN')</th>
                                      <th scope="col">@lang('First name')</th>
                                  <th scope="col">@lang('Last name')</th>
                                   <th scope="col">@lang('Age')</th>

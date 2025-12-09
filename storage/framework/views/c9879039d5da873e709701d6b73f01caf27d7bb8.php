@@ -25,7 +25,7 @@
 
                          <div class="col-md-4">
                                 <div class="form-group">
-                                   <label for="name"><?php echo app('translator')->get('Second name(Jina la Pili)'); ?></label>
+                                   <label for="name"><?php echo app('translator')->get('Last name(Jina la Pili)'); ?></label>
                                     <input type="text" id="last_name" name="last_name" class="form-control"
                                            value="<?php echo e(old('last_name')); ?>">
                                 </div>
