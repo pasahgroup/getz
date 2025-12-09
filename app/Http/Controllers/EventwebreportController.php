@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\Video;
 
 use App\Models\Suspect;
+use App\Models\victims;
 use Illuminate\Http\Request;
 
 class EventwebreportController extends Controller
@@ -100,6 +101,24 @@ $pageTitle=$event;
 $empty_message = 'No any '.$pageTitle. ' photos read';
         return view('reports.eventWebReportSummary', compact('eventWR','empty_message','pageTitle'));
     }
+
+
+
+     public function victims(Request $request,$event)
+    {
+
+$pageTitle=$event;
+//dd($pageTitle);
+
+           $victims=victims::where('status',1)  
+        ->select('victims.*')
+        ->get();
+    
+//dd($victims);
+$empty_message = 'No any '.$pageTitle. ' photos read';
+        return view('reports.victimWebReportSummary', compact('victims','empty_message','pageTitle'));
+    }
+
 
     
     public function videos(Request $request,$video)

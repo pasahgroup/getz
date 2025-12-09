@@ -66,16 +66,11 @@
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
-                <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
+                    
+                    <div class="btn-group mx-2">
+                           <a href="/victim-web/victims" class="cmn--btn badge-primary float-right">@lang('Victims')({{$victimsCounts->count()}})</a>
+                       <a href="{{ route('user.victims.add') }}" class="cmn--btn badge-success float-right">@lang('Victims Download')</a>
+                                           </div>
             </div>
             <div class="col-lg-4 col-6 text-right">
                 <!-- <p class="m-0">Customer Service</p> -->
@@ -126,11 +121,11 @@
                             </div>
                         </div>
                         
-                        <a href="" class="nav-item nav-link">Victim Reports</a>
+                             <a href="/victim-web/victims" class="nav-item nav-link">@lang('Victims')({{$victimsCounts->count()}})</a>
                                <!--  <a href="/view-photos/photos" class="nav-item nav-link">Incident Photos</a>
                                        <a href="/view-videos/videos" class="nav-item nav-link">Incident Videos</a> -->
 
-                                         <a href="/photoReport-web/photos"} class="nav-item nav-link">Incident Photo Reports</a>
+                                         <a href="/photoReport-web/photos" class="nav-item nav-link">Incident Photo Reports</a>
                                        <a href="/videoReport-web/videos" class="nav-item nav-link">Incident Video Reports</a>
 
                     </div>

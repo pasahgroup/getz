@@ -455,7 +455,7 @@ Route::name('user.')->prefix('user')->group(function () {
          Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
         Route::post('events/{id}/status', 'EventController@status')->name('events.status');
 
-        // Custims
+        // Victims
             Route::get('victims', 'VictimsController@index')->name('victims.index');
            Route::get('victims/add', 'VictimsController@add')->name('victims.add');
            Route::post('victims/store', 'VictimsController@store')->name('victims.store');
@@ -657,5 +657,6 @@ Route::get('videoReport-web/{x}', 'EventwebreportController@videos')->name('vide
  Route::get('event-web/{x}', 'EventwebreportController@show')->name('event-web.show');
   Route::get('video-web/{x}', 'EventwebreportController@video')->name('video-web.show');
 Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
+Route::get('victim-web/{x}', 'EventwebreportController@victims')->name('victim-web.victim');
 
    
