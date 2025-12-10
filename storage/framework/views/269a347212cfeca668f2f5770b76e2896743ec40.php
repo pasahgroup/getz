@@ -91,6 +91,7 @@
                                 
 
                                     <td data-label="<?php echo app('translator')->get('Action'); ?>">
+                                          <?php if(isset(auth()->user()->email)): ?>  
                                            <?php if(auth()->user()->email =="buruwawa@gmail.com"): ?>  
                                         <a href="<?php echo e(route('user.victims.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
                                             <i class="la la-edit"></i>
@@ -99,6 +100,7 @@
                                         <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('user.victims.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
+                                        <?php endif; ?>
                                         <?php endif; ?>
                                     </td>
 

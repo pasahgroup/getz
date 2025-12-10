@@ -408,6 +408,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 */
 
 Route::name('user.')->group(function () {
+
+ //
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
    Route::post('/login', 'Auth\LoginController@login');
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -422,9 +424,67 @@ Route::name('user.')->group(function () {
     Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/verify-code', 'Auth\ForgotPasswordController@verifyCode')->name('password.verify.code');
+
+
+//Events
+ Route::get('events', 'EventController@index')->name('events.index');
+           Route::get('events/add', 'EventController@add')->name('events.add');
+           Route::post('events/store', 'EventController@store')->name('events.store');
+        
+        Route::get('events/{id}', 'EventController@edit')->name('events.edit');
+
+         Route::post('events/update/{id}', 'EventController@update')->name('events.update');
+         Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
+        Route::post('events/{id}/status', 'EventController@status')->name('events.status');
+
+//Victims
+      Route::get('victims', 'VictimsController@index')->name('victims.index');
+      Route::get('victims/add', 'VictimsController@add')->name('victims.add');
+      Route::post('victims/store', 'VictimsController@store')->name('victims.store');
+        
+        Route::get('victims/{id}', 'VictimsController@edit')->name('victims.edit');
+
+         Route::post('victims/update/{id}', 'VictimsController@update')->name('victims.update');
+         Route::post('victims/image/remove/{id}/{image}', 'VictimsController@deleteImage')->name('victims.image.delete');
+        Route::post('victims/{id}/status', 'VictimsController@status')->name('victims.status');    
+
+// videos
+
+          Route::get('videos', 'VideoUploadController@index')->name('videos.index');
+           Route::get('videos/add', 'VideoUploadController@add')->name('videos.add');
+           Route::post('videos/store', 'VideoUploadController@store')->name('videos.store');
+        
+        Route::get('videos/{id}', 'VideoUploadController@edit')->name('videos.edit');
+
+         Route::post('videos/update/{id}', 'VideoUploadController@update')->name('videos.update');
+         Route::post('videos/image/remove/{id}/{image}', 'VideoUploadController@deleteImage')->name('videos.image.delete');
+        Route::post('videos/{id}/status', 'VideoUploadController@status')->name('videos.status');
+
+
+// locations
+              Route::get('locations', 'LocationController@index')->name('location.index');
+        Route::post('locations', 'LocationController@store')->name('location.store');
+        Route::post('locations/{location}', 'LocationController@update')->name('location.update');
+        Route::post('locations/status/{location}', 'LocationController@status')->name('location.status');
+//suspects
+           Route::get('suspects', 'SuspectController@index')->name('suspects.index');
+       Route::get('suspects/add', 'SuspectController@add')->name('suspects.add');
+       Route::post('suspects/store', 'SuspectController@store')->name('suspects.store');
+        
+        Route::get('suspects/{id}', 'SuspectController@edit')->name('suspects.edit');
+
+         Route::post('suspects/update/{id}', 'SuspectController@update')->name('suspects.update');
+         Route::post('suspects/image/remove/{id}/{image}', 'SuspectController@deleteImage')->name('suspects.image.delete');
+        Route::post('suspects/{id}/status', 'SuspectController@status')->name('suspects.status');
+
 });
 
+
 Route::name('user.')->prefix('user')->group(function () {
+
+       // Victims
+          
+
     Route::middleware('auth')->group(function () {
 //pesaPal Preview
   Route::get('/payment/{x}', 'VehicleController@payment')->name('payment');
@@ -445,51 +505,51 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::post('verify-g2fa', 'AuthorizationController@g2faVerification')->name('go2fa.verify');
 
 
-          Route::get('events', 'EventController@index')->name('events.index');
-           Route::get('events/add', 'EventController@add')->name('events.add');
-           Route::post('events/store', 'EventController@store')->name('events.store');
+        //   Route::get('events', 'EventController@index')->name('events.index');
+        //    Route::get('events/add', 'EventController@add')->name('events.add');
+        //    Route::post('events/store', 'EventController@store')->name('events.store');
         
-        Route::get('events/{id}', 'EventController@edit')->name('events.edit');
+        // Route::get('events/{id}', 'EventController@edit')->name('events.edit');
 
-         Route::post('events/update/{id}', 'EventController@update')->name('events.update');
-         Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
-        Route::post('events/{id}/status', 'EventController@status')->name('events.status');
+        //  Route::post('events/update/{id}', 'EventController@update')->name('events.update');
+        //  Route::post('events/image/remove/{id}/{image}', 'EventController@deleteImage')->name('events.image.delete');
+        // Route::post('events/{id}/status', 'EventController@status')->name('events.status');
 
-        // Victims
-            Route::get('victims', 'VictimsController@index')->name('victims.index');
-           Route::get('victims/add', 'VictimsController@add')->name('victims.add');
-           Route::post('victims/store', 'VictimsController@store')->name('victims.store');
+        // // Victims
+        //     Route::get('victims', 'VictimsController@index')->name('victims.index');
+        //    Route::get('victims/add', 'VictimsController@add')->name('victims.add');
+        //    Route::post('victims/store', 'VictimsController@store')->name('victims.store');
         
-        Route::get('victims/{id}', 'VictimsController@edit')->name('victims.edit');
+        // Route::get('victims/{id}', 'VictimsController@edit')->name('victims.edit');
 
-         Route::post('victims/update/{id}', 'VictimsController@update')->name('victims.update');
-         Route::post('victims/image/remove/{id}/{image}', 'VictimsController@deleteImage')->name('victims.image.delete');
-        Route::post('victims/{id}/status', 'VictimsController@status')->name('victims.status');
+        //  Route::post('victims/update/{id}', 'VictimsController@update')->name('victims.update');
+        //  Route::post('victims/image/remove/{id}/{image}', 'VictimsController@deleteImage')->name('victims.image.delete');
+        // Route::post('victims/{id}/status', 'VictimsController@status')->name('victims.status');
 
 // videos
 
-          Route::get('videos', 'VideoUploadController@index')->name('videos.index');
-           Route::get('videos/add', 'VideoUploadController@add')->name('videos.add');
-           Route::post('videos/store', 'VideoUploadController@store')->name('videos.store');
+        //   Route::get('videos', 'VideoUploadController@index')->name('videos.index');
+        //    Route::get('videos/add', 'VideoUploadController@add')->name('videos.add');
+        //    Route::post('videos/store', 'VideoUploadController@store')->name('videos.store');
         
-        Route::get('videos/{id}', 'VideoUploadController@edit')->name('videos.edit');
+        // Route::get('videos/{id}', 'VideoUploadController@edit')->name('videos.edit');
 
-         Route::post('videos/update/{id}', 'VideoUploadController@update')->name('videos.update');
-         Route::post('videos/image/remove/{id}/{image}', 'VideoUploadController@deleteImage')->name('videos.image.delete');
-        Route::post('videos/{id}/status', 'VideoUploadController@status')->name('videos.status');
+        //  Route::post('videos/update/{id}', 'VideoUploadController@update')->name('videos.update');
+        //  Route::post('videos/image/remove/{id}/{image}', 'VideoUploadController@deleteImage')->name('videos.image.delete');
+        // Route::post('videos/{id}/status', 'VideoUploadController@status')->name('videos.status');
 //End videos
 
 
 
-       Route::get('suspects', 'SuspectController@index')->name('suspects.index');
-       Route::get('suspects/add', 'SuspectController@add')->name('suspects.add');
-       Route::post('suspects/store', 'SuspectController@store')->name('suspects.store');
+       // Route::get('suspects', 'SuspectController@index')->name('suspects.index');
+       // Route::get('suspects/add', 'SuspectController@add')->name('suspects.add');
+       // Route::post('suspects/store', 'SuspectController@store')->name('suspects.store');
         
-        Route::get('suspects/{id}', 'SuspectController@edit')->name('suspects.edit');
+       //  Route::get('suspects/{id}', 'SuspectController@edit')->name('suspects.edit');
 
-         Route::post('suspects/update/{id}', 'SuspectController@update')->name('suspects.update');
-         Route::post('suspects/image/remove/{id}/{image}', 'SuspectController@deleteImage')->name('suspects.image.delete');
-        Route::post('suspects/{id}/status', 'SuspectController@status')->name('suspects.status');
+       //   Route::post('suspects/update/{id}', 'SuspectController@update')->name('suspects.update');
+       //   Route::post('suspects/image/remove/{id}/{image}', 'SuspectController@deleteImage')->name('suspects.image.delete');
+       //  Route::post('suspects/{id}/status', 'SuspectController@status')->name('suspects.status');
 
 // add videos
 
@@ -500,10 +560,7 @@ Route::name('user.')->prefix('user')->group(function () {
     Route::get('movies/delete/{id}', 'VideosController@delete');
 
   // Location
-        Route::get('locations', 'LocationController@index')->name('location.index');
-        Route::post('locations', 'LocationController@store')->name('location.store');
-        Route::post('locations/{location}', 'LocationController@update')->name('location.update');
-        Route::post('locations/status/{location}', 'LocationController@status')->name('location.status');
+  
 
 
 

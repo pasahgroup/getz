@@ -54,8 +54,8 @@
                     <?php endif; ?>
                   </div>
                   <div class="dropdown-menu__body">
-                    <?php $__currentLoopData = $adminNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    
+ <?php if(isset(auth()->user()->username)): ?>
+                    <?php $__currentLoopData = $adminNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>               
                     <a href="<?php echo e(route('admin.notification.read',$notification->id)); ?>" class="dropdown-menu__item">
                       <div class="navbar-notifi">
                         <div class="navbar-notifi__left bg--green b-radius--rounded"><img src="<?php echo e(getImage(imagePath()['profile']['user']['path'].'/'.@$notification->user->image,imagePath()['profile']['user']['size'])); ?>" alt="<?php echo app('translator')->get('Profile Image'); ?>"></div>
@@ -64,9 +64,10 @@
                           <span class="time"><i class="far fa-clock"></i> <?php echo e($notification->created_at->diffForHumans()); ?></span>
                         </div>
                       </div><!-- navbar-notifi end -->
-                    </a>
+                    </a>         
                    
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      <?php endif; ?>
                   </div>
                   <div class="dropdown-menu__footer">
                     <a href="<?php echo e(route('admin.notifications')); ?>" class="view-all-message"><?php echo app('translator')->get('View all notification'); ?></a>
@@ -78,13 +79,14 @@
             <li class="dropdown">
                 <button type="button" class="" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                   <span class="navbar-user">
-                
+               <?php if(isset(auth()->user()->username)): ?>
                     <span class="navbar-user__thumb"><img src="<?php echo e(getImage('assets/images/user/profile/'. auth()->user()->image)); ?>" alt="image"></span>
-                 
+              <?php endif; ?>
                     <span class="navbar-user__info">
                         
+                       <?php if(isset(auth()->user()->username)): ?>
                        <span class="navbar-user__name"><?php echo e(auth()->user()->username); ?></span>
-                         
+                            <?php endif; ?>
                     </span>
                     <span class="icon"><i class="las la-chevron-circle-down"></i></span>
                   </span>

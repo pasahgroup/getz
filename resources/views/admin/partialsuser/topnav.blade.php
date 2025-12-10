@@ -54,8 +54,8 @@
                     @endif
                   </div>
                   <div class="dropdown-menu__body">
-                    @foreach($adminNotifications as $notification)
-                    
+ @isset(auth()->user()->username)
+                    @foreach($adminNotifications as $notification)               
                     <a href="{{ route('admin.notification.read',$notification->id) }}" class="dropdown-menu__item">
                       <div class="navbar-notifi">
                         <div class="navbar-notifi__left bg--green b-radius--rounded"><img src="{{ getImage(imagePath()['profile']['user']['path'].'/'.@$notification->user->image,imagePath()['profile']['user']['size'])}}" alt="@lang('Profile Image')"></div>
@@ -64,9 +64,10 @@
                           <span class="time"><i class="far fa-clock"></i> {{ $notification->created_at->diffForHumans() }}</span>
                         </div>
                       </div><!-- navbar-notifi end -->
-                    </a>
+                    </a>         
                    
                     @endforeach
+                      @endisset
                   </div>
                   <div class="dropdown-menu__footer">
                     <a href="{{ route('admin.notifications') }}" class="view-all-message">@lang('View all notification')</a>
@@ -78,15 +79,16 @@
             <li class="dropdown">
                 <button type="button" class="" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                   <span class="navbar-user">
-                
+               @isset(auth()->user()->username)
                     <span class="navbar-user__thumb"><img src="{{ getImage('assets/images/user/profile/'. auth()->user()->image) }}" alt="image"></span>
-                 
+              @endisset
                     <span class="navbar-user__info">
                         {{--
                       <span class="navbar-user__name">{{auth()->user()->username}}</span>
                         --}}
+                       @isset(auth()->user()->username)
                        <span class="navbar-user__name">{{auth()->user()->username}}</span>
-                         
+                            @endisset
                     </span>
                     <span class="icon"><i class="las la-chevron-circle-down"></i></span>
                   </span>

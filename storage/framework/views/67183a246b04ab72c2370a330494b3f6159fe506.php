@@ -113,6 +113,7 @@
                                 
 
                                     <td data-label="<?php echo app('translator')->get('Action'); ?>">
+                                    <?php if(isset(auth()->user()->email)): ?>    
                                    <?php if(auth()->user()->email =="buruwawa@gmail.com"): ?>  
                                         <a href="<?php echo e(route('user.events.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
                                             <i class="la la-edit"></i>
@@ -122,6 +123,7 @@
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
                                         <?php endif; ?>
+                                         <?php endif; ?>
                                     </td>
 
                                 </tr>

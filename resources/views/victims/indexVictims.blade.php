@@ -90,6 +90,7 @@
                                 
 
                                     <td data-label="@lang('Action')">
+                                          @isset(auth()->user()->email)  
                                            @if(auth()->user()->email =="buruwawa@gmail.com")  
                                         <a href="{{ route('user.victims.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
@@ -99,6 +100,7 @@
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
                                         @endif
+                                        @endisset
                                     </td>
 
                                 </tr>

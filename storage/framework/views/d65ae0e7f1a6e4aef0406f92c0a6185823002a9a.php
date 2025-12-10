@@ -21,8 +21,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta content="Tanzania Genocide" name="description">
-  <meta content="Genocide" name="keywords">
+  <meta content="Tanzania genocide" name="description">
+  <meta content="genocide" name="keywords">
  
     <!-- Title  -->
     <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
