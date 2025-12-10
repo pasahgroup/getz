@@ -25,6 +25,8 @@
                                         @endif
                                     </td>
                                     <td data-label="@lang('Action')">
+                                         @isset(auth()->user()->email)  
+                                           @if(auth()->user()->email =="buruwawa@gmail.com")  
                                         <a href="javascript:void(0)" class="icon-btn ml-1 editBtn" data-original-title="@lang('Edit')" data-toggle="tooltip" data-url="{{ route('admin.location.update', $item->id)}}" data-name="{{ $item->name }}">
                                             <i class="la la-edit"></i>
                                         </a>
@@ -32,6 +34,8 @@
                                         <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.location.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
+                                           @endif
+                                        @endisset
 
                                     </td>
                                 </tr>
