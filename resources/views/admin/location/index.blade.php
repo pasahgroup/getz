@@ -34,7 +34,7 @@
                                         <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.location.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
-                                           @end
+                                           @endif
                                         @endisset
 
                                     </td>
