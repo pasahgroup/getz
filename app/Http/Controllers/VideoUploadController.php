@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Video;
+// use App\Models\Video;
 use App\Models\Vehicle;
 use App\Models\Tag;
 use App\Models\Brand;
@@ -11,6 +11,8 @@ use App\Models\Color;
 use App\Models\Event;
 use App\Models\Location;
 use App\Models\Seater;
+use App\Models\video;
+
 
 use App\Http\Requests\StoretukioRequest;
 use App\Http\Requests\UpdatetukioRequest;
@@ -34,13 +36,13 @@ class VideoUploadController extends Controller
 
     public function index()
     {        
-$vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
-        ->join('cartypes','cartypes.id','vehicles.car_body_type_id')
-        ->with(['brand', 'seater','cartype'])->latest()
-        ->select('vehicles.*','tags.tag','cartypes.car_body_type')
-        ->paginate(getPaginate(15));
+// $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+//         ->join('cartypes','cartypes.id','vehicles.car_body_type_id')
+//         ->with(['brand', 'seater','cartype'])->latest()
+//         ->select('vehicles.*','tags.tag','cartypes.car_body_type')
+//         ->paginate(getPaginate(15));
         
-        $tags = Tag::where('status',1)->get();     
+//         $tags = Tag::where('status',1)->get();     
       
      //dd($vehicles);
         $videos=Video::where('status',1)  
@@ -54,8 +56,11 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
         $pageTitle = 'People who killed';
         $empty_message = 'No vehicle has been added.';
-        return view('videos.index', compact('pageTitle', 'empty_message', 'vehicles','tags','videos'));
+        return view('videos.index', compact('pageTitle', 'empty_message','videos'));
     }
+
+
+
 
 
 
@@ -201,9 +206,18 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
 
 
-    public function show(tukio $tukio)
+   public function show(Request $request,$video)
     {
-        //
+
+        $videos=video::where('status',1)  
+        ->select('videos.*')
+         ->where('event_type',$video)
+        ->paginate(getPaginate(15));
+
+
+       $pageTitle = 'People who '.$video;
+       $empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('videos.index', compact('pageTitle', 'empty_message','videos'));
     }
 
     /**

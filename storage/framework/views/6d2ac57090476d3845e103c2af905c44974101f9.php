@@ -425,23 +425,25 @@
                                 <div class="circle-tile-number text-faded">
                                   <span> <a href="<?php echo e(route('user.events.index')); ?>"><?php echo app('translator')->get('Photos'); ?>(<?php echo e($eventCounts->count()); ?>)</a></span>
                                 </div>
-                                <a href="/event-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($eventCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                <a href="/event-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($eventCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                           <a href="/event-web/kidnapped" class="circle-tile-footer">kidnapped(Tekwa(<?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
-
-
-                                       <a href="/event-web/killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e($eventCounts->where('event_type','killed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/event-admin/kidnapped" class="circle-tile-footer">kidnapped(Tekwa(<?php echo e($eventCounts->where('event_type','kidnapped')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                           <a href="/event-web/missed" class="circle-tile-footer">Missed(Potea bila Taarifa(<?php echo e($eventCounts->where('event_type','Missed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                       <a href="/event-admin/killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e($eventCounts->where('event_type','killed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                       <a href="/event-web/Totured" class="circle-tile-footer">Totured(Teswa(<?php echo e($eventCounts->where('event_type','Totured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/event-admin/missed" class="circle-tile-footer">Missed(Potea bila Taarifa(<?php echo e($eventCounts->where('event_type','Missed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                         <a href="/event-web/Other" class="circle-tile-footer">Other(Ingineyo(<?php echo e($eventCounts->where('event_type','Other')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                       <a href="/event-admin/Totured" class="circle-tile-footer">Totured(Teswa(<?php echo e($eventCounts->where('event_type','Totured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                         <a href="/event-admin/Other" class="circle-tile-footer">Other(Ingineyo(<?php echo e($eventCounts->where('event_type','Other')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
                                   
-   <a href="/event-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($eventCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+   <a href="/event-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($eventCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+    <a href="<?php echo e(route('user.events.index')); ?>" class="circle-tile-footer">View All(<?php echo e($eventCounts->count()); ?>) <i class="fa fa-chevron-circle-right"></i></a>
 
                                                  </div>
                         </div>
@@ -462,23 +464,26 @@
                                         <span> <a href="<?php echo e(route('user.videos.index')); ?>"><?php echo app('translator')->get('Videos'); ?>(<?php echo e($videosCounts->count()); ?>)</a></span>
                                 </div>                                
                                   <div class="circle-tile-content dark-blue">
-                                <a href="/video-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($videosCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($videosCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                           <a href="/video-web/kidnapped" class="circle-tile-footer">kidnapped(Tekwa(<?php echo e($videosCounts->where('event_type','kidnapped')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
-
-
-                                       <a href="/video-web/killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e($videosCounts->where('event_type','killed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/video-admin/kidnapped" class="circle-tile-footer">kidnapped(Tekwa(<?php echo e($videosCounts->where('event_type','kidnapped')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                           <a href="/video-web/missed" class="circle-tile-footer">Missed(Potea bila Taarifa(<?php echo e($videosCounts->where('event_type','Missed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                       <a href="/video-admin/killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e($videosCounts->where('event_type','killed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                       <a href="/video-web/Totured" class="circle-tile-footer">Totured(Teswa(<?php echo e($videosCounts->where('event_type','Totured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/video-admin/missed" class="circle-tile-footer">Missed(Potea bila Taarifa(<?php echo e($videosCounts->where('event_type','Missed')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                         <a href="/video-web/Other" class="circle-tile-footer">Other(Ingineyo(<?php echo e($videosCounts->where('event_type','Other')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                       <a href="/video-admin/Totured" class="circle-tile-footer">Totured(Teswa(<?php echo e($videosCounts->where('event_type','Totured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                         <a href="/video-admin/Other" class="circle-tile-footer">Other(Ingineyo(<?php echo e($videosCounts->where('event_type','Other')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
                                   
-   <a href="/video-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($videosCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+   <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e($videosCounts->where('event_type','Injured')->count()); ?>)):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+    <a href="<?php echo e(route('user.videos.index')); ?>" class="circle-tile-footer">View All(<?php echo e($videosCounts->count()); ?>) <i class="fa fa-chevron-circle-right"></i></a>
 
                                                  </div>
                             </div>
@@ -494,9 +499,12 @@
                             <div class="circle-tile-content orange">
                                
                                 <div class="circle-tile-number text-faded">
-                                 <span> <a href="<?php echo e(route('user.victims.index')); ?>"><?php echo app('translator')->get('Victims'); ?>(<?php echo e($victimsCounts->count()); ?>)</a></span>
+                                 <span> <a href="<?php echo e(route('user.victims.index')); ?>"><?php echo app('translator')->get('Victims'); ?>(<?php echo e(number_format($victimsCounts->count())); ?>)</a></span>
                                 </div>
-                                <a href="<?php echo e(route('user.victims.index')); ?>" class="circle-tile-footer">View All <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/video-admin/Killed" class="circle-tile-footer">Killed(Uwawa(<?php echo e(number_format($victimsCounts->where('event_type','Killed')->count())); ?>)) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa(<?php echo e(number_format($victimsCounts->where('event_type','Injured')->count())); ?>)) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/video-admin/Missing" class="circle-tile-footer">Missing(Potea(<?php echo e(number_format($victimsCounts->where('event_type','Missing')->count())); ?>)) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="<?php echo e(route('user.victims.index')); ?>" class="circle-tile-footer">View All(<?php echo e(number_format($victimsCounts->count())); ?>) <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -512,7 +520,7 @@
                                    <span> <a href="<?php echo e(route('user.suspects.index')); ?>"><?php echo app('translator')->get('Suspects'); ?>(<?php echo e($suspectCounts->count()); ?>)</a></span>
                                     <span id="sparklineB"></span>
                                 </div>
-                                <a href="<?php echo e(route('user.suspects.index')); ?>" class="circle-tile-footer">View All <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="<?php echo e(route('user.suspects.index')); ?>" class="circle-tile-footer">View All(<?php echo e($suspectCounts->count()); ?>) <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>               

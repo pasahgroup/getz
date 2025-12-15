@@ -1,7 +1,11 @@
+
 @extends('admin.layoutsuser.app')
+@section('panel')
+
 @push('breadcrumb-plugins')
     <a href="{{ route('user.victims.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('New Victim Photos(Sajili Picha ya Tukio)')</a>
 @endpush
+
 
 
   <script src="../../../../appweb/jquery171.min.js"></script>
@@ -10,19 +14,13 @@
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 @section('panel')
-
-<div class="container">
-    <!-- Search Form -->
-    <form method="GET" action="#" class="mb-3 d-flex">
-        <input type="text" name="search" value="{{ request('search') }}" 
-               placeholder="Search..." class="form-control me-2">
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-
-    <!-- Print Button -->
-    <button onclick="window.print()" class="btn btn-secondary mb-3">🖨 Print</button>
-
-       <table id="example1" class="table table-bordered table-striped">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+     <!-- Main content -->
+             <div class="card">
+        <div class="card-body">
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
                     <th scope="col">@lang('SN')</th>
@@ -133,26 +131,40 @@
                             </tr>
                   </tfoot>
                 </table>
+              </div>
 
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          Footer
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      
+  </div>
 
+     {{-- Status MODAL --}}
+    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">@lang('Update Status')</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <form method="post" action="">
+                    @csrf
 
-
-
-    <!-- Pagination Links -->
-    <div class="d-flex justify-content-center">
-        {{ $victims->links() }}
+                    <div class="modal-body">
+                        <p class="text-muted">@lang('Are you sure to change status?')</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('No')</button>
+                        <button type="submit" class="btn btn--danger deleteButton">@lang('Yes')</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <!-- Print Styling -->
-    <style>
-        @media print {
-            form, button, .pagination {
-                display: none;
-            }
-        }
-    </style>
-
-</div>
 @endsection
 
 
@@ -253,17 +265,3 @@
     })
 
   </script>
-
-  <script>
-$(document).ready(function() {
-    $('#example1').DataTable({
-        dom: 'Bfrtip', // Buttons + search box
-        buttons: [
-            {
-                extend: 'print',
-                text: '🖨 Print Table'
-            }
-        ]
-    });
-});
-</script>

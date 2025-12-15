@@ -128,13 +128,12 @@ $empty_message = 'No any '.$pageTitle. ' photos read';
     {
 
 $pageTitle=$video;
-//dd($pageTitle);
+dd($pageTitle);
 
            $eventWR=Video::where('status',1)  
         ->select('videos.*')
         ->paginate(getPaginate(15));
     
-
 $empty_message = 'No any '.$pageTitle. ' videos read';
         return view('reports.videoWebReportSummary', compact('eventWR','empty_message','pageTitle'));
     }

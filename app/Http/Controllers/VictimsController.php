@@ -27,12 +27,59 @@ class VictimsController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
+    {
+        $query = victims::query();
+
+        // Apply search filter if provided
+        if ($request->has('search') && $request->search != '') {
+            $search = $request->input('search');
+            $query->where(function($q) use ($search) {
+                $q->where('first_name', 'like', "%{$search}%")
+                  ->orWhere('last_name', 'like', "%{$search}%")
+                   ->orWhere('district', 'like', "%{$search}%")
+                     ->orWhere('region', 'like', "%{$search}%")
+                     ->orWhere('event_title', 'like', "%{$search}%")
+                       ->orWhere('event_type', 'like', "%{$search}%")
+                       ->orWhere('region', 'like', "%{$search}%");
+            //             ->orWhere('region', 'like', "%{$search}%")
+            //              ->orWhere('region', 'like', "%{$search}%")
+            //               ->orWhere('region', 'like', "%{$search}%")
+            //                ->orWhere('region', 'like', "%{$search}%")
+            //                 ->orWhere('region', 'like', "%{$search}%")
+            //                  ->orWhere('region', 'like', "%{$search}%")
+            //                   ->orWhere('region', 'like', "%{$search}%")
+            //                    ->orWhere('region', 'like', "%{$search}%");
+            
+             });
+        }
+
+        // Paginate results (10 per page)
+        $victims = $query->paginate(15)->appends(['search' => $request->search]);
+
+  $pageTitle = 'Victims';
+        $empty_message = 'No Victim has been added.';
+        return view('victims.indexVictims', compact('pageTitle','victims','empty_message'));
+}
+
+
+public function printAll()
+{
+    // Fetch ALL users without pagination
+    $users = victims::all();
+
+    return view('users.print', compact('users'));
+}
+
+
+
+    public function index_org()
     {        
 
         $victims=victims::where('status',1)  
         ->select('victims.*')
-        ->get();
+         ->paginate(getPaginate(200));
+        //dd($victims);
 
         $pageTitle = 'Victims';
         $empty_message = 'No Victim has been added.';
@@ -218,9 +265,18 @@ $victims->save();
 
 
 
-    public function show(tukio $tukio)
+   public function show(Request $request,$video)
     {
-        //
+
+        $victims=victims::where('status',1)  
+        ->select('victims.*')
+         ->where('event_type',$video)
+        ->paginate(getPaginate(15));
+
+
+       $pageTitle = 'People who '.$video;
+       $empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('victims.indexVictims', compact('pageTitle', 'empty_message','victims'));
     }
 
     /**

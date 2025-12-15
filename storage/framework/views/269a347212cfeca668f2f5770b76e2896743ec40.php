@@ -1,11 +1,7 @@
 
-
-<?php $__env->startSection('panel'); ?>
-
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <a href="<?php echo e(route('user.victims.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('New Victim Photos(Sajili Picha ya Tukio)'); ?></a>
 <?php $__env->stopPush(); ?>
-
 
 
   <script src="../../../../appweb/jquery171.min.js"></script>
@@ -14,13 +10,19 @@
   <link rel="stylesheet" href="../../../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
 <?php $__env->startSection('panel'); ?>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-     <!-- Main content -->
-             <div class="card">
-        <div class="card-body">
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+
+<div class="container">
+    <!-- Search Form -->
+    <form method="GET" action="#" class="mb-3 d-flex">
+        <input type="text" name="search" value="<?php echo e(request('search')); ?>" 
+               placeholder="Search..." class="form-control me-2">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <!-- Print Button -->
+    <button onclick="window.print()" class="btn btn-secondary mb-3">🖨 Print</button>
+
+       <table id="example1" class="table table-bordered table-striped">
                   <thead>
                 <tr>
                     <th scope="col"><?php echo app('translator')->get('SN'); ?></th>
@@ -132,40 +134,27 @@
                             </tr>
                   </tfoot>
                 </table>
-              </div>
 
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      
-  </div>
 
-     
-    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel"><?php echo app('translator')->get('Update Status'); ?></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <form method="post" action="">
-                    <?php echo csrf_field(); ?>
 
-                    <div class="modal-body">
-                        <p class="text-muted"><?php echo app('translator')->get('Are you sure to change status?'); ?></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal"><?php echo app('translator')->get('No'); ?></button>
-                        <button type="submit" class="btn btn--danger deleteButton"><?php echo app('translator')->get('Yes'); ?></button>
-                    </div>
-                </form>
-            </div>
-        </div>
+
+
+    <!-- Pagination Links -->
+    <div class="d-flex justify-content-center">
+        <?php echo e($victims->links()); ?>
+
     </div>
+
+    <!-- Print Styling -->
+    <style>
+        @media  print {
+            form, button, .pagination {
+                display: none;
+            }
+        }
+    </style>
+
+</div>
 <?php $__env->stopSection(); ?>
 
 
@@ -265,6 +254,19 @@
       $('#summernote3').summernote()
     })
 
-  </script>  
+  </script>
 
+  <script>
+$(document).ready(function() {
+    $('#example1').DataTable({
+        dom: 'Bfrtip', // Buttons + search box
+        buttons: [
+            {
+                extend: 'print',
+                text: '🖨 Print Table'
+            }
+        ]
+    });
+});
+</script>
 <?php echo $__env->make('admin.layoutsuser.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\getz\resources\views/victims/indexVictims.blade.php ENDPATH**/ ?>

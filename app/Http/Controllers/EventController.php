@@ -11,6 +11,7 @@ use App\Models\Color;
 use App\Models\modelb;
 use App\Models\Location;
 use App\Models\Seater;
+use App\Models\video;
 
 use App\Http\Requests\StoretukioRequest;
 use App\Http\Requests\UpdatetukioRequest;
@@ -27,25 +28,15 @@ class EventController extends Controller
 
 
     public function index()
-    {        
-$vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
-        ->join('cartypes','cartypes.id','vehicles.car_body_type_id')
-        ->with(['brand', 'seater','cartype'])->latest()
-        ->select('vehicles.*','tags.tag','cartypes.car_body_type')
-        ->paginate(getPaginate(15));
-        
-        $tags = Tag::where('status',1)->get();     
-      
-     //dd($vehicles);
+    { 
         $events=Event::where('status',1)  
         ->select('events.*')
         ->get();
 
-//dd($events);
 
         $pageTitle = 'People who killed';
         $empty_message = 'No vehicle has been added.';
-        return view('events.index', compact('pageTitle', 'empty_message', 'vehicles','tags','events'));
+        return view('events.index', compact('pageTitle', 'empty_message','events'));
     }
 
 
@@ -193,10 +184,33 @@ $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
 
 
 
-    public function show(tukio $tukio)
+     public function show(Request $request,$event)
     {
-        //
+
+        $events=Event::where('status',1)  
+        ->select('events.*')
+         ->where('event_type',$event)
+        ->paginate(getPaginate(15));
+
+
+        $pageTitle = 'People who '.$event;
+       $empty_message = 'No any '.$pageTitle. ' has been added';
+        return view('events.index', compact('pageTitle', 'empty_message','events'));
     }
+
+   // public function video(Request $request,$video)
+   //  {
+
+   //      $events=video::where('status',1)  
+   //      ->select('videos.*')
+   //       ->where('event_type',$video)
+   //      ->paginate(getPaginate(15));
+
+
+   //      $pageTitle = 'People who '.$video;
+   //     $empty_message = 'No any '.$pageTitle. ' has been added';
+   //      return view('events.index', compact('pageTitle', 'empty_message','events'));
+   //  }
 
     /**
      * Show the form for editing the specified resource.

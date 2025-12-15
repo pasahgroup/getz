@@ -11,6 +11,9 @@ use App\Http\Controllers\ComboboxController;
 use App\Http\Controllers\VehiclesController;
 
 use App\Http\Controllers\EventwebreportController;
+use App\Http\Controllers\VictimsController;
+
+
 
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -427,7 +430,7 @@ Route::name('user.')->group(function () {
 
 
 //Events
- Route::get('events', 'EventController@index')->name('events.index');
+           Route::get('events', 'EventController@index')->name('events.index');
            Route::get('events/add', 'EventController@add')->name('events.add');
            Route::post('events/store', 'EventController@store')->name('events.store');
         
@@ -439,6 +442,8 @@ Route::name('user.')->group(function () {
 
 //Victims
       Route::get('victims', 'VictimsController@index')->name('victims.index');
+       Route::post('victims', 'VictimsController@index')->name('victims.index');
+
       Route::get('victims/add', 'VictimsController@add')->name('victims.add');
       Route::post('victims/store', 'VictimsController@store')->name('victims.store');
         
@@ -447,6 +452,11 @@ Route::name('user.')->group(function () {
          Route::post('victims/update/{id}', 'VictimsController@update')->name('victims.update');
          Route::post('victims/image/remove/{id}/{image}', 'VictimsController@deleteImage')->name('victims.image.delete');
         Route::post('victims/{id}/status', 'VictimsController@status')->name('victims.status');    
+
+//Route::get('/users', [UserController::class, 'index'])->name('users.index');
+// Route::get('/users/print', [UserController::class, 'printAll'])->name('users.print');
+  // Route::get('victims/print', 'VictimsController@printAll')->name('victims.edit');
+
 
 // videos
 
@@ -476,6 +486,8 @@ Route::name('user.')->group(function () {
          Route::post('suspects/update/{id}', 'SuspectController@update')->name('suspects.update');
          Route::post('suspects/image/remove/{id}/{image}', 'SuspectController@deleteImage')->name('suspects.image.delete');
         Route::post('suspects/{id}/status', 'SuspectController@status')->name('suspects.status');
+
+           Route::get('get_dashboard', 'UserController@home')->name('dashboard');
 
 });
 
@@ -566,7 +578,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
             Route::middleware(['checkStatus'])->group(function () {
             //Route::get('dashboard', 'UserController@home')->name('dashboard');
-            Route::get('get_dashboard', 'UserController@home')->name('dashboard');
+         
 
             
             Route::get('profile-setting', 'UserController@profile')->name('profile.setting');
@@ -712,12 +724,22 @@ Route::get('photoReport-web/{x}', 'EventwebreportController@photos')->name('phot
 Route::get('videoReport-web/{x}', 'EventwebreportController@videos')->name('videoReport-web');
 
  Route::get('event-web/{x}', 'EventwebreportController@show')->name('event-web.show');
+ Route::get('event-admin/{x}', 'EventController@show')->name('event-admin.show');
+
   Route::get('video-web/{x}', 'EventwebreportController@video')->name('video-web.show');
+  Route::get('video-admin/{x}', 'VideoUploadController@show')->name('video-admin.show');
+
+
 Route::get('suspect-web/{x}', 'EventwebreportController@suspect')->name('suspect-web.suspect');
 Route::get('victim-web/{x}', 'EventwebreportController@victims')->name('victim-web.victim');
+Route::get('victim-admin/{x}', 'VictimsController@show')->name('victim-admin.victim');
+
 
 Route::get('victims-pdf/{x}', 'EventwebreportController@generatePDF')->name('victims-pdf.pdf');
 
 //Route::get('/users-pdf', [EventwebreportController::class, 'generatePDF']);
+// Route::get('/print', [VictimsController::class, 'index'])->name('print.index');
+
+
 
    

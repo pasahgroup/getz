@@ -441,23 +441,25 @@
                                 <div class="circle-tile-number text-faded">
                                   <span> <a href="{{route('user.events.index')}}">@lang('Photos')({{$eventCounts->count()}})</a></span>
                                 </div>
-                                <a href="/event-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$eventCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                <a href="/event-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$eventCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                           <a href="/event-web/kidnapped" class="circle-tile-footer">kidnapped(Tekwa({{$eventCounts->where('event_type','kidnapped')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
-
-
-                                       <a href="/event-web/killed" class="circle-tile-footer">Killed(Uwawa({{$eventCounts->where('event_type','killed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/event-admin/kidnapped" class="circle-tile-footer">kidnapped(Tekwa({{$eventCounts->where('event_type','kidnapped')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                           <a href="/event-web/missed" class="circle-tile-footer">Missed(Potea bila Taarifa({{$eventCounts->where('event_type','Missed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                       <a href="/event-admin/killed" class="circle-tile-footer">Killed(Uwawa({{$eventCounts->where('event_type','killed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                       <a href="/event-web/Totured" class="circle-tile-footer">Totured(Teswa({{$eventCounts->where('event_type','Totured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/event-admin/missed" class="circle-tile-footer">Missed(Potea bila Taarifa({{$eventCounts->where('event_type','Missed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                         <a href="/event-web/Other" class="circle-tile-footer">Other(Ingineyo({{$eventCounts->where('event_type','Other')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                       <a href="/event-admin/Totured" class="circle-tile-footer">Totured(Teswa({{$eventCounts->where('event_type','Totured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                         <a href="/event-admin/Other" class="circle-tile-footer">Other(Ingineyo({{$eventCounts->where('event_type','Other')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
                                   
-   <a href="/event-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$eventCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+   <a href="/event-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$eventCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+    <a href="{{route('user.events.index')}}" class="circle-tile-footer">View All({{$eventCounts->count()}}) <i class="fa fa-chevron-circle-right"></i></a>
 
                                                  </div>
                         </div>
@@ -478,23 +480,26 @@
                                         <span> <a href="{{route('user.videos.index')}}">@lang('Videos')({{$videosCounts->count()}})</a></span>
                                 </div>                                
                                   <div class="circle-tile-content dark-blue">
-                                <a href="/video-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$videosCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$videosCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                           <a href="/video-web/kidnapped" class="circle-tile-footer">kidnapped(Tekwa({{$videosCounts->where('event_type','kidnapped')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
-
-
-                                       <a href="/video-web/killed" class="circle-tile-footer">Killed(Uwawa({{$videosCounts->where('event_type','killed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/video-admin/kidnapped" class="circle-tile-footer">kidnapped(Tekwa({{$videosCounts->where('event_type','kidnapped')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                           <a href="/video-web/missed" class="circle-tile-footer">Missed(Potea bila Taarifa({{$videosCounts->where('event_type','Missed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                       <a href="/video-admin/killed" class="circle-tile-footer">Killed(Uwawa({{$videosCounts->where('event_type','killed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
 
-                                       <a href="/video-web/Totured" class="circle-tile-footer">Totured(Teswa({{$videosCounts->where('event_type','Totured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+                                           <a href="/video-admin/missed" class="circle-tile-footer">Missed(Potea bila Taarifa({{$videosCounts->where('event_type','Missed')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
-                                         <a href="/video-web/Other" class="circle-tile-footer">Other(Ingineyo({{$videosCounts->where('event_type','Other')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                       <a href="/video-admin/Totured" class="circle-tile-footer">Totured(Teswa({{$videosCounts->where('event_type','Totured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+                                         <a href="/video-admin/Other" class="circle-tile-footer">Other(Ingineyo({{$videosCounts->where('event_type','Other')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
 
                                   
-   <a href="/video-web/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$videosCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+   <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{$videosCounts->where('event_type','Injured')->count()}})):<span class="badge badge-pill badge-warning"> <i class="fa fa-chevron-circle-right"></i></span></a>
+
+
+    <a href="{{route('user.videos.index')}}" class="circle-tile-footer">View All({{$videosCounts->count()}}) <i class="fa fa-chevron-circle-right"></i></a>
 
                                                  </div>
                             </div>
@@ -510,9 +515,12 @@
                             <div class="circle-tile-content orange">
                                
                                 <div class="circle-tile-number text-faded">
-                                 <span> <a href="{{route('user.victims.index')}}">@lang('Victims')({{$victimsCounts->count()}})</a></span>
+                                 <span> <a href="{{route('user.victims.index')}}">@lang('Victims')({{number_format($victimsCounts->count())}})</a></span>
                                 </div>
-                                <a href="{{route('user.victims.index')}}" class="circle-tile-footer">View All <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/video-admin/Killed" class="circle-tile-footer">Killed(Uwawa({{number_format($victimsCounts->where('event_type','Killed')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{number_format($victimsCounts->where('event_type','Injured')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/video-admin/Missing" class="circle-tile-footer">Missing(Potea({{number_format($victimsCounts->where('event_type','Missing')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="{{route('user.victims.index')}}" class="circle-tile-footer">View All({{number_format($victimsCounts->count())}}) <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -528,7 +536,7 @@
                                    <span> <a href="{{route('user.suspects.index')}}">@lang('Suspects')({{$suspectCounts->count()}})</a></span>
                                     <span id="sparklineB"></span>
                                 </div>
-                                <a href="{{route('user.suspects.index')}}" class="circle-tile-footer">View All <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="{{route('user.suspects.index')}}" class="circle-tile-footer">View All({{$suspectCounts->count()}}) <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>               
