@@ -517,9 +517,9 @@
                                 <div class="circle-tile-number text-faded">
                                  <span> <a href="{{route('user.victims.index')}}">@lang('Victims')({{number_format($victimsCounts->count())}})</a></span>
                                 </div>
-                                <a href="/video-admin/Killed" class="circle-tile-footer">Killed(Uwawa({{number_format($victimsCounts->where('event_type','Killed')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
-                                <a href="/video-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{number_format($victimsCounts->where('event_type','Injured')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
-                                <a href="/video-admin/Missing" class="circle-tile-footer">Missing(Potea({{number_format($victimsCounts->where('event_type','Missing')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/victim-admin/Killed" class="circle-tile-footer">Killed(Uwawa({{number_format($victimsCounts->where('event_type','Killed')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/victim-admin/Injured" class="circle-tile-footer">Injured(Jeruhiwa({{number_format($victimsCounts->where('event_type','Injured')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/victim-admin/Missing" class="circle-tile-footer">Missing(Potea({{number_format($victimsCounts->where('event_type','Missing')->count())}})) <i class="fa fa-chevron-circle-right"></i></a>
                                 <a href="{{route('user.victims.index')}}" class="circle-tile-footer">View All({{number_format($victimsCounts->count())}}) <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
