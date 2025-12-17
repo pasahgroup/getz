@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\Video;
 use App\Models\Vehicle;
 use App\Models\Tag;
 use App\Models\Brand;
@@ -45,7 +44,7 @@ class VideoUploadController extends Controller
 //         $tags = Tag::where('status',1)->get();     
       
      //dd($vehicles);
-        $videos=Video::where('status',1)  
+        $videos=video::where('status',1)  
         ->select('videos.*')
         ->get();
 
@@ -83,7 +82,7 @@ class VideoUploadController extends Controller
 
    public function videoDetails($id, $slug){
         // $vehicle = Vehicle::active()->where('id', $id)->with('ratings')->withCount('ratings')->withAvg('ratings', 'rating')->firstOrFail();
-        $vehicle = Video::where('id', $id)->firstOrFail();
+        $vehicle = video::where('id', $id)->firstOrFail();
         $fullUrl = url()->full();
       
         $rental_terms = getContent('rental_terms.content', true);
@@ -137,7 +136,7 @@ protected function validator(array $data, $table)
         // File URL to access the video in frontend
         $url = Storage::disk('public')->url($filePath); 
         if ($isFileUploaded) {
-            $video = new Video();
+            $video = new video();
 
              $video->name = $request->name;
          $video->event_title = $request->event_title;
@@ -229,7 +228,7 @@ $notify[] = ['success', 'Video has been successfully uploaded!'];
 
        public function edit($id)
     {
-        $video = Video::findOrFail($id);
+        $video = video::findOrFail($id);
         $pageTitle = 'Edit Video';
           $locations = Location::where('status',1)->get(); 
  $locations = Location::where('status',1)->get(); 
